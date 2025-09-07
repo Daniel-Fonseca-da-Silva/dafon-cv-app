@@ -1,0 +1,14 @@
+{
+  "HomePage": {
+    "title": "Hello world!"
+  },
+  "NotFoundPage": {
+    "title": "Page Not Found"
+  },
+  "ErrorPage": {
+    "title": "Error"
+  },
+  "LoadingPage": {
+    "title": "Loading..."
+  }
+}
