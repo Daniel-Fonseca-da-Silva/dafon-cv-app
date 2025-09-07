@@ -1,7 +1,4 @@
 {
-  "HomePage": {
-    "title": "Hello world!"
-  },
   "NotFoundPage": {
     "title": "Page Not Found"
   },
@@ -10,5 +7,118 @@
   },
   "LoadingPage": {
     "title": "Loading..."
+  },
+  "HomePage": {
+    "navigation": {
+      "home": "Home",
+      "contact": "Contact",
+      "language": "Language",
+      "login": "Login",
+      "startNow": "Start Now"
+    },
+    "hero": {
+      "badge": "Powered by Dafon AI",
+      "headline": "Create your Perfect CV with AI",
+      "subheadline": "Transform your professional experience into unique and personalized CVs. Our AI adapts your CV to each job, maximizing your chances of success.",
+      "ctaPrimary": "Start Now",
+      "ctaSecondary": "See Demo"
+    },
+    "benefits": {
+      "title": "Why choose Dafon CV?",
+      "items": [
+        {
+          "icon": "zap",
+          "title": "Fast Creation",
+          "description": "Create your CV in minutes, not hours"
+        },
+        {
+          "icon": "brain",
+          "title": "Smart AI",
+          "description": "Advanced algorithms optimize your CV"
+        },
+        {
+          "icon": "target",
+          "title": "Personalized",
+          "description": "Adapted for each specific job"
+        },
+        {
+          "icon": "shield",
+          "title": "Secure",
+          "description": "Your data protected with encryption"
+        }
+      ]
+    },
+    "demo": {
+      "title": "See Dafon CV in Action",
+      "subtitle": "Discover how our AI revolutionizes professional CV creation",
+      "features": [
+        {
+          "title": "Intuitive Interface",
+          "description": "Modern and easy-to-use design, created for professionals of all levels"
+        },
+        {
+          "title": "Advanced AI",
+          "description": "Algorithms that analyze jobs and optimize your CV automatically"
+        },
+        {
+          "title": "Professional Templates",
+          "description": "Over 100 models created by specialized designers"
+        },
+        {
+          "title": "Real-time Analysis",
+          "description": "Instant feedback on the quality and suitability of your CV"
+        }
+      ],
+      "cta": "Try Free",
+      "stats": [
+        {
+          "number": "2min",
+          "label": "Average Creation Time",
+          "color": "text-green-400"
+        },
+        {
+          "number": "98%",
+          "label": "User Satisfaction",
+          "color": "text-blue-400"
+        },
+        {
+          "number": "24/7",
+          "label": "Support Available",
+          "color": "text-purple-400"
+        }
+      ]
+    },
+    "socialProof": {
+      "title": "Join thousands of professionals",
+      "stats": [
+        {
+          "number": "10k+",
+          "label": "CVs Created",
+          "color": "text-yellow-400"
+        },
+        {
+          "number": "95%",
+          "label": "Success Rate",
+          "color": "text-green-400"
+        },
+        {
+          "number": "24h",
+          "label": "Support",
+          "color": "text-blue-400"
+        },
+        {
+          "number": "100+",
+          "label": "CV Templates",
+          "color": "text-pink-400"
+        }
+      ]
+    },
+    "footer": {
+      "about": "About",
+      "contact": "Contact",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use",
+      "copyright": "Dafon CV. All rights reserved."
+    }
   }
 }
