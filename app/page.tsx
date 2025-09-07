@@ -1,14 +1,21 @@
-import { Button } from "@/components/ui/button";
-import { useTranslations } from "next-intl";
-import { FaBeer } from "react-icons/fa";
+'use client';
+
+import { Header } from '@/components/layout/header';
+import { HeroSection } from '@/components/features/hero-section';
+import { BenefitsSection } from '@/components/features/benefits-section';
+import { DemoSection } from '@/components/features/demo-section';
+import { SocialProofSection } from '@/components/features/social-proof-section';
+import { Footer } from '@/components/layout/footer';
 
 export default function Home() {
-  const t = useTranslations('HomePage');
   return (
-  <div>
-      <Button>Click me</Button>
-      <h1 className="scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance">{t('title')}</h1>;
-      <p><FaBeer />?</p>
-    </div>
-  )
+    <main className="min-h-screen">
+      <Header />
+      <HeroSection />
+      <BenefitsSection />
+      <DemoSection />
+      <SocialProofSection />
+      <Footer />
+    </main>
+  );
 }
