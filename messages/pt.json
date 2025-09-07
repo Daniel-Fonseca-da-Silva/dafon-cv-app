@@ -1,0 +1,124 @@
+{
+  "NotFoundPage": {
+    "title": "Página Não Encontrada"
+  },
+  "ErrorPage": {
+    "title": "Erro"
+  },
+  "LoadingPage": {
+    "title": "Carregando..."
+  },
+  "HomePage": {
+    "navigation": {
+      "home": "Início",
+      "contact": "Contato",
+      "language": "Idioma",
+      "login": "Entrar",
+      "startNow": "Começar agora"
+    },
+    "hero": {
+      "badge": "Powered by Dafon AI",
+      "headline": "Crie seu Currículo Perfeito com IA",
+      "subheadline": "Transforme sua experiência profissional em currículos únicos e personalizados. Nossa IA adapta seu currículo para cada vaga, maximizando suas chances de sucesso.",
+      "ctaPrimary": "Começar Agora",
+      "ctaSecondary": "Ver Demo"
+    },
+    "benefits": {
+      "title": "Por que escolher o Dafon CV?",
+      "items": [
+        {
+          "icon": "zap",
+          "title": "Criação Rápida",
+          "description": "Crie seu currículo em minutos, não horas"
+        },
+        {
+          "icon": "brain",
+          "title": "IA Inteligente",
+          "description": "Algoritmos avançados otimizam seu currículo"
+        },
+        {
+          "icon": "target",
+          "title": "Personalizado",
+          "description": "Adaptado para cada vaga específica"
+        },
+        {
+          "icon": "shield",
+          "title": "Seguro",
+          "description": "Seus dados protegidos com criptografia"
+        }
+      ]
+    },
+    "demo": {
+      "title": "Veja o Dafon CV em Ação",
+      "subtitle": "Descubra como nossa IA revoluciona a criação de currículos profissionais",
+      "features": [
+        {
+          "title": "Interface Intuitiva",
+          "description": "Design moderno e fácil de usar, criado para profissionais de todos os níveis"
+        },
+        {
+          "title": "IA Avançada",
+          "description": "Algoritmos que analisam vagas e otimizam seu currículo automaticamente"
+        },
+        {
+          "title": "Templates Profissionais",
+          "description": "Mais de 100 modelos criados por designers especializados"
+        },
+        {
+          "title": "Análise em Tempo Real",
+          "description": "Feedback instantâneo sobre a qualidade e adequação do seu currículo"
+        }
+      ],
+      "cta": "Experimente Grátis",
+      "stats": [
+        {
+          "number": "2min",
+          "label": "Tempo Médio de Criação",
+          "color": "text-green-400"
+        },
+        {
+          "number": "98%",
+          "label": "Satisfação dos Usuários",
+          "color": "text-blue-400"
+        },
+        {
+          "number": "24/7",
+          "label": "Suporte Disponível",
+          "color": "text-purple-400"
+        }
+      ]
+    },
+    "socialProof": {
+      "title": "Junte-se a milhares de profissionais",
+      "stats": [
+        {
+          "number": "10k+",
+          "label": "Currículos Criados",
+          "color": "text-yellow-400"
+        },
+        {
+          "number": "95%",
+          "label": "Taxa de Sucesso",
+          "color": "text-green-400"
+        },
+        {
+          "number": "24h",
+          "label": "Suporte",
+          "color": "text-blue-400"
+        },
+        {
+          "number": "100+",
+          "label": "Modelos de CV",
+          "color": "text-pink-400"
+        }
+      ]
+    },
+    "footer": {
+      "about": "Sobre",
+      "contact": "Contato",
+      "privacy": "Política de Privacidade",
+      "terms": "Termos de Uso",
+      "copyright": "Dafon CV. Todos os direitos reservados."
+    }
+  }
+}
