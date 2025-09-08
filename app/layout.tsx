@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from 'next-intl/server';
+import { getMessages, getTranslations, getLocale } from 'next-intl/server';
 
-export const metadata: Metadata = {
-  title: "Dafon CV - Crie seu Currículo Perfeito com IA",
-  description: "Transforme sua experiência profissional em currículos únicos e personalizados. Nossa IA adapta seu currículo para cada vaga, maximizando suas chances de sucesso.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations('metadata');
+  
+  return {
+    title: t('title'),
+    description: t('description'),
+  };
+}
 
 export default async function RootLayout({
   children,
@@ -14,9 +18,10 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const messages = await getMessages();
+  const locale = await getLocale();
 
   return (
-    <html lang="pt">
+    <html lang={locale}>
       <body>
         <NextIntlClientProvider messages={messages}>
           {children}
