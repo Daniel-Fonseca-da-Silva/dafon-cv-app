@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
+import { Logo } from '@/components/ui/logo';
 import { FiMenu, FiX, FiChevronDown } from 'react-icons/fi';
 import { useState } from 'react';
 
@@ -14,15 +15,7 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">D</span>
-            </div>
-            <div>
-              <h1 className="text-white font-bold text-lg">Dafon CV</h1>
-              <p className="text-white/70 text-xs">Powered by Dafon</p>
-            </div>
-          </div>
+          <Logo size="md" />
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">

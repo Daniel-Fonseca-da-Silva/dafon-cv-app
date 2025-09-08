@@ -1,6 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import { Logo } from '@/components/ui/logo';
 
 export function Footer() {
   const t = useTranslations('HomePage.footer');
@@ -11,14 +12,11 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo and Description */}
           <div className="md:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">D</span>
-              </div>
-              <h3 className="text-white font-bold text-xl">Dafon CV</h3>
+            <div className="mb-4">
+              <Logo size="md" textClassName="text-white" />
             </div>
             <p className="text-white/80 max-w-md leading-relaxed">
-              Transforme sua experiência profissional em currículos únicos e personalizados com o poder da IA.
+              {t('description')}
             </p>
           </div>
 
