@@ -23,7 +23,8 @@ export function HeroSection() {
         {/* Headline */}
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
           {t('headline').split(' ').map((word, index) => {
-            if (word === 'Perfeito' || word === 'Perfect') {
+            const highlightWord = t('highlightWord');
+            if (word === highlightWord) {
               return (
                 <span key={index} className="bg-gradient-to-r from-orange-400 to-pink-400 bg-clip-text text-transparent">
                   {word}{' '}
