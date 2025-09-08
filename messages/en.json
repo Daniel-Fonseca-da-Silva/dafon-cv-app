@@ -1,6 +1,11 @@
 {
   "NotFoundPage": {
-    "title": "Page Not Found"
+    "title": "Page Not Found",
+    "subtitle": "Oops! Looks like you got lost in digital space",
+    "description": "The page you're looking for doesn't exist or has been moved. But don't worry, we'll help you find what you need!",
+    "goHome": "Go Home",
+    "goBack": "Go Back",
+    "errorCode": "404"
   },
   "ErrorPage": {
     "title": "Error"
@@ -17,8 +22,9 @@
       "startNow": "Start Now"
     },
     "hero": {
-      "badge": "Powered by Dafon AI",
+      "badge": "Powered by Dafon",
       "headline": "Create your Perfect CV with AI",
+      "highlightWord": "Perfect",
       "subheadline": "Transform your professional experience into unique and personalized CVs. Our AI adapts your CV to each job, maximizing your chances of success.",
       "ctaPrimary": "Start Now",
       "ctaSecondary": "See Demo"
@@ -118,7 +124,8 @@
       "contact": "Contact",
       "privacy": "Privacy Policy",
       "terms": "Terms of Use",
-      "copyright": "Dafon CV. All rights reserved."
+      "copyright": "Dafon CV. All rights reserved.",
+      "location": "Lisbon, Portugal"
     }
   }
 }

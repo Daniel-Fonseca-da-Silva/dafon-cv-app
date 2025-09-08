@@ -1,6 +1,11 @@
 {
   "NotFoundPage": {
-    "title": "Página Não Encontrada"
+    "title": "Página Não Encontrada",
+    "subtitle": "Oops! Parece que você se perdeu no espaço digital",
+    "description": "A página que você está procurando não existe ou foi movida. Mas não se preocupe, vamos te ajudar a encontrar o que precisa!",
+    "goHome": "Voltar ao Início",
+    "goBack": "Voltar",
+    "errorCode": "404"
   },
   "ErrorPage": {
     "title": "Erro"
@@ -17,8 +22,9 @@
       "startNow": "Começar agora"
     },
     "hero": {
-      "badge": "Powered by Dafon AI",
+      "badge": "Powered by Dafon",
       "headline": "Crie seu Currículo Perfeito com IA",
+      "highlightWord": "Perfeito",
       "subheadline": "Transforme sua experiência profissional em currículos únicos e personalizados. Nossa IA adapta seu currículo para cada vaga, maximizando suas chances de sucesso.",
       "ctaPrimary": "Começar Agora",
       "ctaSecondary": "Ver Demo"
@@ -118,7 +124,8 @@
       "contact": "Contato",
       "privacy": "Política de Privacidade",
       "terms": "Termos de Uso",
-      "copyright": "Dafon CV. Todos os direitos reservados."
+      "copyright": "Dafon CV. Todos os direitos reservados.",
+      "location": "Lisboa, Portugal"
     }
   }
 }
