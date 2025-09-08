@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { FiZap, FiCpu, FiTarget, FiShield } from 'react-icons/fi';
+import { BenefitItem } from '@/types/translations';
 
 const iconMap = {
   zap: FiZap,
@@ -25,7 +26,7 @@ export function BenefitsSection() {
 
         {/* Benefits Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {t.raw('items').map((item: any, index: number) => {
+          {(t.raw('items') as BenefitItem[]).map((item: BenefitItem, index: number) => {
             const IconComponent = iconMap[item.icon as keyof typeof iconMap];
             
             return (

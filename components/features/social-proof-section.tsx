@@ -1,6 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import { SocialProofStat } from '@/types/translations';
 
 export function SocialProofSection() {
   const t = useTranslations('HomePage.socialProof');
@@ -17,7 +18,7 @@ export function SocialProofSection() {
 
         {/* Stats Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-          {t.raw('stats').map((stat: any, index: number) => (
+          {(t.raw('stats') as SocialProofStat[]).map((stat: SocialProofStat, index: number) => (
             <div
               key={index}
               className="text-center bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 hover:bg-white/15 transition-all duration-300 hover:scale-105"

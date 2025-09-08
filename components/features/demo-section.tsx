@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { FiPlay, FiArrowRight, FiCheck } from 'react-icons/fi';
+import { DemoFeature, DemoStat } from '@/types/translations';
 
 export function DemoSection() {
   const t = useTranslations('HomePage.demo');
@@ -57,7 +58,7 @@ export function DemoSection() {
           {/* Right Side - Features List */}
           <div className="space-y-8">
             <div className="space-y-6">
-              {t.raw('features').map((feature: any, index: number) => (
+              {(t.raw('features') as DemoFeature[]).map((feature: DemoFeature, index: number) => (
                 <div key={index} className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-gradient-to-br from-purple-400 to-blue-400 rounded-lg flex items-center justify-center flex-shrink-0">
                     <FiCheck className="w-4 h-4 text-white" />
@@ -86,7 +87,7 @@ export function DemoSection() {
 
         {/* Bottom Stats */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-          {t.raw('stats').map((stat: any, index: number) => (
+          {(t.raw('stats') as DemoStat[]).map((stat: DemoStat, index: number) => (
             <div key={index} className="text-center bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6">
               <div className={`text-3xl font-bold mb-2 ${stat.color}`}>
                 {stat.number}
