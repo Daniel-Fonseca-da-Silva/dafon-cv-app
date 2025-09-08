@@ -55,7 +55,7 @@ export function Footer() {
             <div className="space-y-2 text-white/80">
               <p>dafondeveloper@gmail.com</p>
               <p>+351 913-619-053</p>
-              <p>Lisboa, Portugal</p>
+              <p>{t('location')}</p>
             </div>
           </div>
         </div>
