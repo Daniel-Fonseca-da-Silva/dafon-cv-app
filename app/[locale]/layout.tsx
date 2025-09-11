@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../globals.css";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, getLocale } from 'next-intl/server';
+
+interface Props {
+  children: React.ReactNode;
+}
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('metadata');
@@ -12,11 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default async function RootLayout({children}: Props) {
   const messages = await getMessages();
   const locale = await getLocale();
 
