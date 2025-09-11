@@ -3,12 +3,28 @@
 import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/ui/logo';
-import { FiMenu, FiX, FiChevronDown } from 'react-icons/fi';
+import { FiMenu, FiX } from 'react-icons/fi';
 import { useState } from 'react';
+import { useRouter, usePathname } from '@/i18n/navigation';
+import { useLocale } from 'next-intl';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 
 export function Header() {
   const t = useTranslations('HomePage.navigation');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
+  const locale = useLocale();
+
+  const handleLanguageChange = (newLocale: string) => {
+    router.push(pathname, { locale: newLocale });
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-md border-b border-white/20">
@@ -25,12 +41,15 @@ export function Header() {
             <a href="#" className="text-white hover:text-white/80 transition-colors">
               {t('contact')}
             </a>
-            <div className="relative group">
-              <button className="flex items-center space-x-1 text-white hover:text-white/80 transition-colors">
-                <span>{t('language')}</span>
-                <FiChevronDown className="w-4 h-4" />
-              </button>
-            </div>
+            <Select value={locale} onValueChange={handleLanguageChange}>
+              <SelectTrigger className="w-fit bg-transparent border-white/20 text-white hover:text-white/80 focus:ring-white/50">
+                <SelectValue placeholder={t('language')} />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="en">English</SelectItem>
+                <SelectItem value="pt">Português</SelectItem>
+              </SelectContent>
+            </Select>
           </nav>
 
           {/* Desktop CTA */}
@@ -64,9 +83,17 @@ export function Header() {
               <a href="#" className="block px-3 py-2 text-white hover:text-white/80 transition-colors">
                 {t('contact')}
               </a>
-              <a href="#" className="block px-3 py-2 text-white hover:text-white/80 transition-colors">
-                {t('language')}
-              </a>
+              <div className="px-3 py-2">
+                <Select value={locale} onValueChange={handleLanguageChange}>
+                  <SelectTrigger className="w-full bg-transparent border-white/20 text-white hover:text-white/80 focus:ring-white/50">
+                    <SelectValue placeholder={t('language')} />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="en">English</SelectItem>
+                    <SelectItem value="pt">Português</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
               <a href="#" className="block px-3 py-2 text-white hover:text-white/80 transition-colors">
                 {t('login')}
               </a>
