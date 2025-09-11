@@ -22,7 +22,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Links Rápidos</h4>
+            <h4 className="text-white font-semibold mb-4">{t('quickLinks')}</h4>
             <ul className="space-y-2">
               <li>
                 <a href="#" className="text-white/80 hover:text-white transition-colors">
@@ -49,7 +49,7 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Contato</h4>
+            <h4 className="text-white font-semibold mb-4">{t('contact')}</h4>
             <div className="space-y-2 text-white/80">
               <p>dafondeveloper@gmail.com</p>
               <p>+351 913-619-053</p>
