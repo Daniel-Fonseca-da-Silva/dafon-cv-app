@@ -5,8 +5,6 @@ import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/ui/logo';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { useState } from 'react';
-import { useRouter, usePathname } from '@/i18n/navigation';
-import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import {
   Select,
@@ -15,16 +13,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { useLocale } from '@/hooks/use-locale';
 
 export function Header() {
   const t = useTranslations('HomePage.navigation');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const router = useRouter();
-  const pathname = usePathname();
-  const locale = useLocale();
+  const { locale, changeLocale } = useLocale();
 
   const handleLanguageChange = (newLocale: string) => {
-    router.push(pathname, { locale: newLocale });
+    changeLocale(newLocale);
   };
 
   return (

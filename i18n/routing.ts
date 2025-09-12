@@ -6,5 +6,8 @@ export const routing = defineRouting({
  
   // Usado quando não tem locale
   // No caso, o inglês é o default
-  defaultLocale: 'en'
+  defaultLocale: 'en',
+  
+  // URLs limpas - só mostra locale quando necessário
+  localePrefix: 'as-needed'
 });
