@@ -7,6 +7,7 @@ import { FiMenu, FiX } from 'react-icons/fi';
 import { useState } from 'react';
 import { useRouter, usePathname } from '@/i18n/navigation';
 import { useLocale } from 'next-intl';
+import Link from 'next/link';
 import {
   Select,
   SelectContent,
@@ -54,9 +55,9 @@ export function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center space-x-4">
-            <a href="#" className="text-white hover:text-white/80 transition-colors">
+            <Link href="/auth/login" className="text-white hover:text-white/80 transition-colors">
               {t('login')}
-            </a>
+            </Link>
             <Button className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white border-0">
               {t('startNow')} →
             </Button>
@@ -94,9 +95,9 @@ export function Header() {
                   </SelectContent>
                 </Select>
               </div>
-              <a href="#" className="block px-3 py-2 text-white hover:text-white/80 transition-colors">
+              <Link href="/auth/login" className="block px-3 py-2 text-white hover:text-white/80 transition-colors">
                 {t('login')}
-              </a>
+              </Link>
               <Button className="w-full mt-4 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white border-0">
                 {t('startNow')} →
               </Button>

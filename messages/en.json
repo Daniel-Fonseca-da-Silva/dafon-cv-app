@@ -1,15 +1,38 @@
 {
+  "auth": {
+    "login": {
+      "title": "Enter",
+      "subtitle": "Enter your email to access your account",
+      "email": "your@email.com",
+      "subtitle2": "Your email",
+      "action": "Login",
+      "forgotPassword": "Forgot password?",
+      "dontHaveAccount": "Don't have an account?",
+      "register": "Register"
+    },
+    "register": {
+      "title": "Create account",
+      "subtitle": "Fill in the data to create your account",
+      "subtitleName2": "Your full name",
+      "name": "My full name",
+      "email": "Your email",
+      "subtitleEmail2": "My email",
+      "action": "Create account",
+      "alreadyHaveAccount": "Already have an account?",
+      "login": "Login"
+    },
+    "forgotPassword": {
+      "title": "Forgot password?",
+      "subtitle": "Enter your email to receive recovery instructions",
+      "email": "your@email.com",
+      "subtitle2": "Your email",
+      "action": "Send instructions",
+      "backToLogin": "Back to login"
+    }
+  },
   "metadata": {
     "title": "Dafon CV - Create your Perfect CV with AI",
     "description": "Transform your professional experience into unique and personalized CVs. Our AI adapts your CV to each job, maximizing your chances of success."
-  },
-  "NotFoundPage": {
-    "title": "Page Not Found",
-    "subtitle": "Oops! Looks like you got lost in digital space",
-    "description": "The page you're looking for doesn't exist or has been moved. But don't worry, we'll help you find what you need!",
-    "goHome": "Go Home",
-    "goBack": "Go Back",
-    "errorCode": "404"
   },
   "ErrorPage": {
     "title": "Error"

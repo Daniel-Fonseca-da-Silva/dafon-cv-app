@@ -1,15 +1,38 @@
 {
+  "auth": {
+    "login": {
+      "title": "Entrar",
+      "subtitle": "Digite seu email para acessar sua conta",
+      "email": "meu@email.com",
+      "subtitle2": "Seu email",
+      "action": "Logar",
+      "forgotPassword": "Esqueci minha senha",
+      "dontHaveAccount": "Não tem uma conta?",
+      "register": "Cadastrar"
+    },
+    "register": {
+      "title": "Criar conta",
+      "subtitle": "Preencha os dados para criar sua conta",
+      "subtitleName2": "Seu nome completo",
+      "name": "Meu nome completo",
+      "email": "Seu email",
+      "subtitleEmail2": "Meu email",
+      "action": "criar conta",
+      "alreadyHaveAccount": "Já tem uma conta?",
+      "login": "Fazer login"
+    },
+    "forgotPassword": {
+      "title": "Esqueci minha senha",
+      "subtitle": "Digite seu email para receber instruções de recuperação",
+      "email": "meu@email.com",
+      "subtitle2": "Seu email",
+      "action": "enviar instruções",
+      "backToLogin": "Voltar ao login"
+    }
+  },
   "metadata": {
     "title": "Dafon CV - Crie seu Currículo Perfeito com IA",
     "description": "Transforme sua experiência profissional em currículos únicos e personalizados. Nossa IA adapta seu currículo para cada vaga, maximizando suas chances de sucesso."
-  },
-  "NotFoundPage": {
-    "title": "Página Não Encontrada",
-    "subtitle": "Oops! Parece que você se perdeu no espaço digital",
-    "description": "A página que você está procurando não existe ou foi movida. Mas não se preocupe, vamos te ajudar a encontrar o que precisa!",
-    "goHome": "Voltar ao Início",
-    "goBack": "Voltar",
-    "errorCode": "404"
   },
   "ErrorPage": {
     "title": "Erro"
