@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { FiZap, FiSmile } from 'react-icons/fi';
+import { Link } from '@/i18n/navigation';
 
 export function HeroSection() {
   const t = useTranslations('HomePage.hero');
@@ -42,13 +43,15 @@ export function HeroSection() {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button 
-            size="lg" 
-            className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white border-0 px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-          >
-            <FiZap className="w-5 h-5 mr-2" />
-            {t('ctaPrimary')} →
-          </Button>
+          <Link href="/auth/register">
+            <Button 
+              size="lg" 
+              className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white border-0 px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              <FiZap className="w-5 h-5 mr-2" />
+              {t('ctaPrimary')} →
+            </Button>
+          </Link>
           
           <Button 
             variant="outline" 

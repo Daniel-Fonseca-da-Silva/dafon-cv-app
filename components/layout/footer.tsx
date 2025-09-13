@@ -13,7 +13,7 @@ export function Footer() {
           {/* Logo and Description */}
           <div className="md:col-span-2">
             <div className="mb-4">
-              <Logo size="md" textClassName="text-white" />
+              <Logo size="md" textClassName="text-white" href="/" />
             </div>
             <p className="text-white/80 max-w-md leading-relaxed">
               {t('description')}

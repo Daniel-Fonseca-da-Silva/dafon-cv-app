@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { FiPlay, FiArrowRight, FiCheck } from 'react-icons/fi';
 import { DemoFeature, DemoStat } from '@/types/translations';
+import { Link } from '@/i18n/navigation';
 
 export function DemoSection() {
   const t = useTranslations('HomePage.demo');
@@ -77,10 +78,12 @@ export function DemoSection() {
 
             {/* CTA Button */}
             <div className="pt-4">
-              <button className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
-                <span>{t('cta')}</span>
-                <FiArrowRight className="w-5 h-5" />
-              </button>
+              <Link href="/auth/register">
+                <button className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
+                  <span>{t('cta')}</span>
+                  <FiArrowRight className="w-5 h-5" />
+                </button>
+              </Link>
             </div>
           </div>
         </div>

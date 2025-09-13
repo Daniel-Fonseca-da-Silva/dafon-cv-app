@@ -1,11 +1,13 @@
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import { Link } from '@/i18n/navigation';
 
 interface LogoProps {
   size?: 'sm' | 'md' | 'lg' | 'xl';
   className?: string;
   showText?: boolean;
   textClassName?: string;
+  href?: string;
 }
 
 const sizeMap = {
@@ -19,11 +21,12 @@ export function Logo({
   size = 'md', 
   className, 
   showText = true, 
-  textClassName 
+  textClassName,
+  href
 }: LogoProps) {
   const { width, height, src } = sizeMap[size];
 
-  return (
+  const logoContent = (
     <div className={cn('flex items-center space-x-2', className)}>
       <Image
         src={src}
@@ -41,4 +44,14 @@ export function Logo({
       )}
     </div>
   );
+
+  if (href) {
+    return (
+      <Link href={href} className="hover:opacity-80 transition-opacity">
+        {logoContent}
+      </Link>
+    );
+  }
+
+  return logoContent;
 }
