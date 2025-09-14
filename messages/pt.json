@@ -156,5 +156,29 @@
       "location": "Lisboa, Portugal",
       "quickLinks": "Links Rápidos"
     }
+  },
+  "dashboard": {
+    "sections": {
+      "dashboard": {
+        "title": "Dashboard",
+        "description": "Bem-vindo ao seu painel de controle"
+      },
+      "generate-cv": {
+        "title": "Gerar CV com IA",
+        "description": "Crie currículos profissionais com IA"
+      },
+      "profile": {
+        "title": "Meu Perfil",
+        "description": "Gerencie suas informações pessoais"
+      },
+      "settings": {
+        "title": "Configurações",
+        "description": "Personalize suas configurações"
+      },
+      "plans": {
+        "title": "Meus Planos",
+        "description": "Gerencie sua assinatura e recursos"
+      }
+    }
   }
 }
