@@ -9,13 +9,16 @@ import { Footer } from "@/components/layout/footer"
 import { FiMail, FiLock, FiUserPlus } from "react-icons/fi"
 import Link from "next/link"
 import { useTranslations } from "next-intl"
+import { useRouter } from "next/navigation"
 export default function LoginPage() {
   const [email, setEmail] = useState("")
   const t = useTranslations("auth.login")
+  const router = useRouter()
+  
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault()
-    // Implementar lógica de login aqui
-    console.log("Login com email:", email)
+    // Login temporário - aceita qualquer email e redireciona para dashboard
+    router.push("/dashboard")
   }
 
   return (
