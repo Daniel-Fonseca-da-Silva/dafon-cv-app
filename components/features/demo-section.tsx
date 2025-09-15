@@ -11,7 +11,7 @@ export function DemoSection() {
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-blue-800 to-purple-900">
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
+        {/* Cabeçalho da Seção */}
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             {t('title')}
@@ -21,12 +21,12 @@ export function DemoSection() {
           </p>
         </div>
 
-        {/* Demo Content */}
+        {/* Conteúdo de Demonstração */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Side - Demo Video/Image */}
+          {/* Lado Esquerdo - Demo Video/Image */}
           <div className="relative">
             <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 overflow-hidden">
-              {/* Mockup Screen */}
+              {/* Mockup da Tela */}
               <div className="bg-white rounded-lg shadow-2xl">
                 <div className="bg-gray-100 h-8 rounded-t-lg flex items-center px-4">
                   <div className="flex space-x-2">
@@ -47,7 +47,7 @@ export function DemoSection() {
                 </div>
               </div>
               
-              {/* Play Button Overlay */}
+              {/* Botão de Play Overlay */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <button className="w-16 h-16 bg-white/20 backdrop-blur-md border border-white/30 rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300 group">
                   <FiPlay className="w-6 h-6 text-white ml-1 group-hover:scale-110 transition-transform" />
@@ -56,7 +56,7 @@ export function DemoSection() {
             </div>
           </div>
 
-          {/* Right Side - Features List */}
+          {/* Lado Direito - Lista de Features */}
           <div className="space-y-8">
             <div className="space-y-6">
               {(t.raw('features') as DemoFeature[]).map((feature: DemoFeature, index: number) => (
@@ -76,7 +76,7 @@ export function DemoSection() {
               ))}
             </div>
 
-            {/* CTA Button */}
+            {/* Botão CTA */}
             <div className="pt-4">
               <Link href="/auth/register">
                 <button className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
@@ -88,7 +88,7 @@ export function DemoSection() {
           </div>
         </div>
 
-        {/* Bottom Stats */}
+        {/* Estatísticas Inferiores */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
           {(t.raw('stats') as DemoStat[]).map((stat: DemoStat, index: number) => (
             <div key={index} className="text-center bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6">

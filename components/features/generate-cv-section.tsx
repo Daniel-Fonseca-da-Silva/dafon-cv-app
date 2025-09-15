@@ -8,7 +8,7 @@ import { FiFileText, FiUpload, FiDownload, FiEdit3, FiZap } from "react-icons/fi
 export function GenerateCvSection() {
   return (
     <div className="p-4 lg:p-6 space-y-4 lg:space-y-6">
-      {/* Header */}
+      {/* Cabeçalho */}
       <div className="flex items-center space-x-3 mb-4 lg:mb-6">
         <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-xl bg-gradient-to-br from-blue-400 to-cyan-400 flex items-center justify-center">
           <FiFileText className="w-4 h-4 lg:w-5 lg:h-5 text-white" />
@@ -20,7 +20,7 @@ export function GenerateCvSection() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
-        {/* Upload Section */}
+        {/* Seção de Upload */}
         <Card className="backdrop-blur-xl bg-white/10 border-white/20 shadow-2xl">
           <CardHeader>
             <CardTitle className="text-white flex items-center space-x-2">
@@ -44,7 +44,7 @@ export function GenerateCvSection() {
           </CardContent>
         </Card>
 
-        {/* AI Generation Section */}
+        {/* Seção de Geração com IA */}
         <Card className="backdrop-blur-xl bg-white/10 border-white/20 shadow-2xl">
           <CardHeader>
             <CardTitle className="text-white flex items-center space-x-2">
@@ -78,7 +78,7 @@ export function GenerateCvSection() {
         </Card>
       </div>
 
-      {/* Recent CVs */}
+      {/* Currículos Recentes */}
       <Card className="backdrop-blur-xl bg-white/10 border-white/20 shadow-2xl">
         <CardHeader>
           <CardTitle className="text-white flex items-center space-x-2">

@@ -10,10 +10,10 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16">
-      {/* Background Gradient */}
+      {/* Gradiente de fundo */}
       <div className="absolute inset-0 bg-gradient-to-b from-purple-900 via-purple-800 to-blue-800" />
       
-      {/* Content */}
+      {/* Conteúdo */}
       <div className="relative z-10 max-w-4xl mx-auto text-center">
         {/* Badge */}
         <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 mb-8">
@@ -21,7 +21,7 @@ export function HeroSection() {
           <span className="text-white text-sm font-medium">{t('badge')}</span>
         </div>
 
-        {/* Headline */}
+        {/* Título */}
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
           {t('headline').split(' ').map((word, index) => {
             const highlightWord = t('highlightWord');
@@ -36,12 +36,12 @@ export function HeroSection() {
           })}
         </h1>
 
-        {/* Subheadline */}
+        {/* Subtítulo */}
         <p className="text-lg sm:text-xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
           {t('subheadline')}
         </p>
 
-        {/* CTA Buttons */}
+        {/* Botões CTA */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link href="/auth/register">
             <Button 
@@ -64,7 +64,7 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Decorative Elements */}
+      {/* Elementos Decorativos */}
       <div className="absolute top-1/4 left-10 w-20 h-20 bg-gradient-to-br from-purple-400/20 to-blue-400/20 rounded-full blur-xl" />
       <div className="absolute bottom-1/4 right-10 w-32 h-32 bg-gradient-to-br from-pink-400/20 to-purple-400/20 rounded-full blur-xl" />
     </section>

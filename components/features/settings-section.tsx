@@ -23,7 +23,7 @@ export function SettingsSection({ onSectionChange }: SettingsSectionProps) {
 
   return (
     <div className="p-4 lg:p-6 space-y-4 lg:space-y-6">
-      {/* Header */}
+      {/* Cabeçalho */}
       <div className="flex items-center justify-between mb-4 lg:mb-6">
         <div className="flex items-center space-x-3">
           <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-xl bg-gradient-to-br from-orange-400 to-red-400 flex items-center justify-center">
@@ -35,7 +35,7 @@ export function SettingsSection({ onSectionChange }: SettingsSectionProps) {
           </div>
         </div>
         
-        {/* Back Button */}
+        {/* Botão de voltar */}
         {onSectionChange && (
           <Button
             onClick={handleBackToDashboard}
@@ -50,7 +50,7 @@ export function SettingsSection({ onSectionChange }: SettingsSectionProps) {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
-        {/* Personal Information */}
+        {/* Informações Pessoais */}
         <Card className="backdrop-blur-xl bg-white/10 border-white/20 shadow-2xl">
           <CardHeader>
             <CardTitle className="text-white flex items-center space-x-2">
@@ -109,7 +109,7 @@ export function SettingsSection({ onSectionChange }: SettingsSectionProps) {
           </CardContent>
         </Card>
 
-        {/* Notifications */}
+        {/* Notificações */}
         <Card className="backdrop-blur-xl bg-white/10 border-white/20 shadow-2xl">
           <CardHeader>
             <CardTitle className="text-white flex items-center space-x-2">
@@ -158,7 +158,7 @@ export function SettingsSection({ onSectionChange }: SettingsSectionProps) {
           </CardContent>
         </Card>
 
-        {/* Appearance */}
+        {/* Aparência */}
         <Card className="backdrop-blur-xl bg-white/10 border-white/20 shadow-2xl">
           <CardHeader>
             <CardTitle className="text-white flex items-center space-x-2">
@@ -197,7 +197,7 @@ export function SettingsSection({ onSectionChange }: SettingsSectionProps) {
           </CardContent>
         </Card>
 
-        {/* Privacy */}
+        {/* Privacidade */}
         <Card className="backdrop-blur-xl bg-white/10 border-white/20 shadow-2xl">
           <CardHeader>
             <CardTitle className="text-white flex items-center space-x-2">
