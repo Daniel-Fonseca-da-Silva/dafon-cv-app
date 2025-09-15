@@ -229,7 +229,7 @@
     "logout": "Logout",
     "brand": {
       "name": "Dafon CV",
-      "tagline": "Powered by AI"
+      "tagline": "Powered by Dafon"
     }
   },
   "plans": {
@@ -381,6 +381,13 @@
         }
       },
       "downloadData": "Download My Data"
+    }
+  },
+  "generateCv": {
+    "header": {
+      "title": "Generate CV with AI",
+      "subtitle": "Create a professional CV using artificial intelligence",
+      "backButton": "Back to Dashboard"
     }
   },
   "profileSection": {

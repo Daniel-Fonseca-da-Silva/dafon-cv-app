@@ -17,7 +17,7 @@ export function DashboardContent({ activeSection, onSectionChange }: DashboardCo
       case "dashboard":
         return <DashboardCards onCardClick={onSectionChange} />
       case "generate-cv":
-        return <GenerateCvSection />
+        return <GenerateCvSection onSectionChange={onSectionChange} />
       case "profile":
         return <ProfileSection onSectionChange={onSectionChange} />
       case "settings":

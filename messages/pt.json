@@ -229,7 +229,7 @@
     "logout": "Sair",
     "brand": {
       "name": "Dafon CV",
-      "tagline": "Powered by AI"
+      "tagline": "Desenvolvido por Dafon"
     }
   },
   "plans": {
@@ -381,6 +381,13 @@
         }
       },
       "downloadData": "Baixar Meus Dados"
+    }
+  },
+  "generateCv": {
+    "header": {
+      "title": "Gerar CV com IA",
+      "subtitle": "Crie um currículo profissional usando inteligência artificial",
+      "backButton": "Voltar ao Dashboard"
     }
   },
   "profileSection": {

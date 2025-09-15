@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import Image from "next/image"
 import { useTranslations } from "next-intl"
+import { useRouter } from "@/i18n/navigation"
 
 interface SidebarProps {
   activeSection: string
@@ -30,6 +31,15 @@ export function Sidebar({
   onMobileClose
 }: SidebarProps) {
   const t = useTranslations('sidebar')
+  const router = useRouter()
+
+  const handleLogout = () => {
+    // Aqui você pode adicionar lógica adicional de logout se necessário
+    // Por exemplo: limpar tokens, cookies, etc.
+    
+    // Redireciona para a raiz do sistema
+    router.push('/')
+  }
 
   const menuItems = [
     {
@@ -151,6 +161,7 @@ export function Sidebar({
           <div className="mt-auto pt-4 border-t border-white/20">
             <Button
               variant="ghost"
+              onClick={handleLogout}
               className="w-full justify-start h-12 px-3 text-white/80 hover:bg-red-500/20 hover:text-red-300 transition-all duration-200"
             >
               <FiLogOut className={`w-5 h-5 ${(isCollapsed && !isMobile) ? 'mx-auto' : 'mr-3'}`} />
