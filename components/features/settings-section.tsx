@@ -1,79 +1,110 @@
 "use client"
 
+import { useTranslations } from 'next-intl'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { FiSettings, FiBell, FiShield, FiGlobe, FiMoon, FiSun, FiSave, FiEye, FiEyeOff } from "react-icons/fi"
+import { FiSettings, FiBell, FiShield, FiGlobe, FiMoon, FiSun, FiSave, FiUser, FiPhone, FiMail, FiMapPin, FiCalendar, FiArrowLeft } from "react-icons/fi"
 import { useState } from "react"
 
-export function SettingsSection() {
-  const [showPassword, setShowPassword] = useState(false)
+interface SettingsSectionProps {
+  onSectionChange?: (section: string) => void
+}
+
+export function SettingsSection({ onSectionChange }: SettingsSectionProps) {
+  const t = useTranslations('settings')
   const [darkMode, setDarkMode] = useState(false)
+
+  const handleBackToDashboard = () => {
+    if (onSectionChange) {
+      onSectionChange('dashboard')
+    }
+  }
 
   return (
     <div className="p-4 lg:p-6 space-y-4 lg:space-y-6">
       {/* Header */}
-      <div className="flex items-center space-x-3 mb-4 lg:mb-6">
-        <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-xl bg-gradient-to-br from-orange-400 to-red-400 flex items-center justify-center">
-          <FiSettings className="w-4 h-4 lg:w-5 lg:h-5 text-white" />
+      <div className="flex items-center justify-between mb-4 lg:mb-6">
+        <div className="flex items-center space-x-3">
+          <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-xl bg-gradient-to-br from-orange-400 to-red-400 flex items-center justify-center">
+            <FiSettings className="w-4 h-4 lg:w-5 lg:h-5 text-white" />
+          </div>
+          <div>
+            <h1 className="text-lg lg:text-2xl font-bold text-white">{t('header.title')}</h1>
+            <p className="text-white/70 text-sm lg:text-base hidden sm:block">{t('header.subtitle')}</p>
+          </div>
         </div>
-        <div>
-          <h1 className="text-lg lg:text-2xl font-bold text-white">Configurações</h1>
-          <p className="text-white/70 text-sm lg:text-base hidden sm:block">Personalize suas preferências e configurações</p>
-        </div>
+        
+        {/* Back Button */}
+        {onSectionChange && (
+          <Button
+            onClick={handleBackToDashboard}
+            variant="ghost"
+            className="text-white/80 hover:text-white hover:bg-white/10 border border-white/20"
+          >
+            <FiArrowLeft className="w-4 h-4 mr-2" />
+            <span className="hidden sm:inline">{t('header.backButton')}</span>
+            <span className="sm:hidden">Voltar</span>
+          </Button>
+        )}
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
-        {/* Account Settings */}
+        {/* Personal Information */}
         <Card className="backdrop-blur-xl bg-white/10 border-white/20 shadow-2xl">
           <CardHeader>
             <CardTitle className="text-white flex items-center space-x-2">
-              <FiShield className="w-5 h-5" />
-              <span>Conta e Segurança</span>
+              <FiUser className="w-5 h-5" />
+              <span>{t('personalInfo.title')}</span>
             </CardTitle>
             <CardDescription className="text-white/70">
-              Gerencie suas configurações de segurança
+              {t('personalInfo.subtitle')}
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <label className="text-sm font-medium text-white/90">Senha Atual</label>
-              <div className="relative">
-                <Input 
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Digite sua senha atual"
-                  className="pr-10 bg-white/20 border-white/30 text-white placeholder:text-white/60"
-                />
-                <Button
-                  type="button"
-                  variant="ghost"
-                  size="sm"
-                  className="absolute right-0 top-0 h-full px-3 text-white/60 hover:text-white"
-                  onClick={() => setShowPassword(!showPassword)}
-                >
-                  {showPassword ? <FiEyeOff className="w-4 h-4" /> : <FiEye className="w-4 h-4" />}
-                </Button>
-              </div>
-            </div>
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-white/90">Nova Senha</label>
+              <label className="text-sm font-medium text-white/90">{t('personalInfo.fields.fullName.label')}</label>
               <Input 
-                type="password"
-                placeholder="Digite sua nova senha"
+                type="text"
+                placeholder={t('personalInfo.fields.fullName.placeholder')}
                 className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
               />
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-medium text-white/90">Confirmar Nova Senha</label>
+              <label className="text-sm font-medium text-white/90">{t('personalInfo.fields.phone.label')}</label>
               <Input 
-                type="password"
-                placeholder="Confirme sua nova senha"
+                type="tel"
+                placeholder={t('personalInfo.fields.phone.placeholder')}
+                className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
+              />
+            </div>
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-white/90">{t('personalInfo.fields.email.label')}</label>
+              <Input 
+                type="email"
+                placeholder={t('personalInfo.fields.email.placeholder')}
+                className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
+              />
+            </div>
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-white/90">{t('personalInfo.fields.country.label')}</label>
+              <Input 
+                type="text"
+                placeholder={t('personalInfo.fields.country.placeholder')}
+                className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
+              />
+            </div>
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-white/90">{t('personalInfo.fields.age.label')}</label>
+              <Input 
+                type="number"
+                placeholder={t('personalInfo.fields.age.placeholder')}
                 className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
               />
             </div>
             <Button className="w-full bg-gradient-to-r from-orange-400 to-red-400 hover:from-orange-500 hover:to-red-500 text-white">
               <FiSave className="w-4 h-4 mr-2" />
-              Alterar Senha
+              {t('personalInfo.saveButton')}
             </Button>
           </CardContent>
         </Card>
@@ -83,18 +114,18 @@ export function SettingsSection() {
           <CardHeader>
             <CardTitle className="text-white flex items-center space-x-2">
               <FiBell className="w-5 h-5" />
-              <span>Notificações</span>
+              <span>{t('notifications.title')}</span>
             </CardTitle>
             <CardDescription className="text-white/70">
-              Configure suas preferências de notificação
+              {t('notifications.subtitle')}
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-white font-medium">Email de Marketing</p>
-                  <p className="text-white/60 text-sm">Receber ofertas e novidades</p>
+                  <p className="text-white font-medium">{t('notifications.options.marketingEmail.title')}</p>
+                  <p className="text-white/60 text-sm">{t('notifications.options.marketingEmail.description')}</p>
                 </div>
                 <label className="relative inline-flex items-center cursor-pointer">
                   <input type="checkbox" className="sr-only peer" defaultChecked />
@@ -104,8 +135,8 @@ export function SettingsSection() {
               
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-white font-medium">Notificações Push</p>
-                  <p className="text-white/60 text-sm">Alertas importantes no navegador</p>
+                  <p className="text-white font-medium">{t('notifications.options.pushNotifications.title')}</p>
+                  <p className="text-white/60 text-sm">{t('notifications.options.pushNotifications.description')}</p>
                 </div>
                 <label className="relative inline-flex items-center cursor-pointer">
                   <input type="checkbox" className="sr-only peer" defaultChecked />
@@ -115,8 +146,8 @@ export function SettingsSection() {
               
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-white font-medium">Lembretes de CV</p>
-                  <p className="text-white/60 text-sm">Lembretes para atualizar seu currículo</p>
+                  <p className="text-white font-medium">{t('notifications.options.cvReminders.title')}</p>
+                  <p className="text-white/60 text-sm">{t('notifications.options.cvReminders.description')}</p>
                 </div>
                 <label className="relative inline-flex items-center cursor-pointer">
                   <input type="checkbox" className="sr-only peer" />
@@ -132,17 +163,17 @@ export function SettingsSection() {
           <CardHeader>
             <CardTitle className="text-white flex items-center space-x-2">
               {darkMode ? <FiMoon className="w-5 h-5" /> : <FiSun className="w-5 h-5" />}
-              <span>Aparência</span>
+              <span>{t('appearance.title')}</span>
             </CardTitle>
             <CardDescription className="text-white/70">
-              Personalize a aparência da interface
+              {t('appearance.subtitle')}
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-white font-medium">Modo Escuro</p>
-                <p className="text-white/60 text-sm">Ativar tema escuro</p>
+                <p className="text-white font-medium">{t('appearance.options.darkMode.title')}</p>
+                <p className="text-white/60 text-sm">{t('appearance.options.darkMode.description')}</p>
               </div>
               <label className="relative inline-flex items-center cursor-pointer">
                 <input 
@@ -156,11 +187,11 @@ export function SettingsSection() {
             </div>
             
             <div className="space-y-2">
-              <label className="text-sm font-medium text-white/90">Idioma</label>
+              <label className="text-sm font-medium text-white/90">{t('appearance.options.language.label')}</label>
               <select className="w-full p-3 bg-white/20 border border-white/30 rounded-lg text-white">
-                <option value="pt" className="bg-gray-800">Português</option>
-                <option value="en" className="bg-gray-800">English</option>
-                <option value="es" className="bg-gray-800">Español</option>
+                <option value="pt" className="bg-gray-800">{t('appearance.options.language.options.pt')}</option>
+                <option value="en" className="bg-gray-800">{t('appearance.options.language.options.en')}</option>
+                <option value="es" className="bg-gray-800">{t('appearance.options.language.options.es')}</option>
               </select>
             </div>
           </CardContent>
@@ -171,17 +202,17 @@ export function SettingsSection() {
           <CardHeader>
             <CardTitle className="text-white flex items-center space-x-2">
               <FiGlobe className="w-5 h-5" />
-              <span>Privacidade</span>
+              <span>{t('privacy.title')}</span>
             </CardTitle>
             <CardDescription className="text-white/70">
-              Controle sua privacidade e dados
+              {t('privacy.subtitle')}
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-white font-medium">Perfil Público</p>
-                <p className="text-white/60 text-sm">Tornar perfil visível publicamente</p>
+                <p className="text-white font-medium">{t('privacy.options.publicProfile.title')}</p>
+                <p className="text-white/60 text-sm">{t('privacy.options.publicProfile.description')}</p>
               </div>
               <label className="relative inline-flex items-center cursor-pointer">
                 <input type="checkbox" className="sr-only peer" />
@@ -191,8 +222,8 @@ export function SettingsSection() {
             
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-white font-medium">Analytics</p>
-                <p className="text-white/60 text-sm">Compartilhar dados de uso</p>
+                <p className="text-white font-medium">{t('privacy.options.analytics.title')}</p>
+                <p className="text-white/60 text-sm">{t('privacy.options.analytics.description')}</p>
               </div>
               <label className="relative inline-flex items-center cursor-pointer">
                 <input type="checkbox" className="sr-only peer" defaultChecked />
@@ -201,7 +232,7 @@ export function SettingsSection() {
             </div>
             
             <Button variant="ghost" className="w-full text-white/80 hover:text-white hover:bg-white/10">
-              Baixar Meus Dados
+              {t('privacy.downloadData')}
             </Button>
           </CardContent>
         </Card>

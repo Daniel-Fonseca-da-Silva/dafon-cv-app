@@ -21,7 +21,7 @@ export function DashboardContent({ activeSection, onSectionChange }: DashboardCo
       case "profile":
         return <ProfileSection />
       case "settings":
-        return <SettingsSection />
+        return <SettingsSection onSectionChange={onSectionChange} />
       case "plans":
         return <PlansSection />
       default:

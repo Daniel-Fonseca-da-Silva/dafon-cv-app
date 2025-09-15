@@ -2,41 +2,44 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { FiFileText, FiUser, FiSettings, FiCreditCard, FiArrowRight } from "react-icons/fi"
+import { useTranslations } from "next-intl"
 
 interface DashboardCardsProps {
   onCardClick: (section: string) => void
 }
 
 export function DashboardCards({ onCardClick }: DashboardCardsProps) {
+  const t = useTranslations("dashboard.cards")
+
   const cards = [
     {
       id: "generate-cv",
-      title: "Gerar CV com IA",
-      description: "Crie um currículo profissional usando inteligência artificial. Personalize e otimize seu CV em minutos.",
+      title: t("generate-cv.title"),
+      description: t("generate-cv.description"),
       icon: FiFileText,
       gradient: "from-blue-400 to-cyan-400",
       hoverGradient: "from-blue-500 to-cyan-500"
     },
     {
       id: "profile",
-      title: "Meu Perfil",
-      description: "Gerencie suas informações pessoais, experiência profissional e dados de contato.",
+      title: t("profile.title"),
+      description: t("profile.description"),
       icon: FiUser,
       gradient: "from-purple-400 to-pink-400",
       hoverGradient: "from-purple-500 to-pink-500"
     },
     {
       id: "settings",
-      title: "Configurações",
-      description: "Personalize suas preferências, notificações e configurações da conta.",
+      title: t("settings.title"),
+      description: t("settings.description"),
       icon: FiSettings,
       gradient: "from-orange-400 to-red-400",
       hoverGradient: "from-orange-500 to-red-500"
     },
     {
       id: "plans",
-      title: "Meus Planos Atuais",
-      description: "Visualize seu plano atual, recursos disponíveis e opções de upgrade.",
+      title: t("plans.title"),
+      description: t("plans.description"),
       icon: FiCreditCard,
       gradient: "from-green-400 to-emerald-400",
       hoverGradient: "from-green-500 to-emerald-500"
