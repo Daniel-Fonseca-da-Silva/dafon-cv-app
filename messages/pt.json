@@ -180,5 +180,70 @@
         "description": "Gerencie sua assinatura e recursos"
       }
     }
+  },
+  "plans": {
+    "header": {
+      "title": "Meus Planos Atuais",
+      "subtitle": "Gerencie sua assinatura e recursos"
+    },
+    "currentPlan": {
+      "title": "Plano Atual",
+      "subtitle": "Seu plano de assinatura atual",
+      "nextBilling": "Próxima cobrança",
+      "manageSubscription": "Gerenciar Assinatura",
+      "cancelSubscription": "Cancelar Assinatura",
+      "status": "Ativo"
+    },
+    "availablePlans": {
+      "title": "Planos Disponíveis",
+      "popular": "Popular",
+      "current": "Atual",
+      "choosePlan": "Escolher Plano"
+    },
+    "usage": {
+      "title": "Uso do Plano",
+      "subtitle": "Estatísticas de uso do seu plano atual",
+      "cvsCreated": "CVs Criados",
+      "templatesUsed": "Templates Usados",
+      "daysRemaining": "Dias Restantes"
+    },
+    "common": {
+      "period": "mês"
+    },
+    "plans": {
+      "basic": {
+        "name": "Básico",
+        "features": [
+          "5 CVs por mês",
+          "2 Templates básicos",
+          "2 Templates premium",
+          "Análise básica de IA",
+          "Exportação em PDF",
+          "Suporte por email"
+        ]
+      },
+      "pro": {
+        "name": "Pro",
+        "features": [
+          "20 CVs por mês",
+          "Alteracao de cores e estilos",
+          "Traducao automatica de texto",
+          "10 Templates premium",
+          "Análise de IA avançada",
+          "Exportação em PDF/Word"
+        ]
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "features": [
+          "CVs ilimitados",
+          "Templates premium",
+          "API personalizada",
+          "Integração com ATS",
+          "Suporte dedicado",
+          "Relatórios avançados"
+        ]
+      }
+    }
   }
 }

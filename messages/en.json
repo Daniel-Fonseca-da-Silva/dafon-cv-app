@@ -180,5 +180,70 @@
         "description": "Manage your subscription and resources"
       }
     }
+  },
+  "plans": {
+    "header": {
+      "title": "My Current Plans",
+      "subtitle": "Manage your subscription and resources"
+    },
+    "currentPlan": {
+      "title": "Current Plan",
+      "subtitle": "Your current subscription plan",
+      "nextBilling": "Next billing",
+      "manageSubscription": "Manage Subscription",
+      "cancelSubscription": "Cancel Subscription",
+      "status": "Active"
+    },
+    "availablePlans": {
+      "title": "Available Plans",
+      "popular": "Popular",
+      "current": "Current",
+      "choosePlan": "Choose Plan"
+    },
+    "usage": {
+      "title": "Plan Usage",
+      "subtitle": "Usage statistics for your current plan",
+      "cvsCreated": "CVs Created",
+      "templatesUsed": "Templates Used",
+      "daysRemaining": "Days Remaining"
+    },
+    "common": {
+      "period": "month"
+    },
+    "plans": {
+      "basic": {
+        "name": "Basic",
+        "features": [
+          "5 CVs per month",
+          "2 Basic templates",
+          "2 Premium templates",
+          "Basic AI analysis",
+          "PDF export",
+          "Email support"
+        ]
+      },
+      "pro": {
+        "name": "Pro",
+        "features": [
+          "20 CVs per month",
+          "Color and style changes",
+          "Automatic text translation",
+          "10 Premium templates",
+          "Advanced AI analysis",
+          "PDF/Word export"
+        ]
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "features": [
+          "Unlimited CVs",
+          "Premium templates",
+          "Custom API",
+          "ATS integration",
+          "Dedicated support",
+          "Advanced reports"
+        ]
+      }
+    }
   }
 }
