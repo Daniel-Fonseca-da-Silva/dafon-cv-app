@@ -4,6 +4,7 @@ import { FiUser, FiSettings, FiFileText, FiCreditCard, FiLogOut, FiMenu, FiX } f
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import Image from "next/image"
+import { useTranslations } from "next-intl"
 
 interface SidebarProps {
   activeSection: string
@@ -20,47 +21,51 @@ interface SidebarProps {
 export function Sidebar({ 
   activeSection, 
   onSectionChange, 
-  userName = "Usuário", 
-  userEmail = "usuario@exemplo.com",
+  userName, 
+  userEmail,
   userAvatar,
   isCollapsed,
   onToggleCollapse,
   isMobile = false,
   onMobileClose
 }: SidebarProps) {
+  const t = useTranslations('sidebar')
 
   const menuItems = [
     {
       id: "dashboard",
-      label: "Dashboard",
+      label: t('menuItems.dashboard.label'),
       icon: FiFileText,
-      description: "Visão geral"
+      description: t('menuItems.dashboard.description')
     },
     {
       id: "generate-cv",
-      label: "Gerar CV com IA",
+      label: t('menuItems.generate-cv.label'),
       icon: FiFileText,
-      description: "Criar currículo"
+      description: t('menuItems.generate-cv.description')
     },
     {
       id: "profile",
-      label: "Meu Perfil",
+      label: t('menuItems.profile.label'),
       icon: FiUser,
-      description: "Informações pessoais"
+      description: t('menuItems.profile.description')
     },
     {
       id: "settings",
-      label: "Configurações",
+      label: t('menuItems.settings.label'),
       icon: FiSettings,
-      description: "Preferências"
+      description: t('menuItems.settings.description')
     },
     {
       id: "plans",
-      label: "Meus Planos",
+      label: t('menuItems.plans.label'),
       icon: FiCreditCard,
-      description: "Assinatura atual"
+      description: t('menuItems.plans.description')
     }
   ]
+
+  const displayUserName = userName || t('user.defaultName')
+  const displayUserEmail = userEmail || t('user.defaultEmail')
 
   return (
     <div className={`h-full transition-all duration-300 ${
@@ -88,7 +93,7 @@ export function Sidebar({
                 {userAvatar ? (
                   <Image 
                     src={userAvatar} 
-                    alt={userName}
+                    alt={displayUserName}
                     width={48}
                     height={48}
                     className="w-12 h-12 rounded-full object-cover border-2 border-white/20"
@@ -103,10 +108,10 @@ export function Sidebar({
               {(!isCollapsed || isMobile) && (
                 <div className="flex-1 min-w-0">
                   <h3 className="text-white font-semibold text-sm truncate">
-                    {userName}
+                    {displayUserName}
                   </h3>
                   <p className="text-white/70 text-xs truncate">
-                    {userEmail}
+                    {displayUserEmail}
                   </p>
                 </div>
               )}
@@ -149,7 +154,7 @@ export function Sidebar({
               className="w-full justify-start h-12 px-3 text-white/80 hover:bg-red-500/20 hover:text-red-300 transition-all duration-200"
             >
               <FiLogOut className={`w-5 h-5 ${(isCollapsed && !isMobile) ? 'mx-auto' : 'mr-3'}`} />
-              {(!isCollapsed || isMobile) && <span className="font-medium text-sm">Sair</span>}
+              {(!isCollapsed || isMobile) && <span className="font-medium text-sm">{t('logout')}</span>}
             </Button>
           </div>
 
@@ -178,8 +183,8 @@ export function Sidebar({
                     />
                   </div>
                   <div>
-                    <p className="text-white font-semibold text-sm">Dafon CV</p>
-                    <p className="text-white/60 text-xs">Powered by AI</p>
+                    <p className="text-white font-semibold text-sm">{t('brand.name')}</p>
+                    <p className="text-white/60 text-xs">{t('brand.tagline')}</p>
                   </div>
                 </div>
               )}

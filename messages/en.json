@@ -181,6 +181,39 @@
       }
     }
   },
+  "sidebar": {
+    "menuItems": {
+      "dashboard": {
+        "label": "Dashboard",
+        "description": "Overview"
+      },
+      "generate-cv": {
+        "label": "Generate CV with AI",
+        "description": "Create resume"
+      },
+      "profile": {
+        "label": "My Profile",
+        "description": "Personal information"
+      },
+      "settings": {
+        "label": "Settings",
+        "description": "Preferences"
+      },
+      "plans": {
+        "label": "My Plans",
+        "description": "Current subscription"
+      }
+    },
+    "user": {
+      "defaultName": "User",
+      "defaultEmail": "user@example.com"
+    },
+    "logout": "Logout",
+    "brand": {
+      "name": "Dafon CV",
+      "tagline": "Powered by AI"
+    }
+  },
   "plans": {
     "header": {
       "title": "My Current Plans",
