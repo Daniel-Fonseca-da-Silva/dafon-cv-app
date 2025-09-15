@@ -381,5 +381,39 @@
       },
       "downloadData": "Baixar Meus Dados"
     }
+  },
+  "profileSection": {
+    "header": {
+      "title": "Meu Perfil",
+      "subtitle": "Gerencie suas informações pessoais"
+    },
+    "photo": {
+      "title": "Foto do Perfil",
+      "changePhoto": "Alterar Foto"
+    },
+    "personalInfo": {
+      "title": "Informações Pessoais",
+      "subtitle": "Atualize suas informações básicas",
+      "fullName": "Nome Completo",
+      "email": "Email",
+      "phone": "Telefone",
+      "location": "Localização",
+      "saveChanges": "Salvar Alterações"
+    },
+    "professionalInfo": {
+      "title": "Informações Pessoais",
+      "subtitle": "Detalhes sobre sua situação atual",
+      "employmentStatus": "Status de Emprego",
+      "employed": "Empregado",
+      "unemployed": "Desempregado",
+      "currentSalary": "Salário Atual",
+      "salaryPlaceholder": "Ex: 3000€",
+      "careerMigration": "Migrando de Carreira",
+      "careerMigrationText": "Sim, estou migrando de carreira",
+      "gender": "Sexo",
+      "male": "Masculino",
+      "female": "Feminino",
+      "saveChanges": "Salvar Alterações"
+    }
   }
 }

@@ -381,5 +381,39 @@
       },
       "downloadData": "Download My Data"
     }
+  },
+  "profileSection": {
+    "header": {
+      "title": "My Profile",
+      "subtitle": "Manage your personal information"
+    },
+    "photo": {
+      "title": "Profile Photo",
+      "changePhoto": "Change Photo"
+    },
+    "personalInfo": {
+      "title": "Personal Information",
+      "subtitle": "Update your basic information",
+      "fullName": "Full Name",
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location",
+      "saveChanges": "Save Changes"
+    },
+    "professionalInfo": {
+      "title": "Personal Information",
+      "subtitle": "Details about your current situation",
+      "employmentStatus": "Employment Status",
+      "employed": "Employed",
+      "unemployed": "Unemployed",
+      "currentSalary": "Current Salary",
+      "salaryPlaceholder": "Ex: 3000€",
+      "careerMigration": "Career Migration",
+      "careerMigrationText": "Yes, I'm migrating careers",
+      "gender": "Gender",
+      "male": "Male",
+      "female": "Female",
+      "saveChanges": "Save Changes"
+    }
   }
 }
