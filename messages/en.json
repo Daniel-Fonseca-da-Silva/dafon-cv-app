@@ -179,6 +179,24 @@
         "title": "My Plans",
         "description": "Manage your subscription and resources"
       }
+    },
+    "cards": {
+      "generate-cv": {
+        "title": "Generate CV with AI",
+        "description": "Create a professional CV using artificial intelligence. Customize and optimize your CV in minutes."
+      },
+      "profile": {
+        "title": "My Profile",
+        "description": "Manage your personal information, professional experience and contact details."
+      },
+      "settings": {
+        "title": "Settings",
+        "description": "Customize your preferences, notifications and account settings."
+      },
+      "plans": {
+        "title": "My Current Plans",
+        "description": "View your current plan, available resources and upgrade options."
+      }
     }
   },
   "sidebar": {
@@ -277,6 +295,91 @@
           "Advanced reports"
         ]
       }
+    }
+  },
+  "settings": {
+    "header": {
+      "title": "Settings",
+      "subtitle": "Customize your preferences and settings",
+      "backButton": "Back to Dashboard"
+    },
+    "personalInfo": {
+      "title": "Personal Information",
+      "subtitle": "Manage your personal information",
+      "fields": {
+        "fullName": {
+          "label": "Full Name",
+          "placeholder": "Enter your full name"
+        },
+        "phone": {
+          "label": "Phone",
+          "placeholder": "Enter your phone number"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Enter your email"
+        },
+        "country": {
+          "label": "Country",
+          "placeholder": "Enter your country"
+        },
+        "age": {
+          "label": "Age",
+          "placeholder": "Enter your age"
+        }
+      },
+      "saveButton": "Save Information"
+    },
+    "notifications": {
+      "title": "Notifications",
+      "subtitle": "Configure your notification preferences",
+      "options": {
+        "marketingEmail": {
+          "title": "Marketing Email",
+          "description": "Receive offers and news"
+        },
+        "pushNotifications": {
+          "title": "Push Notifications",
+          "description": "Important browser alerts"
+        },
+        "cvReminders": {
+          "title": "CV Reminders",
+          "description": "Reminders to update your resume"
+        }
+      }
+    },
+    "appearance": {
+      "title": "Appearance",
+      "subtitle": "Customize the interface appearance",
+      "options": {
+        "darkMode": {
+          "title": "Dark Mode",
+          "description": "Enable dark theme"
+        },
+        "language": {
+          "label": "Language",
+          "options": {
+            "pt": "Português",
+            "en": "English",
+            "es": "Español"
+          }
+        }
+      }
+    },
+    "privacy": {
+      "title": "Privacy",
+      "subtitle": "Control your privacy and data",
+      "options": {
+        "publicProfile": {
+          "title": "Public Profile",
+          "description": "Make profile publicly visible"
+        },
+        "analytics": {
+          "title": "Analytics",
+          "description": "Share usage data"
+        }
+      },
+      "downloadData": "Download My Data"
     }
   }
 }

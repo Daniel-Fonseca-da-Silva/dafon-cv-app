@@ -179,6 +179,24 @@
         "title": "Meus Planos",
         "description": "Gerencie sua assinatura e recursos"
       }
+    },
+    "cards": {
+      "generate-cv": {
+        "title": "Gerar CV com IA",
+        "description": "Crie um currículo profissional usando inteligência artificial. Personalize e otimize seu CV em minutos."
+      },
+      "profile": {
+        "title": "Meu Perfil",
+        "description": "Gerencie suas informações pessoais, experiência profissional e dados de contato."
+      },
+      "settings": {
+        "title": "Configurações",
+        "description": "Personalize suas preferências, notificações e configurações da conta."
+      },
+      "plans": {
+        "title": "Meus Planos Atuais",
+        "description": "Visualize seu plano atual, recursos disponíveis e opções de upgrade."
+      }
     }
   },
   "sidebar": {
@@ -277,6 +295,91 @@
           "Relatórios avançados"
         ]
       }
+    }
+  },
+  "settings": {
+    "header": {
+      "title": "Configurações",
+      "subtitle": "Personalize suas preferências e configurações",
+      "backButton": "Voltar ao Dashboard"
+    },
+    "personalInfo": {
+      "title": "Informações Pessoais",
+      "subtitle": "Gerencie suas informações pessoais",
+      "fields": {
+        "fullName": {
+          "label": "Nome Completo",
+          "placeholder": "Digite seu nome completo"
+        },
+        "phone": {
+          "label": "Telefone",
+          "placeholder": "Digite seu telefone"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Digite seu email"
+        },
+        "country": {
+          "label": "País",
+          "placeholder": "Digite seu país"
+        },
+        "age": {
+          "label": "Idade",
+          "placeholder": "Digite sua idade"
+        }
+      },
+      "saveButton": "Salvar Informações"
+    },
+    "notifications": {
+      "title": "Notificações",
+      "subtitle": "Configure suas preferências de notificação",
+      "options": {
+        "marketingEmail": {
+          "title": "Email de Marketing",
+          "description": "Receber ofertas e novidades"
+        },
+        "pushNotifications": {
+          "title": "Notificações Push",
+          "description": "Alertas importantes no navegador"
+        },
+        "cvReminders": {
+          "title": "Lembretes de CV",
+          "description": "Lembretes para atualizar seu currículo"
+        }
+      }
+    },
+    "appearance": {
+      "title": "Aparência",
+      "subtitle": "Personalize a aparência da interface",
+      "options": {
+        "darkMode": {
+          "title": "Modo Escuro",
+          "description": "Ativar tema escuro"
+        },
+        "language": {
+          "label": "Idioma",
+          "options": {
+            "pt": "Português",
+            "en": "English",
+            "es": "Español"
+          }
+        }
+      }
+    },
+    "privacy": {
+      "title": "Privacidade",
+      "subtitle": "Controle sua privacidade e dados",
+      "options": {
+        "publicProfile": {
+          "title": "Perfil Público",
+          "description": "Tornar perfil visível publicamente"
+        },
+        "analytics": {
+          "title": "Analytics",
+          "description": "Compartilhar dados de uso"
+        }
+      },
+      "downloadData": "Baixar Meus Dados"
     }
   }
 }
