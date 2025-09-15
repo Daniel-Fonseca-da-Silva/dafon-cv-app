@@ -3,10 +3,20 @@
 import { useTranslations } from 'next-intl'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { FiCreditCard, FiCheck, FiAward, FiZap, FiStar, FiArrowRight } from "react-icons/fi"
+import { FiCreditCard, FiCheck, FiAward, FiZap, FiStar, FiArrowRight, FiArrowLeft } from "react-icons/fi"
 
-export function PlansSection() {
+interface PlansSectionProps {
+  onSectionChange?: (section: string) => void
+}
+
+export function PlansSection({ onSectionChange }: PlansSectionProps) {
   const t = useTranslations('plans')
+
+  const handleBackToDashboard = () => {
+    if (onSectionChange) {
+      onSectionChange('dashboard')
+    }
+  }
   
   const currentPlan = {
     name: t('plans.pro.name'),
@@ -47,14 +57,29 @@ export function PlansSection() {
   return (
     <div className="p-4 lg:p-6 space-y-4 lg:space-y-6">
       {/* Cabeçalho */}
-      <div className="flex items-center space-x-3 mb-4 lg:mb-6">
-        <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-xl bg-gradient-to-br from-green-400 to-emerald-400 flex items-center justify-center">
-          <FiCreditCard className="w-4 h-4 lg:w-5 lg:h-5 text-white" />
+      <div className="flex items-center justify-between mb-4 lg:mb-6">
+        <div className="flex items-center space-x-3">
+          <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-xl bg-gradient-to-br from-green-400 to-emerald-400 flex items-center justify-center">
+            <FiCreditCard className="w-4 h-4 lg:w-5 lg:h-5 text-white" />
+          </div>
+          <div>
+            <h1 className="text-lg lg:text-2xl font-bold text-white">{t('header.title')}</h1>
+            <p className="text-white/70 text-sm lg:text-base hidden sm:block">{t('header.subtitle')}</p>
+          </div>
         </div>
-        <div>
-          <h1 className="text-lg lg:text-2xl font-bold text-white">{t('header.title')}</h1>
-          <p className="text-white/70 text-sm lg:text-base hidden sm:block">{t('header.subtitle')}</p>
-        </div>
+        
+        {/* Back Button */}
+        {onSectionChange && (
+          <Button
+            onClick={handleBackToDashboard}
+            variant="ghost"
+            className="text-white/80 hover:text-white hover:bg-white/10 border border-white/20"
+          >
+            <FiArrowLeft className="w-4 h-4 mr-2" />
+            <span className="hidden sm:inline">{t('header.backButton')}</span>
+            <span className="sm:hidden">Voltar</span>
+          </Button>
+        )}
       </div>
 
       {/* Plano Atual */}

@@ -3,23 +3,48 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { FiUser, FiMail, FiPhone, FiMapPin, FiSave, FiCamera } from "react-icons/fi"
+import { FiUser, FiMail, FiPhone, FiMapPin, FiSave, FiCamera, FiArrowLeft } from "react-icons/fi"
 import { useTranslations } from "next-intl"
 
-export function ProfileSection() {
+interface ProfileSectionProps {
+  onSectionChange?: (section: string) => void
+}
+
+export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
   const t = useTranslations('profileSection')
+
+  const handleBackToDashboard = () => {
+    if (onSectionChange) {
+      onSectionChange('dashboard')
+    }
+  }
   
   return (
     <div className="p-4 lg:p-6 space-y-4 lg:space-y-6">
       {/* Cabecalho */}
-      <div className="flex items-center space-x-3 mb-4 lg:mb-6">
-        <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-xl bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center">
-          <FiUser className="w-4 h-4 lg:w-5 lg:h-5 text-white" />
+      <div className="flex items-center justify-between mb-4 lg:mb-6">
+        <div className="flex items-center space-x-3">
+          <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-xl bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center">
+            <FiUser className="w-4 h-4 lg:w-5 lg:h-5 text-white" />
+          </div>
+          <div>
+            <h1 className="text-lg lg:text-2xl font-bold text-white">{t('header.title')}</h1>
+            <p className="text-white/70 text-sm lg:text-base hidden sm:block">{t('header.subtitle')}</p>
+          </div>
         </div>
-        <div>
-          <h1 className="text-lg lg:text-2xl font-bold text-white">{t('header.title')}</h1>
-          <p className="text-white/70 text-sm lg:text-base hidden sm:block">{t('header.subtitle')}</p>
-        </div>
+        
+        {/* Back Button */}
+        {onSectionChange && (
+          <Button
+            onClick={handleBackToDashboard}
+            variant="ghost"
+            className="text-white/80 hover:text-white hover:bg-white/10 border border-white/20"
+          >
+            <FiArrowLeft className="w-4 h-4 mr-2" />
+            <span className="hidden sm:inline">{t('header.backButton')}</span>
+            <span className="sm:hidden">Voltar</span>
+          </Button>
+        )}
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">

@@ -19,11 +19,11 @@ export function DashboardContent({ activeSection, onSectionChange }: DashboardCo
       case "generate-cv":
         return <GenerateCvSection />
       case "profile":
-        return <ProfileSection />
+        return <ProfileSection onSectionChange={onSectionChange} />
       case "settings":
         return <SettingsSection onSectionChange={onSectionChange} />
       case "plans":
-        return <PlansSection />
+        return <PlansSection onSectionChange={onSectionChange} />
       default:
         return <DashboardCards onCardClick={onSectionChange} />
     }

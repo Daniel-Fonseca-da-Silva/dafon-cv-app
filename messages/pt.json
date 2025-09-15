@@ -235,7 +235,8 @@
   "plans": {
     "header": {
       "title": "Meus Planos Atuais",
-      "subtitle": "Gerencie sua assinatura e recursos"
+      "subtitle": "Gerencie sua assinatura e recursos",
+      "backButton": "Voltar ao Dashboard"
     },
     "currentPlan": {
       "title": "Plano Atual",
@@ -385,7 +386,8 @@
   "profileSection": {
     "header": {
       "title": "Meu Perfil",
-      "subtitle": "Gerencie suas informações pessoais"
+      "subtitle": "Gerencie suas informações pessoais",
+      "backButton": "Voltar ao Dashboard"
     },
     "photo": {
       "title": "Foto do Perfil",

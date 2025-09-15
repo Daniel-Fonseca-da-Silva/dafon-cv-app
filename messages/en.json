@@ -235,7 +235,8 @@
   "plans": {
     "header": {
       "title": "My Current Plans",
-      "subtitle": "Manage your subscription and resources"
+      "subtitle": "Manage your subscription and resources",
+      "backButton": "Back to Dashboard"
     },
     "currentPlan": {
       "title": "Current Plan",
@@ -385,7 +386,8 @@
   "profileSection": {
     "header": {
       "title": "My Profile",
-      "subtitle": "Manage your personal information"
+      "subtitle": "Manage your personal information",
+      "backButton": "Back to Dashboard"
     },
     "photo": {
       "title": "Profile Photo",
