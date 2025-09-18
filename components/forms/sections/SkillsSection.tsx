@@ -101,7 +101,7 @@ export function SkillsSection({ data, onDataChange, onPrevious }: CvSectionProps
       skillsData: {
         ...data.skillsData,
         languages: data.skillsData.languages.map(l => 
-          l.id === id ? { ...l, level: level as any } : l
+          l.id === id ? { ...l, level: level as 'basico' | 'intermediario' | 'avancado' | 'nativo' } : l
         )
       }
     })
