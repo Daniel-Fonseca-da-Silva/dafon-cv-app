@@ -387,7 +387,8 @@
     "header": {
       "title": "Gerar CV com IA",
       "subtitle": "Crie um currículo profissional usando inteligência artificial",
-      "backButton": "Voltar ao Dashboard"
+      "backButton": "Voltar ao Dashboard",
+      "backButtonMobile": "Dashboard"
     }
   },
   "profileSection": {

@@ -387,7 +387,8 @@
     "header": {
       "title": "Generate CV with AI",
       "subtitle": "Create a professional CV using artificial intelligence",
-      "backButton": "Back to Dashboard"
+      "backButton": "Back to Dashboard",
+      "backButtonMobile": "Dashboard"
     }
   },
   "profileSection": {
