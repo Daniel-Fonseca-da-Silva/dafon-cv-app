@@ -25,6 +25,16 @@ export interface Education {
   description: string
 }
 
+export interface Course {
+  id: string
+  name: string
+  institution: string
+  startDate: string
+  endDate: string
+  description: string
+  certificateUrl?: string
+}
+
 export interface Skill {
   id: string
   name: string
@@ -53,12 +63,13 @@ export interface CvData {
   personalInfo: PersonalInfo
   experiences: Experience[]
   educations: Education[]
+  courses: Course[]
   skills: Skill[]
   skillsData: SkillsData
   socialLinks?: SocialLink[]
 }
 
-export type CvSection = 'personal' | 'experience' | 'education' | 'skills' | 'social' | 'complete'
+export type CvSection = 'personal' | 'experience' | 'education' | 'courses' | 'skills' | 'social' | 'complete'
 
 export interface CvSectionProps {
   data: CvData
