@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl'
 import { PersonalInfoSection } from './sections/PersonalInfoSection'
 import { ExperienceSection } from './sections/ExperienceSection'
 import { EducationSection } from './sections/EducationSection'
+import { CourseSection } from './sections/CourseSection'
 import { SkillsSection } from './sections/SkillsSection'
 import { SocialSection } from './sections/SocialSection'
 import { CvData, CvSection } from '@/types/cv.types'
@@ -23,6 +24,7 @@ const initialCvData: CvData = {
   educations: [
     { id: '1', institution: '', degree: '', startDate: '', endDate: '', description: '' }
   ],
+  courses: [],
   skills: [
     { id: '1', name: '', level: 'iniciante' }
   ],
@@ -52,6 +54,9 @@ export function CvFormContainer() {
         setCurrentSection('experience')
         break
       case 'experience':
+        setCurrentSection('courses')
+        break
+      case 'courses':
         setCurrentSection('social')
         break
       case 'social':
@@ -73,8 +78,11 @@ export function CvFormContainer() {
       case 'experience':
         setCurrentSection('education')
         break
-      case 'social':
+      case 'courses':
         setCurrentSection('experience')
+        break
+      case 'social':
+        setCurrentSection('courses')
         break
       case 'skills':
         setCurrentSection('social')
@@ -99,6 +107,8 @@ export function CvFormContainer() {
         return <EducationSection {...commonProps} />
       case 'experience':
         return <ExperienceSection {...commonProps} />
+      case 'courses':
+        return <CourseSection {...commonProps} />
       case 'social':
         return <SocialSection {...commonProps} />
       case 'skills':
@@ -133,9 +143,9 @@ export function CvFormContainer() {
         {/* Indicador de Progresso */}
         <div className="mb-8">
           <div className="flex justify-center items-center space-x-2 sm:space-x-4 px-4">
-            {(['personal', 'education', 'experience', 'social', 'skills'] as CvSection[]).map((section, index) => {
+            {(['personal', 'education', 'experience', 'courses', 'social', 'skills'] as CvSection[]).map((section, index) => {
               const isActive = currentSection === section
-              const isCompleted = ['personal', 'education', 'experience', 'social', 'skills'].indexOf(currentSection) > index
+              const isCompleted = ['personal', 'education', 'experience', 'courses', 'social', 'skills'].indexOf(currentSection) > index
               
               return (
                 <div key={section} className="flex items-center">
@@ -150,7 +160,7 @@ export function CvFormContainer() {
                   >
                     {index + 1}
                   </div>
-                  {index < 4 && (
+                  {index < 5 && (
                     <div
                       className={`w-8 sm:w-12 md:w-16 h-1 mx-1 sm:mx-2 transition-all duration-300 ${
                         isCompleted ? 'bg-gradient-to-r from-green-500 to-emerald-600' : 'bg-white/20'
@@ -166,6 +176,7 @@ export function CvFormContainer() {
               {currentSection === 'personal' && t('sections.personal')}
               {currentSection === 'education' && t('sections.education')}
               {currentSection === 'experience' && t('sections.experience')}
+              {currentSection === 'courses' && 'Cursos e Certificações'}
               {currentSection === 'social' && t('sections.social')}
               {currentSection === 'skills' && t('sections.skills')}
               {currentSection === 'complete' && t('sections.complete')}
