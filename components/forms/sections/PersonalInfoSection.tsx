@@ -66,7 +66,7 @@ export function PersonalInfoSection({ data, onDataChange, onNext }: CvSectionPro
     // TODO: Implementar integração com IA
     console.log('Usando IA para gerar texto sobre você')
     // Por enquanto, vamos adicionar um texto de exemplo
-    updatePersonalInfo('aboutYourself', 'Sou um profissional dedicado e apaixonado por tecnologia, com experiência em desenvolvimento de software e uma forte capacidade de trabalhar em equipe. Sempre busco aprender novas tecnologias e contribuir para projetos inovadores.')
+    updatePersonalInfo('aboutYourself', 'I`m a dedicated and passionate professional with experience in software development and a strong ability to work in a team. I always seek to learn new technologies and contribute to innovative projects.')
   }
 
   const isFormValid = () => {
