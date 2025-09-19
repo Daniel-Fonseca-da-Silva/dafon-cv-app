@@ -52,10 +52,10 @@ export function GenerateCvSection({ onSectionChange }: GenerateCvSectionProps) {
           >
             <FiArrowLeft className="w-4 h-4 mr-2" />
             <span className="hidden sm:inline">
-              {showForm ? 'Voltar aos Cards' : t('header.backButton')}
+              {showForm ? t('header.backButton') : t('header.backButton')}
             </span>
             <span className="sm:hidden">
-              {showForm ? 'Voltar' : 'Voltar'}
+              {showForm ? t('header.backButtonMobile') : t('header.backButtonMobile')}
             </span>
           </Button>
         )}
