@@ -13,6 +13,7 @@ interface GenerateCvSectionProps {
 
 export function GenerateCvSection({ onSectionChange }: GenerateCvSectionProps) {
   const t = useTranslations('generateCv')
+  const tForm = useTranslations('generateCv.form')
   const [showForm, setShowForm] = useState(false)
 
   const handleBackToDashboard = () => {
@@ -71,10 +72,10 @@ export function GenerateCvSection({ onSectionChange }: GenerateCvSectionProps) {
             <CardHeader className="text-center">
               <CardTitle className="text-white flex items-center justify-center space-x-2">
                 <FiZap className="w-6 h-6" />
-                <span>Gerar Currículo</span>
+                <span>{tForm('title')}</span>
               </CardTitle>
               <CardDescription className="text-white/70">
-                Crie um currículo profissional usando inteligência artificial
+                {tForm('subtitle')}
               </CardDescription>
             </CardHeader>
             <CardContent className="text-center">
@@ -84,7 +85,7 @@ export function GenerateCvSection({ onSectionChange }: GenerateCvSectionProps) {
                 className="bg-gradient-to-r from-blue-400 to-cyan-400 hover:from-blue-500 hover:to-cyan-500 text-white px-8 py-3 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
               >
                 <FiZap className="w-5 h-5 mr-2" />
-                Gerar Currículo
+                {tForm('generateButton')}
               </Button>
             </CardContent>
           </Card>
@@ -94,10 +95,10 @@ export function GenerateCvSection({ onSectionChange }: GenerateCvSectionProps) {
             <CardHeader>
               <CardTitle className="text-white flex items-center space-x-2">
                 <FiEdit3 className="w-5 h-5" />
-                <span>Currículos Recentes</span>
+                <span>{tForm('recentCvs')}</span>
               </CardTitle>
               <CardDescription className="text-white/70">
-                Seus currículos gerados recentemente
+                {tForm('recentCvsSubtitle')}
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -107,8 +108,8 @@ export function GenerateCvSection({ onSectionChange }: GenerateCvSectionProps) {
                     <div className="flex items-center space-x-3">
                       <FiFileText className="w-5 h-5 text-white/60" />
                       <div>
-                        <p className="text-white font-medium">CV Desenvolvedor Frontend - {item}</p>
-                        <p className="text-white/60 text-sm">Criado há {item} dia{item > 1 ? 's' : ''}</p>
+                        <p className="text-white font-medium">{tForm('cvTitle')} - {item}</p>
+                        <p className="text-white/60 text-sm">{tForm('createdDaysAgo', { days: item })}</p>
                       </div>
                     </div>
                     <div className="flex space-x-2">

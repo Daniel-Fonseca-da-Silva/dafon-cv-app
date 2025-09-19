@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 import { PersonalInfoSection } from './sections/PersonalInfoSection'
 import { ExperienceSection } from './sections/ExperienceSection'
 import { EducationSection } from './sections/EducationSection'
@@ -34,6 +35,7 @@ const initialCvData: CvData = {
 }
 
 export function CvFormContainer() {
+  const t = useTranslations('cvForm')
   const [currentSection, setCurrentSection] = useState<CvSection>('personal')
   const [cvData, setCvData] = useState<CvData>(initialCvData)
 
@@ -105,17 +107,17 @@ export function CvFormContainer() {
         return (
           <div className="text-center space-y-6">
             <h1 className="text-3xl lg:text-4xl font-bold text-white mb-2">
-              Currículo Criado com Sucesso!
+              {t('complete.title')}
             </h1>
             <p className="text-white/70 text-lg">
-              Seu currículo foi salvo e está pronto para download.
+              {t('complete.subtitle')}
             </p>
             <div className="flex justify-center space-x-4">
               <button
                 onClick={() => setCurrentSection('personal')}
                 className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-200"
               >
-                Criar Novo Currículo
+                {t('complete.createNewButton')}
               </button>
             </div>
           </div>
@@ -128,7 +130,7 @@ export function CvFormContainer() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       <div className="container mx-auto px-4 py-8">
-        {/* Progress Indicator */}
+        {/* Indicador de Progresso */}
         <div className="mb-8">
           <div className="flex justify-center items-center space-x-2 sm:space-x-4 px-4">
             {(['personal', 'education', 'experience', 'social', 'skills'] as CvSection[]).map((section, index) => {
@@ -161,17 +163,17 @@ export function CvFormContainer() {
           </div>
           <div className="flex justify-center mt-4 px-4">
             <div className="text-white/70 text-xs sm:text-sm text-center">
-              {currentSection === 'personal' && 'Informações Pessoais'}
-              {currentSection === 'education' && 'Educação'}
-              {currentSection === 'experience' && 'Experiência Profissional'}
-              {currentSection === 'social' && 'Redes Sociais'}
-              {currentSection === 'skills' && 'Habilidades'}
-              {currentSection === 'complete' && 'Concluído'}
+              {currentSection === 'personal' && t('sections.personal')}
+              {currentSection === 'education' && t('sections.education')}
+              {currentSection === 'experience' && t('sections.experience')}
+              {currentSection === 'social' && t('sections.social')}
+              {currentSection === 'skills' && t('sections.skills')}
+              {currentSection === 'complete' && t('sections.complete')}
             </div>
           </div>
         </div>
 
-        {/* Current Section */}
+        {/* Seção Atual */}
         {renderCurrentSection()}
       </div>
     </div>

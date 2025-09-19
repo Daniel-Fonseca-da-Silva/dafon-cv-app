@@ -389,6 +389,17 @@
       "subtitle": "Create a professional CV using artificial intelligence",
       "backButton": "Back to Dashboard",
       "backButtonMobile": "Dashboard"
+    },
+    "form": {
+      "title": "Generate CV",
+      "subtitle": "Create a professional CV using artificial intelligence",
+      "generateButton": "Generate CV",
+      "recentCvs": "Recent CVs",
+      "recentCvsSubtitle": "Your recently generated CVs",
+      "cvTitle": "Frontend Developer CV",
+      "createdDaysAgo": "Created {days} day{days, plural, one {} other {s}} ago",
+      "editButton": "Edit",
+      "downloadButton": "Download"
     }
   },
   "profileSection": {
@@ -424,6 +435,60 @@
       "male": "Male",
       "female": "Female",
       "saveChanges": "Save Changes"
+    }
+  },
+  "cvForm": {
+    "personalInfo": {
+      "title": "Personal Information",
+      "subtitle": "Let's start with your basic data",
+      "contactData": {
+        "title": "Contact Data",
+        "subtitle": "Your contact data and basic information"
+      },
+      "fields": {
+        "fullName": {
+          "label": "Full Name *",
+          "placeholder": "Your full name"
+        },
+        "email": {
+          "label": "E-mail *",
+          "placeholder": "your@email.com"
+        },
+        "phone": {
+          "label": "Phone *",
+          "placeholder": "(11) 99999-9999"
+        },
+        "driverLicense": {
+          "label": "Driver's License",
+          "placeholder": "Ex: Category B, Category A, etc...",
+          "quickSuggestions": "Quick suggestions:",
+          "categoryPrefix": "Category",
+          "noLicense": "No License"
+        }
+      },
+      "aboutYourself": {
+        "title": "Write about yourself *",
+        "placeholder": "Tell us about yourself, your experiences, skills and professional goals...",
+        "useAiButton": "Use AI",
+        "personalTip": {
+          "title": "Personal Tip",
+          "description": "A good personal introduction shows your personality and humanizes your profile. Talk about your passions, hobbies that demonstrate relevant qualities, values that motivate you and what inspires you. Be authentic and show what makes you unique!"
+        }
+      },
+      "continueButton": "Continue"
+    },
+    "sections": {
+      "personal": "Personal Information",
+      "education": "Education",
+      "experience": "Professional Experience",
+      "social": "Social Networks",
+      "skills": "Skills",
+      "complete": "Complete"
+    },
+    "complete": {
+      "title": "CV Created Successfully!",
+      "subtitle": "Your CV has been saved and is ready for download.",
+      "createNewButton": "Create New CV"
     }
   }
 }

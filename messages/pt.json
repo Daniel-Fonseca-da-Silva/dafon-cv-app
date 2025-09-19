@@ -389,6 +389,17 @@
       "subtitle": "Crie um currículo profissional usando inteligência artificial",
       "backButton": "Voltar ao Dashboard",
       "backButtonMobile": "Dashboard"
+    },
+    "form": {
+      "title": "Gerar Currículo",
+      "subtitle": "Crie um currículo profissional usando inteligência artificial",
+      "generateButton": "Gerar Currículo",
+      "recentCvs": "Currículos Recentes",
+      "recentCvsSubtitle": "Seus currículos gerados recentemente",
+      "cvTitle": "CV Desenvolvedor Frontend",
+      "createdDaysAgo": "Criado há {days} dia{days, plural, one {} other {s}}",
+      "editButton": "Editar",
+      "downloadButton": "Baixar"
     }
   },
   "profileSection": {
@@ -424,6 +435,60 @@
       "male": "Masculino",
       "female": "Feminino",
       "saveChanges": "Salvar Alterações"
+    }
+  },
+  "cvForm": {
+    "personalInfo": {
+      "title": "Informações Pessoais",
+      "subtitle": "Vamos começar com seus dados básicos",
+      "contactData": {
+        "title": "Dados de Contato",
+        "subtitle": "Seus dados de contato e informações básicas"
+      },
+      "fields": {
+        "fullName": {
+          "label": "Nome Completo *",
+          "placeholder": "Seu nome completo"
+        },
+        "email": {
+          "label": "E-mail *",
+          "placeholder": "seu@email.com"
+        },
+        "phone": {
+          "label": "Telefone *",
+          "placeholder": "(11) 99999-9999"
+        },
+        "driverLicense": {
+          "label": "Carteira de Motorista",
+          "placeholder": "Ex: Categoria B, Categoria A, etc...",
+          "quickSuggestions": "Sugestões rápidas:",
+          "categoryPrefix": "Categoria",
+          "noLicense": "Sem Carteira"
+        }
+      },
+      "aboutYourself": {
+        "title": "Fale sobre você *",
+        "placeholder": "Conte-nos sobre você, suas experiências, habilidades e objetivos profissionais...",
+        "useAiButton": "Use IA",
+        "personalTip": {
+          "title": "Dica Pessoal",
+          "description": "Uma boa introdução pessoal mostra sua personalidade e humaniza seu perfil. Fale sobre suas paixões, hobbies que demonstram qualidades relevantes, valores que motivam você e o que inspira você. Seja autêntico e mostre o que te torna único!"
+        }
+      },
+      "continueButton": "Continuar"
+    },
+    "sections": {
+      "personal": "Informações Pessoais",
+      "education": "Educação",
+      "experience": "Experiência Profissional",
+      "social": "Redes Sociais",
+      "skills": "Habilidades",
+      "complete": "Concluído"
+    },
+    "complete": {
+      "title": "Currículo Criado com Sucesso!",
+      "subtitle": "Seu currículo foi salvo e está pronto para download.",
+      "createNewButton": "Criar Novo Currículo"
     }
   }
 }
