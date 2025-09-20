@@ -4,8 +4,16 @@ import { useTranslations } from 'next-intl'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import { FiSettings, FiBell, FiShield, FiGlobe, FiMoon, FiSun, FiSave, FiUser, FiPhone, FiMail, FiMapPin, FiCalendar, FiArrowLeft } from "react-icons/fi"
 import { useState } from "react"
+import { useLocale } from '@/hooks/use-locale'
 
 interface SettingsSectionProps {
   onSectionChange?: (section: string) => void
@@ -14,11 +22,16 @@ interface SettingsSectionProps {
 export function SettingsSection({ onSectionChange }: SettingsSectionProps) {
   const t = useTranslations('settings')
   const [darkMode, setDarkMode] = useState(false)
+  const { locale, changeLocale } = useLocale()
 
   const handleBackToDashboard = () => {
     if (onSectionChange) {
       onSectionChange('dashboard')
     }
+  }
+
+  const handleLanguageChange = (newLocale: string) => {
+    changeLocale(newLocale)
   }
 
   return (
@@ -188,11 +201,15 @@ export function SettingsSection({ onSectionChange }: SettingsSectionProps) {
             
             <div className="space-y-2">
               <label className="text-sm font-medium text-white/90">{t('appearance.options.language.label')}</label>
-              <select className="w-full p-3 bg-white/20 border border-white/30 rounded-lg text-white">
-                <option value="pt" className="bg-gray-800">{t('appearance.options.language.options.pt')}</option>
-                <option value="en" className="bg-gray-800">{t('appearance.options.language.options.en')}</option>
-                <option value="es" className="bg-gray-800">{t('appearance.options.language.options.es')}</option>
-              </select>
+              <Select value={locale} onValueChange={handleLanguageChange}>
+                <SelectTrigger className="w-full bg-white/20 border-white/30 text-white hover:text-white/80 focus:ring-white/50">
+                  <SelectValue placeholder={t('appearance.options.language.label')} />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="pt">{t('appearance.options.language.options.pt')}</SelectItem>
+                  <SelectItem value="en">{t('appearance.options.language.options.en')}</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
           </CardContent>
         </Card>
