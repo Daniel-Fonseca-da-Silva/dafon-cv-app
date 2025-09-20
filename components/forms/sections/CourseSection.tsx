@@ -1,8 +1,10 @@
 "use client"
 
+import { useTranslations } from 'next-intl'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
 import { 
   FiBookOpen,
   FiArrowRight,
@@ -15,6 +17,7 @@ import { CvSectionProps, Course } from "@/types/cv.types"
 import { useState } from "react"
 
 export function CourseSection({ data, onDataChange, onNext, onPrevious }: CvSectionProps) {
+  const t = useTranslations('cvForm.courses')
   const [aiPrompt, setAiPrompt] = useState('')
   const [isGenerating, setIsGenerating] = useState(false)
 
@@ -111,7 +114,7 @@ Estes cursos demonstram compromisso com aprendizado contínuo e desenvolvimento 
   }
 
   const isFormValid = () => {
-    return data.courses.every(course => 
+    return data.courses.some(course => 
       course.description.trim() !== ''
     )
   }
@@ -121,10 +124,10 @@ Estes cursos demonstram compromisso com aprendizado contínuo e desenvolvimento 
       {/* Header */}
       <div className="text-center mb-8">
         <h1 className="text-3xl lg:text-4xl font-bold text-white mb-2">
-          Cursos e Certificações
+          {t('title')}
         </h1>
         <p className="text-white/70 text-lg">
-          Seus cursos, certificações e treinamentos
+          {t('subtitle')}
         </p>
       </div>
 
@@ -133,10 +136,10 @@ Estes cursos demonstram compromisso com aprendizado contínuo e desenvolvimento 
         <CardHeader>
           <CardTitle className="text-white flex items-center space-x-2">
             <FiZap className="w-5 h-5" />
-            <span>Gerador de Cursos com IA</span>
+            <span>{t('aiGenerator.title')}</span>
           </CardTitle>
           <CardDescription className="text-white/70">
-            Digite uma área de interesse e deixe a IA sugerir cursos relacionados
+            {t('aiGenerator.subtitle')}
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -145,7 +148,7 @@ Estes cursos demonstram compromisso com aprendizado contínuo e desenvolvimento 
               <Input
                 value={aiPrompt}
                 onChange={(e) => setAiPrompt(e.target.value)}
-                placeholder="Ex: Desenvolvimento Web, Marketing Digital, Data Science..."
+                placeholder={t('aiGenerator.placeholder')}
                 className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
                 disabled={isGenerating}
               />
@@ -160,7 +163,7 @@ Estes cursos demonstram compromisso com aprendizado contínuo e desenvolvimento 
               ) : (
                 <>
                   <FiZap className="w-4 h-4 mr-2" />
-                  Usar IA
+                  {t('aiGenerator.useAiButton')}
                 </>
               )}
             </Button>
@@ -168,7 +171,7 @@ Estes cursos demonstram compromisso com aprendizado contínuo e desenvolvimento 
           {isGenerating && (
             <div className="text-center">
               <p className="text-white/70 text-sm">
-                Gerando lista de cursos relacionados...
+                {t('aiGenerator.generating')}
               </p>
             </div>
           )}
@@ -185,18 +188,18 @@ Estes cursos demonstram compromisso com aprendizado contínuo e desenvolvimento 
               <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-lg flex items-center justify-center">
                 <FiBookOpen className="w-5 h-5 text-white" />
               </div>
-              <h3 className="text-white text-lg font-semibold">Cursos e Certificações</h3>
+              <h3 className="text-white text-lg font-semibold">{t('coursesTitle')}</h3>
             </div>
 
             {/* Campo de Descrição */}
             <div className="space-y-2">
-              <label className="text-white/80 text-sm font-medium">Lista de Cursos e Certificações</label>
-              <textarea
+              <label className="text-white/80 text-sm font-medium">{t('fields.description.label')}</label>
+              <Textarea
                 value={course.description}
                 onChange={(e) => updateCourse(course.id, 'description', e.target.value)}
-                placeholder="Use o gerador de IA acima para criar uma lista de cursos relacionados, ou digite manualmente seus cursos e certificações..."
+                placeholder={t('fields.description.placeholder')}
                 rows={12}
-                className="w-full bg-white/20 border border-white/30 text-white placeholder:text-white/60 rounded-lg px-4 py-3 resize-none focus:outline-none focus:ring-2 focus:ring-emerald-400/50"
+                className="bg-white/20 border-white/30 text-white placeholder:text-white/60 focus:ring-2 focus:ring-emerald-400/50"
               />
             </div>
           </CardContent>
@@ -211,9 +214,9 @@ Estes cursos demonstram compromisso com aprendizado contínuo e desenvolvimento 
               <FiInfo className="w-4 h-4 text-emerald-400" />
             </div>
             <div>
-              <h4 className="text-white font-medium text-sm mb-1">Dica de Cursos</h4>
+              <h4 className="text-white font-medium text-sm mb-1">{t('tip.title')}</h4>
               <p className="text-white/70 text-xs leading-relaxed">
-                Use o gerador de IA para criar uma lista completa de cursos relacionados à sua área. A IA irá gerar automaticamente nomes, instituições, períodos e descrições para cada curso. Você pode editar a lista gerada conforme necessário.
+                {t('tip.description')}
               </p>
             </div>
           </div>
@@ -228,7 +231,7 @@ Estes cursos demonstram compromisso com aprendizado contínuo e desenvolvimento 
           className="bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 text-white px-8 py-3 shadow-md hover:shadow-lg transition-all duration-200"
         >
           <FiArrowLeft className="w-5 h-5 mr-2" />
-          Voltar
+          {t('navigation.back')}
         </Button>
         <Button
           onClick={onNext}
@@ -236,7 +239,7 @@ Estes cursos demonstram compromisso com aprendizado contínuo e desenvolvimento 
           disabled={!isFormValid()}
           className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-3 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transition-all duration-200"
         >
-          Continuar
+          {t('navigation.continue')}
           <FiArrowRight className="w-5 h-5 ml-2" />
         </Button>
       </div>
