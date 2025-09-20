@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
 import { 
   FiUser, 
   FiMail, 
@@ -244,11 +245,11 @@ export function PersonalInfoSection({ data, onDataChange, onNext }: CvSectionPro
             </div>
 
             {/* Área de Texto */}
-            <textarea
+            <Textarea
               value={data.personalInfo.aboutYourself || ''}
               onChange={(e) => updatePersonalInfo('aboutYourself', e.target.value)}
               placeholder={t('aboutYourself.placeholder')}
-              className="w-full h-32 bg-transparent border border-white/30 rounded-lg text-white placeholder:text-white/60 p-4 resize-none focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-transparent"
+              className="h-32 bg-transparent border-white/30 text-white placeholder:text-white/60 focus:ring-2 focus:ring-purple-500/50 focus:border-transparent"
               required
             />
 
