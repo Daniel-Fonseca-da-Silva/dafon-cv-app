@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -19,20 +20,38 @@ import {
 } from "react-icons/fi"
 import { CvSectionProps, Language } from "@/types/cv.types"
 
-const SKILL_AREAS = [
-  'Frontend Development', 'Backend Development', 'Full Stack Development',
-  'Mobile Development', 'DevOps', 'Data Science', 'Machine Learning',
-  'UI/UX Design', 'Product Management', 'Project Management',
-  'Quality Assurance', 'Cybersecurity', 'Cloud Computing',
-  'Database Administration', 'System Administration'
-]
-
-const COMMON_LANGUAGES = [
-  'English', 'Spanish', 'French', 'German', 'Italian', 'Portuguese',
-  'Chinese', 'Japanese', 'Korean', 'Arabic', 'Russian', 'Dutch'
-]
-
 export function SkillsSection({ data, onDataChange, onPrevious }: CvSectionProps) {
+  const t = useTranslations('cvForm.skills')
+  
+  // Função que retorna as linguas comuns diretamente das traduções
+  const getCommonLanguages = () => {
+    return [
+      { key: 'english', name: t('languages.commonLanguagesList.english') },
+      { key: 'spanish', name: t('languages.commonLanguagesList.spanish') },
+      { key: 'french', name: t('languages.commonLanguagesList.french') },
+      { key: 'german', name: t('languages.commonLanguagesList.german') },
+      { key: 'italian', name: t('languages.commonLanguagesList.italian') },
+      { key: 'portuguese', name: t('languages.commonLanguagesList.portuguese') }
+    ]
+  }
+
+  // Função que retorna as áreas de habilidades diretamente das traduções
+  const getSkillAreas = () => {
+    return [
+      { key: 'mobileDevelopment', name: t('skillAreasList.mobileDevelopment') },
+      { key: 'devOps', name: t('skillAreasList.devOps') },
+      { key: 'dataScience', name: t('skillAreasList.dataScience') },
+      { key: 'machineLearning', name: t('skillAreasList.machineLearning') },
+      { key: 'uiUxDesign', name: t('skillAreasList.uiUxDesign') },
+      { key: 'productManagement', name: t('skillAreasList.productManagement') },
+      { key: 'projectManagement', name: t('skillAreasList.projectManagement') },
+      { key: 'qualityAssurance', name: t('skillAreasList.qualityAssurance') },
+      { key: 'cybersecurity', name: t('skillAreasList.cybersecurity') },
+      { key: 'cloudComputing', name: t('skillAreasList.cloudComputing') },
+      { key: 'constructionCivilEngineering', name: t('skillAreasList.constructionCivilEngineering') },
+      { key: 'healthcareMedicine', name: t('skillAreasList.healthcareMedicine') }
+    ]
+  }
   const [newArea, setNewArea] = useState('')
   const [newLanguage, setNewLanguage] = useState('')
   const [showAllAreas, setShowAllAreas] = useState(false)
@@ -160,10 +179,10 @@ export function SkillsSection({ data, onDataChange, onPrevious }: CvSectionProps
       {/* Header */}
       <div className="text-center mb-8">
         <h1 className="text-3xl lg:text-4xl font-bold text-white mb-2">
-          Habilidades e Competências
+          {t('title')}
         </h1>
         <p className="text-white/70 text-lg">
-          Defina suas áreas de expertise, disponibilidade e idiomas
+          {t('subtitle')}
         </p>
       </div>
 
@@ -174,10 +193,10 @@ export function SkillsSection({ data, onDataChange, onPrevious }: CvSectionProps
             <div>
               <CardTitle className="text-white flex items-center space-x-2">
                 <FiAward className="w-5 h-5" />
-                <span>Áreas de Habilidade</span>
+                <span>{t('skillAreas.title')}</span>
               </CardTitle>
               <CardDescription className="text-white/70">
-                Selecione ou adicione suas áreas de expertise
+                {t('skillAreas.subtitle')}
               </CardDescription>
             </div>
             <Button
@@ -185,7 +204,7 @@ export function SkillsSection({ data, onDataChange, onPrevious }: CvSectionProps
               className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-4 py-2 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 flex items-center gap-2"
             >
               <FiZap className="w-4 h-4" />
-              Use AI
+              {t('skillAreas.useAiButton')}
             </Button>
           </div>
         </CardHeader>
@@ -195,7 +214,7 @@ export function SkillsSection({ data, onDataChange, onPrevious }: CvSectionProps
             <Input
               value={newArea}
               onChange={(e) => setNewArea(e.target.value)}
-              placeholder="Digite uma área de habilidade..."
+              placeholder={t('skillAreas.placeholder')}
               className="bg-white/20 border-white/30 text-white placeholder:text-white/60 flex-1"
               onKeyPress={(e) => e.key === 'Enter' && addArea()}
             />
@@ -211,18 +230,18 @@ export function SkillsSection({ data, onDataChange, onPrevious }: CvSectionProps
           
           {/* Sugestões de áreas */}
           <div className="space-y-2">
-            <label className="text-white/80 text-sm font-medium">Sugestões:</label>
+            <label className="text-white/80 text-sm font-medium">{t('skillAreas.suggestions')}</label>
             <div className="flex flex-wrap gap-2">
-              {SKILL_AREAS.map((area, index) => {
+              {getSkillAreas().map((area, index) => {
                 const shouldShow = index < 6 || showAllAreas
                 return (
                   <button
-                    key={area}
+                    key={area.key}
                     type="button"
-                    onClick={() => addArea(area)}
-                    disabled={data.skillsData.areas.includes(area)}
+                    onClick={() => addArea(area.name)}
+                    disabled={data.skillsData.areas.includes(area.name)}
                     className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                      data.skillsData.areas.includes(area)
+                      data.skillsData.areas.includes(area.name)
                         ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg cursor-default'
                         : 'bg-white/20 border border-white/30 text-white hover:bg-white/30 shadow-sm hover:shadow-md'
                     } ${
@@ -230,20 +249,20 @@ export function SkillsSection({ data, onDataChange, onPrevious }: CvSectionProps
                       shouldShow ? 'block' : 'hidden sm:block'
                     }`}
                   >
-                    {area}
+                    {area.name}
                   </button>
                 )
               })}
             </div>
             {/* Botão para mostrar mais em mobile */}
-            {SKILL_AREAS.length > 6 && (
+            {getSkillAreas().length > 6 && (
               <div className="sm:hidden">
                 <button
                   type="button"
                   onClick={() => setShowAllAreas(!showAllAreas)}
                   className="text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors"
                 >
-                  {showAllAreas ? 'Ver menos...' : 'Ver mais sugestões...'}
+                  {showAllAreas ? t('skillAreas.showLess') : t('skillAreas.showMore')}
                 </button>
               </div>
             )}
@@ -252,7 +271,7 @@ export function SkillsSection({ data, onDataChange, onPrevious }: CvSectionProps
           {/* Áreas selecionadas */}
           {data.skillsData.areas.length > 0 && (
             <div className="space-y-2">
-              <label className="text-white/80 text-sm font-medium">Áreas Selecionadas:</label>
+              <label className="text-white/80 text-sm font-medium">{t('skillAreas.selectedAreas')}</label>
               <div className="flex flex-wrap gap-2">
                 {data.skillsData.areas.map((area) => (
                   <span
@@ -280,10 +299,10 @@ export function SkillsSection({ data, onDataChange, onPrevious }: CvSectionProps
         <CardHeader>
           <CardTitle className="text-white flex items-center space-x-2">
             <FiCalendar className="w-5 h-5" />
-            <span>Data de Disponibilidade</span>
+            <span>{t('availability.title')}</span>
           </CardTitle>
           <CardDescription className="text-white/70">
-            Quando você estará disponível para começar?
+            {t('availability.subtitle')}
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -302,10 +321,10 @@ export function SkillsSection({ data, onDataChange, onPrevious }: CvSectionProps
         <CardHeader>
           <CardTitle className="text-white flex items-center space-x-2">
             <FiGlobe className="w-5 h-5" />
-            <span>Idiomas</span>
+            <span>{t('languages.title')}</span>
           </CardTitle>
           <CardDescription className="text-white/70">
-            Selecione ou adicione os idiomas que você fala
+            {t('languages.subtitle')}
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -314,7 +333,7 @@ export function SkillsSection({ data, onDataChange, onPrevious }: CvSectionProps
             <Input
               value={newLanguage}
               onChange={(e) => setNewLanguage(e.target.value)}
-              placeholder="Digite um idioma..."
+              placeholder={t('languages.placeholder')}
               className="bg-white/20 border-white/30 text-white placeholder:text-white/60 flex-1"
               onKeyPress={(e) => e.key === 'Enter' && addLanguage()}
             />
@@ -330,18 +349,18 @@ export function SkillsSection({ data, onDataChange, onPrevious }: CvSectionProps
           
           {/* Sugestões de idiomas */}
           <div className="space-y-2">
-            <label className="text-white/80 text-sm font-medium">Idiomas Comuns:</label>
+            <label className="text-white/80 text-sm font-medium">{t('languages.commonLanguages')}</label>
             <div className="flex flex-wrap gap-2">
-              {COMMON_LANGUAGES.map((language, index) => {
+              {getCommonLanguages().map((language, index) => {
                 const shouldShow = index < 4 || showAllLanguages
                 return (
                   <button
-                    key={language}
+                    key={language.key}
                     type="button"
-                    onClick={() => addLanguage(language)}
-                    disabled={data.skillsData.languages.some(l => l.name === language)}
+                    onClick={() => addLanguage(language.name)}
+                    disabled={data.skillsData.languages.some(l => l.name === language.name)}
                     className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                      data.skillsData.languages.some(l => l.name === language)
+                      data.skillsData.languages.some(l => l.name === language.name)
                         ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-lg cursor-default'
                         : 'bg-white/20 border border-white/30 text-white hover:bg-white/30 shadow-sm hover:shadow-md'
                     } ${
@@ -349,20 +368,20 @@ export function SkillsSection({ data, onDataChange, onPrevious }: CvSectionProps
                       shouldShow ? 'block' : 'hidden sm:block'
                     }`}
                   >
-                    {language}
+                    {language.name}
                   </button>
                 )
               })}
             </div>
             {/* Botão para mostrar mais em mobile */}
-            {COMMON_LANGUAGES.length > 4 && (
+            {getCommonLanguages().length > 4 && (
               <div className="sm:hidden">
                 <button
                   type="button"
                   onClick={() => setShowAllLanguages(!showAllLanguages)}
                   className="text-green-400 hover:text-green-300 text-sm font-medium transition-colors"
                 >
-                  {showAllLanguages ? 'Ver menos...' : 'Ver mais idiomas...'}
+                  {showAllLanguages ? t('languages.showLess') : t('languages.showMore')}
                 </button>
               </div>
             )}
@@ -371,7 +390,7 @@ export function SkillsSection({ data, onDataChange, onPrevious }: CvSectionProps
           {/* Idiomas selecionados */}
           {data.skillsData.languages.length > 0 && (
             <div className="space-y-2">
-              <label className="text-white/80 text-sm font-medium">Idiomas Selecionados:</label>
+              <label className="text-white/80 text-sm font-medium">{t('languages.selectedLanguages')}</label>
               <div className="space-y-3">
                 {data.skillsData.languages.map((language) => (
                   <div key={language.id} className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/10">
@@ -382,10 +401,10 @@ export function SkillsSection({ data, onDataChange, onPrevious }: CvSectionProps
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="basico">Básico</SelectItem>
-                          <SelectItem value="intermediario">Intermediário</SelectItem>
-                          <SelectItem value="avancado">Avançado</SelectItem>
-                          <SelectItem value="nativo">Nativo</SelectItem>
+                          <SelectItem value="basico">{t('languages.levels.basic')}</SelectItem>
+                          <SelectItem value="intermediario">{t('languages.levels.intermediate')}</SelectItem>
+                          <SelectItem value="avancado">{t('languages.levels.advanced')}</SelectItem>
+                          <SelectItem value="nativo">{t('languages.levels.native')}</SelectItem>
                         </SelectContent>
                       </Select>
                       <Button
@@ -413,7 +432,7 @@ export function SkillsSection({ data, onDataChange, onPrevious }: CvSectionProps
           className="bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 text-white px-8 py-3 shadow-md hover:shadow-lg transition-all duration-200"
         >
           <FiArrowLeft className="w-5 h-5 mr-2" />
-          Voltar
+          {t('navigation.back')}
         </Button>
         
         <div className="flex flex-col sm:flex-row gap-4">
@@ -424,7 +443,7 @@ export function SkillsSection({ data, onDataChange, onPrevious }: CvSectionProps
             className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-8 py-3 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transition-all duration-200"
           >
             <FiSave className="w-5 h-5 mr-2" />
-            Salvar Currículo
+            {t('navigation.save')}
           </Button>
           <Button
             onClick={handleDownload}
@@ -433,7 +452,7 @@ export function SkillsSection({ data, onDataChange, onPrevious }: CvSectionProps
             className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white px-8 py-3 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transition-all duration-200"
           >
             <FiDownload className="w-5 h-5 mr-2" />
-            Baixar PDF
+            {t('navigation.download')}
           </Button>
         </div>
       </div>
