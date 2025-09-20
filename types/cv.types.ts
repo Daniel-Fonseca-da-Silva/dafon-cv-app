@@ -23,6 +23,7 @@ export interface Education {
   startDate: string
   endDate: string
   description: string
+  isCurrentlyStudying: boolean
 }
 
 export interface Course {

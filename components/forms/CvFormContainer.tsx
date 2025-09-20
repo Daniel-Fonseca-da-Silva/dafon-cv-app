@@ -22,7 +22,7 @@ const initialCvData: CvData = {
     { id: '1', company: '', position: '', startDate: '', endDate: '', description: '', isCurrentJob: false }
   ],
   educations: [
-    { id: '1', institution: '', degree: '', startDate: '', endDate: '', description: '' }
+    { id: '1', institution: '', degree: '', startDate: '', endDate: '', description: '', isCurrentlyStudying: false }
   ],
   courses: [],
   skills: [
@@ -142,15 +142,15 @@ export function CvFormContainer() {
       <div className="container mx-auto px-4 py-8">
         {/* Indicador de Progresso */}
         <div className="mb-8">
-          <div className="flex justify-center items-center space-x-2 sm:space-x-4 px-4">
+          <div className="flex justify-center items-center space-x-1 sm:space-x-2 md:space-x-4 px-2 sm:px-4 overflow-x-auto">
             {(['personal', 'education', 'experience', 'courses', 'social', 'skills'] as CvSection[]).map((section, index) => {
               const isActive = currentSection === section
               const isCompleted = ['personal', 'education', 'experience', 'courses', 'social', 'skills'].indexOf(currentSection) > index
               
               return (
-                <div key={section} className="flex items-center">
+                <div key={section} className="flex items-center flex-shrink-0">
                   <div
-                    className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-xs sm:text-sm font-medium transition-all duration-200 ${
+                    className={`w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center text-xs sm:text-sm font-medium transition-all duration-200 ${
                       isActive
                         ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg'
                         : isCompleted
@@ -162,7 +162,7 @@ export function CvFormContainer() {
                   </div>
                   {index < 5 && (
                     <div
-                      className={`w-8 sm:w-12 md:w-16 h-1 mx-1 sm:mx-2 transition-all duration-300 ${
+                      className={`w-4 sm:w-6 md:w-8 lg:w-12 h-1 mx-0.5 sm:mx-1 md:mx-2 transition-all duration-300 ${
                         isCompleted ? 'bg-gradient-to-r from-green-500 to-emerald-600' : 'bg-white/20'
                       }`}
                     />
