@@ -477,9 +477,207 @@
       },
       "continueButton": "Continue"
     },
+    "education": {
+      "title": "Education",
+      "subtitle": "Your academic background",
+      "formTitle": "Academic Background",
+      "formSubtitle": "Add your academic background",
+      "educationNumber": "Education {number}",
+      "aiPrompt": {
+        "placeholder": "Ex: Business Administration...",
+        "useAiButton": "Use AI",
+        "generating": "Generating professional description for Education {number}..."
+      },
+      "fields": {
+        "institution": {
+          "label": "Institution *",
+          "placeholder": "University of..."
+        },
+        "degree": {
+          "label": "Degree *",
+          "placeholder": "Bachelor's in..."
+        },
+        "startDate": {
+          "label": "Start Date *"
+        },
+        "endDate": {
+          "label": "End Date",
+          "placeholder": "Leave empty if still studying"
+        },
+        "currentlyStudying": "Currently studying",
+        "description": {
+          "label": "Description",
+          "placeholder": "Additional information about the course, grades, projects..."
+        }
+      },
+      "addEducationButton": "Add Education",
+      "tip": {
+        "title": "Academic Tip",
+        "description": "Include your most relevant education first. If you have multiple degrees, list them in reverse chronological order."
+      },
+      "navigation": {
+        "back": "Back",
+        "continue": "Continue"
+      }
+    },
+    "experience": {
+      "title": "Professional Experience",
+      "subtitle": "Tell us about your professional journey",
+      "formTitle": "Professional Experience",
+      "formSubtitle": "Add your professional experience",
+      "experienceNumber": "Experience {number}",
+      "aiPrompt": {
+        "placeholder": "Ex: Full Stack Developer...",
+        "useAiButton": "Use AI",
+        "generating": "Generating professional description for Experience {number}..."
+      },
+      "fields": {
+        "position": {
+          "label": "Position *",
+          "placeholder": "Job title"
+        },
+        "company": {
+          "label": "Company *",
+          "placeholder": "Company name"
+        },
+        "startDate": {
+          "label": "Start Date *"
+        },
+        "endDate": {
+          "label": "End Date",
+          "placeholder": "Leave empty if still working here"
+        },
+        "currentJob": "Currently working here",
+        "description": {
+          "label": "Description",
+          "placeholder": "Description of your responsibilities and achievements..."
+        }
+      },
+      "addExperienceButton": "Add Experience",
+      "tip": {
+        "title": "Professional Tip",
+        "description": "Include specific achievements and responsibilities in your professional experience. Use action verbs and quantify your accomplishments whenever possible. This helps recruiters understand your impact and value."
+      },
+      "navigation": {
+        "back": "Back",
+        "continue": "Continue"
+      }
+    },
+    "courses": {
+      "title": "Courses and Certifications",
+      "subtitle": "Your courses, certifications and training",
+      "aiGenerator": {
+        "title": "AI Course Generator",
+        "subtitle": "Enter an area of interest and let AI suggest related courses",
+        "placeholder": "Ex: Web Development, Digital Marketing, Data Science...",
+        "useAiButton": "Use AI",
+        "generating": "Generating list of related courses..."
+      },
+      "coursesTitle": "Courses and Certifications",
+      "fields": {
+        "description": {
+          "label": "List of Courses and Certifications",
+          "placeholder": "Use the AI generator above to create a list of related courses, or manually enter your courses and certifications..."
+        }
+      },
+      "tip": {
+        "title": "Course Tip",
+        "description": "Use the AI generator to create a complete list of courses related to your field. The AI will automatically generate names, institutions, periods and descriptions for each course. You can edit the generated list as needed."
+      },
+      "navigation": {
+        "back": "Back",
+        "continue": "Continue"
+      }
+    },
+    "skills": {
+      "title": "Skills and Competencies",
+      "subtitle": "Define your areas of expertise, availability and languages",
+      "skillAreas": {
+        "title": "Skill Areas",
+        "subtitle": "Select or add your areas of expertise",
+        "useAiButton": "Use AI",
+        "placeholder": "Enter a skill area...",
+        "suggestions": "Suggestions:",
+        "selectedAreas": "Selected Areas:",
+        "showMore": "Show more suggestions...",
+        "showLess": "Show less..."
+      },
+      "availability": {
+        "title": "Availability Date",
+        "subtitle": "When will you be available to start?"
+      },
+      "languages": {
+        "title": "Languages",
+        "subtitle": "Select or add the languages you speak",
+        "placeholder": "Enter a language...",
+        "commonLanguages": "Common Languages:",
+        "selectedLanguages": "Selected Languages:",
+        "showMore": "Show more languages...",
+        "showLess": "Show less...",
+        "levels": {
+          "basic": "Basic",
+          "intermediate": "Intermediate",
+          "advanced": "Advanced",
+          "native": "Native"
+        },
+        "commonLanguagesList": {
+          "english": "English",
+          "spanish": "Spanish",
+          "french": "French",
+          "german": "German",
+          "italian": "Italian",
+          "portuguese": "Portuguese"
+        }
+      },
+      "skillAreasList": {
+        "mobileDevelopment": "Mobile Development",
+        "devOps": "DevOps",
+        "dataScience": "Data Science",
+        "machineLearning": "Machine Learning",
+        "uiUxDesign": "UI/UX Design",
+        "productManagement": "Product Management",
+        "projectManagement": "Project Management",
+        "qualityAssurance": "Quality Assurance",
+        "cybersecurity": "Cybersecurity",
+        "cloudComputing": "Cloud Computing",
+        "constructionCivilEngineering": "Construction & Civil Engineering",
+        "healthcareMedicine": "Healthcare & Medicine"
+      },
+      "navigation": {
+        "back": "Back",
+        "save": "Save CV",
+        "download": "Download PDF"
+      }
+    },
+    "social": {
+      "title": "Social Networks",
+      "subtitle": "Add your profiles and important links",
+      "addLink": {
+        "title": "Add Social Link",
+        "subtitle": "Select the type of social network and add your URL",
+        "typeLabel": "Social Network Type",
+        "typePlaceholder": "Select type...",
+        "urlLabel": "URL",
+        "urlPlaceholder": "https://example.com",
+        "addButton": "Add Link"
+      },
+      "addedLinks": {
+        "title": "Added Social Links",
+        "subtitle": "Your profiles and important links"
+      },
+      "tip": {
+        "title": "Digital Presence",
+        "description": "Add your professional social networks and portfolio so recruiters can better understand your work and professional personality. Keep your profiles updated and aligned with your career."
+      },
+      "navigation": {
+        "back": "Back",
+        "continue": "Continue"
+      }
+    },
     "sections": {
       "personal": "Personal Information",
       "education": "Education",
+      "courses": "Courses and Certifications",
       "experience": "Professional Experience",
       "social": "Social Networks",
       "skills": "Skills",

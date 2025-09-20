@@ -477,6 +477,203 @@
       },
       "continueButton": "Continuar"
     },
+    "education": {
+      "title": "Educação",
+      "subtitle": "Sua formação acadêmica",
+      "formTitle": "Formação Acadêmica",
+      "formSubtitle": "Adicione sua formação acadêmica",
+      "educationNumber": "Educação {number}",
+      "aiPrompt": {
+        "placeholder": "Ex: Administração...",
+        "useAiButton": "Usar IA",
+        "generating": "Gerando descrição profissional para Educação {number}..."
+      },
+      "fields": {
+        "institution": {
+          "label": "Instituição *",
+          "placeholder": "Faculdade de..."
+        },
+        "degree": {
+          "label": "Graduação *",
+          "placeholder": "Bacharelado em..."
+        },
+        "startDate": {
+          "label": "Data de Início *"
+        },
+        "endDate": {
+          "label": "Data de Conclusão",
+          "placeholder": "Deixe vazio se ainda estiver cursando"
+        },
+        "currentlyStudying": "Ainda cursando",
+        "description": {
+          "label": "Descrição",
+          "placeholder": "Informações adicionais sobre o curso, notas, projetos..."
+        }
+      },
+      "addEducationButton": "Adicionar Educação",
+      "tip": {
+        "title": "Dica Acadêmica",
+        "description": "Inclua sua formação mais relevante primeiro. Se você tem múltiplos graus, liste-os em ordem cronológica decrescente."
+      },
+      "navigation": {
+        "back": "Voltar",
+        "continue": "Continuar"
+      }
+    },
+    "experience": {
+      "title": "Experiência Profissional",
+      "subtitle": "Conte-nos sobre sua trajetória profissional",
+      "formTitle": "Experiência Profissional",
+      "formSubtitle": "Adicione sua experiência profissional",
+      "experienceNumber": "Experiência {number}",
+      "aiPrompt": {
+        "placeholder": "Ex: Desenvolvedor Full Stack...",
+        "useAiButton": "Usar IA",
+        "generating": "Gerando descrição profissional para Experiência {number}..."
+      },
+      "fields": {
+        "position": {
+          "label": "Cargo *",
+          "placeholder": "Nome do cargo"
+        },
+        "company": {
+          "label": "Empresa *",
+          "placeholder": "Nome da empresa"
+        },
+        "startDate": {
+          "label": "Data de Início *"
+        },
+        "endDate": {
+          "label": "Data de Término",
+          "placeholder": "Deixe vazio se ainda trabalha aqui"
+        },
+        "currentJob": "Trabalho aqui atualmente",
+        "description": {
+          "label": "Descrição",
+          "placeholder": "Descrição das suas responsabilidades e conquistas..."
+        }
+      },
+      "addExperienceButton": "Adicionar Experiência",
+      "tip": {
+        "title": "Dica Profissional",
+        "description": "Inclua conquistas específicas e responsabilidades em sua experiência profissional. Use verbos de ação e quantifique suas realizações sempre que possível. Isso ajuda os recrutadores a entenderem seu impacto e valor."
+      },
+      "navigation": {
+        "back": "Voltar",
+        "continue": "Continuar"
+      }
+    },
+    "courses": {
+      "title": "Cursos e Certificações",
+      "subtitle": "Seus cursos, certificações e treinamentos",
+      "aiGenerator": {
+        "title": "Gerador de Cursos com IA",
+        "subtitle": "Digite uma área de interesse e deixe a IA sugerir cursos relacionados",
+        "placeholder": "Ex: Desenvolvimento Web, Marketing Digital, Data Science...",
+        "useAiButton": "Usar IA",
+        "generating": "Gerando lista de cursos relacionados..."
+      },
+      "coursesTitle": "Cursos e Certificações",
+      "fields": {
+        "description": {
+          "label": "Lista de Cursos e Certificações",
+          "placeholder": "Use o gerador de IA acima para criar uma lista de cursos relacionados, ou digite manualmente seus cursos e certificações..."
+        }
+      },
+      "tip": {
+        "title": "Dica de Cursos",
+        "description": "Use o gerador de IA para criar uma lista completa de cursos relacionados à sua área. A IA irá gerar automaticamente nomes, instituições, períodos e descrições para cada curso. Você pode editar a lista gerada conforme necessário."
+      },
+      "navigation": {
+        "back": "Voltar",
+        "continue": "Continuar"
+      }
+    },
+    "skills": {
+      "title": "Habilidades e Competências",
+      "subtitle": "Defina suas áreas de expertise, disponibilidade e idiomas",
+      "skillAreas": {
+        "title": "Áreas de Habilidade",
+        "subtitle": "Selecione ou adicione suas áreas de expertise",
+        "useAiButton": "Use AI",
+        "placeholder": "Digite uma área de habilidade...",
+        "suggestions": "Sugestões:",
+        "selectedAreas": "Áreas Selecionadas:",
+        "showMore": "Ver mais sugestões...",
+        "showLess": "Ver menos..."
+      },
+      "availability": {
+        "title": "Data de Disponibilidade",
+        "subtitle": "Quando você estará disponível para começar?"
+      },
+      "languages": {
+        "title": "Idiomas",
+        "subtitle": "Selecione ou adicione os idiomas que você fala",
+        "placeholder": "Digite um idioma...",
+        "commonLanguages": "Idiomas Comuns:",
+        "selectedLanguages": "Idiomas Selecionados:",
+        "showMore": "Ver mais idiomas...",
+        "showLess": "Ver menos...",
+        "levels": {
+          "basic": "Básico",
+          "intermediate": "Intermediário",
+          "advanced": "Avançado",
+          "native": "Nativo"
+        },
+        "commonLanguagesList": {
+          "english": "Inglês",
+          "spanish": "Espanhol",
+          "french": "Francês",
+          "german": "Alemão",
+          "italian": "Italiano",
+          "portuguese": "Português"
+        }
+      },
+      "skillAreasList": {
+        "mobileDevelopment": "Desenvolvimento Mobile",
+        "devOps": "DevOps",
+        "dataScience": "Ciência de Dados",
+        "machineLearning": "Machine Learning",
+        "uiUxDesign": "Design UI/UX",
+        "productManagement": "Gestão de Produto",
+        "projectManagement": "Gestão de Projetos",
+        "qualityAssurance": "Garantia de Qualidade",
+        "cybersecurity": "Cibersegurança",
+        "cloudComputing": "Computação em Nuvem",
+        "constructionCivilEngineering": "Construção e Engenharia Civil",
+        "healthcareMedicine": "Saúde e Medicina"
+      },
+      "navigation": {
+        "back": "Voltar",
+        "save": "Salvar Currículo",
+        "download": "Baixar PDF"
+      }
+    },
+    "social": {
+      "title": "Redes Sociais",
+      "subtitle": "Adicione seus perfis e links importantes",
+      "addLink": {
+        "title": "Adicionar Link Social",
+        "subtitle": "Selecione o tipo de rede social e adicione sua URL",
+        "typeLabel": "Tipo de Rede Social",
+        "typePlaceholder": "Selecione o tipo...",
+        "urlLabel": "URL",
+        "urlPlaceholder": "https://exemplo.com",
+        "addButton": "Adicionar Link"
+      },
+      "addedLinks": {
+        "title": "Links Sociais Adicionados",
+        "subtitle": "Seus perfis e links importantes"
+      },
+      "tip": {
+        "title": "Presença Digital",
+        "description": "Adicione suas redes sociais profissionais e portfólio para que recrutadores possam conhecer melhor seu trabalho e personalidade profissional. Mantenha seus perfis atualizados e alinhados com sua carreira."
+      },
+      "navigation": {
+        "back": "Voltar",
+        "continue": "Continuar"
+      }
+    },
     "sections": {
       "personal": "Informações Pessoais",
       "education": "Educação",
