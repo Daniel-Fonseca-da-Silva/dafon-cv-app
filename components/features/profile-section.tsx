@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { FiUser, FiMail, FiPhone, FiMapPin, FiSave, FiCamera, FiArrowLeft } from "react-icons/fi"
 import { useTranslations } from "next-intl"
+import { useState, useRef } from "react"
 
 interface ProfileSectionProps {
   onSectionChange?: (section: string) => void
@@ -12,11 +13,43 @@ interface ProfileSectionProps {
 
 export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
   const t = useTranslations('profileSection')
+  const [profilePhoto, setProfilePhoto] = useState<string | null>(null)
+  const fileInputRef = useRef<HTMLInputElement>(null)
 
   const handleBackToDashboard = () => {
     if (onSectionChange) {
       onSectionChange('dashboard')
     }
+  }
+
+  const handlePhotoUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]
+    if (!file) return
+
+    // Validação do tipo de arquivo
+    const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp']
+    if (!allowedTypes.includes(file.type)) {
+      alert('Por favor, selecione apenas arquivos de imagem (JPEG, PNG, GIF, WebP)')
+      return
+    }
+
+    // Validação do tamanho (máximo 5MB)
+    const maxSize = 2 * 1024 * 1024 // 2MB
+    if (file.size > maxSize) {
+      alert('O arquivo deve ter no máximo 2MB')
+      return
+    }
+
+    // Criar URL para preview
+    const reader = new FileReader()
+    reader.onload = (e) => {
+      setProfilePhoto(e.target?.result as string)
+    }
+    reader.readAsDataURL(file)
+  }
+
+  const handlePhotoClick = () => {
+    fileInputRef.current?.click()
   }
   
   return (
@@ -55,19 +88,44 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
           </CardHeader>
           <CardContent className="text-center space-y-4">
             <div className="relative mx-auto w-24 h-24 lg:w-32 lg:h-32">
-              <div className="w-24 h-24 lg:w-32 lg:h-32 rounded-full bg-gradient-to-br from-orange-400 to-pink-400 flex items-center justify-center border-4 border-white/20">
-                <FiUser className="w-12 h-12 lg:w-16 lg:h-16 text-white" />
+              <div 
+                className="w-24 h-24 lg:w-32 lg:h-32 rounded-full bg-gradient-to-br from-orange-400 to-pink-400 flex items-center justify-center border-4 border-white/20 cursor-pointer hover:opacity-80 transition-opacity"
+                onClick={handlePhotoClick}
+              >
+                {profilePhoto ? (
+                  <img 
+                    src={profilePhoto} 
+                    alt="Profile" 
+                    className="w-full h-full rounded-full object-cover"
+                  />
+                ) : (
+                  <FiUser className="w-12 h-12 lg:w-16 lg:h-16 text-white" />
+                )}
               </div>
               <Button 
                 size="sm" 
                 className="absolute bottom-0 right-0 w-6 h-6 lg:w-8 lg:h-8 rounded-full bg-white/20 hover:bg-white/30 border border-white/30"
+                onClick={handlePhotoClick}
               >
                 <FiCamera className="w-3 h-3 lg:w-4 lg:h-4 text-white" />
               </Button>
             </div>
-            <Button variant="ghost" className="text-white/80 hover:text-white hover:bg-white/10">
+            <Button 
+              variant="ghost" 
+              className="text-white/80 hover:text-white hover:bg-white/10"
+              onClick={handlePhotoClick}
+            >
               {t('photo.changePhoto')}
             </Button>
+            
+            {/* Input file oculto */}
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/jpeg,image/jpg,image/png,image/gif,image/webp"
+              onChange={handlePhotoUpload}
+              className="hidden"
+            />
           </CardContent>
         </Card>
 
