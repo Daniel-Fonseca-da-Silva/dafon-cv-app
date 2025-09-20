@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -10,7 +11,6 @@ import {
   FiTrash2,
   FiArrowLeft,
   FiArrowRight,
-  FiX,
   FiLink,
   FiGlobe,
   FiGithub,
@@ -29,6 +29,7 @@ const SOCIAL_TYPES = [
 ]
 
 export function SocialSection({ data, onDataChange, onNext, onPrevious }: CvSectionProps) {
+  const t = useTranslations('cvForm.social')
   const [selectedType, setSelectedType] = useState('')
   const [urlValue, setUrlValue] = useState('')
 
@@ -63,7 +64,7 @@ export function SocialSection({ data, onDataChange, onNext, onPrevious }: CvSect
   }
 
   const isFormValid = () => {
-    return (data.socialLinks || []).length > 0
+    return true
   }
 
   return (
@@ -71,10 +72,10 @@ export function SocialSection({ data, onDataChange, onNext, onPrevious }: CvSect
       {/* Header */}
       <div className="text-center mb-8">
         <h1 className="text-3xl lg:text-4xl font-bold text-white mb-2">
-          Redes Sociais
+          {t('title')}
         </h1>
         <p className="text-white/70 text-lg">
-          Adicione seus perfis e links importantes
+          {t('subtitle')}
         </p>
       </div>
 
@@ -83,20 +84,20 @@ export function SocialSection({ data, onDataChange, onNext, onPrevious }: CvSect
         <CardHeader>
           <CardTitle className="text-white flex items-center space-x-2">
             <FiLink className="w-5 h-5" />
-            <span>Adicionar Link Social</span>
+            <span>{t('addLink.title')}</span>
           </CardTitle>
           <CardDescription className="text-white/70">
-            Selecione o tipo de rede social e adicione sua URL
+            {t('addLink.subtitle')}
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Dropdown para tipo de rede social */}
             <div className="space-y-2">
-              <label className="text-white/80 text-sm font-medium">Tipo de Rede Social</label>
+              <label className="text-white/80 text-sm font-medium">{t('addLink.typeLabel')}</label>
               <Select value={selectedType} onValueChange={setSelectedType}>
                 <SelectTrigger className="bg-white/20 border-white/30 text-white">
-                  <SelectValue placeholder="Selecione o tipo..." />
+                  <SelectValue placeholder={t('addLink.typePlaceholder')} />
                 </SelectTrigger>
                 <SelectContent>
                   {getAvailableTypes().map((type) => {
@@ -116,11 +117,11 @@ export function SocialSection({ data, onDataChange, onNext, onPrevious }: CvSect
 
             {/* Campo de URL */}
             <div className="space-y-2">
-              <label className="text-white/80 text-sm font-medium">URL</label>
+              <label className="text-white/80 text-sm font-medium">{t('addLink.urlLabel')}</label>
               <Input
                 value={urlValue}
                 onChange={(e) => setUrlValue(e.target.value)}
-                placeholder="https://exemplo.com"
+                placeholder={t('addLink.urlPlaceholder')}
                 className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
                 onKeyPress={(e) => e.key === 'Enter' && addSocialLink()}
               />
@@ -136,7 +137,7 @@ export function SocialSection({ data, onDataChange, onNext, onPrevious }: CvSect
               className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-6 py-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transition-all duration-200"
             >
               <FiPlus className="w-4 h-4 mr-2" />
-              Adicionar Link
+              {t('addLink.addButton')}
             </Button>
           </div>
         </CardContent>
@@ -148,10 +149,10 @@ export function SocialSection({ data, onDataChange, onNext, onPrevious }: CvSect
           <CardHeader>
             <CardTitle className="text-white flex items-center space-x-2">
               <FiGlobe className="w-5 h-5" />
-              <span>Links Sociais Adicionados</span>
+              <span>{t('addedLinks.title')}</span>
             </CardTitle>
             <CardDescription className="text-white/70">
-              Seus perfis e links importantes
+              {t('addedLinks.subtitle')}
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -205,9 +206,9 @@ export function SocialSection({ data, onDataChange, onNext, onPrevious }: CvSect
               <FiInfo className="w-4 h-4 text-blue-400" />
             </div>
             <div>
-              <h4 className="text-white font-medium text-sm mb-1">Presença Digital</h4>
+              <h4 className="text-white font-medium text-sm mb-1">{t('tip.title')}</h4>
               <p className="text-white/70 text-xs leading-relaxed">
-                Adicione suas redes sociais profissionais e portfólio para que recrutadores possam conhecer melhor seu trabalho e personalidade profissional. Mantenha seus perfis atualizados e alinhados com sua carreira.
+                {t('tip.description')}
               </p>
             </div>
           </div>
@@ -222,7 +223,7 @@ export function SocialSection({ data, onDataChange, onNext, onPrevious }: CvSect
           className="bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 text-white px-8 py-3 shadow-md hover:shadow-lg transition-all duration-200"
         >
           <FiArrowLeft className="w-5 h-5 mr-2" />
-          Voltar
+          {t('navigation.back')}
         </Button>
         <Button
           onClick={onNext}
@@ -230,7 +231,7 @@ export function SocialSection({ data, onDataChange, onNext, onPrevious }: CvSect
           disabled={!isFormValid()}
           className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-3 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transition-all duration-200"
         >
-          Continuar
+          {t('navigation.continue')}
           <FiArrowRight className="w-5 h-5 ml-2" />
         </Button>
       </div>
