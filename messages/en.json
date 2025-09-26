@@ -6,9 +6,14 @@
       "email": "your@email.com",
       "subtitle2": "Your email",
       "action": "Login",
+      "loading": "Logging in...",
       "forgotPassword": "Forgot password?",
       "dontHaveAccount": "Don't have an account?",
-      "register": "Register"
+      "register": "Register",
+      "codeSent": {
+        "title": "Code sent!",
+        "message": "A login code has been sent to your email. Check your inbox and click the link to login."
+      }
     },
     "register": {
       "title": "Create account",

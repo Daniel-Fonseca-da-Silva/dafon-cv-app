@@ -1,24 +1,88 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useTransition } from "react"
+import { useFormStatus } from "react-dom"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
-import { FiMail, FiLock, FiUserPlus } from "react-icons/fi"
+import { FiMail, FiLock, FiUserPlus, FiLoader } from "react-icons/fi"
 import Link from "next/link"
 import { useTranslations } from "next-intl"
 import { useRouter } from "next/navigation"
+import { loginSchema } from "@/lib/validations"
+import { loginWithEmail, ApiError } from "@/lib/auth-api"
+// Componente de botão que usa useFormStatus
+function SubmitButton() {
+  const { pending } = useFormStatus()
+  const t = useTranslations("auth.login")
+  
+  return (
+    <Button 
+      type="submit" 
+      disabled={pending}
+      className="w-full bg-gradient-to-r from-orange-400 to-pink-400 hover:from-orange-500 hover:to-pink-500 text-white font-medium py-2.5 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+    >
+      {pending ? (
+        <>
+          <FiLoader className="w-4 h-4 mr-2 animate-spin" />
+          {t('loading')}
+        </>
+      ) : (
+        t('action')
+      )}
+    </Button>
+  )
+}
+
 export default function LoginPage() {
   const [email, setEmail] = useState("")
+  const [errors, setErrors] = useState<Record<string, string>>({})
+  const [showSuccessAlert, setShowSuccessAlert] = useState(false)
+  const [isPending, startTransition] = useTransition()
   const t = useTranslations("auth.login")
   const router = useRouter()
   
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Login temporário - aceita qualquer email e redireciona para dashboard
-    router.push("/dashboard")
+  const handleLogin = async (formData: FormData) => {
+    const emailValue = formData.get("email") as string
+    
+    // Limpar erros anteriores e alerta de sucesso
+    setErrors({})
+    setShowSuccessAlert(false)
+    
+    try {
+      // Validar com Zod
+      const validatedData = loginSchema.parse({ email: emailValue })
+      
+      // Fazer requisição para a API
+      await loginWithEmail(validatedData.email)
+      
+      // Exibir alerta de sucesso em vez de redirecionar
+      setShowSuccessAlert(true)
+    } catch (error) {
+      if (error instanceof Error && 'issues' in error) {
+        // Erro de validação do Zod
+        const zodErrors: Record<string, string> = {}
+        if ('issues' in error) {
+          (error as any).issues.forEach((issue: any) => {
+            zodErrors[issue.path[0]] = issue.message
+          })
+        }
+        setErrors(zodErrors)
+      } else if (error instanceof ApiError) {
+        // Erro da API
+        setErrors({ 
+          general: error.message || 'Error when sending login code. Try again.' 
+        })
+      } else {
+        // Erro genérico
+        setErrors({ 
+          general: 'Unexpected error. Try again.' 
+        })
+      }
+    }
   }
 
   return (
@@ -50,7 +114,24 @@ export default function LoginPage() {
           </CardHeader>
 
           <CardContent className="space-y-6">
-            <form onSubmit={handleLogin} className="space-y-4">
+            {showSuccessAlert && (
+              <Alert className="bg-green-500/20 border-green-500/30 text-green-200">
+                <AlertTitle className="text-green-100 font-semibold">
+                  {t('codeSent.title')}
+                </AlertTitle>
+                <AlertDescription className="text-green-200/90">
+                  {t('codeSent.message')}
+                </AlertDescription>
+              </Alert>
+            )}
+            
+            {errors.general && (
+              <div className="p-3 bg-red-500/20 border border-red-500/30 rounded-lg">
+                <p className="text-red-200 text-sm">{errors.general}</p>
+              </div>
+            )}
+            
+            <form action={handleLogin} className="space-y-4">
               <div className="space-y-2">
                 <label htmlFor="email" className="text-sm font-medium text-white/90">
                   {t('subtitle2')}
@@ -59,22 +140,22 @@ export default function LoginPage() {
                   <FiMail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/60 w-4 h-4" />
                   <Input
                     id="email"
+                    name="email"
                     type="email"
                     placeholder={t('email')}
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="pl-10 bg-white/20 border-white/30 backdrop-blur-sm focus:bg-white/30 transition-all duration-200 text-white placeholder:text-white/60"
+                    defaultValue={email}
+                    className={`pl-10 bg-white/20 border-white/30 backdrop-blur-sm focus:bg-white/30 transition-all duration-200 text-white placeholder:text-white/60 ${
+                      errors.email ? 'border-red-400 focus:border-red-400' : ''
+                    }`}
                     required
                   />
                 </div>
+                {errors.email && (
+                  <p className="text-red-300 text-xs mt-1">{errors.email}</p>
+                )}
               </div>
 
-              <Button 
-                type="submit" 
-                className="w-full bg-gradient-to-r from-orange-400 to-pink-400 hover:from-orange-500 hover:to-pink-500 text-white font-medium py-2.5 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-              >
-                {t('action')}
-              </Button>
+              <SubmitButton />
             </form>
 
             <div className="space-y-4 pt-4 border-t border-white/20">

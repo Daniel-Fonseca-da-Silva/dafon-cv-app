@@ -6,9 +6,14 @@
       "email": "meu@email.com",
       "subtitle2": "Seu email",
       "action": "Logar",
+      "loading": "Entrando...",
       "forgotPassword": "Esqueci minha senha",
       "dontHaveAccount": "Não tem uma conta?",
-      "register": "Cadastrar"
+      "register": "Cadastrar",
+      "codeSent": {
+        "title": "Código enviado!",
+        "message": "Um código de login foi enviado para seu email. Verifique sua caixa de entrada e clique no link para fazer login."
+      }
     },
     "register": {
       "title": "Criar conta",
