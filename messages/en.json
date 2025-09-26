@@ -32,7 +32,12 @@
       "email": "your@email.com",
       "subtitle2": "Your email",
       "action": "Send instructions",
-      "backToLogin": "Back to login"
+      "loading": "Sending instructions...",
+      "backToLogin": "Back to login",
+      "codeSent": {
+        "title": "Instructions sent!",
+        "message": "Password recovery instructions have been sent to your email. Check your inbox and follow the instructions to reset your password."
+      }
     }
   },
   "metadata": {

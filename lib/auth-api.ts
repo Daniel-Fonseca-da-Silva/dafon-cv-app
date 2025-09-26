@@ -54,3 +54,40 @@ export async function loginWithEmail(email: string): Promise<ApiResponse> {
     )
   }
 }
+
+export async function forgotPasswordWithEmail(email: string): Promise<ApiResponse> {
+  try {
+    const response = await fetch(`${API_BASE_URL}/auth/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email }),
+    })
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}))
+      throw new ApiError(
+        errorData.message || 'Error when sending password reset code',
+        response.status,
+        response
+      )
+    }
+
+    const data = await response.json()
+    return {
+      success: true,
+      data,
+      message: 'Password reset code sent successfully'
+    }
+  } catch (error) {
+    if (error instanceof ApiError) {
+      throw error
+    }
+    
+    throw new ApiError(
+      'Connection error. Check your internet and try again.',
+      0
+    )
+  }
+}

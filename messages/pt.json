@@ -32,7 +32,12 @@
       "email": "meu@email.com",
       "subtitle2": "Seu email",
       "action": "enviar instruções",
-      "backToLogin": "Voltar ao login"
+      "loading": "Enviando instruções...",
+      "backToLogin": "Voltar ao login",
+      "codeSent": {
+        "title": "Instruções enviadas!",
+        "message": "Instruções de recuperação de senha foram enviadas para seu email. Verifique sua caixa de entrada e siga as instruções para redefinir sua senha."
+      }
     }
   },
   "metadata": {
