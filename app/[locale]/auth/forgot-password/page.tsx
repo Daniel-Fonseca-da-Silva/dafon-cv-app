@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useTransition } from "react"
+import { useState } from "react"
 import { useFormStatus } from "react-dom"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -39,10 +39,9 @@ function SubmitButton() {
 }
 
 export default function ForgotPasswordPage() {
-  const [email, setEmail] = useState("")
+  const [email] = useState("")
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [showSuccessAlert, setShowSuccessAlert] = useState(false)
-  const [isPending, startTransition] = useTransition()
   const t = useTranslations("auth.forgotPassword")
   
   const handleForgotPassword = async (formData: FormData) => {
@@ -66,7 +65,8 @@ export default function ForgotPasswordPage() {
         // Erro de validação do Zod
         const zodErrors: Record<string, string> = {}
         error.issues.forEach((issue) => {
-          zodErrors[issue.path[0] as string] = issue.message
+          const fieldName = issue.path[0] as string
+          zodErrors[fieldName] = issue.message
         })
         setErrors(zodErrors)
       } else if (error instanceof ApiError) {

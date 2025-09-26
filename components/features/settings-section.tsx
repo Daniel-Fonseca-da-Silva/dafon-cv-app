@@ -11,7 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { FiSettings, FiBell, FiShield, FiGlobe, FiMoon, FiSun, FiSave, FiUser, FiPhone, FiMail, FiMapPin, FiCalendar, FiArrowLeft } from "react-icons/fi"
+import { FiSettings, FiBell, FiGlobe, FiMoon, FiSun, FiSave, FiUser, FiArrowLeft } from "react-icons/fi"
 import { useState } from "react"
 import { useLocale } from '@/hooks/use-locale'
 

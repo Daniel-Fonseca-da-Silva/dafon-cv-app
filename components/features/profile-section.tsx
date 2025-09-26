@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import { FiUser, FiMail, FiPhone, FiMapPin, FiSave, FiCamera, FiArrowLeft } from "react-icons/fi"
 import { useTranslations } from "next-intl"
 import { useState, useRef } from "react"
+import Image from "next/image"
 
 interface ProfileSectionProps {
   onSectionChange?: (section: string) => void
@@ -93,10 +94,13 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
                 onClick={handlePhotoClick}
               >
                 {profilePhoto ? (
-                  <img 
+                  <Image 
                     src={profilePhoto} 
                     alt="Profile" 
+                    width={128}
+                    height={128}
                     className="w-full h-full rounded-full object-cover"
+                    unoptimized
                   />
                 ) : (
                   <FiUser className="w-12 h-12 lg:w-16 lg:h-16 text-white" />

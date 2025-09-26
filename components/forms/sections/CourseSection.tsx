@@ -180,7 +180,7 @@ Estes cursos demonstram compromisso com aprendizado contínuo e desenvolvimento 
 
 
       {/* Cards de Cursos */}
-      {data.courses.map((course, index) => (
+      {data.courses.map((course) => (
         <Card key={course.id} className="backdrop-blur-xl bg-white/10 border-white/20 shadow-2xl rounded-xl">
           <CardContent className="p-6">
             {/* Header do Card */}
