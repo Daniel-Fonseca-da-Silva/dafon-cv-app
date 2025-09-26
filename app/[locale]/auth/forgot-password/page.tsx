@@ -13,6 +13,7 @@ import Link from "next/link"
 import { useTranslations } from "next-intl"
 import { forgotPasswordSchema } from "@/lib/validations"
 import { forgotPasswordWithEmail, ApiError } from "@/lib/auth-api"
+import { ZodError } from "zod"
 
 // Componente de botão que usa useFormStatus
 function SubmitButton() {
@@ -61,14 +62,12 @@ export default function ForgotPasswordPage() {
       // Exibir alerta de sucesso
       setShowSuccessAlert(true)
     } catch (error) {
-      if (error instanceof Error && 'issues' in error) {
+      if (error instanceof ZodError) {
         // Erro de validação do Zod
         const zodErrors: Record<string, string> = {}
-        if ('issues' in error) {
-          (error as any).issues.forEach((issue: any) => {
-            zodErrors[issue.path[0]] = issue.message
-          })
-        }
+        error.issues.forEach((issue) => {
+          zodErrors[issue.path[0] as string] = issue.message
+        })
         setErrors(zodErrors)
       } else if (error instanceof ApiError) {
         // Erro da API

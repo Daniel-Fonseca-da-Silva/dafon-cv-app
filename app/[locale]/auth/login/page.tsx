@@ -11,9 +11,9 @@ import { Footer } from "@/components/layout/footer"
 import { FiMail, FiLock, FiUserPlus, FiLoader } from "react-icons/fi"
 import Link from "next/link"
 import { useTranslations } from "next-intl"
-import { useRouter } from "next/navigation"
 import { loginSchema } from "@/lib/validations"
 import { loginWithEmail, ApiError } from "@/lib/auth-api"
+import { ZodError } from "zod"
 // Componente de botão que usa useFormStatus
 function SubmitButton() {
   const { pending } = useFormStatus()
@@ -43,7 +43,6 @@ export default function LoginPage() {
   const [showSuccessAlert, setShowSuccessAlert] = useState(false)
   const [isPending, startTransition] = useTransition()
   const t = useTranslations("auth.login")
-  const router = useRouter()
   
   const handleLogin = async (formData: FormData) => {
     const emailValue = formData.get("email") as string
@@ -62,14 +61,12 @@ export default function LoginPage() {
       // Exibir alerta de sucesso em vez de redirecionar
       setShowSuccessAlert(true)
     } catch (error) {
-      if (error instanceof Error && 'issues' in error) {
+      if (error instanceof ZodError) {
         // Erro de validação do Zod
         const zodErrors: Record<string, string> = {}
-        if ('issues' in error) {
-          (error as any).issues.forEach((issue: any) => {
-            zodErrors[issue.path[0]] = issue.message
-          })
-        }
+        error.issues.forEach((issue) => {
+          zodErrors[issue.path[0] as string] = issue.message
+        })
         setErrors(zodErrors)
       } else if (error instanceof ApiError) {
         // Erro da API
