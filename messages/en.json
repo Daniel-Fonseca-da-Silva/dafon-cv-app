@@ -24,7 +24,11 @@
       "subtitleEmail2": "My email",
       "action": "Create account",
       "alreadyHaveAccount": "Already have an account?",
-      "login": "Login"
+      "login": "Login",
+      "welcomeAlert": {
+        "title": "Welcome to the system!",
+        "message": "Your access data has been sent to your email. Check your inbox and follow the instructions to activate your account."
+      }
     },
     "forgotPassword": {
       "title": "Forgot password?",

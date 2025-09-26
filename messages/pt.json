@@ -24,7 +24,11 @@
       "subtitleEmail2": "Meu email",
       "action": "criar conta",
       "alreadyHaveAccount": "Já tem uma conta?",
-      "login": "Fazer login"
+      "login": "Fazer login",
+      "welcomeAlert": {
+        "title": "Bem-vindo ao sistema!",
+        "message": "Seus dados de acesso foram enviados para o seu email. Verifique sua caixa de entrada e siga as instruções para ativar sua conta."
+      }
     },
     "forgotPassword": {
       "title": "Esqueci minha senha",
