@@ -1,7 +1,5 @@
 import { registerSchema, type RegisterFormData } from './validations'
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001'
-
 export interface ApiResponse<T = unknown> {
   success: boolean
   data?: T
@@ -22,7 +20,7 @@ export class ApiError extends Error {
 
 export async function loginWithEmail(email: string): Promise<ApiResponse> {
   try {
-    const response = await fetch(`${API_BASE_URL}/auth/login`, {
+    const response = await fetch('/api/auth/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -59,7 +57,7 @@ export async function loginWithEmail(email: string): Promise<ApiResponse> {
 
 export async function forgotPasswordWithEmail(email: string): Promise<ApiResponse> {
   try {
-    const response = await fetch(`${API_BASE_URL}/auth/login`, {
+    const response = await fetch('/api/auth/forgot-password', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -99,7 +97,7 @@ export async function registerUser(userData: RegisterFormData): Promise<ApiRespo
     // Validar dados com Zod
     const validatedData = registerSchema.parse(userData)
 
-    const response = await fetch(`${API_BASE_URL}/auth/register`, {
+    const response = await fetch('/api/auth/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
