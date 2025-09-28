@@ -1,33 +1,35 @@
 import { NextRequest, NextResponse } from 'next/server'
-
-const BACKEND_API_URL = process.env.BACKEND_API_URL || 'http://localhost:8080'
+import { registerSchema } from '@/lib/validations'
+import { BACKEND_API_URL } from '@/lib/constants'
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { name, email, password } = body
+    const { name, email } = body
 
-    if (!name || !email || !password) {
-      return NextResponse.json(
-        { success: false, error: 'Name, email and password are required' },
-        { status: 400 }
-      )
-    }
+    // Validate input data
+    const validatedData = registerSchema.parse({ name, email })
 
-    // Fazer requisição para o backend Golang
+    // Make request to Golang backend
     const response = await fetch(`${BACKEND_API_URL}/auth/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name, email, password }),
+      body: JSON.stringify({
+        name: validatedData.name,
+        email: validatedData.email
+      }),
     })
 
     const data = await response.json()
 
     if (!response.ok) {
       return NextResponse.json(
-        { success: false, error: data.message || 'Error when registering user' },
+        { 
+          success: false, 
+          error: data.message || data.error || 'Erro ao criar usuário no backend' 
+        },
         { status: response.status }
       )
     }
@@ -35,13 +37,22 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       success: true,
       data,
-      message: 'User registered successfully'
+      message: 'Usuário criado com sucesso'
     })
 
   } catch (error) {
     console.error('Register API error:', error)
+    
+    // Handle validation errors
+    if (error instanceof Error && error.name === 'ZodError') {
+      return NextResponse.json(
+        { success: false, error: 'Dados inválidos fornecidos' },
+        { status: 400 }
+      )
+    }
+
     return NextResponse.json(
-      { success: false, error: 'Internal server error' },
+      { success: false, error: 'Erro interno do servidor' },
       { status: 500 }
     )
   }
