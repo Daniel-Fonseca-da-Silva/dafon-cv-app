@@ -12,7 +12,6 @@ import { FiMail, FiArrowLeft, FiLoader } from "react-icons/fi"
 import Link from "next/link"
 import { useTranslations } from "next-intl"
 import { forgotPasswordSchema } from "@/lib/validations"
-import { forgotPasswordWithEmail, ApiError } from "@/lib/auth-api"
 import { ZodError } from "zod"
 
 // Componente de botão que usa useFormStatus
@@ -55,8 +54,20 @@ export default function ForgotPasswordPage() {
       // Validar com Zod
       const validatedData = forgotPasswordSchema.parse({ email: emailValue })
       
-      // Fazer requisição para a API
-      await forgotPasswordWithEmail(validatedData.email)
+      // Fazer requisição para a rota interna auth/login
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: validatedData.email }),
+      })
+      
+      const data = await response.json()
+      
+      if (!response.ok) {
+        throw new Error(data.error || 'Error when sending password reset instructions. Try again.')
+      }
       
       // Exibir alerta de sucesso
       setShowSuccessAlert(true)
@@ -69,7 +80,7 @@ export default function ForgotPasswordPage() {
           zodErrors[fieldName] = issue.message
         })
         setErrors(zodErrors)
-      } else if (error instanceof ApiError) {
+      } else if (error instanceof Error) {
         // Erro da API
         setErrors({ 
           general: error.message || 'Error when sending password reset instructions. Try again.' 
