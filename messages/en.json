@@ -1,18 +1,18 @@
 {
   "auth": {
     "login": {
-      "title": "Enter",
+      "title": "Login",
       "subtitle": "Enter your email to access your account",
-      "email": "your@email.com",
-      "subtitle2": "Your email",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
       "action": "Login",
-      "loading": "Logging in...",
+      "loading": "Sending...",
       "forgotPassword": "Forgot password?",
       "dontHaveAccount": "Don't have an account?",
       "register": "Register",
-      "codeSent": {
-        "title": "Code sent!",
-        "message": "A login code has been sent to your email. Check your inbox and click the link to login."
+      "emailSent": {
+        "title": "Email Sent!",
+        "message": "Check your email to continue login."
       }
     },
     "register": {
