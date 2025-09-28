@@ -22,7 +22,7 @@
       "name": "Meu nome completo",
       "email": "Seu email",
       "subtitleEmail2": "Meu email",
-      "action": "criar conta",
+      "action": "Criar Conta",
       "alreadyHaveAccount": "Já tem uma conta?",
       "login": "Fazer login",
       "welcomeAlert": {
@@ -35,7 +35,7 @@
       "subtitle": "Digite seu email para receber instruções de recuperação",
       "email": "meu@email.com",
       "subtitle2": "Seu email",
-      "action": "enviar instruções",
+      "action": "Enviar Instruções",
       "loading": "Enviando instruções...",
       "backToLogin": "Voltar ao login",
       "codeSent": {
@@ -292,8 +292,8 @@
         "name": "Pro",
         "features": [
           "20 CVs por mês",
-          "Alteracao de cores e estilos",
-          "Traducao automatica de texto",
+          "Alteração de cores e estilos",
+          "Tradução automática de texto",
           "10 Templates premium",
           "Análise de IA avançada",
           "Exportação em PDF/Word"
