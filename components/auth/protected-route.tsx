@@ -11,7 +11,7 @@ interface ProtectedRouteProps {
 }
 
 export function ProtectedRoute({ children, fallback }: ProtectedRouteProps) {
-  const { user, loading, authenticated } = useAuth()
+  const { loading, authenticated } = useAuth()
   const router = useRouter()
   
   // Ativar verificação automática de sessão
@@ -22,7 +22,7 @@ export function ProtectedRoute({ children, fallback }: ProtectedRouteProps) {
       router.push('/auth/login')
     }
   }, [loading, authenticated, router])
-
+  
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">

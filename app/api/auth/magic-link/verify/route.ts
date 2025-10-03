@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { randomBytes } from 'crypto'
 import { prisma } from '@/lib/database'
 import { AUTH_CONFIG, calculateExpirationDate } from '@/lib/auth-config'
 import { cleanupExpiredTokens } from '@/lib/token-cleanup'
@@ -84,7 +85,7 @@ export async function GET(request: NextRequest) {
 }
 
 async function createSessionToken(userId: string): Promise<string> {
-  const sessionToken = require('crypto').randomBytes(32).toString('hex')
+  const sessionToken = randomBytes(32).toString('hex')
   const expires = calculateExpirationDate(AUTH_CONFIG.SESSION_TOKEN_EXPIRATION_MINUTES)
 
   await prisma.sessions.create({

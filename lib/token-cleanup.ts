@@ -3,7 +3,6 @@
  */
 
 import { prisma } from '@/lib/database'
-import { AUTH_CONFIG } from '@/lib/auth-config'
 
 /**
  * Remove todos os tokens expirados da tabela sessions

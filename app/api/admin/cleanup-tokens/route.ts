@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { cleanupExpiredTokens, immediateCleanup } from '@/lib/token-cleanup'
+import { immediateCleanup } from '@/lib/token-cleanup'
 
 /**
  * Endpoint para limpeza manual de tokens expirados
@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
 /**
  * Endpoint para verificar status da limpeza
  */
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     const cleanedCount = await immediateCleanup()
     
