@@ -1,13 +1,14 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert"
-import { FiMail, FiLoader, FiLogIn, FiUserPlus } from "react-icons/fi"
+import { FiMail, FiLoader, FiLogIn, FiUserPlus, FiAlertCircle, FiClock } from "react-icons/fi"
 import Link from "next/link"
 import { useTranslations } from "next-intl"
+import { useSearchParams } from "next/navigation"
 import { loginSchema } from "@/lib/validations"
 import { ZodError } from "zod"
 
@@ -20,7 +21,32 @@ export function LoginForm({ className }: LoginFormProps) {
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [isLoading, setIsLoading] = useState(false)
   const [showSuccessAlert, setShowSuccessAlert] = useState(false)
+  const [showSessionExpiredAlert, setShowSessionExpiredAlert] = useState(false)
+  const [showSessionErrorAlert, setShowSessionErrorAlert] = useState(false)
   const t = useTranslations("auth.login")
+  const searchParams = useSearchParams()
+  
+  // Detectar parâmetros da URL para mostrar alertas
+  useEffect(() => {
+    const expired = searchParams.get('expired')
+    const error = searchParams.get('error')
+    
+    if (expired === 'true') {
+      setShowSessionExpiredAlert(true)
+      // Limpar parâmetro da URL após mostrar o alerta
+      const url = new URL(window.location.href)
+      url.searchParams.delete('expired')
+      window.history.replaceState({}, '', url.toString())
+    }
+    
+    if (error === 'session') {
+      setShowSessionErrorAlert(true)
+      // Limpar parâmetro da URL após mostrar o alerta
+      const url = new URL(window.location.href)
+      url.searchParams.delete('error')
+      window.history.replaceState({}, '', url.toString())
+    }
+  }, [searchParams])
   
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -34,8 +60,8 @@ export function LoginForm({ className }: LoginFormProps) {
       // Validate with Zod
       const validatedData = loginSchema.parse({ email })
       
-      // Call the login API endpoint
-      const response = await fetch('/api/auth/login', {
+      // Call the magic link API endpoint
+      const response = await fetch('/api/auth/magic-link', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -51,7 +77,7 @@ export function LoginForm({ className }: LoginFormProps) {
         setShowSuccessAlert(true)
       } else {
         setErrors({ 
-          general: result.error || 'Erro ao fazer login. Tente novamente.' 
+          general: result.error || 'Error sending magic link. Please try again.' 
         })
       }
     } catch (error) {
@@ -66,7 +92,7 @@ export function LoginForm({ className }: LoginFormProps) {
       } else {
         // Generic error
         setErrors({ 
-          general: 'Erro inesperado. Tente novamente.' 
+          general: 'Unexpected error. Please try again.' 
         })
       }
     } finally {
@@ -89,6 +115,30 @@ export function LoginForm({ className }: LoginFormProps) {
       </CardHeader>
 
       <CardContent className="space-y-6">
+        {showSessionExpiredAlert && (
+          <Alert className="bg-orange-500/20 border-orange-500/30 text-orange-200">
+            <FiClock className="w-4 h-4" />
+            <AlertTitle className="text-orange-100 font-semibold">
+              {t('sessionExpired.title')}
+            </AlertTitle>
+            <AlertDescription className="text-orange-200/90">
+              {t('sessionExpired.message')}
+            </AlertDescription>
+          </Alert>
+        )}
+        
+        {showSessionErrorAlert && (
+          <Alert className="bg-red-500/20 border-red-500/30 text-red-200">
+            <FiAlertCircle className="w-4 h-4" />
+            <AlertTitle className="text-red-100 font-semibold">
+              {t('sessionError.title')}
+            </AlertTitle>
+            <AlertDescription className="text-red-200/90">
+              {t('sessionError.message')}
+            </AlertDescription>
+          </Alert>
+        )}
+        
         {showSuccessAlert && (
           <Alert className="bg-green-500/20 border-green-500/30 text-green-200">
             <AlertTitle className="text-green-100 font-semibold">

@@ -2,17 +2,25 @@
   "auth": {
     "login": {
       "title": "Login",
-      "subtitle": "Digite seu email para acessar sua conta",
+      "subtitle": "Digite seu email para receber um link de acesso",
       "email": "Email",
       "emailPlaceholder": "seu@email.com",
-      "action": "Fazer Login",
-      "loading": "Enviando...",
+      "action": "Enviar Link de Acesso",
+      "loading": "Enviando link...",
       "forgotPassword": "Esqueci minha senha",
       "dontHaveAccount": "Não tem uma conta?",
       "register": "Cadastrar",
       "emailSent": {
-        "title": "Email Enviado!",
-        "message": "Verifique seu email para continuar o login."
+        "title": "Link Enviado!",
+        "message": "Verifique seu email e clique no link para acessar sua conta."
+      },
+      "sessionExpired": {
+        "title": "Sessão Expirada",
+        "message": "Sua sessão expirou por segurança. Por favor, faça login novamente para continuar."
+      },
+      "sessionError": {
+        "title": "Erro de Sessão",
+        "message": "Ocorreu um erro com sua sessão. Por favor, faça login novamente."
       }
     },
     "register": {

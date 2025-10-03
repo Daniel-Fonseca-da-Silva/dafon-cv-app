@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { registerSchema } from '@/lib/validations'
-import { BACKEND_API_URL } from '@/lib/constants'
 
 export async function POST(request: NextRequest) {
   try {
@@ -11,10 +10,11 @@ export async function POST(request: NextRequest) {
     const validatedData = registerSchema.parse({ name, email })
 
     // Make request to Golang backend
-    const response = await fetch(`${BACKEND_API_URL}/auth/register`, {
+    const response = await fetch(`${process.env.BACKEND_API_URL}/user`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${process.env.BACKEND_APIKEY}`,
       },
       body: JSON.stringify({
         name: validatedData.name,
@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         { 
           success: false, 
-          error: data.message || data.error || 'Erro ao criar usuário no backend' 
+          error: data.message || data.error || 'Error creating user on backend' 
         },
         { status: response.status }
       )
@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       success: true,
       data,
-      message: 'Usuário criado com sucesso'
+      message: 'User created successfully'
     })
 
   } catch (error) {
@@ -46,13 +46,13 @@ export async function POST(request: NextRequest) {
     // Handle validation errors
     if (error instanceof Error && error.name === 'ZodError') {
       return NextResponse.json(
-        { success: false, error: 'Dados inválidos fornecidos' },
+        { success: false, error: 'Invalid data provided' },
         { status: 400 }
       )
     }
 
     return NextResponse.json(
-      { success: false, error: 'Erro interno do servidor' },
+      { success: false, error: 'Internal server error' },
       { status: 500 }
     )
   }
