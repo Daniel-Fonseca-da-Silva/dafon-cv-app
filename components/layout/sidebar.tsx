@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/card"
 import Image from "next/image"
 import { useTranslations } from "next-intl"
 import { useRouter } from "@/i18n/navigation"
+import { useAuth } from "@/hooks/use-auth"
 
 interface SidebarProps {
   activeSection: string
@@ -32,13 +33,41 @@ export function Sidebar({
 }: SidebarProps) {
   const t = useTranslations('sidebar')
   const router = useRouter()
+  const { checkSession } = useAuth()
 
-  const handleLogout = () => {
-    // Aqui você pode adicionar lógica adicional de logout se necessário
-    // Por exemplo: limpar tokens, cookies, etc.
-    
-    // Redireciona para a raiz do sistema
-    router.push('/')
+  const handleSectionChange = async (section: string) => {
+    // Verificar sessão antes de mudar de seção
+    await checkSession()
+    onSectionChange(section)
+  }
+
+  const handleLogout = async () => {
+    try {
+      // Chamar endpoint de logout
+      const response = await fetch('/api/auth/logout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+
+      if (response.ok) {
+        // Limpar dados locais se necessário
+        localStorage.clear()
+        sessionStorage.clear()
+        
+        // Redirecionar para a página de login
+        router.push('/auth/login')
+      } else {
+        console.error('Error logging out')
+        // Mesmo com erro, redirecionar para login
+        router.push('/auth/login')
+      }
+    } catch (error) {
+      console.error('Error logging out:', error)
+      // Mesmo com erro, redirecionar para login
+      router.push('/auth/login')
+    }
   }
 
   const menuItems = [
@@ -138,7 +167,7 @@ export function Sidebar({
                 <Button
                   key={item.id}
                   variant="ghost"
-                  onClick={() => onSectionChange(item.id)}
+                  onClick={() => handleSectionChange(item.id)}
                   className={`w-full justify-start h-12 px-3 transition-all duration-200 ${
                     isActive 
                       ? 'bg-gradient-to-r from-orange-400/20 to-pink-400/20 border border-white/20 text-white shadow-lg' 

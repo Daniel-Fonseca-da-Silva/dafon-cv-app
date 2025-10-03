@@ -1,18 +1,26 @@
 {
   "auth": {
     "login": {
-      "title": "Enter",
-      "subtitle": "Enter your email to access your account",
-      "email": "your@email.com",
-      "subtitle2": "Your email",
-      "action": "Login",
-      "loading": "Logging in...",
+      "title": "Login",
+      "subtitle": "Enter your email to receive an access link",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "action": "Send Access Link",
+      "loading": "Sending link...",
       "forgotPassword": "Forgot password?",
       "dontHaveAccount": "Don't have an account?",
       "register": "Register",
-      "codeSent": {
-        "title": "Code sent!",
-        "message": "A login code has been sent to your email. Check your inbox and click the link to login."
+      "emailSent": {
+        "title": "Link Sent!",
+        "message": "Check your email and click the link to access your account."
+      },
+      "sessionExpired": {
+        "title": "Session Expired",
+        "message": "Your session has expired for security reasons. Please log in again to continue."
+      },
+      "sessionError": {
+        "title": "Session Error",
+        "message": "An error occurred with your session. Please log in again."
       }
     },
     "register": {

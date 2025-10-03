@@ -1,0 +1,48 @@
+import { NextRequest, NextResponse } from 'next/server'
+
+const BACKEND_API_URL = process.env.BACKEND_API_URL || 'http://localhost:8080'
+
+export async function POST(request: NextRequest) {
+  try {
+    const body = await request.json()
+    const { email } = body
+
+    if (!email) {
+      return NextResponse.json(
+        { success: false, error: 'Email is required' },
+        { status: 400 }
+      )
+    }
+
+    // Fazer requisição para o backend Golang
+    const response = await fetch(`${BACKEND_API_URL}/auth/forgot-password`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email }),
+    })
+
+    const data = await response.json()
+
+    if (!response.ok) {
+      return NextResponse.json(
+        { success: false, error: data.message || 'Error when sending password reset code' },
+        { status: response.status }
+      )
+    }
+
+    return NextResponse.json({
+      success: true,
+      data,
+      message: 'Password reset code sent successfully'
+    })
+
+  } catch (error) {
+    console.error('Forgot password API error:', error)
+    return NextResponse.json(
+      { success: false, error: 'Internal server error' },
+      { status: 500 }
+    )
+  }
+}

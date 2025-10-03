@@ -5,6 +5,7 @@ import { Sidebar } from "@/components/layout/sidebar"
 import { Button } from "@/components/ui/button"
 import { FiMenu } from "react-icons/fi"
 import { useTranslations } from "next-intl"
+import { useAuth } from "@/hooks/use-auth"
 
 interface UserData {
   name: string
@@ -28,6 +29,7 @@ export function DashboardLayout({
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const t = useTranslations('dashboard.sections')
+  const { checkSession } = useAuth()
 
   const handleToggleSidebar = () => {
     setIsSidebarCollapsed(!isSidebarCollapsed)
@@ -37,7 +39,9 @@ export function DashboardLayout({
     setIsMobileMenuOpen(!isMobileMenuOpen)
   }
 
-  const handleSectionChange = (section: string) => {
+  const handleSectionChange = async (section: string) => {
+    // Verificar sessão antes de mudar de seção
+    await checkSession()
     onSectionChange(section)
     setIsMobileMenuOpen(false) // Fechar menu mobile ao selecionar uma seção
   }
