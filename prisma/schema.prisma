@@ -1,0 +1,95 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model configurations {
+  id             String    @id @default(dbgenerated("(uuid())")) @db.Char(36)
+  created_at     DateTime?
+  updated_at     DateTime?
+  deleted_at     DateTime?
+  user_id        String    @unique(map: "idx_configurations_user_id") @db.Char(36)
+  language       String    @default("en-us") @db.VarChar(10)
+  newsletter     Boolean   @default(false)
+  receive_emails Boolean   @default(false)
+  users          users     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_users_configuration")
+
+  @@index([deleted_at], map: "idx_configurations_deleted_at")
+}
+
+model curriculums {
+  id                 String    @id @default(dbgenerated("(uuid())")) @db.Char(36)
+  created_at         DateTime?
+  updated_at         DateTime?
+  deleted_at         DateTime?
+  full_name          String    @db.VarChar(255)
+  email              String    @db.VarChar(255)
+  phone              String    @db.VarChar(20)
+  driver_license     String?   @db.VarChar(255)
+  intro              String    @db.Text
+  technologies       String    @db.Text
+  date_disponibility DateTime? @db.Date
+  languages          String    @db.Text
+  level_education    String    @db.VarChar(255)
+  courses            String?   @db.Text
+  social_links       String?   @db.VarChar(100)
+  job_description    String?   @db.Text
+  user_id            String    @db.Char(36)
+  users              users     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_users_curriculums")
+  works              works[]
+
+  @@index([deleted_at], map: "idx_curriculums_deleted_at")
+  @@index([user_id], map: "idx_curriculums_user_id")
+}
+
+model sessions {
+  id         String    @id @default(dbgenerated("(uuid())")) @db.Char(36)
+  created_at DateTime?
+  updated_at DateTime?
+  deleted_at DateTime?
+  user_id    String    @db.Char(36)
+  token      String    @unique(map: "uni_sessions_token") @db.VarChar(255)
+  expires_at DateTime
+  users      users     @relation(fields: [user_id], references: [id], onDelete: Cascade, map: "fk_users_sessions")
+
+  @@index([deleted_at], map: "idx_sessions_deleted_at")
+  @@index([expires_at], map: "idx_sessions_expires_at")
+  @@index([token], map: "idx_sessions_token")
+  @@index([user_id], map: "idx_sessions_user_id")
+}
+
+model users {
+  id             String          @id @default(dbgenerated("(uuid())")) @db.Char(36)
+  created_at     DateTime?
+  updated_at     DateTime?
+  deleted_at     DateTime?
+  name           String          @db.VarChar(255)
+  email          String          @unique(map: "uni_users_email") @db.VarChar(255)
+  configurations configurations?
+  curriculums    curriculums[]
+  sessions       sessions[]
+
+  @@index([deleted_at], map: "idx_users_deleted_at")
+}
+
+model works {
+  id                  String      @id @default(dbgenerated("(uuid())")) @db.Char(36)
+  created_at          DateTime?
+  updated_at          DateTime?
+  deleted_at          DateTime?
+  curriculum_id       String      @db.Char(36)
+  job_title           String      @db.VarChar(255)
+  company_name        String      @db.VarChar(255)
+  company_description String?     @db.Text
+  start_date          DateTime    @db.Date
+  end_date            DateTime?   @db.Date
+  curriculums         curriculums @relation(fields: [curriculum_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_curriculums_works")
+
+  @@index([curriculum_id], map: "idx_works_curriculum_id")
+  @@index([deleted_at], map: "idx_works_deleted_at")
+}
+
