@@ -95,9 +95,19 @@ export function useTokenErrorHandler() {
     router.push(`/token-error?${params.toString()}`);
   };
 
-  const handleApiError = (error: any, email?: string) => {
-    if (error?.message) {
-      const errorMessage = error.message.toLowerCase();
+  const extractErrorMessage = (err: unknown): string | null => {
+    if (typeof err === 'string') return err;
+    if (err && typeof err === 'object' && 'message' in err) {
+      const possibleMessage = (err as { message?: unknown }).message;
+      return typeof possibleMessage === 'string' ? possibleMessage : null;
+    }
+    return null;
+  };
+
+  const handleApiError = (error: unknown, email?: string) => {
+    const message = extractErrorMessage(error);
+    if (message) {
+      const errorMessage = message.toLowerCase();
       
       if (errorMessage.includes('expired') || errorMessage.includes('token expired')) {
         handleTokenError('expired', email);
@@ -111,9 +121,9 @@ export function useTokenErrorHandler() {
         // Default to server error for unknown errors
         handleTokenError('server_error', email);
       }
-    } else {
-      handleTokenError('server_error', email);
+      return;
     }
+    handleTokenError('server_error', email);
   };
 
   return {

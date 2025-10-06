@@ -14,17 +14,8 @@ import {
   FiLoader
 } from "react-icons/fi"
 import { CvSectionProps } from "../../../types/cv.types"
+import type { Course } from "@/types/cv.types"
 import { useEffect, useState } from "react"
-
-interface Course {
-  id: string
-  name: string
-  institution: string
-  startDate: string
-  endDate: string
-  description: string
-  completionDate: string
-}
 
 export function CourseSection({ data, onDataChange, onNext, onPrevious }: CvSectionProps) {
   const t = useTranslations('cvForm.courses')
@@ -39,10 +30,8 @@ export function CourseSection({ data, onDataChange, onNext, onPrevious }: CvSect
         id: Date.now().toString(),
         name: '',
         institution: '',
-        startDate: '',
-        endDate: '',
-        description: '',
-        completionDate: ''
+        completionDate: '',
+        description: ''
       }
       onDataChange({
         ...data,
@@ -50,12 +39,12 @@ export function CourseSection({ data, onDataChange, onNext, onPrevious }: CvSect
       })
     }
     // Dependemos apenas do comprimento para evitar loops desnecessários
-  }, [data.courses?.length])
+  }, [data, onDataChange])
 
   const updateCourse = (id: string, field: keyof Course, value: string) => {
     onDataChange({
       ...data,
-      courses: data.courses.map((course: any) => 
+      courses: data.courses.map((course: Course) => 
         course.id === id ? { ...course, [field]: value } : course
       )
     })
@@ -94,10 +83,8 @@ export function CourseSection({ data, onDataChange, onNext, onPrevious }: CvSect
             id: Date.now().toString(),
             name: '',
             institution: '',
-            startDate: '',
-            endDate: '',
-            description: result.data.filtered_content,
-            completionDate: ''
+            completionDate: '',
+            description: result.data.filtered_content
           }
           onDataChange({
             ...data,
@@ -117,7 +104,7 @@ export function CourseSection({ data, onDataChange, onNext, onPrevious }: CvSect
   }
 
   const isFormValid = () => {
-    return data.courses.some((course: any) => 
+    return data.courses.some((course: Course) => 
       course.description.trim() !== ''
     )
   }
@@ -181,9 +168,8 @@ export function CourseSection({ data, onDataChange, onNext, onPrevious }: CvSect
         </CardContent>
       </Card>
 
-
       {/* Cards de Cursos */}
-      {data.courses.map((course: any) => (
+      {data.courses.map((course: Course) => (
         <Card key={course.id} className="backdrop-blur-xl bg-white/10 border-white/20 shadow-2xl rounded-xl">
           <CardContent className="p-6">
             {/* Header do Card */}
