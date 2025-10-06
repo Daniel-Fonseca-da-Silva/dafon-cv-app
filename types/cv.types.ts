@@ -39,13 +39,18 @@ export interface Course {
 export interface Skill {
   id: string
   name: string
-  level: 'iniciante' | 'intermediario' | 'avancado' | 'especialista'
+  level: 'beginner' | 'intermediate' | 'advanced' | 'expert'
+}
+
+export interface Language {
+  id: string
+  name: string
+  level: 'basic' | 'intermediate' | 'advanced' | 'native'
 }
 
 export interface SkillsData {
   areas: string[]
-  availabilityDate: string
-  languages: string[]
+  languages: Language[]
 }
 
 export interface SocialLink {
@@ -62,4 +67,11 @@ export interface CvData {
   skills: Skill[]
   skillsData: SkillsData
   socialLinks: SocialLink[]
+}
+
+export interface CvSectionProps {
+  data: CvData
+  onDataChange: (data: CvData) => void
+  onNext?: () => void
+  onPrevious?: () => void
 }
