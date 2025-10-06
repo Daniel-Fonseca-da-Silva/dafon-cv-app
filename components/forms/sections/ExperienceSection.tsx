@@ -71,32 +71,36 @@ export function ExperienceSection({ data, onDataChange, onNext, onPrevious }: Cv
     setTargetExperienceIndex(experienceIndex)
     setIsGenerating(true)
     try {
-      // Simulação de chamada para API de IA
-      // Em uma implementação real, você faria uma chamada para sua API
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      
-      // Geração de descrição baseada no prompt
-      const generatedDescription = `Como ${aiPrompt}, sou responsável por:
+      // Fazer requisição para a rota interna do Next.js
+      const response = await fetch('/api/generate-task-ai', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          content: aiPrompt
+        })
+      })
 
-• Desenvolver e implementar soluções inovadoras
-• Colaborar com equipes multidisciplinares
-• Otimizar processos e melhorar a eficiência operacional
-• Contribuir para o crescimento e sucesso da empresa
-
-Principais conquistas:
-• Resultados mensuráveis e impacto positivo no negócio
-• Liderança em projetos estratégicos
-• Desenvolvimento contínuo de habilidades técnicas e interpessoais`
-      
-      // Aplicar a descrição gerada ao card de experiência específico
-      if (data.experiences.length > experienceIndex) {
-        const targetExperience = data.experiences[experienceIndex]
-        updateExperience(targetExperience.id, 'description', generatedDescription)
+      if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`)
       }
+
+      const result = await response.json()
       
-      setAiPrompt('')
+      if (result.success && result.data?.filtered_content) {
+        // Aplicar a descrição gerada ao card de experiência específico
+        if (data.experiences.length > experienceIndex) {
+          const targetExperience = data.experiences[experienceIndex]
+          updateExperience(targetExperience.id, 'description', result.data.filtered_content)
+        }
+        setAiPrompt('')
+      } else {
+        throw new Error(result.error || 'Erro ao processar descrição de experiência')
+      }
     } catch (error) {
       console.error('Erro ao gerar descrição:', error)
+      // Em caso de erro, manter o prompt para o usuário tentar novamente
     } finally {
       setIsGenerating(false)
     }
