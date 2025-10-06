@@ -14,10 +14,9 @@ export async function GET(request: NextRequest) {
     const email = searchParams.get('email')
 
     if (!token || !email) {
-      return NextResponse.json(
-        { error: 'Token and email are required' },
-        { status: 400 }
-      )
+      const baseUrl = process.env.NEXTAUTH_URL
+      const errorUrl = `${baseUrl}/token-error?type=invalid&email=${encodeURIComponent(email || '')}`
+      return NextResponse.redirect(errorUrl)
     }
 
     // Verificar se o token existe e não expirou
@@ -27,10 +26,9 @@ export async function GET(request: NextRequest) {
     })
 
     if (!session) {
-      return NextResponse.json(
-        { error: 'Invalid token' },
-        { status: 400 }
-      )
+      const baseUrl = process.env.NEXTAUTH_URL
+      const errorUrl = `${baseUrl}/token-error?type=invalid&email=${encodeURIComponent(email)}`
+      return NextResponse.redirect(errorUrl)
     }
 
     if (session.expires_at < new Date()) {
@@ -39,17 +37,15 @@ export async function GET(request: NextRequest) {
         where: { token }
       })
       
-      return NextResponse.json(
-        { error: 'Token expired' },
-        { status: 400 }
-      )
+      const baseUrl = process.env.NEXTAUTH_URL
+      const errorUrl = `${baseUrl}/token-error?type=expired&email=${encodeURIComponent(email)}`
+      return NextResponse.redirect(errorUrl)
     }
 
     if (session.users.email !== email) {
-      return NextResponse.json(
-        { error: 'Email does not correspond to the token' },
-        { status: 400 }
-      )
+      const baseUrl = process.env.NEXTAUTH_URL
+      const errorUrl = `${baseUrl}/token-error?type=email_mismatch&email=${encodeURIComponent(email)}`
+      return NextResponse.redirect(errorUrl)
     }
 
     // Remover o token após uso
@@ -61,7 +57,7 @@ export async function GET(request: NextRequest) {
     const sessionToken = await createSessionToken(session.user_id)
     
     // Redirecionar para o dashboard
-    const baseUrl = process.env.NEXTAUTH_URL || 'http://localhost:3000'
+    const baseUrl = process.env.NEXTAUTH_URL
     const redirectUrl = `${baseUrl}/dashboard`
 
     // Criar resposta com cookie de sessão
@@ -77,10 +73,9 @@ export async function GET(request: NextRequest) {
 
   } catch (error) {
     console.error('Error verifying magic link:', error)
-    return NextResponse.json(
-      { error: 'Internal server error' },
-      { status: 500 }
-    )
+    const baseUrl = process.env.NEXTAUTH_URL
+    const errorUrl = `${baseUrl}/token-error?type=server_error`
+    return NextResponse.redirect(errorUrl)
   }
 }
 
