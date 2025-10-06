@@ -13,19 +13,38 @@ import {
   FiZap,
   FiLoader
 } from "react-icons/fi"
-import { CvSectionProps, Course } from "@/types/cv.types"
-import { useState } from "react"
+import { CvSectionProps } from "../../../types/cv.types"
+import type { Course } from "@/types/cv.types"
+import { useEffect, useState } from "react"
 
 export function CourseSection({ data, onDataChange, onNext, onPrevious }: CvSectionProps) {
   const t = useTranslations('cvForm.courses')
   const [aiPrompt, setAiPrompt] = useState('')
   const [isGenerating, setIsGenerating] = useState(false)
 
+  // Garante que o utilizador tenha imediatamente um campo para escrever cursos
+  useEffect(() => {
+    const hasCourses = Array.isArray(data.courses) && data.courses.length > 0
+    if (!hasCourses) {
+      const newCourse: Course = {
+        id: Date.now().toString(),
+        name: '',
+        institution: '',
+        completionDate: '',
+        description: ''
+      }
+      onDataChange({
+        ...data,
+        courses: [newCourse]
+      })
+    }
+    // Dependemos apenas do comprimento para evitar loops desnecessários
+  }, [data, onDataChange])
 
   const updateCourse = (id: string, field: keyof Course, value: string) => {
     onDataChange({
       ...data,
-      courses: data.courses.map(course => 
+      courses: data.courses.map((course: Course) => 
         course.id === id ? { ...course, [field]: value } : course
       )
     })
@@ -36,85 +55,56 @@ export function CourseSection({ data, onDataChange, onNext, onPrevious }: CvSect
     
     setIsGenerating(true)
     try {
-      // Simulação de chamada para API de IA
-      // Em uma implementação real, você faria uma chamada para sua API
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      
-      // Geração de lista de cursos baseada no prompt
-      const generatedCourses = `CURSOS E CERTIFICAÇÕES RELACIONADOS A ${aiPrompt.toUpperCase()}
-
-1. Curso de Fundamentos em ${aiPrompt}
-   • Instituição: Coursera/Udemy
-   • Período: 2024
-   • Descrição: Curso introdutório cobrindo conceitos básicos e fundamentais da área.
-
-2. Especialização em ${aiPrompt} Avançado
-   • Instituição: Universidade Virtual/Plataforma Online
-   • Período: 2024
-   • Descrição: Especialização aprofundada com foco em aplicações práticas e casos reais.
-
-3. Certificação Profissional em ${aiPrompt}
-   • Instituição: Instituto de Certificação
-   • Período: 2024
-   • Descrição: Certificação reconhecida pelo mercado com validade internacional.
-
-4. Workshop Prático de ${aiPrompt}
-   • Instituição: Centro de Treinamento
-   • Período: 2024
-   • Descrição: Workshop hands-on com projetos práticos e mentoria especializada.
-
-5. Curso Online de ${aiPrompt} para Iniciantes
-   • Instituição: Plataforma de Ensino Online
-   • Período: 2024
-   • Descrição: Curso estruturado para iniciantes com exercícios e projetos.
-
-6. Masterclass em ${aiPrompt} e Aplicações
-   • Instituição: Academia Digital
-   • Período: 2024
-   • Descrição: Masterclass com especialistas da área e estudos de caso.
-
-7. Bootcamp Intensivo de ${aiPrompt}
-   • Instituição: Escola de Tecnologia
-   • Período: 2024
-   • Descrição: Bootcamp imersivo com foco em desenvolvimento prático e networking.
-
-8. Curso de ${aiPrompt} e Tendências do Mercado
-   • Instituição: Instituto de Pesquisa
-   • Período: 2024
-   • Descrição: Curso atualizado com as últimas tendências e inovações do mercado.
-
-Estes cursos demonstram compromisso com aprendizado contínuo e desenvolvimento profissional na área de ${aiPrompt}.`
-      
-      // Aplicar a lista gerada ao curso
-      if (data.courses.length > 0) {
-        const firstCourse = data.courses[0]
-        updateCourse(firstCourse.id, 'description', generatedCourses)
-      } else {
-        // Se não há cursos, criar um novo com a lista
-        const newCourse: Course = {
-          id: Date.now().toString(),
-          name: '',
-          institution: '',
-          startDate: '',
-          endDate: '',
-          description: generatedCourses
-        }
-        onDataChange({
-          ...data,
-          courses: [newCourse]
+      // Fazer requisição para a rota interna do Next.js
+      const response = await fetch('/api/generate-courses-ai', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          content: aiPrompt
         })
+      })
+
+      if (!response.ok) {
+        throw new Error(`Error in request: ${response.status}`)
       }
+
+      const result = await response.json()
       
-      setAiPrompt('')
+      if (result.success && result.data?.filtered_content) {
+        // Aplicar a lista gerada ao curso
+        if (data.courses.length > 0) {
+          const firstCourse = data.courses[0]
+          updateCourse(firstCourse.id, 'description', result.data.filtered_content)
+        } else {
+          // Se não há cursos, criar um novo com a lista
+          const newCourse: Course = {
+            id: Date.now().toString(),
+            name: '',
+            institution: '',
+            completionDate: '',
+            description: result.data.filtered_content
+          }
+          onDataChange({
+            ...data,
+            courses: [newCourse]
+          })
+        }
+        setAiPrompt('')
+      } else {
+        throw new Error(result.error || 'Error processing courses list')
+      }
     } catch (error) {
-      console.error('Erro ao gerar lista de cursos:', error)
+      console.error('Error generating courses list:', error)
+      // Em caso de erro, manter o prompt para o usuário tentar novamente
     } finally {
       setIsGenerating(false)
     }
   }
 
   const isFormValid = () => {
-    return data.courses.some(course => 
+    return data.courses.some((course: Course) => 
       course.description.trim() !== ''
     )
   }
@@ -178,9 +168,8 @@ Estes cursos demonstram compromisso com aprendizado contínuo e desenvolvimento 
         </CardContent>
       </Card>
 
-
       {/* Cards de Cursos */}
-      {data.courses.map((course) => (
+      {data.courses.map((course: Course) => (
         <Card key={course.id} className="backdrop-blur-xl bg-white/10 border-white/20 shadow-2xl rounded-xl">
           <CardContent className="p-6">
             {/* Header do Card */}

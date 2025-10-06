@@ -37,7 +37,7 @@ export function SocialSection({ data, onDataChange, onNext, onPrevious }: CvSect
     if (selectedType && urlValue.trim()) {
       const newSocialLink: SocialLink = {
         id: Date.now().toString(),
-        type: selectedType as SocialLink['type'],
+        platform: selectedType,
         url: urlValue.trim()
       }
       
@@ -59,8 +59,8 @@ export function SocialSection({ data, onDataChange, onNext, onPrevious }: CvSect
   }
 
   const getAvailableTypes = () => {
-    const usedTypes = (data.socialLinks || []).map((link: SocialLink) => link.type)
-    return SOCIAL_TYPES.filter(type => !usedTypes.includes(type.value as SocialLink['type']))
+    const usedTypes = (data.socialLinks || []).map((link: SocialLink) => link.platform)
+    return SOCIAL_TYPES.filter(type => !usedTypes.includes(type.value))
   }
 
   const isFormValid = () => {
@@ -123,7 +123,7 @@ export function SocialSection({ data, onDataChange, onNext, onPrevious }: CvSect
                 onChange={(e) => setUrlValue(e.target.value)}
                 placeholder={t('addLink.urlPlaceholder')}
                 className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
-                onKeyPress={(e) => e.key === 'Enter' && addSocialLink()}
+                onKeyDown={(e) => e.key === 'Enter' && addSocialLink()}
               />
             </div>
           </div>
@@ -158,7 +158,7 @@ export function SocialSection({ data, onDataChange, onNext, onPrevious }: CvSect
           <CardContent>
             <div className="space-y-3">
               {(data.socialLinks || []).map((link: SocialLink) => {
-                const socialType = SOCIAL_TYPES.find(type => type.value === link.type)
+                const socialType = SOCIAL_TYPES.find(type => type.value === link.platform)
                 const IconComponent = socialType?.icon || FiLink
                 
                 return (

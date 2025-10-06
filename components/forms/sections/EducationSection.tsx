@@ -15,7 +15,7 @@ import {
   FiZap,
   FiLoader
 } from "react-icons/fi"
-import { CvSectionProps, Education } from "@/types/cv.types"
+import { CvSectionProps, Education } from "../../../types/cv.types"
 import { useState } from "react"
 
 export function EducationSection({ data, onDataChange, onNext, onPrevious }: CvSectionProps) {
@@ -64,22 +64,36 @@ export function EducationSection({ data, onDataChange, onNext, onPrevious }: CvS
     setTargetEducationIndex(educationIndex)
     setIsGenerating(true)
     try {
-      // Simulação de chamada para API de IA
-      // Em uma implementação real, você faria uma chamada para sua API
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      
-      // Geração de descrição baseada no prompt
-      const generatedDescription = `Durante the course of ${aiPrompt}, I developed essential skills and participated in relevant projects that contributed to my academic and professional formation.`
-      
-      // Aplicar a descrição gerada ao card de educação específico
-      if (data.educations.length > educationIndex) {
-        const targetEducation = data.educations[educationIndex]
-        updateEducation(targetEducation.id, 'description', generatedDescription)
+      // Fazer requisição para a rota interna do Next.js
+      const response = await fetch('/api/generate-academic-ai', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          content: aiPrompt
+        })
+      })
+
+      if (!response.ok) {
+        throw new Error(`Error in request: ${response.status}`)
       }
+
+      const result = await response.json()
       
-      setAiPrompt('')
+      if (result.success && result.data?.filtered_content) {
+        // Aplicar a descrição gerada ao card de educação específico
+        if (data.educations.length > educationIndex) {
+          const targetEducation = data.educations[educationIndex]
+          updateEducation(targetEducation.id, 'description', result.data.filtered_content)
+        }
+        setAiPrompt('')
+      } else {
+        throw new Error(result.error || 'Error processing academic description')
+      }
     } catch (error) {
-      console.error('Erro ao gerar descrição:', error)
+      console.error('Error generating description:', error)
+      // Em caso de erro, manter o prompt para o usuário tentar novamente
     } finally {
       setIsGenerating(false)
     }
