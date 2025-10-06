@@ -2,176 +2,101 @@
 
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { 
-  FiAward,
-  FiPlus,
-  FiTrash2,
   FiArrowLeft,
   FiSave,
   FiDownload,
-  FiX,
-  FiCalendar,
-  FiGlobe,
-  FiZap
+  FiLoader,
+  FiCheck,
+  FiX
 } from "react-icons/fi"
-import { CvSectionProps, Language } from "@/types/cv.types"
+import { CvSectionProps, Language } from "../../../types/cv.types"
+import { SkillAreasSection } from "./SkillAreasSection"
+import { LanguagesSection } from "./LanguagesSection"
+import { useAuth } from "@/hooks/use-auth"
 
 export function SkillsSection({ data, onDataChange, onPrevious }: CvSectionProps) {
   const t = useTranslations('cvForm.skills')
-  
-  // Função que retorna as linguas comuns diretamente das traduções
-  const getCommonLanguages = () => {
-    return [
-      { key: 'english', name: t('languages.commonLanguagesList.english') },
-      { key: 'spanish', name: t('languages.commonLanguagesList.spanish') },
-      { key: 'french', name: t('languages.commonLanguagesList.french') },
-      { key: 'german', name: t('languages.commonLanguagesList.german') },
-      { key: 'italian', name: t('languages.commonLanguagesList.italian') },
-      { key: 'portuguese', name: t('languages.commonLanguagesList.portuguese') }
-    ]
-  }
+  const { user, authenticated } = useAuth()
+  const [isSaving, setIsSaving] = useState(false)
+  const [saveStatus, setSaveStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [saveMessage, setSaveMessage] = useState('')
 
-  // Função que retorna as áreas de habilidades diretamente das traduções
-  const getSkillAreas = () => {
-    return [
-      { key: 'mobileDevelopment', name: t('skillAreasList.mobileDevelopment') },
-      { key: 'devOps', name: t('skillAreasList.devOps') },
-      { key: 'dataScience', name: t('skillAreasList.dataScience') },
-      { key: 'machineLearning', name: t('skillAreasList.machineLearning') },
-      { key: 'uiUxDesign', name: t('skillAreasList.uiUxDesign') },
-      { key: 'productManagement', name: t('skillAreasList.productManagement') },
-      { key: 'projectManagement', name: t('skillAreasList.projectManagement') },
-      { key: 'qualityAssurance', name: t('skillAreasList.qualityAssurance') },
-      { key: 'cybersecurity', name: t('skillAreasList.cybersecurity') },
-      { key: 'cloudComputing', name: t('skillAreasList.cloudComputing') },
-      { key: 'constructionCivilEngineering', name: t('skillAreasList.constructionCivilEngineering') },
-      { key: 'healthcareMedicine', name: t('skillAreasList.healthcareMedicine') }
-    ]
-  }
-  const [newArea, setNewArea] = useState('')
-  const [newLanguage, setNewLanguage] = useState('')
-  const [showAllAreas, setShowAllAreas] = useState(false)
-  const [showAllLanguages, setShowAllLanguages] = useState(false)
-
-  const addArea = (area?: string) => {
-    const areaToAdd = area || newArea.trim()
-    if (areaToAdd && !data.skillsData.areas.includes(areaToAdd)) {
-      onDataChange({
-        ...data,
-        skillsData: {
-          ...data.skillsData,
-          areas: [...data.skillsData.areas, areaToAdd]
-        }
-      })
-      if (!area) {
-        setNewArea('')
-      }
-    }
-  }
-
-  const removeArea = (area: string) => {
+  const handleAreasChange = (areas: string[]) => {
     onDataChange({
       ...data,
       skillsData: {
         ...data.skillsData,
-        areas: data.skillsData.areas.filter(a => a !== area)
+        areas
       }
     })
   }
 
-  const addLanguage = (language?: string) => {
-    const languageToAdd = language || newLanguage.trim()
-    if (languageToAdd && !data.skillsData.languages.some(l => l.name === languageToAdd)) {
-      const newLanguageObj: Language = {
-        id: Date.now().toString(),
-        name: languageToAdd,
-        level: 'intermediario'
-      }
-      onDataChange({
-        ...data,
-        skillsData: {
-          ...data.skillsData,
-          languages: [...data.skillsData.languages, newLanguageObj]
-        }
-      })
-      if (!language) {
-        setNewLanguage('')
-      }
-    }
-  }
-
-  const removeLanguage = (id: string) => {
+  const handleLanguagesChange = (languages: Language[]) => {
     onDataChange({
       ...data,
       skillsData: {
         ...data.skillsData,
-        languages: data.skillsData.languages.filter(l => l.id !== id)
+        languages
       }
     })
-  }
-
-  const updateLanguage = (id: string, level: string) => {
-    onDataChange({
-      ...data,
-      skillsData: {
-        ...data.skillsData,
-        languages: data.skillsData.languages.map(l => 
-          l.id === id ? { ...l, level: level as 'basico' | 'intermediario' | 'avancado' | 'nativo' } : l
-        )
-      }
-    })
-  }
-
-  const updateAvailabilityDate = (date: string) => {
-    onDataChange({
-      ...data,
-      skillsData: {
-        ...data.skillsData,
-        availabilityDate: date
-      }
-    })
-  }
-
-  const generateAISkills = () => {
-    // Áreas de habilidade comuns para diferentes perfis
-    const commonSkillAreas = [
-      'Frontend Development',
-      'Backend Development', 
-      'Full Stack Development',
-      'UI/UX Design',
-      'Project Management'
-    ]
-    
-    // Adiciona as áreas que ainda não estão selecionadas
-    const newAreas = commonSkillAreas.filter(area => !data.skillsData.areas.includes(area))
-    
-    if (newAreas.length > 0) {
-      onDataChange({
-        ...data,
-        skillsData: {
-          ...data.skillsData,
-          areas: [...data.skillsData.areas, ...newAreas]
-        }
-      })
-    }
   }
 
   const isFormValid = () => {
-    return data.skillsData.areas.length > 0 && data.skillsData.availabilityDate.trim() !== ''
+    return data.skillsData.areas.length > 0
   }
 
-  const handleSave = () => {
-    // Implementar lógica de salvamento
-    console.log('Salvando currículo...', data)
+  const handleSave = async () => {
+    // Verificar se o usuário está autenticado
+    if (!authenticated || !user?.id) {
+      setSaveStatus('error')
+      setSaveMessage('User not authenticated. Please login to save the CV.')
+      return
+    }
+
+    setIsSaving(true)
+    setSaveStatus('idle')
+    setSaveMessage('')
+
+    try {
+      const userId = user.id
+      
+      const response = await fetch('/api/save-cv', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          cvData: data,
+          userId
+        })
+      })
+
+      const result = await response.json()
+
+      if (!response.ok) {
+        setSaveStatus('error')
+        setSaveMessage(result.error || 'Error saving CV')
+        if (result.details) {
+          console.error('Error details:', result.details)
+        }
+      } else {
+        setSaveStatus('success')
+        setSaveMessage(result.message || 'CV saved successfully!')
+      }
+    } catch (error) {
+      setSaveStatus('error')
+      setSaveMessage('Unexpected error saving CV')
+      console.error('Error saving CV:', error)
+    } finally {
+      setIsSaving(false)
+    }
   }
 
   const handleDownload = () => {
     // Implementar lógica de download
-    console.log('Baixando currículo...', data)
+    console.log('Downloading CV...', data)
   }
 
   return (
@@ -187,242 +112,35 @@ export function SkillsSection({ data, onDataChange, onPrevious }: CvSectionProps
       </div>
 
       {/* Áreas de Habilidade */}
-      <Card className="backdrop-blur-xl bg-white/10 border-white/20 shadow-2xl">
-        <CardHeader>
-          <div className="flex items-center justify-between">
-            <div>
-              <CardTitle className="text-white flex items-center space-x-2">
-                <FiAward className="w-5 h-5" />
-                <span>{t('skillAreas.title')}</span>
-              </CardTitle>
-              <CardDescription className="text-white/70">
-                {t('skillAreas.subtitle')}
-              </CardDescription>
-            </div>
-            <Button
-              onClick={generateAISkills}
-              className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-4 py-2 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 flex items-center gap-2"
-            >
-              <FiZap className="w-4 h-4" />
-              {t('skillAreas.useAiButton')}
-            </Button>
-          </div>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          {/* Campo de entrada para nova área */}
-          <div className="flex gap-2">
-            <Input
-              value={newArea}
-              onChange={(e) => setNewArea(e.target.value)}
-              placeholder={t('skillAreas.placeholder')}
-              className="bg-white/20 border-white/30 text-white placeholder:text-white/60 flex-1"
-              onKeyPress={(e) => e.key === 'Enter' && addArea()}
-            />
-            <Button
-              type="button"
-              onClick={() => addArea()}
-              disabled={!newArea.trim()}
-              className="bg-white/20 border-white/30 text-white hover:bg-white/30 px-4 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              <FiPlus className="w-4 h-4" />
-            </Button>
-          </div>
-          
-          {/* Sugestões de áreas */}
-          <div className="space-y-2">
-            <label className="text-white/80 text-sm font-medium">{t('skillAreas.suggestions')}</label>
-            <div className="flex flex-wrap gap-2">
-              {getSkillAreas().map((area, index) => {
-                const shouldShow = index < 6 || showAllAreas
-                return (
-                  <button
-                    key={area.key}
-                    type="button"
-                    onClick={() => addArea(area.name)}
-                    disabled={data.skillsData.areas.includes(area.name)}
-                    className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                      data.skillsData.areas.includes(area.name)
-                        ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg cursor-default'
-                        : 'bg-white/20 border border-white/30 text-white hover:bg-white/30 shadow-sm hover:shadow-md'
-                    } ${
-                      // Mostrar apenas 6 primeiros em mobile, todos em desktop
-                      shouldShow ? 'block' : 'hidden sm:block'
-                    }`}
-                  >
-                    {area.name}
-                  </button>
-                )
-              })}
-            </div>
-            {/* Botão para mostrar mais em mobile */}
-            {getSkillAreas().length > 6 && (
-              <div className="sm:hidden">
-                <button
-                  type="button"
-                  onClick={() => setShowAllAreas(!showAllAreas)}
-                  className="text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors"
-                >
-                  {showAllAreas ? t('skillAreas.showLess') : t('skillAreas.showMore')}
-                </button>
-              </div>
-            )}
-          </div>
+      <SkillAreasSection
+        areas={data.skillsData.areas}
+        onAreasChange={handleAreasChange}
+      />
 
-          {/* Áreas selecionadas */}
-          {data.skillsData.areas.length > 0 && (
-            <div className="space-y-2">
-              <label className="text-white/80 text-sm font-medium">{t('skillAreas.selectedAreas')}</label>
-              <div className="flex flex-wrap gap-2">
-                {data.skillsData.areas.map((area) => (
-                  <span
-                    key={area}
-                    className="inline-flex items-center gap-1 bg-blue-500/20 text-blue-300 px-3 py-2 rounded-lg text-sm border border-blue-400/30"
-                  >
-                    {area}
-                    <button
-                      type="button"
-                      onClick={() => removeArea(area)}
-                      className="hover:text-red-300 transition-colors"
-                    >
-                      <FiX className="w-3 h-3" />
-                    </button>
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
-        </CardContent>
-      </Card>
-
-      {/* Data de Disponibilidade */}
-      <Card className="backdrop-blur-xl bg-white/10 border-white/20 shadow-2xl">
-        <CardHeader>
-          <CardTitle className="text-white flex items-center space-x-2">
-            <FiCalendar className="w-5 h-5" />
-            <span>{t('availability.title')}</span>
-          </CardTitle>
-          <CardDescription className="text-white/70">
-            {t('availability.subtitle')}
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Input
-            type="date"
-            value={data.skillsData.availabilityDate}
-            onChange={(e) => updateAvailabilityDate(e.target.value)}
-            className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
-            required
-          />
-        </CardContent>
-      </Card>
 
       {/* Idiomas */}
-      <Card className="backdrop-blur-xl bg-white/10 border-white/20 shadow-2xl">
-        <CardHeader>
-          <CardTitle className="text-white flex items-center space-x-2">
-            <FiGlobe className="w-5 h-5" />
-            <span>{t('languages.title')}</span>
-          </CardTitle>
-          <CardDescription className="text-white/70">
-            {t('languages.subtitle')}
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          {/* Campo de entrada para novo idioma */}
-          <div className="flex gap-2">
-            <Input
-              value={newLanguage}
-              onChange={(e) => setNewLanguage(e.target.value)}
-              placeholder={t('languages.placeholder')}
-              className="bg-white/20 border-white/30 text-white placeholder:text-white/60 flex-1"
-              onKeyPress={(e) => e.key === 'Enter' && addLanguage()}
-            />
-            <Button
-              type="button"
-              onClick={() => addLanguage()}
-              disabled={!newLanguage.trim()}
-              className="bg-white/20 border-white/30 text-white hover:bg-white/30 px-4 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              <FiPlus className="w-4 h-4" />
-            </Button>
-          </div>
-          
-          {/* Sugestões de idiomas */}
-          <div className="space-y-2">
-            <label className="text-white/80 text-sm font-medium">{t('languages.commonLanguages')}</label>
-            <div className="flex flex-wrap gap-2">
-              {getCommonLanguages().map((language, index) => {
-                const shouldShow = index < 4 || showAllLanguages
-                return (
-                  <button
-                    key={language.key}
-                    type="button"
-                    onClick={() => addLanguage(language.name)}
-                    disabled={data.skillsData.languages.some(l => l.name === language.name)}
-                    className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                      data.skillsData.languages.some(l => l.name === language.name)
-                        ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-lg cursor-default'
-                        : 'bg-white/20 border border-white/30 text-white hover:bg-white/30 shadow-sm hover:shadow-md'
-                    } ${
-                      // Mostrar apenas 6 primeiros em mobile, todos em desktop
-                      shouldShow ? 'block' : 'hidden sm:block'
-                    }`}
-                  >
-                    {language.name}
-                  </button>
-                )
-              })}
-            </div>
-            {/* Botão para mostrar mais em mobile */}
-            {getCommonLanguages().length > 4 && (
-              <div className="sm:hidden">
-                <button
-                  type="button"
-                  onClick={() => setShowAllLanguages(!showAllLanguages)}
-                  className="text-green-400 hover:text-green-300 text-sm font-medium transition-colors"
-                >
-                  {showAllLanguages ? t('languages.showLess') : t('languages.showMore')}
-                </button>
-              </div>
-            )}
-          </div>
+      <LanguagesSection
+        languages={data.skillsData.languages}
+        onLanguagesChange={handleLanguagesChange}
+      />
 
-          {/* Idiomas selecionados */}
-          {data.skillsData.languages.length > 0 && (
-            <div className="space-y-2">
-              <label className="text-white/80 text-sm font-medium">{t('languages.selectedLanguages')}</label>
-              <div className="space-y-3">
-                {data.skillsData.languages.map((language) => (
-                  <div key={language.id} className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/10">
-                    <span className="text-white font-medium">{language.name}</span>
-                    <div className="flex items-center gap-3">
-                      <Select value={language.level} onValueChange={(value) => updateLanguage(language.id, value)}>
-                        <SelectTrigger className="bg-white/20 border-white/30 text-white w-32">
-                          <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="basico">{t('languages.levels.basic')}</SelectItem>
-                          <SelectItem value="intermediario">{t('languages.levels.intermediate')}</SelectItem>
-                          <SelectItem value="avancado">{t('languages.levels.advanced')}</SelectItem>
-                          <SelectItem value="nativo">{t('languages.levels.native')}</SelectItem>
-                        </SelectContent>
-                      </Select>
-                      <Button
-                        onClick={() => removeLanguage(language.id)}
-                        size="sm"
-                        variant="ghost"
-                        className="text-red-400 hover:text-red-300 hover:bg-red-400/10"
-                      >
-                        <FiTrash2 className="w-4 h-4" />
-                      </Button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-        </CardContent>
-      </Card>
+      {/* Status de Salvamento */}
+      {saveMessage && (
+        <div className={`p-4 rounded-lg border ${
+          saveStatus === 'success' 
+            ? 'bg-green-500/20 border-green-400/30 text-green-300' 
+            : 'bg-red-500/20 border-red-400/30 text-red-300'
+        }`}>
+          <div className="flex items-center space-x-2">
+            {saveStatus === 'success' ? (
+              <FiCheck className="w-5 h-5" />
+            ) : (
+              <FiX className="w-5 h-5" />
+            )}
+            <span className="font-medium">{saveMessage}</span>
+          </div>
+        </div>
+      )}
 
       {/* Botões de Navegação e Ação */}
       <div className="flex flex-col sm:flex-row gap-4 justify-between">
@@ -439,16 +157,20 @@ export function SkillsSection({ data, onDataChange, onPrevious }: CvSectionProps
           <Button
             onClick={handleSave}
             size="lg"
-            disabled={!isFormValid()}
+            disabled={!isFormValid() || isSaving}
             className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-8 py-3 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transition-all duration-200"
           >
-            <FiSave className="w-5 h-5 mr-2" />
-            {t('navigation.save')}
+            {isSaving ? (
+              <FiLoader className="w-5 h-5 mr-2 animate-spin" />
+            ) : (
+              <FiSave className="w-5 h-5 mr-2" />
+            )}
+            {isSaving ? 'Saving...' : t('navigation.save')}
           </Button>
           <Button
             onClick={handleDownload}
             size="lg"
-            disabled={!isFormValid()}
+            disabled={!isFormValid() || isSaving}
             className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white px-8 py-3 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transition-all duration-200"
           >
             <FiDownload className="w-5 h-5 mr-2" />
