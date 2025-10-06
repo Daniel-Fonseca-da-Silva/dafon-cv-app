@@ -478,7 +478,8 @@
         },
         "phone": {
           "label": "Telefone *",
-          "placeholder": "(11) 99999-9999"
+          "placeholder": "000000000000",
+          "help": "Inclua o código do país. Ex.: +000000000000"
         },
         "driverLicense": {
           "label": "Carteira de Motorista",
@@ -619,6 +620,10 @@
         "subtitle": "Selecione ou adicione suas áreas de expertise",
         "useAiButton": "Use AI",
         "placeholder": "Digite uma área de habilidade...",
+        "aiPrompt": {
+          "placeholder": "Descreva suas habilidades ou área de atuação (ex: desenvolvedor frontend, designer UX, gerente de projetos)",
+          "generating": "Gerando habilidades personalizadas..."
+        },
         "suggestions": "Sugestões:",
         "selectedAreas": "Áreas Selecionadas:",
         "showMore": "Ver mais sugestões...",

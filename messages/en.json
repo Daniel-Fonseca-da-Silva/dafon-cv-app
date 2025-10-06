@@ -478,7 +478,8 @@
         },
         "phone": {
           "label": "Phone *",
-          "placeholder": "(11) 99999-9999"
+          "placeholder": "000000000000",
+          "help": "Include the country code. Ex.: +000000000000"
         },
         "driverLicense": {
           "label": "Driver's License",
@@ -619,6 +620,10 @@
         "subtitle": "Select or add your areas of expertise",
         "useAiButton": "Use AI",
         "placeholder": "Enter a skill area...",
+        "aiPrompt": {
+          "placeholder": "Describe your skills or area (e.g., frontend developer, UX designer, project manager)",
+          "generating": "Generating custom skills..."
+        },
         "suggestions": "Suggestions:",
         "selectedAreas": "Selected Areas:",
         "showMore": "Show more suggestions...",

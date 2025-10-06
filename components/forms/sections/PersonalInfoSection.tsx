@@ -17,7 +17,7 @@ import {
   FiInfo,
   FiStar
 } from "react-icons/fi"
-import { CvSectionProps } from "@/types/cv.types"
+import { CvSectionProps } from "../../../types/cv.types"
 
 const DRIVER_LICENSE_CATEGORIES = [
   'A', 'B', 'AB', 'C', 'D'
@@ -26,6 +26,8 @@ const DRIVER_LICENSE_CATEGORIES = [
 export function PersonalInfoSection({ data, onDataChange, onNext }: CvSectionProps) {
   const t = useTranslations('cvForm.personalInfo')
   const [newCategory, setNewCategory] = useState('')
+  const [isProcessingAI, setIsProcessingAI] = useState(false)
+  const [phoneError, setPhoneError] = useState('')
   const updatePersonalInfo = (field: keyof typeof data.personalInfo, value: string | string[]) => {
     onDataChange({
       ...data,
@@ -34,6 +36,42 @@ export function PersonalInfoSection({ data, onDataChange, onNext }: CvSectionPro
         [field]: value
       }
     })
+  }
+
+  const stripPhoneFormatting = (input: string) => input.replace(/[\s\-()]/g, '')
+
+  const normalizePhone = (rawInput: string) => {
+    const input = stripPhoneFormatting(rawInput.trim())
+    if (input === '') return ''
+    if (input.startsWith('+')) return `+${input.slice(1).replace(/[^0-9]/g, '')}`
+    if (input.startsWith('00')) return `+${input.slice(2).replace(/[^0-9]/g, '')}`
+    return `+${input.replace(/[^0-9]/g, '')}`
+  }
+
+  const isValidE164 = (value: string) => {
+    return /^\+[1-9]\d{6,14}$/.test(value)
+  }
+
+  const handlePhoneChange = (value: string) => {
+    // Apenas remove caracteres proibidos visuais; deixa o usuário digitar livremente
+    const nextValue = value.replace(/[^0-9+\s()\-]/g, '')
+    if (phoneError) setPhoneError('')
+    updatePersonalInfo('phone', nextValue)
+  }
+
+  const handlePhoneBlur = () => {
+    const normalized = normalizePhone(data.personalInfo.phone || '')
+    if (!normalized) {
+      updatePersonalInfo('phone', '')
+      setPhoneError('')
+      return
+    }
+    updatePersonalInfo('phone', normalized)
+    if (!isValidE164(normalized)) {
+      setPhoneError('Insert with international format. Ex.: +000000000000')
+    } else {
+      setPhoneError('')
+    }
   }
 
   const toggleDriverLicenseCategory = (category: string) => {
@@ -65,16 +103,53 @@ export function PersonalInfoSection({ data, onDataChange, onNext }: CvSectionPro
     updatePersonalInfo('driverLicense', currentCategories.filter(cat => cat !== category))
   }
 
-  const handleUseAI = () => {
-    // TODO: Implementar integração com IA
-    console.log('Usando IA para gerar texto sobre você')
-    // Por enquanto, vamos adicionar um texto de exemplo
-    updatePersonalInfo('aboutYourself', 'I`m a dedicated and passionate professional with experience in software development and a strong ability to work in a team. I always seek to learn new technologies and contribute to innovative projects.')
+  const handleUseAI = async () => {
+    try {
+      setIsProcessingAI(true)
+      
+      // Obter o texto atual do textarea
+      const currentText = data.personalInfo.aboutYourself || ''
+      
+      if (!currentText.trim()) {
+        console.log('No text to process')
+        return
+      }
+
+      // Fazer requisição para a rota interna do Next.js
+      const response = await fetch('/api/generate-intro-ai', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          content: currentText
+        })
+      })
+
+      if (!response.ok) {
+        throw new Error(`Error in request: ${response.status}`)
+      }
+
+      const result = await response.json()
+      
+      if (result.success && result.data?.filtered_content) {
+        // Atualizar o textarea com o texto formatado
+        updatePersonalInfo('aboutYourself', result.data.filtered_content)
+      } else {
+        throw new Error(result.error || 'Error processing text')
+      }
+    } catch (error) {
+      console.error('Error processing text with AI:', error)
+      // Em caso de erro, manter o texto original
+    } finally {
+      setIsProcessingAI(false)
+    }
   }
 
   const isFormValid = () => {
     const { fullName, email, phone } = data.personalInfo
-    return fullName.trim() !== '' && email.trim() !== '' && phone.trim() !== ''
+    const phoneOk = phone.trim() !== '' && isValidE164(phone)
+    return fullName.trim() !== '' && email.trim() !== '' && phoneOk && phoneError === ''
   }
 
   return (
@@ -132,11 +207,21 @@ export function PersonalInfoSection({ data, onDataChange, onNext }: CvSectionPro
                 <FiPhone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/60 w-4 h-4" />
                 <Input
                   value={data.personalInfo.phone}
-                  onChange={(e) => updatePersonalInfo('phone', e.target.value)}
+                  onChange={(e) => handlePhoneChange(e.target.value)}
+                  onBlur={handlePhoneBlur}
                   placeholder={t('fields.phone.placeholder')}
                   className="bg-white/20 border-white/30 text-white placeholder:text-white/60 pl-10"
+                  inputMode="tel"
+                  autoComplete="tel"
                   required
                 />
+              </div>
+              <div className="text-xs mt-1">
+                {phoneError ? (
+                  <span className="text-red-300">{phoneError}</span>
+                ) : (
+                  <span className="text-white/60">{t('fields.phone.help')}</span>
+                )}
               </div>
             </div>
             <div className="space-y-2">
@@ -237,10 +322,11 @@ export function PersonalInfoSection({ data, onDataChange, onNext }: CvSectionPro
               <Button
                 type="button"
                 onClick={handleUseAI}
-                className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-4 py-2 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 flex items-center gap-2"
+                disabled={isProcessingAI}
+                className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-4 py-2 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <FiZap className="w-4 h-4" />
-                {t('aboutYourself.useAiButton')}
+                <FiZap className={`w-4 h-4 ${isProcessingAI ? 'animate-spin' : ''}`} />
+                {isProcessingAI ? 'Processing...' : t('aboutYourself.useAiButton')}
               </Button>
             </div>
 
