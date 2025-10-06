@@ -76,7 +76,7 @@ export function EducationSection({ data, onDataChange, onNext, onPrevious }: CvS
       })
 
       if (!response.ok) {
-        throw new Error(`Erro na requisição: ${response.status}`)
+        throw new Error(`Error in request: ${response.status}`)
       }
 
       const result = await response.json()
@@ -89,10 +89,10 @@ export function EducationSection({ data, onDataChange, onNext, onPrevious }: CvS
         }
         setAiPrompt('')
       } else {
-        throw new Error(result.error || 'Erro ao processar descrição acadêmica')
+        throw new Error(result.error || 'Error processing academic description')
       }
     } catch (error) {
-      console.error('Erro ao gerar descrição:', error)
+      console.error('Error generating description:', error)
       // Em caso de erro, manter o prompt para o usuário tentar novamente
     } finally {
       setIsGenerating(false)
