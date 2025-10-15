@@ -68,14 +68,14 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
     // Validação do tipo de arquivo
     const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp']
     if (!allowedTypes.includes(file.type)) {
-      alert('Por favor, selecione apenas arquivos de imagem (JPEG, PNG, GIF, WebP)')
+      alert('Please select only image files (JPEG, PNG, GIF, WebP)')
       return
     }
 
     // Validação do tamanho (máximo 5MB)
     const maxSize = 2 * 1024 * 1024 // 2MB
     if (file.size > maxSize) {
-      alert('O arquivo deve ter no máximo 2MB')
+      alert('The file must be less than 2MB')
       return
     }
 
@@ -131,7 +131,7 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
       const result = await response.json()
 
       if (!response.ok || !result?.success) {
-        throw new Error(result?.error || 'Falha ao salvar dados')
+        throw new Error(result?.error || 'Failed to save data')
       }
 
       setSaveSuccess(true)
@@ -140,8 +140,9 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
       // Limpar mensagem de sucesso após 3 segundos
       setTimeout(() => setSaveSuccess(false), 3000)
       
-    } catch (e: any) {
-      setError(e?.message || 'Erro ao salvar dados')
+    } catch (e: unknown) {
+      const errorMessage = e instanceof Error ? e.message : 'Error saving data'
+      setError(errorMessage)
     } finally {
       setSaving(false)
     }
@@ -155,7 +156,7 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
         const res = await fetch('/api/user/me', { cache: 'no-store' })
         const body = await res.json()
         if (!res.ok || !body?.success) {
-          throw new Error(body?.error || 'Falha ao carregar usuário')
+          throw new Error(body?.error || 'Failed to load user')
         }
         setUser(body.data)
         // Atualizar valores dos radio groups
@@ -175,8 +176,9 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
           age: body.data?.age?.toString() || '',
           salary: body.data?.salary?.toString() || ''
         })
-      } catch (e: any) {
-        setError(e?.message || 'Erro inesperado')
+      } catch (e: unknown) {
+        const errorMessage = e instanceof Error ? e.message : 'Unexpected error'
+        setError(errorMessage)
       } finally {
         setLoading(false)
       }
@@ -470,7 +472,7 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
           <div className="space-y-3">
             {saveSuccess && (
               <div className="text-green-400 text-sm font-medium">
-                ✓ Dados salvos com sucesso!
+                ✓ Data saved successfully!
               </div>
             )}
             {error && (
@@ -486,7 +488,7 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
               {saving ? (
                 <>
                   <Spinner className="w-4 h-4 mr-2" />
-                  Salvando...
+                    Saving...
                 </>
               ) : (
                 <>

@@ -81,7 +81,7 @@ export function SettingsSection({ onSectionChange }: SettingsSectionProps) {
       const result = await response.json()
 
       if (!response.ok || !result?.success) {
-        throw new Error(result?.error || 'Falha ao salvar configurações')
+        throw new Error(result?.error || 'Failed to save configuration')
       }
 
       setSaveSuccess(true)
@@ -94,8 +94,9 @@ export function SettingsSection({ onSectionChange }: SettingsSectionProps) {
       // Limpar mensagem de sucesso após 3 segundos
       setTimeout(() => setSaveSuccess(false), 3000)
       
-    } catch (e: any) {
-      setError(e?.message || 'Erro ao salvar configurações')
+    } catch (e: unknown) {
+      const errorMessage = e instanceof Error ? e.message : 'Error saving configuration'
+      setError(errorMessage)
     } finally {
       setSaving(false)
     }
@@ -109,7 +110,7 @@ export function SettingsSection({ onSectionChange }: SettingsSectionProps) {
         const res = await fetch('/api/configuration', { cache: 'no-store' })
         const body = await res.json()
         if (!res.ok || !body?.success) {
-          throw new Error(body?.error || 'Falha ao carregar configurações')
+          throw new Error(body?.error || 'Failed to load configuration')
         }
         
         // Atualizar dados do formulário
@@ -117,8 +118,9 @@ export function SettingsSection({ onSectionChange }: SettingsSectionProps) {
           language: body.data?.language || 'en',
           newsletter: body.data?.newsletter || false
         })
-      } catch (e: any) {
-        setError(e?.message || 'Erro inesperado')
+      } catch (e: unknown) {
+        const errorMessage = e instanceof Error ? e.message : 'Unexpected error'
+        setError(errorMessage)
       } finally {
         setLoading(false)
       }

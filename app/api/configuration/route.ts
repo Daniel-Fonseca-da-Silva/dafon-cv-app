@@ -40,6 +40,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ success: true, data })
   } catch (error) {
+    console.error('Configuration GET error:', error)
     return NextResponse.json({ success: false, error: 'Internal server error' }, { status: 500 })
   }
 }
@@ -86,6 +87,7 @@ export async function PATCH(request: NextRequest) {
 
     return NextResponse.json({ success: true, data })
   } catch (error) {
+    console.error('Configuration PATCH error:', error)
     return NextResponse.json({ success: false, error: 'Internal server error' }, { status: 500 })
   }
 }
