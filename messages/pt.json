@@ -430,6 +430,7 @@
       "subtitle": "Gerencie suas informações pessoais",
       "backButton": "Voltar ao Dashboard"
     },
+    "loading": "Carregando...",
     "photo": {
       "title": "Foto do Perfil",
       "changePhoto": "Alterar Foto"
@@ -440,7 +441,10 @@
       "fullName": "Nome Completo",
       "email": "Email",
       "phone": "Telefone",
-      "location": "Localização",
+      "country": "País",
+      "state": "Estado/Província",
+      "city": "Cidade",
+      "age": "Idade",
       "saveChanges": "Salvar Alterações"
     },
     "professionalInfo": {

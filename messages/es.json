@@ -1,0 +1,474 @@
+{
+  "auth": {
+    "login": {
+      "title": "Iniciar Sesión",
+      "subtitle": "Ingresa tu email para recibir un enlace de acceso",
+      "email": "Email",
+      "emailPlaceholder": "tu@email.com",
+      "action": "Enviar Enlace de Acceso",
+      "loading": "Enviando enlace...",
+      "forgotPassword": "¿Olvidaste tu contraseña?",
+      "dontHaveAccount": "¿No tienes una cuenta?",
+      "register": "Registrarse",
+      "emailSent": {
+        "title": "¡Enlace Enviado!",
+        "message": "Revisa tu email y haz clic en el enlace para acceder a tu cuenta."
+      },
+      "sessionExpired": {
+        "title": "Sesión Expirada",
+        "message": "Tu sesión ha expirado por razones de seguridad. Por favor, inicia sesión nuevamente para continuar."
+      },
+      "sessionError": {
+        "title": "Error de Sesión",
+        "message": "Ocurrió un error con tu sesión. Por favor, inicia sesión nuevamente."
+      }
+    },
+    "register": {
+      "title": "Crear cuenta",
+      "subtitle": "Completa los datos para crear tu cuenta",
+      "subtitleName2": "Tu nombre completo",
+      "name": "Mi nombre completo",
+      "email": "Tu email",
+      "subtitleEmail2": "Mi email",
+      "action": "Crear Cuenta",
+      "alreadyHaveAccount": "¿Ya tienes una cuenta?",
+      "login": "Iniciar Sesión",
+      "welcomeAlert": {
+        "title": "¡Bienvenido al sistema!",
+        "message": "Tus datos de acceso han sido enviados a tu email. Revisa tu bandeja de entrada y sigue las instrucciones para activar tu cuenta."
+      }
+    },
+    "forgotPassword": {
+      "title": "¿Olvidaste tu contraseña?",
+      "subtitle": "Ingresa tu email para recibir instrucciones de recuperación",
+      "email": "tu@email.com",
+      "subtitle2": "Tu email",
+      "action": "Enviar Instrucciones",
+      "loading": "Enviando instrucciones...",
+      "backToLogin": "Volver al inicio de sesión",
+      "codeSent": {
+        "title": "¡Instrucciones enviadas!",
+        "message": "Las instrucciones de recuperación de contraseña han sido enviadas a tu email. Revisa tu bandeja de entrada y sigue las instrucciones para restablecer tu contraseña."
+      }
+    }
+  },
+  "metadata": {
+    "title": "Dafon CV - Crea tu CV Perfecto con IA",
+    "description": "Transforma tu experiencia profesional en currículums únicos y personalizados. Nuestra IA adapta tu CV a cada trabajo, maximizando tus posibilidades de éxito."
+  },
+  "ErrorPage": {
+    "title": "Error"
+  },
+  "LoadingPage": {
+    "title": "Cargando..."
+  },
+  "HomePage": {
+    "navigation": {
+      "home": "Inicio",
+      "contact": "Contacto",
+      "language": "Idioma",
+      "login": "Iniciar Sesión",
+      "startNow": "Comenzar Ahora"
+    },
+    "hero": {
+      "badge": "Desarrollado por Dafon",
+      "headline": "Crea tu CV Perfecto con IA",
+      "highlightWord": "Perfecto",
+      "subheadline": "Transforma tu experiencia profesional en currículums únicos y personalizados. Nuestra IA adapta tu CV a cada trabajo, maximizando tus posibilidades de éxito.",
+      "ctaPrimary": "Comenzar Ahora",
+      "ctaSecondary": "Ver Demo"
+    },
+    "benefits": {
+      "title": "¿Por qué elegir Dafon CV?",
+      "items": [
+        {
+          "icon": "zap",
+          "title": "Creación Rápida",
+          "description": "Crea tu CV en minutos, no horas"
+        },
+        {
+          "icon": "brain",
+          "title": "IA Inteligente",
+          "description": "Algoritmos avanzados optimizan tu CV"
+        },
+        {
+          "icon": "target",
+          "title": "Personalizado",
+          "description": "Adaptado para cada trabajo específico"
+        },
+        {
+          "icon": "shield",
+          "title": "Seguro",
+          "description": "Tus datos protegidos con encriptación"
+        }
+      ]
+    },
+    "demo": {
+      "title": "Ve Dafon CV en Acción",
+      "subtitle": "Descubre cómo nuestra IA revoluciona la creación de currículums profesionales",
+      "features": [
+        {
+          "title": "Interfaz Intuitiva",
+          "description": "Diseño moderno y fácil de usar, creado para profesionales de todos los niveles"
+        },
+        {
+          "title": "IA Avanzada",
+          "description": "Algoritmos que analizan trabajos y optimizan tu CV automáticamente"
+        },
+        {
+          "title": "Plantillas Profesionales",
+          "description": "Más de 100 modelos creados por diseñadores especializados"
+        },
+        {
+          "title": "Análisis en Tiempo Real",
+          "description": "Retroalimentación instantánea sobre la calidad y adecuación de tu CV"
+        }
+      ],
+      "cta": "Probar Gratis",
+      "stats": [
+        {
+          "number": "2min",
+          "label": "Tiempo Promedio de Creación",
+          "color": "text-green-400"
+        },
+        {
+          "number": "98%",
+          "label": "Satisfacción del Usuario",
+          "color": "text-blue-400"
+        },
+        {
+          "number": "24/7",
+          "label": "Soporte Disponible",
+          "color": "text-purple-400"
+        }
+      ]
+    },
+    "socialProof": {
+      "title": "Únete a miles de profesionales",
+      "stats": [
+        {
+          "number": "10k+",
+          "label": "CVs Creados",
+          "color": "text-yellow-400"
+        },
+        {
+          "number": "95%",
+          "label": "Tasa de Éxito",
+          "color": "text-green-400"
+        },
+        {
+          "number": "24h",
+          "label": "Soporte",
+          "color": "text-blue-400"
+        },
+        {
+          "number": "100+",
+          "label": "Plantillas de CV",
+          "color": "text-pink-400"
+        }
+      ]
+    },
+    "footer": {
+      "description": "Transforma tu experiencia profesional en currículums únicos y personalizados con el poder de la IA.",
+      "about": "Acerca de",
+      "contact": "Contacto",
+      "privacy": "Política de Privacidad",
+      "terms": "Términos de Uso",
+      "copyright": "Dafon. Todos los derechos reservados.",
+      "location": "Lisboa, Portugal",
+      "quickLinks": "Enlaces Rápidos"
+    }
+  },
+  "dashboard": {
+    "sections": {
+      "dashboard": {
+        "title": "Dashboard",
+        "description": "Bienvenido a tu panel de control"
+      },
+      "generate-cv": {
+        "title": "Generar CV con IA",
+        "description": "Crear currículums profesionales con IA"
+      },
+      "profile": {
+        "title": "Mi Perfil",
+        "description": "Gestiona tu información personal"
+      },
+      "settings": {
+        "title": "Configuraciones",
+        "description": "Personaliza tus configuraciones"
+      },
+      "plans": {
+        "title": "Mis Planes",
+        "description": "Gestiona tu suscripción y recursos"
+      }
+    },
+    "cards": {
+      "generate-cv": {
+        "title": "Generar CV con IA",
+        "description": "Crea un currículum profesional usando inteligencia artificial. Personaliza y optimiza tu CV en minutos."
+      },
+      "profile": {
+        "title": "Mi Perfil",
+        "description": "Gestiona tu información personal, experiencia profesional y datos de contacto."
+      },
+      "settings": {
+        "title": "Configuraciones",
+        "description": "Personaliza tus preferencias, notificaciones y configuraciones de cuenta."
+      },
+      "plans": {
+        "title": "Mis Planes Actuales",
+        "description": "Ve tu plan actual, recursos disponibles y opciones de actualización."
+      }
+    }
+  },
+  "sidebar": {
+    "menuItems": {
+      "dashboard": {
+        "label": "Dashboard",
+        "description": "Resumen"
+      },
+      "generate-cv": {
+        "label": "Generar CV con IA",
+        "description": "Crear currículum"
+      },
+      "profile": {
+        "label": "Mi Perfil",
+        "description": "Información personal"
+      },
+      "settings": {
+        "label": "Configuraciones",
+        "description": "Preferencias"
+      },
+      "plans": {
+        "label": "Mis Planes",
+        "description": "Suscripción actual"
+      }
+    },
+    "user": {
+      "defaultName": "Usuario",
+      "defaultEmail": "usuario@ejemplo.com"
+    },
+    "logout": "Cerrar Sesión",
+    "brand": {
+      "name": "Dafon CV",
+      "tagline": "Desarrollado por Dafon"
+    }
+  },
+  "plans": {
+    "header": {
+      "title": "Mis Planes Actuales",
+      "subtitle": "Gestiona tu suscripción y recursos",
+      "backButton": "Volver al Dashboard"
+    },
+    "currentPlan": {
+      "title": "Plan Actual",
+      "subtitle": "Tu plan de suscripción actual",
+      "nextBilling": "Próxima facturación",
+      "manageSubscription": "Gestionar Suscripción",
+      "cancelSubscription": "Cancelar Suscripción",
+      "status": "Activo"
+    },
+    "availablePlans": {
+      "title": "Planes Disponibles",
+      "popular": "Popular",
+      "current": "Actual",
+      "choosePlan": "Elegir Plan"
+    },
+    "usage": {
+      "title": "Uso del Plan",
+      "subtitle": "Estadísticas de uso de tu plan actual",
+      "cvsCreated": "CVs Creados",
+      "templatesUsed": "Plantillas Usadas",
+      "daysRemaining": "Días Restantes"
+    },
+    "common": {
+      "period": "mes"
+    },
+    "plans": {
+      "basic": {
+        "name": "Básico",
+        "features": [
+          "5 CVs por mes",
+          "2 Plantillas básicas",
+          "2 Plantillas premium",
+          "Análisis básico de IA",
+          "Exportación en PDF",
+          "Soporte por email"
+        ]
+      },
+      "pro": {
+        "name": "Pro",
+        "features": [
+          "20 CVs por mes",
+          "Cambio de colores y estilos",
+          "Traducción automática de texto",
+          "10 Plantillas premium",
+          "Análisis avanzado de IA",
+          "Exportación en PDF/Word"
+        ]
+      },
+      "enterprise": {
+        "name": "Empresarial",
+        "features": [
+          "CVs ilimitados",
+          "Plantillas premium",
+          "API personalizada",
+          "Integración con ATS",
+          "Soporte dedicado",
+          "Reportes avanzados"
+        ]
+      }
+    }
+  },
+  "settings": {
+    "header": {
+      "title": "Configuraciones",
+      "subtitle": "Personaliza tus preferencias y configuraciones",
+      "backButton": "Volver al Dashboard"
+    },
+    "personalInfo": {
+      "title": "Información Personal",
+      "subtitle": "Gestiona tu información personal",
+      "fields": {
+        "fullName": {
+          "label": "Nombre Completo",
+          "placeholder": "Ingresa tu nombre completo"
+        },
+        "phone": {
+          "label": "Teléfono",
+          "placeholder": "Ingresa tu número de teléfono"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Ingresa tu email"
+        },
+        "country": {
+          "label": "País",
+          "placeholder": "Ingresa tu país"
+        },
+        "state": {
+          "label": "Estado/Provincia",
+          "placeholder": "Ingresa tu estado o provincia"
+        },
+        "city": {
+          "label": "Ciudad",
+          "placeholder": "Ingresa tu ciudad"
+        },
+        "age": {
+          "label": "Edad",
+          "placeholder": "Ingresa tu edad"
+        }
+      },
+      "saveButton": "Guardar Información"
+    },
+    "notifications": {
+      "title": "Notificaciones",
+      "subtitle": "Configura tus preferencias de notificación",
+      "options": {
+        "marketingEmail": {
+          "title": "Email de Marketing",
+          "description": "Recibir ofertas y novedades"
+        },
+        "pushNotifications": {
+          "title": "Notificaciones Push",
+          "description": "Alertas importantes del navegador"
+        },
+        "cvReminders": {
+          "title": "Recordatorios de CV",
+          "description": "Recordatorios para actualizar tu currículum"
+        }
+      }
+    },
+    "appearance": {
+      "title": "Apariencia",
+      "subtitle": "Personaliza la apariencia de la interfaz",
+      "options": {
+        "darkMode": {
+          "title": "Modo Oscuro",
+          "description": "Activar tema oscuro"
+        },
+        "language": {
+          "label": "Idioma",
+          "options": {
+            "pt": "Português",
+            "en": "English",
+            "es": "Español"
+          }
+        }
+      }
+    },
+    "privacy": {
+      "title": "Privacidad",
+      "subtitle": "Controla tu privacidad y datos",
+      "options": {
+        "publicProfile": {
+          "title": "Perfil Público",
+          "description": "Hacer perfil visible públicamente"
+        },
+        "analytics": {
+          "title": "Analytics",
+          "description": "Compartir datos de uso"
+        }
+      },
+      "downloadData": "Descargar Mis Datos"
+    }
+  },
+  "generateCv": {
+    "header": {
+      "title": "Generar CV con IA",
+      "subtitle": "Crea un currículum profesional usando inteligencia artificial",
+      "backButton": "Volver al Dashboard",
+      "backButtonMobile": "Dashboard"
+    },
+    "form": {
+      "title": "Generar Currículum",
+      "subtitle": "Crea un currículum profesional usando inteligencia artificial",
+      "generateButton": "Generar Currículum",
+      "recentCvs": "CVs Recientes",
+      "recentCvsSubtitle": "Tus currículums generados recientemente",
+      "cvTitle": "CV Desarrollador Frontend",
+      "createdDaysAgo": "Creado hace {days} día{days, plural, one {} other {s}}",
+      "editButton": "Editar",
+      "downloadButton": "Descargar"
+    }
+  },
+  "profileSection": {
+    "header": {
+      "title": "Mi Perfil",
+      "subtitle": "Gestiona tu información personal",
+      "backButton": "Volver al Dashboard"
+    },
+    "loading": "Cargando...",
+    "photo": {
+      "title": "Foto de Perfil",
+      "changePhoto": "Cambiar Foto"
+    },
+    "personalInfo": {
+      "title": "Información Personal",
+      "subtitle": "Actualiza tu información básica",
+      "fullName": "Nombre Completo",
+      "email": "Email",
+      "phone": "Teléfono",
+      "country": "País",
+      "state": "Estado/Provincia",
+      "city": "Ciudad",
+      "age": "Edad",
+      "saveChanges": "Guardar Cambios"
+    },
+    "professionalInfo": {
+      "title": "Información Profesional",
+      "subtitle": "Detalles sobre tu situación actual",
+      "employmentStatus": "Estado de Empleo",
+      "employed": "Empleado",
+      "unemployed": "Desempleado",
+      "currentSalary": "Salario Actual",
+      "salaryPlaceholder": "Ej: 3000€",
+      "careerMigration": "Migración de Carrera",
+      "careerMigrationText": "Sí, estoy migrando de carrera",
+      "gender": "Género",
+      "male": "Masculino",
+      "female": "Femenino",
+      "saveChanges": "Guardar Cambios"
+    }
+  }
+}

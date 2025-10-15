@@ -430,6 +430,7 @@
       "subtitle": "Manage your personal information",
       "backButton": "Back to Dashboard"
     },
+    "loading": "Loading...",
     "photo": {
       "title": "Profile Photo",
       "changePhoto": "Change Photo"
@@ -440,7 +441,10 @@
       "fullName": "Full Name",
       "email": "Email",
       "phone": "Phone",
-      "location": "Location",
+      "country": "Country",
+      "state": "State/Province",
+      "city": "City",
+      "age": "Age",
       "saveChanges": "Save Changes"
     },
     "professionalInfo": {
