@@ -7,7 +7,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Spinner } from "@/components/ui/spinner"
 import { FiUser, FiMail, FiPhone, FiSave, FiCamera, FiArrowLeft } from "react-icons/fi"
 import { useTranslations } from "next-intl"
-import { useEffect, useMemo, useState, useRef } from "react"
+import { useEffect, useState, useRef } from "react"
 import Image from "next/image"
 
 interface ProfileSectionProps {
@@ -40,6 +40,20 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
   const [employmentValue, setEmploymentValue] = useState<string>("unemployed")
   const [genderValue, setGenderValue] = useState<string>("male")
   const [migrationValue, setMigrationValue] = useState<boolean>(false)
+  const [saving, setSaving] = useState<boolean>(false)
+  const [saveSuccess, setSaveSuccess] = useState<boolean>(false)
+  
+  // Estados para controlar os valores dos inputs
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    country: '',
+    state: '',
+    city: '',
+    age: '',
+    salary: ''
+  })
 
   const handleBackToDashboard = () => {
     if (onSectionChange) {
@@ -76,6 +90,62 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
   const handlePhotoClick = () => {
     fileInputRef.current?.click()
   }
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }))
+  }
+
+  const handleSave = async () => {
+    try {
+      setSaving(true)
+      setError(null)
+      setSaveSuccess(false)
+
+      // Preparar dados para envio
+      const updateData = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        country: formData.country,
+        state: formData.state,
+        city: formData.city,
+        age: formData.age ? parseInt(formData.age) : null,
+        salary: formData.salary ? parseFloat(formData.salary) : null,
+        employment: employmentValue === "employed",
+        gender: genderValue,
+        migration: migrationValue,
+        image_url: profilePhoto
+      }
+
+      const response = await fetch('/api/user/me', {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updateData)
+      })
+
+      const result = await response.json()
+
+      if (!response.ok || !result?.success) {
+        throw new Error(result?.error || 'Falha ao salvar dados')
+      }
+
+      setSaveSuccess(true)
+      setUser(result.data)
+      
+      // Limpar mensagem de sucesso após 3 segundos
+      setTimeout(() => setSaveSuccess(false), 3000)
+      
+    } catch (e: any) {
+      setError(e?.message || 'Erro ao salvar dados')
+    } finally {
+      setSaving(false)
+    }
+  }
   
   useEffect(() => {
     const fetchUser = async () => {
@@ -93,6 +163,18 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
         setGenderValue(body.data?.gender || "male")
         setMigrationValue(body.data?.migration === true)
         if (body.data?.image_url) setProfilePhoto(body.data.image_url)
+        
+        // Atualizar dados do formulário
+        setFormData({
+          name: body.data?.name || '',
+          email: body.data?.email || '',
+          phone: body.data?.phone || '',
+          country: body.data?.country || '',
+          state: body.data?.state || '',
+          city: body.data?.city || '',
+          age: body.data?.age?.toString() || '',
+          salary: body.data?.salary?.toString() || ''
+        })
       } catch (e: any) {
         setError(e?.message || 'Erro inesperado')
       } finally {
@@ -217,7 +299,8 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
               <div className="space-y-2">
                 <label className="text-sm font-medium text-white/90">{t('personalInfo.fullName')}</label>
                 <Input 
-                  defaultValue={user?.name || ''}
+                  value={formData.name}
+                  onChange={(e) => handleInputChange('name', e.target.value)}
                   className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
                 />
               </div>
@@ -226,7 +309,8 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
                 <div className="relative">
                   <FiMail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/60 w-4 h-4" />
                   <Input 
-                    defaultValue={user?.email || ''}
+                    value={formData.email}
+                    onChange={(e) => handleInputChange('email', e.target.value)}
                     className="pl-10 bg-white/20 border-white/30 text-white placeholder:text-white/60"
                   />
                 </div>
@@ -236,7 +320,8 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
                 <div className="relative">
                   <FiPhone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/60 w-4 h-4" />
                   <Input 
-                    defaultValue={user?.phone || ''}
+                    value={formData.phone}
+                    onChange={(e) => handleInputChange('phone', e.target.value)}
                     className="pl-10 bg-white/20 border-white/30 text-white placeholder:text-white/60"
                   />
                 </div>
@@ -245,7 +330,8 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
                 <label className="text-sm font-medium text-white/90">{t('personalInfo.country')}</label>
                 <Input 
                   placeholder=""
-                  defaultValue={user?.country || ''}
+                  value={formData.country}
+                  onChange={(e) => handleInputChange('country', e.target.value)}
                   className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
                 />
               </div>
@@ -253,7 +339,8 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
                 <label className="text-sm font-medium text-white/90">{t('personalInfo.state')}</label>
                 <Input 
                   placeholder=""
-                  defaultValue={user?.state || ''}
+                  value={formData.state}
+                  onChange={(e) => handleInputChange('state', e.target.value)}
                   className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
                 />
               </div>
@@ -261,7 +348,8 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
                 <label className="text-sm font-medium text-white/90">{t('personalInfo.city')}</label>
                 <Input 
                   placeholder=""
-                  defaultValue={user?.city || ''}
+                  value={formData.city}
+                  onChange={(e) => handleInputChange('city', e.target.value)}
                   className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
                 />
               </div>
@@ -270,7 +358,8 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
                 <Input 
                   type="number"
                   placeholder=""
-                  defaultValue={user?.age ?? ''}
+                  value={formData.age}
+                  onChange={(e) => handleInputChange('age', e.target.value)}
                   className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
                 />
               </div>
@@ -327,7 +416,8 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
               <label className="text-sm font-medium text-white/90">{t('professionalInfo.currentSalary')}</label>
               <Input 
                 placeholder={t('professionalInfo.salaryPlaceholder')}
-                defaultValue={user?.salary ?? ''}
+                value={formData.salary}
+                onChange={(e) => handleInputChange('salary', e.target.value)}
                 className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
               />
             </div>
@@ -377,10 +467,35 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
               </RadioGroup>
             </div>
           </div>
-          <Button className="bg-gradient-to-r from-purple-400 to-pink-400 hover:from-purple-500 hover:to-pink-500 text-white">
-            <FiSave className="w-4 h-4 mr-2" />
-            {t('professionalInfo.saveChanges')}
-          </Button>
+          <div className="space-y-3">
+            {saveSuccess && (
+              <div className="text-green-400 text-sm font-medium">
+                ✓ Dados salvos com sucesso!
+              </div>
+            )}
+            {error && (
+              <div className="text-red-400 text-sm font-medium">
+                {error}
+              </div>
+            )}
+            <Button 
+              onClick={handleSave}
+              disabled={saving}
+              className="bg-gradient-to-r from-purple-400 to-pink-400 hover:from-purple-500 hover:to-pink-500 text-white disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {saving ? (
+                <>
+                  <Spinner className="w-4 h-4 mr-2" />
+                  Salvando...
+                </>
+              ) : (
+                <>
+                  <FiSave className="w-4 h-4 mr-2" />
+                  {t('professionalInfo.saveChanges')}
+                </>
+              )}
+            </Button>
+          </div>
         </CardContent>
       </Card>
     </div>
