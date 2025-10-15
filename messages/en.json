@@ -326,48 +326,14 @@
       "subtitle": "Customize your preferences and settings",
       "backButton": "Back to Dashboard"
     },
-    "personalInfo": {
-      "title": "Personal Information",
-      "subtitle": "Manage your personal information",
-      "fields": {
-        "fullName": {
-          "label": "Full Name",
-          "placeholder": "Enter your full name"
-        },
-        "phone": {
-          "label": "Phone",
-          "placeholder": "Enter your phone number"
-        },
-        "email": {
-          "label": "Email",
-          "placeholder": "Enter your email"
-        },
-        "country": {
-          "label": "Country",
-          "placeholder": "Enter your country"
-        },
-        "age": {
-          "label": "Age",
-          "placeholder": "Enter your age"
-        }
-      },
-      "saveButton": "Save Information"
-    },
+    "loading": "Loading settings...",
     "notifications": {
       "title": "Notifications",
       "subtitle": "Configure your notification preferences",
       "options": {
-        "marketingEmail": {
-          "title": "Marketing Email",
-          "description": "Receive offers and news"
-        },
-        "pushNotifications": {
-          "title": "Push Notifications",
-          "description": "Important browser alerts"
-        },
-        "cvReminders": {
-          "title": "CV Reminders",
-          "description": "Reminders to update your resume"
+        "newsletter": {
+          "title": "Newsletter",
+          "description": "Receive career tips, reminders and platform updates"
         }
       }
     },
@@ -375,34 +341,14 @@
       "title": "Appearance",
       "subtitle": "Customize the interface appearance",
       "options": {
-        "darkMode": {
-          "title": "Dark Mode",
-          "description": "Enable dark theme"
-        },
         "language": {
           "label": "Language",
           "options": {
             "pt": "Português",
-            "en": "English",
-            "es": "Español"
+            "en": "English"
           }
         }
       }
-    },
-    "privacy": {
-      "title": "Privacy",
-      "subtitle": "Control your privacy and data",
-      "options": {
-        "publicProfile": {
-          "title": "Public Profile",
-          "description": "Make profile publicly visible"
-        },
-        "analytics": {
-          "title": "Analytics",
-          "description": "Share usage data"
-        }
-      },
-      "downloadData": "Download My Data"
     }
   },
   "generateCv": {
@@ -430,7 +376,7 @@
       "subtitle": "Manage your personal information",
       "backButton": "Back to Dashboard"
     },
-    "loading": "Loading...",
+    "loading": "Loading profile...",
     "photo": {
       "title": "Profile Photo",
       "changePhoto": "Change Photo"
@@ -721,3 +667,4 @@
     }
   }
 }
+

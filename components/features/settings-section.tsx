@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { Spinner } from "@/components/ui/spinner"
 import {
   Select,
   SelectContent,
@@ -11,9 +11,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { FiSettings, FiBell, FiGlobe, FiMoon, FiSun, FiSave, FiUser, FiArrowLeft } from "react-icons/fi"
-import { useState } from "react"
+import { FiSettings, FiBell, FiGlobe, FiSave, FiArrowLeft } from "react-icons/fi"
 import { useLocale } from '@/hooks/use-locale'
+import { useEffect, useState } from "react"
 
 interface SettingsSectionProps {
   onSectionChange?: (section: string) => void
@@ -21,8 +21,22 @@ interface SettingsSectionProps {
 
 export function SettingsSection({ onSectionChange }: SettingsSectionProps) {
   const t = useTranslations('settings')
-  const [darkMode, setDarkMode] = useState(false)
   const { locale, changeLocale } = useLocale()
+  
+  // Estados para controle de carregamento e dados
+  const [loading, setLoading] = useState<boolean>(true)
+  const [error, setError] = useState<string | null>(null)
+  const [saving, setSaving] = useState<boolean>(false)
+  const [saveSuccess, setSaveSuccess] = useState<boolean>(false)
+  
+  // Estados para os dados do formulário
+  const [formData, setFormData] = useState({
+    language: 'en',
+    newsletter: false
+  })
+  
+  // Garantir que locale sempre tenha um valor válido
+  const currentLocale = locale || 'en'
 
   const handleBackToDashboard = () => {
     if (onSectionChange) {
@@ -31,7 +45,104 @@ export function SettingsSection({ onSectionChange }: SettingsSectionProps) {
   }
 
   const handleLanguageChange = (newLocale: string) => {
-    changeLocale(newLocale)
+    setFormData(prev => ({
+      ...prev,
+      language: newLocale
+    }))
+  }
+
+  const handleNewsletterChange = (checked: boolean) => {
+    setFormData(prev => ({
+      ...prev,
+      newsletter: checked
+    }))
+  }
+
+  const handleSave = async () => {
+    try {
+      setSaving(true)
+      setError(null)
+      setSaveSuccess(false)
+
+      // Preparar dados para envio
+      const updateData = {
+        language: formData.language,
+        newsletter: formData.newsletter
+      }
+
+      const response = await fetch('/api/configuration', {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updateData)
+      })
+
+      const result = await response.json()
+
+      if (!response.ok || !result?.success) {
+        throw new Error(result?.error || 'Falha ao salvar configurações')
+      }
+
+      setSaveSuccess(true)
+      
+      // Atualizar locale se necessário
+      if (formData.language !== currentLocale) {
+        changeLocale(formData.language)
+      }
+      
+      // Limpar mensagem de sucesso após 3 segundos
+      setTimeout(() => setSaveSuccess(false), 3000)
+      
+    } catch (e: any) {
+      setError(e?.message || 'Erro ao salvar configurações')
+    } finally {
+      setSaving(false)
+    }
+  }
+
+  useEffect(() => {
+    const fetchConfiguration = async () => {
+      try {
+        setLoading(true)
+        setError(null)
+        const res = await fetch('/api/configuration', { cache: 'no-store' })
+        const body = await res.json()
+        if (!res.ok || !body?.success) {
+          throw new Error(body?.error || 'Falha ao carregar configurações')
+        }
+        
+        // Atualizar dados do formulário
+        setFormData({
+          language: body.data?.language || 'en',
+          newsletter: body.data?.newsletter || false
+        })
+      } catch (e: any) {
+        setError(e?.message || 'Erro inesperado')
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchConfiguration()
+  }, [])
+
+  if (loading) {
+    return (
+      <div className="p-4 lg:p-6 flex items-center justify-center min-h-[400px]">
+        <div className="flex items-center space-x-3">
+          <Spinner className="size-6 text-white" />
+          <span className="text-white text-lg">{t('loading')}</span>
+        </div>
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className="p-4 lg:p-6">
+        <div className="text-red-400">{error}</div>
+      </div>
+    )
   }
 
   return (
@@ -63,64 +174,6 @@ export function SettingsSection({ onSectionChange }: SettingsSectionProps) {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
-        {/* Informações Pessoais */}
-        <Card className="backdrop-blur-xl bg-white/10 border-white/20 shadow-2xl">
-          <CardHeader>
-            <CardTitle className="text-white flex items-center space-x-2">
-              <FiUser className="w-5 h-5" />
-              <span>{t('personalInfo.title')}</span>
-            </CardTitle>
-            <CardDescription className="text-white/70">
-              {t('personalInfo.subtitle')}
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-white/90">{t('personalInfo.fields.fullName.label')}</label>
-              <Input 
-                type="text"
-                placeholder={t('personalInfo.fields.fullName.placeholder')}
-                className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
-              />
-            </div>
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-white/90">{t('personalInfo.fields.phone.label')}</label>
-              <Input 
-                type="tel"
-                placeholder={t('personalInfo.fields.phone.placeholder')}
-                className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
-              />
-            </div>
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-white/90">{t('personalInfo.fields.email.label')}</label>
-              <Input 
-                type="email"
-                placeholder={t('personalInfo.fields.email.placeholder')}
-                className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
-              />
-            </div>
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-white/90">{t('personalInfo.fields.country.label')}</label>
-              <Input 
-                type="text"
-                placeholder={t('personalInfo.fields.country.placeholder')}
-                className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
-              />
-            </div>
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-white/90">{t('personalInfo.fields.age.label')}</label>
-              <Input 
-                type="number"
-                placeholder={t('personalInfo.fields.age.placeholder')}
-                className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
-              />
-            </div>
-            <Button className="w-full bg-gradient-to-r from-orange-400 to-red-400 hover:from-orange-500 hover:to-red-500 text-white">
-              <FiSave className="w-4 h-4 mr-2" />
-              {t('personalInfo.saveButton')}
-            </Button>
-          </CardContent>
-        </Card>
 
         {/* Notificações */}
         <Card className="backdrop-blur-xl bg-white/10 border-white/20 shadow-2xl">
@@ -137,33 +190,16 @@ export function SettingsSection({ onSectionChange }: SettingsSectionProps) {
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-white font-medium">{t('notifications.options.marketingEmail.title')}</p>
-                  <p className="text-white/60 text-sm">{t('notifications.options.marketingEmail.description')}</p>
+                  <p className="text-white font-medium">{t('notifications.options.newsletter.title')}</p>
+                  <p className="text-white/60 text-sm">{t('notifications.options.newsletter.description')}</p>
                 </div>
                 <label className="relative inline-flex items-center cursor-pointer">
-                  <input type="checkbox" className="sr-only peer" defaultChecked />
-                  <div className="w-11 h-6 bg-white/20 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-gradient-to-r peer-checked:from-orange-400 peer-checked:to-red-400"></div>
-                </label>
-              </div>
-              
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-white font-medium">{t('notifications.options.pushNotifications.title')}</p>
-                  <p className="text-white/60 text-sm">{t('notifications.options.pushNotifications.description')}</p>
-                </div>
-                <label className="relative inline-flex items-center cursor-pointer">
-                  <input type="checkbox" className="sr-only peer" defaultChecked />
-                  <div className="w-11 h-6 bg-white/20 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-gradient-to-r peer-checked:from-orange-400 peer-checked:to-red-400"></div>
-                </label>
-              </div>
-              
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-white font-medium">{t('notifications.options.cvReminders.title')}</p>
-                  <p className="text-white/60 text-sm">{t('notifications.options.cvReminders.description')}</p>
-                </div>
-                <label className="relative inline-flex items-center cursor-pointer">
-                  <input type="checkbox" className="sr-only peer" />
+                  <input 
+                    type="checkbox" 
+                    className="sr-only peer" 
+                    checked={formData.newsletter}
+                    onChange={(e) => handleNewsletterChange(e.target.checked)}
+                  />
                   <div className="w-11 h-6 bg-white/20 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-gradient-to-r peer-checked:from-orange-400 peer-checked:to-red-400"></div>
                 </label>
               </div>
@@ -175,7 +211,7 @@ export function SettingsSection({ onSectionChange }: SettingsSectionProps) {
         <Card className="backdrop-blur-xl bg-white/10 border-white/20 shadow-2xl">
           <CardHeader>
             <CardTitle className="text-white flex items-center space-x-2">
-              {darkMode ? <FiMoon className="w-5 h-5" /> : <FiSun className="w-5 h-5" />}
+              <FiGlobe className="w-5 h-5" />
               <span>{t('appearance.title')}</span>
             </CardTitle>
             <CardDescription className="text-white/70">
@@ -183,25 +219,9 @@ export function SettingsSection({ onSectionChange }: SettingsSectionProps) {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-white font-medium">{t('appearance.options.darkMode.title')}</p>
-                <p className="text-white/60 text-sm">{t('appearance.options.darkMode.description')}</p>
-              </div>
-              <label className="relative inline-flex items-center cursor-pointer">
-                <input 
-                  type="checkbox" 
-                  className="sr-only peer" 
-                  checked={darkMode}
-                  onChange={(e) => setDarkMode(e.target.checked)}
-                />
-                <div className="w-11 h-6 bg-white/20 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-gradient-to-r peer-checked:from-orange-400 peer-checked:to-red-400"></div>
-              </label>
-            </div>
-            
             <div className="space-y-2">
               <label className="text-sm font-medium text-white/90">{t('appearance.options.language.label')}</label>
-              <Select value={locale} onValueChange={handleLanguageChange}>
+              <Select value={formData.language} onValueChange={handleLanguageChange}>
                 <SelectTrigger className="w-full bg-white/20 border-white/30 text-white hover:text-white/80 focus:ring-white/50">
                   <SelectValue placeholder={t('appearance.options.language.label')} />
                 </SelectTrigger>
@@ -211,48 +231,39 @@ export function SettingsSection({ onSectionChange }: SettingsSectionProps) {
                 </SelectContent>
               </Select>
             </div>
+            
+            <div className="space-y-3">
+              {saveSuccess && (
+                <div className="text-green-400 text-sm font-medium">
+                  ✓ Configurações salvas com sucesso!
+                </div>
+              )}
+              {error && (
+                <div className="text-red-400 text-sm font-medium">
+                  {error}
+                </div>
+              )}
+              <Button 
+                onClick={handleSave}
+                disabled={saving}
+                className="bg-gradient-to-r from-orange-400 to-red-400 hover:from-orange-500 hover:to-red-500 text-white disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {saving ? (
+                  <>
+                    <Spinner className="w-4 h-4 mr-2" />
+                    Salvando...
+                  </>
+                ) : (
+                  <>
+                    <FiSave className="w-4 h-4 mr-2" />
+                    Salvar Alterações
+                  </>
+                )}
+              </Button>
+            </div>
           </CardContent>
         </Card>
 
-        {/* Privacidade */}
-        <Card className="backdrop-blur-xl bg-white/10 border-white/20 shadow-2xl">
-          <CardHeader>
-            <CardTitle className="text-white flex items-center space-x-2">
-              <FiGlobe className="w-5 h-5" />
-              <span>{t('privacy.title')}</span>
-            </CardTitle>
-            <CardDescription className="text-white/70">
-              {t('privacy.subtitle')}
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-white font-medium">{t('privacy.options.publicProfile.title')}</p>
-                <p className="text-white/60 text-sm">{t('privacy.options.publicProfile.description')}</p>
-              </div>
-              <label className="relative inline-flex items-center cursor-pointer">
-                <input type="checkbox" className="sr-only peer" />
-                <div className="w-11 h-6 bg-white/20 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-gradient-to-r peer-checked:from-orange-400 peer-checked:to-red-400"></div>
-              </label>
-            </div>
-            
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-white font-medium">{t('privacy.options.analytics.title')}</p>
-                <p className="text-white/60 text-sm">{t('privacy.options.analytics.description')}</p>
-              </div>
-              <label className="relative inline-flex items-center cursor-pointer">
-                <input type="checkbox" className="sr-only peer" defaultChecked />
-                <div className="w-11 h-6 bg-white/20 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-gradient-to-r peer-checked:from-orange-400 peer-checked:to-red-400"></div>
-              </label>
-            </div>
-            
-            <Button variant="ghost" className="w-full text-white/80 hover:text-white hover:bg-white/10">
-              {t('privacy.downloadData')}
-            </Button>
-          </CardContent>
-        </Card>
       </div>
     </div>
   )

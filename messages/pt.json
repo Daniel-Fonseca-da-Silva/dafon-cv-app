@@ -326,48 +326,14 @@
       "subtitle": "Personalize suas preferências e configurações",
       "backButton": "Voltar ao Dashboard"
     },
-    "personalInfo": {
-      "title": "Informações Pessoais",
-      "subtitle": "Gerencie suas informações pessoais",
-      "fields": {
-        "fullName": {
-          "label": "Nome Completo",
-          "placeholder": "Digite seu nome completo"
-        },
-        "phone": {
-          "label": "Telefone",
-          "placeholder": "Digite seu telefone"
-        },
-        "email": {
-          "label": "Email",
-          "placeholder": "Digite seu email"
-        },
-        "country": {
-          "label": "País",
-          "placeholder": "Digite seu país"
-        },
-        "age": {
-          "label": "Idade",
-          "placeholder": "Digite sua idade"
-        }
-      },
-      "saveButton": "Salvar Informações"
-    },
+    "loading": "Carregando configurações...",
     "notifications": {
       "title": "Notificações",
       "subtitle": "Configure suas preferências de notificação",
       "options": {
-        "marketingEmail": {
-          "title": "Email de Marketing",
-          "description": "Receber ofertas e novidades"
-        },
-        "pushNotifications": {
-          "title": "Notificações Push",
-          "description": "Alertas importantes no navegador"
-        },
-        "cvReminders": {
-          "title": "Lembretes de CV",
-          "description": "Lembretes para atualizar seu currículo"
+        "newsletter": {
+          "title": "Newsletter",
+          "description": "Receber dicas de carreira, lembretes e novidades da plataforma"
         }
       }
     },
@@ -375,34 +341,14 @@
       "title": "Aparência",
       "subtitle": "Personalize a aparência da interface",
       "options": {
-        "darkMode": {
-          "title": "Modo Escuro",
-          "description": "Ativar tema escuro"
-        },
         "language": {
           "label": "Idioma",
           "options": {
             "pt": "Português",
-            "en": "English",
-            "es": "Español"
+            "en": "English"
           }
         }
       }
-    },
-    "privacy": {
-      "title": "Privacidade",
-      "subtitle": "Controle sua privacidade e dados",
-      "options": {
-        "publicProfile": {
-          "title": "Perfil Público",
-          "description": "Tornar perfil visível publicamente"
-        },
-        "analytics": {
-          "title": "Analytics",
-          "description": "Compartilhar dados de uso"
-        }
-      },
-      "downloadData": "Baixar Meus Dados"
     }
   },
   "generateCv": {
@@ -430,7 +376,7 @@
       "subtitle": "Gerencie suas informações pessoais",
       "backButton": "Voltar ao Dashboard"
     },
-    "loading": "Carregando...",
+    "loading": "Carregando perfil...",
     "photo": {
       "title": "Foto do Perfil",
       "changePhoto": "Alterar Foto"
@@ -721,3 +667,4 @@
     }
   }
 }
+
