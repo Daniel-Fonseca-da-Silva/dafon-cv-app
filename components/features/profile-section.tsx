@@ -3,9 +3,11 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { FiUser, FiMail, FiPhone, FiMapPin, FiSave, FiCamera, FiArrowLeft } from "react-icons/fi"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Spinner } from "@/components/ui/spinner"
+import { FiUser, FiMail, FiPhone, FiSave, FiCamera, FiArrowLeft } from "react-icons/fi"
 import { useTranslations } from "next-intl"
-import { useState, useRef } from "react"
+import { useEffect, useMemo, useState, useRef } from "react"
 import Image from "next/image"
 
 interface ProfileSectionProps {
@@ -16,6 +18,28 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
   const t = useTranslations('profileSection')
   const [profilePhoto, setProfilePhoto] = useState<string | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
+  const [loading, setLoading] = useState<boolean>(true)
+  const [error, setError] = useState<string | null>(null)
+  const [user, setUser] = useState<{
+    id: string
+    name?: string
+    email?: string
+    image_url?: string
+    country?: string
+    state?: string
+    city?: string
+    phone?: string
+    employment?: boolean
+    gender?: string
+    age?: number
+    salary?: number
+    migration?: boolean
+    created_at?: string
+    updated_at?: string
+  } | null>(null)
+  const [employmentValue, setEmploymentValue] = useState<string>("unemployed")
+  const [genderValue, setGenderValue] = useState<string>("male")
+  const [migrationValue, setMigrationValue] = useState<boolean>(false)
 
   const handleBackToDashboard = () => {
     if (onSectionChange) {
@@ -53,6 +77,51 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
     fileInputRef.current?.click()
   }
   
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        setLoading(true)
+        setError(null)
+        const res = await fetch('/api/user/me', { cache: 'no-store' })
+        const body = await res.json()
+        if (!res.ok || !body?.success) {
+          throw new Error(body?.error || 'Falha ao carregar usuário')
+        }
+        setUser(body.data)
+        // Atualizar valores dos radio groups
+        setEmploymentValue(body.data?.employment === true ? "employed" : "unemployed")
+        setGenderValue(body.data?.gender || "male")
+        setMigrationValue(body.data?.migration === true)
+        if (body.data?.image_url) setProfilePhoto(body.data.image_url)
+      } catch (e: any) {
+        setError(e?.message || 'Erro inesperado')
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchUser()
+  }, [])
+  
+  
+  if (loading) {
+    return (
+      <div className="p-4 lg:p-6 flex items-center justify-center min-h-[400px]">
+        <div className="flex items-center space-x-3">
+          <Spinner className="size-6 text-white" />
+          <span className="text-white text-lg">{t('loading')}</span>
+        </div>
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className="p-4 lg:p-6">
+        <div className="text-red-400">{error}</div>
+      </div>
+    )
+  }
+
   return (
     <div className="p-4 lg:p-6 space-y-4 lg:space-y-6">
       {/* Cabecalho */}
@@ -148,7 +217,7 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
               <div className="space-y-2">
                 <label className="text-sm font-medium text-white/90">{t('personalInfo.fullName')}</label>
                 <Input 
-                  defaultValue="Dafon CV"
+                  defaultValue={user?.name || ''}
                   className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
                 />
               </div>
@@ -157,7 +226,7 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
                 <div className="relative">
                   <FiMail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/60 w-4 h-4" />
                   <Input 
-                    defaultValue="dafoncv@email.com"
+                    defaultValue={user?.email || ''}
                     className="pl-10 bg-white/20 border-white/30 text-white placeholder:text-white/60"
                   />
                 </div>
@@ -167,26 +236,45 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
                 <div className="relative">
                   <FiPhone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/60 w-4 h-4" />
                   <Input 
-                    defaultValue="(351) 99999-99999"
+                    defaultValue={user?.phone || ''}
                     className="pl-10 bg-white/20 border-white/30 text-white placeholder:text-white/60"
                   />
                 </div>
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-medium text-white/90">{t('personalInfo.location')}</label>
-                <div className="relative">
-                  <FiMapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/60 w-4 h-4" />
-                  <Input 
-                    defaultValue="Braga, PT"
-                    className="pl-10 bg-white/20 border-white/30 text-white placeholder:text-white/60"
-                  />
-                </div>
+                <label className="text-sm font-medium text-white/90">{t('personalInfo.country')}</label>
+                <Input 
+                  placeholder=""
+                  defaultValue={user?.country || ''}
+                  className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-white/90">{t('personalInfo.state')}</label>
+                <Input 
+                  placeholder=""
+                  defaultValue={user?.state || ''}
+                  className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-white/90">{t('personalInfo.city')}</label>
+                <Input 
+                  placeholder=""
+                  defaultValue={user?.city || ''}
+                  className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-white/90">{t('personalInfo.age')}</label>
+                <Input 
+                  type="number"
+                  placeholder=""
+                  defaultValue={user?.age ?? ''}
+                  className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
+                />
               </div>
             </div>
-            <Button className="bg-gradient-to-r from-purple-400 to-pink-400 hover:from-purple-500 hover:to-pink-500 text-white">
-              <FiSave className="w-4 h-4 mr-2" />
-              {t('personalInfo.saveChanges')}
-            </Button>
           </CardContent>
         </Card>
       </div>
@@ -206,27 +294,32 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
             {/* Status de Emprego */}
             <div className="space-y-3">
               <label className="text-sm font-medium text-white/90">{t('professionalInfo.employmentStatus')}</label>
-              <div className="flex space-x-4">
-                <label className="flex items-center space-x-2 cursor-pointer">
-                  <input 
-                    type="radio" 
-                    name="employment-status" 
-                    value="employed"
-                    defaultChecked
-                    className="w-4 h-4 text-purple-400 bg-white/20 border-white/30 focus:ring-purple-400 focus:ring-2"
+              <RadioGroup 
+                value={employmentValue}
+                onValueChange={setEmploymentValue}
+                className="flex space-x-4"
+              >
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem 
+                    value="employed" 
+                    id="employed"
+                    className="border-white/30 data-[state=checked]:bg-purple-400 data-[state=checked]:border-purple-400"
                   />
-                  <span className="text-white/90">{t('professionalInfo.employed')}</span>
-                </label>
-                <label className="flex items-center space-x-2 cursor-pointer">
-                  <input 
-                    type="radio" 
-                    name="employment-status" 
-                    value="unemployed"
-                    className="w-4 h-4 text-purple-400 bg-white/20 border-white/30 focus:ring-purple-400 focus:ring-2"
+                  <label htmlFor="employed" className="text-white/90 cursor-pointer">
+                    {t('professionalInfo.employed')}
+                  </label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem 
+                    value="unemployed" 
+                    id="unemployed"
+                    className="border-white/30 data-[state=checked]:bg-purple-400 data-[state=checked]:border-purple-400"
                   />
-                  <span className="text-white/90">{t('professionalInfo.unemployed')}</span>
-                </label>
-              </div>
+                  <label htmlFor="unemployed" className="text-white/90 cursor-pointer">
+                    {t('professionalInfo.unemployed')}
+                  </label>
+                </div>
+              </RadioGroup>
             </div>
 
             {/* Salário Atual */}
@@ -234,6 +327,7 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
               <label className="text-sm font-medium text-white/90">{t('professionalInfo.currentSalary')}</label>
               <Input 
                 placeholder={t('professionalInfo.salaryPlaceholder')}
+                defaultValue={user?.salary ?? ''}
                 className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
               />
             </div>
@@ -244,6 +338,8 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
               <label className="flex items-center space-x-2 cursor-pointer">
                 <input 
                   type="checkbox" 
+                  checked={migrationValue}
+                  onChange={(e) => setMigrationValue(e.target.checked)}
                   className="w-4 h-4 text-purple-400 bg-white/20 border-white/30 rounded focus:ring-purple-400 focus:ring-2"
                 />
                 <span className="text-white/90">{t('professionalInfo.careerMigrationText')}</span>
@@ -253,26 +349,32 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
             {/* Sexo */}
             <div className="space-y-3">
               <label className="text-sm font-medium text-white/90">{t('professionalInfo.gender')}</label>
-              <div className="flex space-x-4">
-                <label className="flex items-center space-x-2 cursor-pointer">
-                  <input 
-                    type="radio" 
-                    name="gender" 
-                    value="male"
-                    className="w-4 h-4 text-purple-400 bg-white/20 border-white/30 focus:ring-purple-400 focus:ring-2"
+              <RadioGroup 
+                value={genderValue}
+                onValueChange={setGenderValue}
+                className="flex space-x-4"
+              >
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem 
+                    value="male" 
+                    id="male"
+                    className="border-white/30 data-[state=checked]:bg-purple-400 data-[state=checked]:border-purple-400"
                   />
-                  <span className="text-white/90">{t('professionalInfo.male')}</span>
-                </label>
-                <label className="flex items-center space-x-2 cursor-pointer">
-                  <input 
-                    type="radio" 
-                    name="gender" 
-                    value="female"
-                    className="w-4 h-4 text-purple-400 bg-white/20 border-white/30 focus:ring-purple-400 focus:ring-2"
+                  <label htmlFor="male" className="text-white/90 cursor-pointer">
+                    {t('professionalInfo.male')}
+                  </label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem 
+                    value="female" 
+                    id="female"
+                    className="border-white/30 data-[state=checked]:bg-purple-400 data-[state=checked]:border-purple-400"
                   />
-                  <span className="text-white/90">{t('professionalInfo.female')}</span>
-                </label>
-              </div>
+                  <label htmlFor="female" className="text-white/90 cursor-pointer">
+                    {t('professionalInfo.female')}
+                  </label>
+                </div>
+              </RadioGroup>
             </div>
           </div>
           <Button className="bg-gradient-to-r from-purple-400 to-pink-400 hover:from-purple-500 hover:to-pink-500 text-white">
