@@ -237,7 +237,7 @@ export function SettingsSection({ onSectionChange }: SettingsSectionProps) {
             <div className="space-y-3">
               {saveSuccess && (
                 <div className="text-green-400 text-sm font-medium">
-                  ✓ Configurações salvas com sucesso!
+                  {t('appearance.saveSuccess')}
                 </div>
               )}
               {error && (
@@ -253,12 +253,12 @@ export function SettingsSection({ onSectionChange }: SettingsSectionProps) {
                 {saving ? (
                   <>
                     <Spinner className="w-4 h-4 mr-2" />
-                    Salvando...
+                    {t('appearance.saving')}
                   </>
                 ) : (
                   <>
                     <FiSave className="w-4 h-4 mr-2" />
-                    Salvar Alterações
+                    {t('appearance.saveButton')}
                   </>
                 )}
               </Button>

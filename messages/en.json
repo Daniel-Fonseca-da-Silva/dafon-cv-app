@@ -327,6 +327,41 @@
       "backButton": "Back to Dashboard"
     },
     "loading": "Loading settings...",
+    "personalInfo": {
+      "title": "Personal Information",
+      "subtitle": "Manage your personal information",
+      "fields": {
+        "fullName": {
+          "label": "Full Name",
+          "placeholder": "Enter your full name"
+        },
+        "phone": {
+          "label": "Phone",
+          "placeholder": "Enter your phone number"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Enter your email"
+        },
+        "country": {
+          "label": "Country",
+          "placeholder": "Enter your country"
+        },
+        "state": {
+          "label": "State/Province",
+          "placeholder": "Enter your state or province"
+        },
+        "city": {
+          "label": "City",
+          "placeholder": "Enter your city"
+        },
+        "age": {
+          "label": "Age",
+          "placeholder": "Enter your age"
+        }
+      },
+      "saveButton": "Save Information"
+    },
     "notifications": {
       "title": "Notifications",
       "subtitle": "Configure your notification preferences",
@@ -334,6 +369,18 @@
         "newsletter": {
           "title": "Newsletter",
           "description": "Receive career tips, reminders and platform updates"
+        },
+        "marketingEmail": {
+          "title": "Marketing Email",
+          "description": "Receive offers and news"
+        },
+        "pushNotifications": {
+          "title": "Push Notifications",
+          "description": "Important browser alerts"
+        },
+        "cvReminders": {
+          "title": "CV Reminders",
+          "description": "Reminders to update your resume"
         }
       }
     },
@@ -341,14 +388,37 @@
       "title": "Appearance",
       "subtitle": "Customize the interface appearance",
       "options": {
+        "darkMode": {
+          "title": "Dark Mode",
+          "description": "Enable dark theme"
+        },
         "language": {
           "label": "Language",
           "options": {
             "pt": "Português",
-            "en": "English"
+            "en": "English",
+            "es": "Español"
           }
         }
-      }
+      },
+      "saveButton": "Save Changes",
+      "saving": "Saving...",
+      "saveSuccess": "Settings saved successfully!"
+    },
+    "privacy": {
+      "title": "Privacy",
+      "subtitle": "Control your privacy and data",
+      "options": {
+        "publicProfile": {
+          "title": "Public Profile",
+          "description": "Make profile publicly visible"
+        },
+        "analytics": {
+          "title": "Analytics",
+          "description": "Share usage data"
+        }
+      },
+      "downloadData": "Download My Data"
     }
   },
   "generateCv": {
@@ -667,4 +737,5 @@
     }
   }
 }
+
 
