@@ -429,11 +429,12 @@
       "backButtonMobile": "Dashboard"
     },
     "form": {
-      "title": "Gerar Currículo",
-      "subtitle": "Crie um currículo profissional usando inteligência artificial",
-      "generateButton": "Gerar Currículo",
-      "recentCvs": "Currículos Recentes",
-      "recentCvsSubtitle": "Seus currículos gerados recentemente",
+      "title": "Cadastrar informacoes",
+      "subtitle": "Cadastre suas informacoes com IA",
+      "generateButton": "Cadastrar",
+      "manageTitle": "Gerenciar curriculos criados",
+      "manageSubtitle": "Visualize e crie curriculos",
+      "manageButton": "Gerenciar",
       "cvTitle": "CV Desenvolvedor Frontend",
       "createdDaysAgo": "Criado há {days} dia{days, plural, one {} other {s}}",
       "editButton": "Editar",

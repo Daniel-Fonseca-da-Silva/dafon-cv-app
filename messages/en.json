@@ -429,11 +429,12 @@
       "backButtonMobile": "Dashboard"
     },
     "form": {
-      "title": "Generate CV",
-      "subtitle": "Create a professional CV using artificial intelligence",
-      "generateButton": "Generate CV",
-      "recentCvs": "Recent CVs",
-      "recentCvsSubtitle": "Your recently generated CVs",
+      "title": "Register Information",
+      "subtitle": "Register your information with AI",
+      "generateButton": "Register",
+      "manageTitle": "Manage created CVs",
+      "manageSubtitle": "View and create CVs",
+      "manageButton": "Manage",
       "cvTitle": "Frontend Developer CV",
       "createdDaysAgo": "Created {days} day{days, plural, one {} other {s}} ago",
       "editButton": "Edit",
