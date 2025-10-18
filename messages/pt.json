@@ -189,6 +189,10 @@
         "title": "Gerar CV com IA",
         "description": "Crie currículos profissionais com IA"
       },
+      "templates": {
+        "title": "Gerenciar Templates",
+        "description": "Visualize e baixe templates de currículos"
+      },
       "profile": {
         "title": "Meu Perfil",
         "description": "Gerencie suas informações pessoais"
@@ -206,6 +210,10 @@
       "generate-cv": {
         "title": "Gerar CV com IA",
         "description": "Crie um currículo profissional usando inteligência artificial. Personalize e otimize seu CV em minutos."
+      },
+      "templates": {
+        "title": "Gerenciar Templates",
+        "description": "Visualize e baixe templates profissionais para criar seu currículo."
       },
       "profile": {
         "title": "Meu Perfil",
@@ -230,6 +238,10 @@
       "generate-cv": {
         "label": "Gerar CV com IA",
         "description": "Criar currículo"
+      },
+      "templates": {
+        "label": "Gerenciar Templates",
+        "description": "Templates de currículos"
       },
       "profile": {
         "label": "Meu Perfil",
@@ -736,7 +748,27 @@
       "subtitle": "Seu currículo foi salvo e está pronto para download.",
       "createNewButton": "Criar Novo Currículo"
     }
+  },
+  "templateManagement": {
+    "title": "Gerenciar Templates",
+    "subtitle": "Escolha entre nossos templates profissionais e crie seu currículo perfeito",
+    "filters": {
+      "all": "Todos",
+      "free": "Gratuitos",
+      "premium": "Premium"
+    },
+    "actions": {
+      "view": "Visualizar",
+      "download": "Baixar"
+    },
+    "emptyState": {
+      "title": "Nenhum template encontrado",
+      "action": "Ver todos os templates"
+    }
   }
 }
+
+
+
 
 

@@ -2,6 +2,7 @@
 
 import { DashboardCards } from "./dashboard-cards"
 import { GenerateCvSection } from "./generate-cv-section"
+import { TemplateManagementSection } from "./template-management-section"
 import { ProfileSection } from "./profile-section"
 import { SettingsSection } from "./settings-section"
 import { PlansSection } from "./plans-section"
@@ -18,6 +19,8 @@ export function DashboardContent({ activeSection, onSectionChange }: DashboardCo
         return <DashboardCards onCardClick={onSectionChange} />
       case "generate-cv":
         return <GenerateCvSection onSectionChange={onSectionChange} />
+      case "templates":
+        return <TemplateManagementSection onSectionChange={onSectionChange} />
       case "profile":
         return <ProfileSection onSectionChange={onSectionChange} />
       case "settings":

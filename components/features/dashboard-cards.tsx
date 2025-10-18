@@ -1,7 +1,7 @@
 "use client"
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { FiFileText, FiUser, FiSettings, FiCreditCard, FiArrowRight } from "react-icons/fi"
+import { FiFileText, FiUser, FiSettings, FiCreditCard, FiGrid, FiArrowRight } from "react-icons/fi"
 import { useTranslations } from "next-intl"
 
 interface DashboardCardsProps {
@@ -19,6 +19,14 @@ export function DashboardCards({ onCardClick }: DashboardCardsProps) {
       icon: FiFileText,
       gradient: "from-blue-400 to-cyan-400",
       hoverGradient: "from-blue-500 to-cyan-500"
+    },
+    {
+      id: "templates",
+      title: t("templates.title"),
+      description: t("templates.description"),
+      icon: FiGrid,
+      gradient: "from-indigo-400 to-purple-400",
+      hoverGradient: "from-indigo-500 to-purple-500"
     },
     {
       id: "profile",

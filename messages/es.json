@@ -189,6 +189,10 @@
         "title": "Generar CV con IA",
         "description": "Crear currículums profesionales con IA"
       },
+      "templates": {
+        "title": "Gestionar Plantillas",
+        "description": "Ver y descargar plantillas de currículum"
+      },
       "profile": {
         "title": "Mi Perfil",
         "description": "Gestiona tu información personal"
@@ -206,6 +210,10 @@
       "generate-cv": {
         "title": "Generar CV con IA",
         "description": "Crea un currículum profesional usando inteligencia artificial. Personaliza y optimiza tu CV en minutos."
+      },
+      "templates": {
+        "title": "Gestionar Plantillas",
+        "description": "Ver y descargar plantillas profesionales para crear tu currículum."
       },
       "profile": {
         "title": "Mi Perfil",
@@ -230,6 +238,10 @@
       "generate-cv": {
         "label": "Generar CV con IA",
         "description": "Crear currículum"
+      },
+      "templates": {
+        "label": "Gestionar Plantillas",
+        "description": "Plantillas de currículum"
       },
       "profile": {
         "label": "Mi Perfil",
@@ -469,6 +481,23 @@
       "male": "Masculino",
       "female": "Femenino",
       "saveChanges": "Guardar Cambios"
+    }
+  },
+  "templateManagement": {
+    "title": "Gestionar Plantillas",
+    "subtitle": "Elige entre nuestras plantillas profesionales y crea tu currículum perfecto",
+    "filters": {
+      "all": "Todas",
+      "free": "Gratuitas",
+      "premium": "Premium"
+    },
+    "actions": {
+      "view": "Ver",
+      "download": "Descargar"
+    },
+    "emptyState": {
+      "title": "No se encontraron plantillas",
+      "action": "Ver todas las plantillas"
     }
   }
 }

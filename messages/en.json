@@ -189,6 +189,10 @@
         "title": "Generate CV with AI",
         "description": "Create professional CVs with AI"
       },
+      "templates": {
+        "title": "Manage Templates",
+        "description": "View and download CV templates"
+      },
       "profile": {
         "title": "My Profile",
         "description": "Manage your personal information"
@@ -206,6 +210,10 @@
       "generate-cv": {
         "title": "Generate CV with AI",
         "description": "Create a professional CV using artificial intelligence. Customize and optimize your CV in minutes."
+      },
+      "templates": {
+        "title": "Manage Templates",
+        "description": "View and download professional templates to create your CV."
       },
       "profile": {
         "title": "My Profile",
@@ -230,6 +238,10 @@
       "generate-cv": {
         "label": "Generate CV with AI",
         "description": "Create resume"
+      },
+      "templates": {
+        "label": "Manage Templates",
+        "description": "CV templates"
       },
       "profile": {
         "label": "My Profile",
@@ -735,6 +747,23 @@
       "title": "CV Created Successfully!",
       "subtitle": "Your CV has been saved and is ready for download.",
       "createNewButton": "Create New CV"
+    }
+  },
+  "templateManagement": {
+    "title": "Manage Templates",
+    "subtitle": "Choose from our professional templates and create your perfect CV",
+    "filters": {
+      "all": "All",
+      "free": "Free",
+      "premium": "Premium"
+    },
+    "actions": {
+      "view": "View",
+      "download": "Download"
+    },
+    "emptyState": {
+      "title": "No templates found",
+      "action": "View all templates"
     }
   }
 }

@@ -103,6 +103,7 @@ export function GenerateCvSection({ onSectionChange }: GenerateCvSectionProps) {
             </CardHeader>
             <CardContent className="text-center">
               <Button 
+                onClick={() => onSectionChange && onSectionChange('templates')}
                 size="lg"
                 className="bg-gradient-to-r from-purple-400 to-pink-400 hover:from-purple-500 hover:to-pink-500 text-white px-8 py-3 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
               >
