@@ -9,6 +9,7 @@ import { FiUser, FiMail, FiPhone, FiSave, FiCamera, FiArrowLeft } from "react-ic
 import { useTranslations } from "next-intl"
 import { useEffect, useState, useRef } from "react"
 import Image from "next/image"
+import { useUserData } from "@/hooks/use-user-data"
 
 interface ProfileSectionProps {
   onSectionChange?: (section: string) => void
@@ -16,27 +17,9 @@ interface ProfileSectionProps {
 
 export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
   const t = useTranslations('profileSection')
+  const { userData, isLoading, error, updateUserData } = useUserData()
   const [profilePhoto, setProfilePhoto] = useState<string | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
-  const [loading, setLoading] = useState<boolean>(true)
-  const [error, setError] = useState<string | null>(null)
-  const [user, setUser] = useState<{
-    id: string
-    name?: string
-    email?: string
-    image_url?: string
-    country?: string
-    state?: string
-    city?: string
-    phone?: string
-    employment?: boolean
-    gender?: string
-    age?: number
-    salary?: number
-    migration?: boolean
-    created_at?: string
-    updated_at?: string
-  } | null>(null)
   const [employmentValue, setEmploymentValue] = useState<string>("unemployed")
   const [genderValue, setGenderValue] = useState<string>("male")
   const [migrationValue, setMigrationValue] = useState<boolean>(false)
@@ -101,7 +84,6 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
   const handleSave = async () => {
     try {
       setSaving(true)
-      setError(null)
       setSaveSuccess(false)
 
       // Preparar dados para envio
@@ -120,74 +102,45 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
         image_url: profilePhoto
       }
 
-      const response = await fetch('/api/user/me', {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(updateData)
-      })
-
-      const result = await response.json()
-
-      if (!response.ok || !result?.success) {
-        throw new Error(result?.error || 'Failed to save data')
-      }
-
+      await updateUserData(updateData)
       setSaveSuccess(true)
-      setUser(result.data)
       
       // Limpar mensagem de sucesso após 3 segundos
       setTimeout(() => setSaveSuccess(false), 3000)
       
     } catch (e: unknown) {
       const errorMessage = e instanceof Error ? e.message : 'Error saving data'
-      setError(errorMessage)
+      console.error('Error saving profile:', errorMessage)
     } finally {
       setSaving(false)
     }
   }
   
+  // Sincroniza dados do hook com o formulário
   useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        setLoading(true)
-        setError(null)
-        const res = await fetch('/api/user/me', { cache: 'no-store' })
-        const body = await res.json()
-        if (!res.ok || !body?.success) {
-          throw new Error(body?.error || 'Failed to load user')
-        }
-        setUser(body.data)
-        // Atualizar valores dos radio groups
-        setEmploymentValue(body.data?.employment === true ? "employed" : "unemployed")
-        setGenderValue(body.data?.gender || "male")
-        setMigrationValue(body.data?.migration === true)
-        if (body.data?.image_url) setProfilePhoto(body.data.image_url)
-        
-        // Atualizar dados do formulário
-        setFormData({
-          name: body.data?.name || '',
-          email: body.data?.email || '',
-          phone: body.data?.phone || '',
-          country: body.data?.country || '',
-          state: body.data?.state || '',
-          city: body.data?.city || '',
-          age: body.data?.age?.toString() || '',
-          salary: body.data?.salary?.toString() || ''
-        })
-      } catch (e: unknown) {
-        const errorMessage = e instanceof Error ? e.message : 'Unexpected error'
-        setError(errorMessage)
-      } finally {
-        setLoading(false)
-      }
+    if (userData) {
+      // Atualizar valores dos radio groups
+      setEmploymentValue(userData.employment === true ? "employed" : "unemployed")
+      setGenderValue(userData.gender || "male")
+      setMigrationValue(userData.migration === true)
+      if (userData.image_url) setProfilePhoto(userData.image_url)
+      
+      // Atualizar dados do formulário
+      setFormData({
+        name: userData.name || '',
+        email: userData.email || '',
+        phone: userData.phone || '',
+        country: userData.country || '',
+        state: userData.state || '',
+        city: userData.city || '',
+        age: userData.age?.toString() || '',
+        salary: userData.salary?.toString() || ''
+      })
     }
-    fetchUser()
-  }, [])
+  }, [userData])
   
   
-  if (loading) {
+  if (isLoading) {
     return (
       <div className="p-4 lg:p-6 flex items-center justify-center min-h-[400px]">
         <div className="flex items-center space-x-3">

@@ -3,14 +3,15 @@
 import { useState, ReactNode } from "react"
 import { Sidebar } from "@/components/layout/sidebar"
 import { Button } from "@/components/ui/button"
-import { FiMenu } from "react-icons/fi"
+import { FiMenu, FiUser } from "react-icons/fi"
 import { useTranslations } from "next-intl"
 import { useAuth } from "@/hooks/use-auth"
+import Image from "next/image"
 
 interface UserData {
   name: string
   email: string
-  avatar?: string
+  image_url?: string
 }
 
 interface DashboardLayoutProps {
@@ -93,7 +94,7 @@ export function DashboardLayout({
             onSectionChange={handleSectionChange}
             userName={userData.name}
             userEmail={userData.email}
-            userAvatar={userData.avatar}
+            userAvatar={userData.image_url}
             isCollapsed={isSidebarCollapsed}
             onToggleCollapse={handleToggleSidebar}
             isMobile={isMobileMenuOpen}
@@ -150,9 +151,22 @@ export function DashboardLayout({
                   </p>
                 </div>
                 <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-gradient-to-br from-orange-400 to-pink-400 flex items-center justify-center border-2 border-white/20">
-                  <span className="text-white font-semibold text-xs lg:text-sm">
-                    {userData.name.split(' ').map(n => n[0]).join('')}
-                  </span>
+                  {userData.image_url ? (
+                    <Image 
+                      src={userData.image_url} 
+                      alt={userData.name}
+                      width={40}
+                      height={40}
+                      className="w-full h-full rounded-full object-cover"
+                      onError={(e) => {
+                        console.error('Error loading user avatar in header:', e);
+                        e.currentTarget.style.display = 'none';
+                      }}
+                      unoptimized
+                    />
+                  ) : (
+                    <FiUser className="w-4 h-4 lg:w-5 lg:h-5 text-white" />
+                  )}
                 </div>
               </div>
             </div>

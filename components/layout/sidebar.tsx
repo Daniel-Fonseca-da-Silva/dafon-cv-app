@@ -142,6 +142,12 @@ export function Sidebar({
                     width={48}
                     height={48}
                     className="w-12 h-12 rounded-full object-cover border-2 border-white/20"
+                    onError={(e) => {
+                      console.error('Error loading user avatar:', e);
+                      // Fallback para avatar padrão em caso de erro
+                      e.currentTarget.style.display = 'none';
+                    }}
+                    unoptimized
                   />
                 ) : (
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-400 to-pink-400 flex items-center justify-center border-2 border-white/20">
