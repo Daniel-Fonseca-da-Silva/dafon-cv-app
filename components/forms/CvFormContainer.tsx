@@ -35,7 +35,11 @@ const initialCvData: CvData = {
   socialLinks: []
 }
 
-export function CvFormContainer() {
+interface CvFormContainerProps {
+  onCvSaved?: () => void
+}
+
+export function CvFormContainer({ onCvSaved }: CvFormContainerProps = {}) {
   const t = useTranslations('cvForm')
   const [currentSection, setCurrentSection] = useState<CvSection>('personal')
   const [cvData, setCvData] = useState<CvData>(initialCvData)
@@ -96,7 +100,8 @@ export function CvFormContainer() {
       data: cvData,
       onDataChange: handleDataChange,
       onNext: handleNext,
-      onPrevious: currentSection !== 'personal' ? handlePrevious : undefined
+      onPrevious: currentSection !== 'personal' ? handlePrevious : undefined,
+      onCvSaved: onCvSaved
     }
 
     switch (currentSection) {

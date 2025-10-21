@@ -193,6 +193,14 @@
         "title": "Manage Templates",
         "description": "View and download CV templates"
       },
+      "my-cvs": {
+        "title": "My CVs",
+        "description": "Manage all your created CVs"
+      },
+      "cv-creation": {
+        "title": "Create New CV",
+        "description": "Fill in the information to create your professional CV"
+      },
       "profile": {
         "title": "My Profile",
         "description": "Manage your personal information"
@@ -214,6 +222,10 @@
       "templates": {
         "title": "Manage Templates",
         "description": "View and download professional templates to create your CV."
+      },
+      "my-cvs": {
+        "title": "My CVs",
+        "description": "Manage all your created CVs"
       },
       "profile": {
         "title": "My Profile",
@@ -242,6 +254,10 @@
       "templates": {
         "label": "Manage Templates",
         "description": "CV templates"
+      },
+      "my-cvs": {
+        "label": "My CVs",
+        "description": "Manage CVs"
       },
       "profile": {
         "label": "My Profile",
@@ -765,6 +781,32 @@
       "title": "No templates found",
       "action": "View all templates"
     }
+  },
+  "cvManagement": {
+    "title": "My CVs",
+    "subtitle": "Manage all your created CVs",
+    "searchPlaceholder": "Search by name or email...",
+    "actions": {
+      "view": "View",
+      "edit": "Edit",
+      "delete": "Delete",
+      "download": "Download",
+      "createNew": "New CV"
+    },
+    "emptyState": {
+      "title": "No CVs found",
+      "noSearchResults": "No CVs found for your search.",
+      "clearSearch": "Clear Search",
+      "viewAll": "View All",
+      "createFirst": "Create First CV"
+    },
+    "createdAt": "Created on",
+    "updatedAt": "Updated on"
+  },
+  "cvCreation": {
+    "title": "Create New CV",
+    "subtitle": "Fill in the information to create your professional CV",
+    "backButton": "Back to My CVs"
   }
 }
 

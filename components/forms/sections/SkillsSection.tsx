@@ -16,7 +16,7 @@ import { SkillAreasSection } from "./SkillAreasSection"
 import { LanguagesSection } from "./LanguagesSection"
 import { useAuth } from "@/hooks/use-auth"
 
-export function SkillsSection({ data, onDataChange, onPrevious }: CvSectionProps) {
+export function SkillsSection({ data, onDataChange, onPrevious, onCvSaved }: CvSectionProps) {
   const t = useTranslations('cvForm.skills')
   const { user, authenticated } = useAuth()
   const [isSaving, setIsSaving] = useState(false)
@@ -84,6 +84,12 @@ export function SkillsSection({ data, onDataChange, onPrevious }: CvSectionProps
       } else {
         setSaveStatus('success')
         setSaveMessage(result.message || 'CV saved successfully!')
+        // Chamar callback se fornecido
+        if (onCvSaved) {
+          setTimeout(() => {
+            onCvSaved()
+          }, 2000) // Aguardar 2 segundos para mostrar a mensagem de sucesso
+        }
       }
     } catch (error) {
       setSaveStatus('error')

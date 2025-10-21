@@ -193,6 +193,14 @@
         "title": "Gerenciar Templates",
         "description": "Visualize e baixe templates de currículos"
       },
+      "my-cvs": {
+        "title": "Meus Currículos",
+        "description": "Gerencie todos os seus currículos criados"
+      },
+      "cv-creation": {
+        "title": "Criar Novo Currículo",
+        "description": "Preencha as informações para criar seu currículo profissional"
+      },
       "profile": {
         "title": "Meu Perfil",
         "description": "Gerencie suas informações pessoais"
@@ -214,6 +222,10 @@
       "templates": {
         "title": "Gerenciar Templates",
         "description": "Visualize e baixe templates profissionais para criar seu currículo."
+      },
+      "my-cvs": {
+        "title": "Meus Currículos",
+        "description": "Gerencie todos os seus currículos criados"
       },
       "profile": {
         "title": "Meu Perfil",
@@ -242,6 +254,10 @@
       "templates": {
         "label": "Gerenciar Templates",
         "description": "Templates de currículos"
+      },
+      "my-cvs": {
+        "label": "Meus Currículos",
+        "description": "Gerenciar currículos"
       },
       "profile": {
         "label": "Meu Perfil",
@@ -765,6 +781,32 @@
       "title": "Nenhum template encontrado",
       "action": "Ver todos os templates"
     }
+  },
+  "cvManagement": {
+    "title": "Meus Currículos",
+    "subtitle": "Gerencie todos os seus currículos criados",
+    "searchPlaceholder": "Buscar por nome ou email...",
+    "actions": {
+      "view": "Visualizar",
+      "edit": "Editar",
+      "delete": "Excluir",
+      "download": "Download",
+      "createNew": "Novo Currículo"
+    },
+    "emptyState": {
+      "title": "Nenhum currículo encontrado",
+      "noSearchResults": "Nenhum currículo encontrado para sua busca.",
+      "clearSearch": "Limpar Busca",
+      "viewAll": "Ver Todos",
+      "createFirst": "Criar Primeiro Currículo"
+    },
+    "createdAt": "Criado em",
+    "updatedAt": "Atualizado em"
+  },
+  "cvCreation": {
+    "title": "Criar Novo Currículo",
+    "subtitle": "Preencha as informações para criar seu currículo profissional",
+    "backButton": "Voltar para Meus Currículos"
   }
 }
 

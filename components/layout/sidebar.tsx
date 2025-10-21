@@ -1,6 +1,6 @@
 "use client"
 
-import { FiUser, FiSettings, FiFileText, FiCreditCard, FiGrid, FiLogOut, FiMenu, FiX } from "react-icons/fi"
+import { FiUser, FiSettings, FiFileText, FiCreditCard, FiGrid, FiLogOut, FiMenu, FiX, FiFolder } from "react-icons/fi"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import Image from "next/image"
@@ -88,6 +88,12 @@ export function Sidebar({
       label: t('menuItems.templates.label'),
       icon: FiGrid,
       description: t('menuItems.templates.description')
+    },
+    {
+      id: "my-cvs",
+      label: t('menuItems.my-cvs.label'),
+      icon: FiFolder,
+      description: t('menuItems.my-cvs.description')
     },
     {
       id: "profile",

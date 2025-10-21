@@ -74,4 +74,29 @@ export interface CvSectionProps {
   onDataChange: (data: CvData) => void
   onNext?: () => void
   onPrevious?: () => void
+  onCvSaved?: () => void
 }
+
+// CV Management Types
+export interface CvSummary {
+  id: string
+  fullName: string
+  email: string
+  createdAt: string
+  updatedAt?: string
+}
+
+export interface CvManagementSectionProps {
+  onSectionChange?: (section: string) => void
+}
+
+export interface CvCardProps {
+  cv: CvSummary
+  onView: (cvId: string) => void
+  onEdit: (cvId: string) => void
+  onDelete: (cvId: string) => void
+  onDownload: (cvId: string) => void
+}
+
+export type CvFilter = 'all'
+export type CvViewMode = 'grid' | 'list'
