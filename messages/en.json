@@ -768,6 +768,7 @@
   "templateManagement": {
     "title": "Manage Templates",
     "subtitle": "Choose from our professional templates and create your perfect CV",
+    "backToDashboard": "Back to Dashboard",
     "filters": {
       "all": "All",
       "free": "Free",

@@ -768,6 +768,7 @@
   "templateManagement": {
     "title": "Gerenciar Templates",
     "subtitle": "Escolha entre nossos templates profissionais e crie seu currículo perfeito",
+    "backToDashboard": "Voltar ao Dashboard",
     "filters": {
       "all": "Todos",
       "free": "Gratuitos",

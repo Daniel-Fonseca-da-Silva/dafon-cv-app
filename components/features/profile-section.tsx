@@ -99,7 +99,7 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
         employment: employmentValue === "employed",
         gender: genderValue,
         migration: migrationValue,
-        image_url: profilePhoto
+        image_url: profilePhoto || undefined
       }
 
       await updateUserData(updateData)

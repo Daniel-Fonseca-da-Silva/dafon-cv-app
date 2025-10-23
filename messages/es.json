@@ -486,6 +486,7 @@
   "templateManagement": {
     "title": "Gestionar Plantillas",
     "subtitle": "Elige entre nuestras plantillas profesionales y crea tu currículum perfecto",
+    "backToDashboard": "Volver al Dashboard",
     "filters": {
       "all": "Todas",
       "free": "Gratuitas",
