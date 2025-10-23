@@ -807,6 +807,29 @@
     "title": "Criar Novo Currículo",
     "subtitle": "Preencha as informações para criar seu currículo profissional",
     "backButton": "Voltar para Meus Currículos"
+  },
+  "cvControls": {
+    "sortOptions": {
+      "name": "Nome",
+      "email": "Email",
+      "createdAt": "Data de Criação",
+      "updatedAt": "Última Atualização"
+    },
+    "pageSizeOptions": {
+      "4": "4 por página",
+      "10": "10 por página",
+      "20": "20 por página",
+      "50": "50 por página"
+    },
+    "labels": {
+      "show": "Mostrar:",
+      "sortBy": "Ordenar por:",
+      "update": "Atualizar"
+    },
+    "sortOrder": {
+      "asc": "A-Z",
+      "desc": "Z-A"
+    }
   }
 }
 

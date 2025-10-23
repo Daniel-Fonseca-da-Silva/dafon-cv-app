@@ -499,5 +499,28 @@
       "title": "No se encontraron plantillas",
       "action": "Ver todas las plantillas"
     }
+  },
+  "cvControls": {
+    "sortOptions": {
+      "name": "Nombre",
+      "email": "Email",
+      "createdAt": "Fecha de Creación",
+      "updatedAt": "Última Actualización"
+    },
+    "pageSizeOptions": {
+      "4": "4 por página",
+      "10": "10 por página",
+      "20": "20 por página",
+      "50": "50 por página"
+    },
+    "labels": {
+      "show": "Mostrar:",
+      "sortBy": "Ordenar por:",
+      "update": "Actualizar"
+    },
+    "sortOrder": {
+      "asc": "A-Z",
+      "desc": "Z-A"
+    }
   }
 }

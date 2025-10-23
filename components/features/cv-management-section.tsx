@@ -6,19 +6,42 @@ import { useTranslations } from "next-intl"
 import { CvManagementSectionProps, CvViewMode } from "@/types/cv.types"
 import { CvCard } from "./cv-card"
 import { CvSkeleton } from "./cv-skeleton"
-import { useCvs } from "@/hooks/use-cvs"
+import { useCvsPagination } from "@/hooks/use-cvs-pagination"
+import { CvControls } from "@/components/ui/cv-controls"
+import { CvPagination } from "@/components/ui/cv-pagination"
 import { FiGrid, FiList, FiPlus, FiSearch } from "react-icons/fi"
 
 export function CvManagementSection({ onSectionChange }: CvManagementSectionProps) {
   const [viewMode, setViewMode] = useState<CvViewMode>('grid')
   const [searchTerm, setSearchTerm] = useState('')
   
-  const { loading, getFilteredCvs } = useCvs()
+  const {
+    cvs,
+    loading,
+    error,
+    pagination,
+    currentPage,
+    pageSize,
+    sortBy,
+    sortOrder,
+    setPage,
+    setPageSize,
+    setSortBy,
+    setSortOrder,
+    refresh
+  } = useCvsPagination({
+    page: 1,
+    pageSize: 10,
+    sortBy: 'full_name',
+    sortOrder: 'ASC'
+  })
+  
   const t = useTranslations('cvManagement')
 
-  const filteredCvs = getFilteredCvs('all').filter(cv => 
-    cv.fullName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    cv.email.toLowerCase().includes(searchTerm.toLowerCase())
+  // Filter CVs based on search term (client-side filtering for now)
+  const filteredCvs = cvs.filter(cv => 
+    (cv.fullName?.toLowerCase() || '').includes(searchTerm.toLowerCase()) ||
+    (cv.email?.toLowerCase() || '').includes(searchTerm.toLowerCase())
   )
 
   const handleViewCv = (cvId: string) => {
@@ -76,45 +99,58 @@ export function CvManagementSection({ onSectionChange }: CvManagementSectionProp
         </div>
 
         {/* Controls */}
-        <div className="flex flex-wrap items-center justify-between gap-4">
+        <div className="space-y-4">
+          {/* Pagination and Sort Controls */}
+          <CvControls
+            pageSize={pageSize}
+            sortBy={sortBy}
+            sortOrder={sortOrder}
+            onPageSizeChange={setPageSize}
+            onSortChange={setSortBy}
+            onSortOrderChange={setSortOrder}
+            onRefresh={refresh}
+            loading={loading}
+          />
 
-          <div className="flex items-center space-x-4">
-            {/* View Mode Toggle */}
-            <div className="flex items-center space-x-2">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div className="flex items-center space-x-4">
+              {/* View Mode Toggle */}
+              <div className="flex items-center space-x-2">
+                <Button
+                  onClick={() => setViewMode('grid')}
+                  variant={viewMode === 'grid' ? "default" : "outline"}
+                  size="sm"
+                  className={
+                    viewMode === 'grid'
+                      ? "bg-gradient-to-r from-purple-400 to-pink-400 hover:from-purple-500 hover:to-pink-500 text-white"
+                      : "bg-white/10 border-white/20 text-white hover:bg-white/20 hover:border-white/30"
+                  }
+                >
+                  <FiGrid className="w-4 h-4" />
+                </Button>
+                <Button
+                  onClick={() => setViewMode('list')}
+                  variant={viewMode === 'list' ? "default" : "outline"}
+                  size="sm"
+                  className={
+                    viewMode === 'list'
+                      ? "bg-gradient-to-r from-purple-400 to-pink-400 hover:from-purple-500 hover:to-pink-500 text-white"
+                      : "bg-white/10 border-white/20 text-white hover:bg-white/20 hover:border-white/30"
+                  }
+                >
+                  <FiList className="w-4 h-4" />
+                </Button>
+              </div>
+
+              {/* Create New CV Button */}
               <Button
-                onClick={() => setViewMode('grid')}
-                variant={viewMode === 'grid' ? "default" : "outline"}
-                size="sm"
-                className={
-                  viewMode === 'grid'
-                    ? "bg-gradient-to-r from-purple-400 to-pink-400 hover:from-purple-500 hover:to-pink-500 text-white"
-                    : "bg-white/10 border-white/20 text-white hover:bg-white/20 hover:border-white/30"
-                }
+                onClick={handleCreateNewCv}
+                className="bg-gradient-to-r from-green-400 to-blue-400 hover:from-green-500 hover:to-blue-500 text-white"
               >
-                <FiGrid className="w-4 h-4" />
-              </Button>
-              <Button
-                onClick={() => setViewMode('list')}
-                variant={viewMode === 'list' ? "default" : "outline"}
-                size="sm"
-                className={
-                  viewMode === 'list'
-                    ? "bg-gradient-to-r from-purple-400 to-pink-400 hover:from-purple-500 hover:to-pink-500 text-white"
-                    : "bg-white/10 border-white/20 text-white hover:bg-white/20 hover:border-white/30"
-                }
-              >
-                <FiList className="w-4 h-4" />
+                <FiPlus className="w-4 h-4 mr-2" />
+                {t('actions.createNew')}
               </Button>
             </div>
-
-            {/* Create New CV Button */}
-            <Button
-              onClick={handleCreateNewCv}
-              className="bg-gradient-to-r from-green-400 to-blue-400 hover:from-green-500 hover:to-blue-500 text-white"
-            >
-              <FiPlus className="w-4 h-4 mr-2" />
-              {t('actions.createNew')}
-            </Button>
           </div>
         </div>
       </div>
@@ -144,8 +180,24 @@ export function CvManagementSection({ onSectionChange }: CvManagementSectionProp
         )}
       </div>
 
+      {/* Error State */}
+      {error && (
+        <div className="text-center py-12">
+          <div className="text-red-400 text-lg mb-4">
+            Erro ao carregar currículos: {error}
+          </div>
+          <Button
+            onClick={refresh}
+            variant="outline"
+            className="bg-white/10 border-white/20 text-white hover:bg-white/20"
+          >
+            Tentar Novamente
+          </Button>
+        </div>
+      )}
+
       {/* Empty State */}
-      {!loading && filteredCvs.length === 0 && (
+      {!loading && !error && filteredCvs.length === 0 && (
         <div className="text-center py-12">
           <div className="text-white/60 text-lg mb-4">
             {searchTerm ? t('emptyState.noSearchResults') : t('emptyState.title')}
@@ -175,6 +227,17 @@ export function CvManagementSection({ onSectionChange }: CvManagementSectionProp
               {t('emptyState.createFirst')}
             </Button>
           </div>
+        </div>
+      )}
+
+      {/* Pagination */}
+      {!loading && !error && pagination && pagination.totalPages > 1 && (
+        <div className="mt-8">
+          <CvPagination
+            pagination={pagination}
+            currentPage={currentPage}
+            onPageChange={setPage}
+          />
         </div>
       )}
     </div>

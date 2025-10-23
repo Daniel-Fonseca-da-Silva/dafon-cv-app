@@ -100,3 +100,20 @@ export interface CvCardProps {
 
 export type CvFilter = 'all'
 export type CvViewMode = 'grid' | 'list'
+
+// Pagination Types
+export interface PaginationParams {
+  page?: number
+  pageSize?: number
+  sortBy?: string
+  sortOrder?: 'ASC' | 'DESC'
+}
+
+export interface PaginationMeta {
+  currentPage: number
+  totalPages: number
+  totalItems: number
+  pageSize: number
+  hasNextPage: boolean
+  hasPreviousPage: boolean
+}

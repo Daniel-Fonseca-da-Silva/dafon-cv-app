@@ -807,6 +807,29 @@
     "title": "Create New CV",
     "subtitle": "Fill in the information to create your professional CV",
     "backButton": "Back to My CVs"
+  },
+  "cvControls": {
+    "sortOptions": {
+      "name": "Name",
+      "email": "Email",
+      "createdAt": "Creation Date",
+      "updatedAt": "Last Update"
+    },
+    "pageSizeOptions": {
+      "4": "4 per page",
+      "10": "10 per page",
+      "20": "20 per page",
+      "50": "50 per page"
+    },
+    "labels": {
+      "show": "Show:",
+      "sortBy": "Sort by:",
+      "update": "Update"
+    },
+    "sortOrder": {
+      "asc": "A-Z",
+      "desc": "Z-A"
+    }
   }
 }
 
