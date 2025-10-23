@@ -19,6 +19,7 @@ export function useTemplates() {
           title: 'Modern Professional',
           description: 'Clean and modern design perfect for tech professionals',
           isPremium: false,
+          isSoon: true,
           category: 'Technology',
           thumbnail: '/images/templates/modern-professional.jpg',
           downloads: 1250,
@@ -29,7 +30,8 @@ export function useTemplates() {
           id: '2',
           title: 'Executive Classic',
           description: 'Traditional and elegant template for executive positions',
-          isPremium: true,
+          isPremium: false,
+          isSoon: true,
           category: 'Executive',
           thumbnail: '/images/templates/executive-classic.jpg',
           downloads: 890,
@@ -41,6 +43,7 @@ export function useTemplates() {
           title: 'Creative Portfolio',
           description: 'Bold and creative design for designers and artists',
           isPremium: true,
+          isSoon: true,
           category: 'Creative',
           thumbnail: '/images/templates/creative-portfolio.jpg',
           downloads: 2100,
@@ -52,6 +55,7 @@ export function useTemplates() {
           title: 'Academic Scholar',
           description: 'Formal template ideal for academic and research positions',
           isPremium: false,
+          isSoon: true,
           category: 'Academic',
           thumbnail: '/images/templates/academic-scholar.jpg',
           downloads: 750,
@@ -63,6 +67,7 @@ export function useTemplates() {
           title: 'Startup Innovator',
           description: 'Dynamic template for startup founders and entrepreneurs',
           isPremium: true,
+          isSoon: true,
           category: 'Entrepreneur',
           thumbnail: '/images/templates/startup-innovator.jpg',
           downloads: 1650,
@@ -74,6 +79,7 @@ export function useTemplates() {
           title: 'Healthcare Professional',
           description: 'Clean and trustworthy design for healthcare workers',
           isPremium: false,
+          isSoon: true,
           category: 'Healthcare',
           thumbnail: '/images/templates/healthcare-professional.jpg',
           downloads: 980,
@@ -85,6 +91,7 @@ export function useTemplates() {
           title: 'Finance Executive',
           description: 'Professional template for finance and banking professionals',
           isPremium: true,
+          isSoon: true,
           category: 'Finance',
           thumbnail: '/images/templates/finance-executive.jpg',
           downloads: 1200,
@@ -96,6 +103,7 @@ export function useTemplates() {
           title: 'Marketing Specialist',
           description: 'Colorful and engaging template for marketing professionals',
           isPremium: false,
+          isSoon: true,
           category: 'Marketing',
           thumbnail: '/images/templates/marketing-specialist.jpg',
           downloads: 1350,
@@ -115,6 +123,7 @@ export function useTemplates() {
     return templates.filter(template => {
       if (filter === 'premium') return template.isPremium
       if (filter === 'free') return !template.isPremium
+      if (filter ===  'soon') return template.isSoon
       return true
     })
   }

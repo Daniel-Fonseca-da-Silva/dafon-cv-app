@@ -490,11 +490,15 @@
     "filters": {
       "all": "Todas",
       "free": "Gratuitas",
-      "premium": "Premium"
+      "premium": "Premium",
+      "soon": "Próximamente"
     },
     "actions": {
       "view": "Ver",
       "download": "Descargar"
+    },
+    "badges": {
+      "comingSoon": "Próximamente"
     },
     "emptyState": {
       "title": "No se encontraron plantillas",

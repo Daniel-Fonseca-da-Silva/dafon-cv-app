@@ -772,11 +772,15 @@
     "filters": {
       "all": "All",
       "free": "Free",
-      "premium": "Premium"
+      "premium": "Premium",
+      "soon": "Coming Soon"
     },
     "actions": {
       "view": "View",
       "download": "Download"
+    },
+    "badges": {
+      "comingSoon": "Coming Soon"
     },
     "emptyState": {
       "title": "No templates found",

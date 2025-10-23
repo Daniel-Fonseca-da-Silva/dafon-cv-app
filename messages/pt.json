@@ -772,11 +772,15 @@
     "filters": {
       "all": "Todos",
       "free": "Gratuitos",
-      "premium": "Premium"
+      "premium": "Premium",
+      "soon": "Em Breve"
     },
     "actions": {
       "view": "Visualizar",
       "download": "Baixar"
+    },
+    "badges": {
+      "comingSoon": "Em Breve"
     },
     "emptyState": {
       "title": "Nenhum template encontrado",

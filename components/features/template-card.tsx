@@ -25,6 +25,13 @@ export function TemplateCard({ template, onView, onDownload }: TemplateCardProps
               Premium
             </div>
           )}
+          
+          {/* Coming Soon badge */}
+          {template.isSoon && (
+            <div className="absolute top-2 left-2 bg-gradient-to-r from-blue-400 to-purple-400 text-white px-2 py-1 rounded-full text-xs font-semibold">
+              {t('badges.comingSoon')}
+            </div>
+          )}
         </div>
         
         <CardTitle className="text-white text-lg font-semibold mb-2">

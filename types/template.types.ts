@@ -3,6 +3,7 @@ export interface Template {
   title: string
   description: string
   isPremium: boolean
+  isSoon: boolean
   category: string
   thumbnail: string
   downloads: number
@@ -10,7 +11,7 @@ export interface Template {
   createdAt: string
 }
 
-export type TemplateFilter = 'all' | 'premium' | 'free'
+export type TemplateFilter = 'all' | 'premium' | 'free' | 'soon'
 export type ViewMode = 'grid' | 'list'
 
 export interface TemplateCardProps {

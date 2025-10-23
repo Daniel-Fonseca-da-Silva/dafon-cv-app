@@ -49,6 +49,17 @@ export function TemplateFilters({
         >
           {t('filters.premium')}
         </Button>
+        <Button
+          onClick={() => onFilterChange('soon')}
+          variant={filter === 'soon' ? 'default' : 'outline'}
+          size="sm"
+          className={filter === 'soon' 
+            ? 'bg-gradient-to-r from-purple-400 to-pink-400 text-white' 
+            : 'bg-white/10 border-white/20 text-white hover:bg-white/20'
+          }
+        >
+          {t('filters.soon')}
+        </Button>
       </div>
 
       <div className="flex gap-2">
