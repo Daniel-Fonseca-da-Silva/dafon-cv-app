@@ -12,7 +12,7 @@ export interface UserData {
   employment?: boolean
   gender?: string
   migration?: boolean
-  image_url?: string | null
+  image_url?: string
 }
 
 export function useUserData() {

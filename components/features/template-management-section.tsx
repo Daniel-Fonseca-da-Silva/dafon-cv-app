@@ -20,7 +20,10 @@ export function TemplateManagementSection({ onSectionChange }: TemplateManagemen
 
   const handleViewTemplate = (templateId: string) => {
     console.log('Viewing template:', templateId)
-    // Implementar visualização do template
+    // Navigate to CV creation with selected template
+    if (onSectionChange) {
+      onSectionChange('cv-creation')
+    }
   }
 
   const handleDownloadTemplate = (templateId: string) => {
@@ -28,10 +31,25 @@ export function TemplateManagementSection({ onSectionChange }: TemplateManagemen
     // Implementar download do template
   }
 
+  const handleBackToDashboard = () => {
+    if (onSectionChange) {
+      onSectionChange('dashboard')
+    }
+  }
+
   return (
     <div className="min-h-screen p-6">
       {/* Header */}
       <div className="mb-8">
+        <div className="flex items-center justify-between mb-4">
+          <Button
+            onClick={handleBackToDashboard}
+            variant="outline"
+            className="bg-white/10 border-white/20 text-white hover:bg-white/20"
+          >
+            ← {t('backToDashboard', { default: 'Back to Dashboard' })}
+          </Button>
+        </div>
         <h1 className="text-3xl font-bold text-white mb-2">
           {t('title')}
         </h1>
