@@ -59,9 +59,10 @@ export function CvManagementSection({ onSectionChange }: CvManagementSectionProp
     // Implementar exclusão do CV
   }
 
-  const handleDownloadCv = (cvId: string) => {
-    console.log('Baixando CV:', cvId)
-    // Implementar download do CV
+  const handleUseCv = (cvId: string) => {
+    console.log('Usando CV:', cvId)
+    // Armazenar o cvId no localStorage
+    localStorage.setItem('selectedCvId', cvId)
   }
 
   const handleCreateNewCv = () => {
@@ -174,7 +175,7 @@ export function CvManagementSection({ onSectionChange }: CvManagementSectionProp
               onView={handleViewCv}
               onEdit={handleEditCv}
               onDelete={handleDeleteCv}
-              onDownload={handleDownloadCv}
+              onDownload={handleUseCv}
             />
           ))
         )}

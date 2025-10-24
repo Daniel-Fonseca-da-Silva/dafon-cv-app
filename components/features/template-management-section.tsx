@@ -8,10 +8,21 @@ import { TemplateCard } from "./template-card"
 import { TemplateFilters } from "./template-filters"
 import { TemplateSkeleton } from "./template-skeleton"
 import { useTemplates } from "@/hooks/use-templates"
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog"
 
 export function TemplateManagementSection({ onSectionChange }: TemplateManagementSectionProps) {
   const [viewMode, setViewMode] = useState<ViewMode>('grid')
   const [filter, setFilter] = useState<TemplateFilter>('all')
+  const [showNoCvAlert, setShowNoCvAlert] = useState(false)
   
   const { loading, getFilteredTemplates } = useTemplates()
   const t = useTranslations('templateManagement')
@@ -28,13 +39,34 @@ export function TemplateManagementSection({ onSectionChange }: TemplateManagemen
 
   const handleDownloadTemplate = (templateId: string) => {
     console.log('Downloading template:', templateId)
-    // Implementar download do template
+    const cvIdLocalStorage = localStorage.getItem('selectedCvId')
+    console.log('CV selecionado e armazenado no localStorage:', cvIdLocalStorage)
+    
+    // Verificar se há um currículo selecionado
+    if (!cvIdLocalStorage) {
+      setShowNoCvAlert(true)
+      return
+    }
+    
+    // Se há um currículo selecionado, prosseguir com o download
+    // TODO: Implementar lógica de download aqui
   }
 
   const handleBackToDashboard = () => {
     if (onSectionChange) {
       onSectionChange('dashboard')
     }
+  }
+
+  const handleSelectCv = () => {
+    setShowNoCvAlert(false)
+    if (onSectionChange) {
+      onSectionChange('my-cvs')
+    }
+  }
+
+  const handleCancelAlert = () => {
+    setShowNoCvAlert(false)
   }
 
   return (
@@ -104,6 +136,28 @@ export function TemplateManagementSection({ onSectionChange }: TemplateManagemen
           </Button>
         </div>
       )}
+
+      {/* Alert Dialog para quando não há currículo selecionado */}
+      <AlertDialog open={showNoCvAlert} onOpenChange={setShowNoCvAlert}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>
+              {t('noCvSelected.title')}
+            </AlertDialogTitle>
+            <AlertDialogDescription>
+              {t('noCvSelected.message')}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel onClick={handleCancelAlert}>
+              {t('noCvSelected.cancel')}
+            </AlertDialogCancel>
+            <AlertDialogAction onClick={handleSelectCv}>
+              {t('noCvSelected.selectCv')}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   )
 }

@@ -785,6 +785,12 @@
     "emptyState": {
       "title": "No templates found",
       "action": "View all templates"
+    },
+    "noCvSelected": {
+      "title": "No CV selected",
+      "message": "You must first select a CV before downloading the template.",
+      "cancel": "Cancel",
+      "selectCv": "Select CV"
     }
   },
   "cvManagement": {
@@ -795,7 +801,7 @@
       "view": "View",
       "edit": "Edit",
       "delete": "Delete",
-      "download": "Download",
+      "download": "Use",
       "createNew": "New CV"
     },
     "emptyState": {

@@ -785,6 +785,12 @@
     "emptyState": {
       "title": "Nenhum template encontrado",
       "action": "Ver todos os templates"
+    },
+    "noCvSelected": {
+      "title": "Nenhum currículo selecionado",
+      "message": "Você deve primeiro selecionar um currículo antes de fazer o download do template.",
+      "cancel": "Cancelar",
+      "selectCv": "Selecionar Currículo"
     }
   },
   "cvManagement": {
@@ -795,7 +801,7 @@
       "view": "Visualizar",
       "edit": "Editar",
       "delete": "Excluir",
-      "download": "Download",
+      "download": "Usar",
       "createNew": "Novo Currículo"
     },
     "emptyState": {
