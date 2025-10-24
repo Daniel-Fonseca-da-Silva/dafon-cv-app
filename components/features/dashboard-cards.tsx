@@ -21,20 +21,20 @@ export function DashboardCards({ onCardClick }: DashboardCardsProps) {
       hoverGradient: "from-blue-500 to-cyan-500"
     },
     {
-      id: "templates",
-      title: t("templates.title"),
-      description: t("templates.description"),
-      icon: FiGrid,
-      gradient: "from-indigo-400 to-purple-400",
-      hoverGradient: "from-indigo-500 to-purple-500"
-    },
-    {
       id: "my-cvs",
       title: t("my-cvs.title"),
       description: t("my-cvs.description"),
       icon: FiFolder,
       gradient: "from-cyan-400 to-blue-400",
       hoverGradient: "from-cyan-500 to-blue-500"
+    },
+    {
+      id: "templates",
+      title: t("templates.title"),
+      description: t("templates.description"),
+      icon: FiGrid,
+      gradient: "from-indigo-400 to-purple-400",
+      hoverGradient: "from-indigo-500 to-purple-500"
     },
     {
       id: "profile",

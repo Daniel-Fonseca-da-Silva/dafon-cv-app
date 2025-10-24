@@ -84,16 +84,16 @@ export function Sidebar({
       description: t('menuItems.generate-cv.description')
     },
     {
-      id: "templates",
-      label: t('menuItems.templates.label'),
-      icon: FiGrid,
-      description: t('menuItems.templates.description')
-    },
-    {
       id: "my-cvs",
       label: t('menuItems.my-cvs.label'),
       icon: FiFolder,
       description: t('menuItems.my-cvs.description')
+    },
+    {
+      id: "templates",
+      label: t('menuItems.templates.label'),
+      icon: FiGrid,
+      description: t('menuItems.templates.description')
     },
     {
       id: "profile",
