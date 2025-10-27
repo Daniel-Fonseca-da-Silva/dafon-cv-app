@@ -791,6 +791,12 @@
       "message": "You must first select a CV before downloading the template.",
       "cancel": "Cancel",
       "selectCv": "Select CV"
+    },
+    "errorAlert": {
+      "title": "Error",
+      "viewPdfError": "Error viewing PDF. Please try again.",
+      "downloadPdfError": "Error generating PDF. Please try again.",
+      "ok": "OK"
     }
   },
   "cvManagement": {
@@ -812,7 +818,14 @@
       "createFirst": "Create First CV"
     },
     "createdAt": "Created on",
-    "updatedAt": "Updated on"
+    "updatedAt": "Updated on",
+    "deleteDialog": {
+      "title": "Confirm Deletion",
+      "description": "Are you sure you want to delete this CV? This action cannot be undone.",
+      "cancel": "Cancel",
+      "confirm": "Delete",
+      "deleting": "Deleting..."
+    }
   },
   "cvCreation": {
     "title": "Create New CV",

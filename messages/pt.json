@@ -791,6 +791,12 @@
       "message": "Você deve primeiro selecionar um currículo antes de fazer o download do template.",
       "cancel": "Cancelar",
       "selectCv": "Selecionar Currículo"
+    },
+    "errorAlert": {
+      "title": "Erro",
+      "viewPdfError": "Erro ao visualizar o PDF. Tente novamente.",
+      "downloadPdfError": "Erro ao gerar o PDF. Tente novamente.",
+      "ok": "OK"
     }
   },
   "cvManagement": {
@@ -812,7 +818,14 @@
       "createFirst": "Criar Primeiro Currículo"
     },
     "createdAt": "Criado em",
-    "updatedAt": "Atualizado em"
+    "updatedAt": "Atualizado em",
+    "deleteDialog": {
+      "title": "Confirmar Exclusão",
+      "description": "Tem certeza que deseja excluir este currículo? Esta ação não pode ser desfeita.",
+      "cancel": "Cancelar",
+      "confirm": "Excluir",
+      "deleting": "Excluindo..."
+    }
   },
   "cvCreation": {
     "title": "Criar Novo Currículo",
