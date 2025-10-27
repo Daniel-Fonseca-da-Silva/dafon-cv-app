@@ -173,15 +173,6 @@ export function SkillsSection({ data, onDataChange, onPrevious, onCvSaved }: CvS
             )}
             {isSaving ? 'Saving...' : t('navigation.save')}
           </Button>
-          <Button
-            onClick={handleDownload}
-            size="lg"
-            disabled={!isFormValid() || isSaving}
-            className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white px-8 py-3 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transition-all duration-200"
-          >
-            <FiDownload className="w-5 h-5 mr-2" />
-            {t('navigation.download')}
-          </Button>
         </div>
       </div>
     </div>

@@ -51,19 +51,29 @@ export function TemplateCard({ template, onView, onDownload }: TemplateCardProps
       <CardContent className="p-4 pt-0">
         <div className="flex space-x-2">
           <Button
-            onClick={() => onView(template.id)}
+            onClick={() => !template.isSoon && onView(template.id)}
             variant="outline"
             size="sm"
-            className="flex-1 bg-white/10 border-white/20 text-white hover:bg-white/20 hover:border-white/30"
+            disabled={template.isSoon}
+            className={`flex-1 ${
+              template.isSoon 
+                ? 'bg-white/5 border-white/10 text-white/40 cursor-not-allowed' 
+                : 'bg-white/10 border-white/20 text-white hover:bg-white/20 hover:border-white/30'
+            }`}
           >
             <FiEye className="w-4 h-4 mr-2" />
             {t('actions.view')}
           </Button>
           
           <Button
-            onClick={() => onDownload(template.id)}
+            onClick={() => !template.isSoon && onDownload(template.id)}
             size="sm"
-            className="flex-1 bg-gradient-to-r from-purple-400 to-pink-400 hover:from-purple-500 hover:to-pink-500 text-white"
+            disabled={template.isSoon}
+            className={`flex-1 ${
+              template.isSoon 
+                ? 'bg-white/5 text-white/40 cursor-not-allowed' 
+                : 'bg-gradient-to-r from-purple-400 to-pink-400 hover:from-purple-500 hover:to-pink-500 text-white'
+            }`}
           >
             <FiDownload className="w-4 h-4 mr-2" />
             {t('actions.download')}

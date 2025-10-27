@@ -8,6 +8,7 @@ import { TemplateCard } from "./template-card"
 import { TemplateFilters } from "./template-filters"
 import { TemplateSkeleton } from "./template-skeleton"
 import { useTemplates } from "@/hooks/use-templates"
+import { generatePDF, previewPDF } from "@/lib/pdf-generator"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -23,24 +24,17 @@ export function TemplateManagementSection({ onSectionChange }: TemplateManagemen
   const [viewMode, setViewMode] = useState<ViewMode>('grid')
   const [filter, setFilter] = useState<TemplateFilter>('all')
   const [showNoCvAlert, setShowNoCvAlert] = useState(false)
+  const [showErrorAlert, setShowErrorAlert] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
+  const [isGeneratingPDF, setIsGeneratingPDF] = useState(false)
   
   const { loading, getFilteredTemplates } = useTemplates()
   const t = useTranslations('templateManagement')
 
   const filteredTemplates = getFilteredTemplates(filter)
 
-  const handleViewTemplate = (templateId: string) => {
-    console.log('Viewing template:', templateId)
-    // Navigate to CV creation with selected template
-    if (onSectionChange) {
-      onSectionChange('cv-creation')
-    }
-  }
-
-  const handleDownloadTemplate = (templateId: string) => {
-    console.log('Downloading template:', templateId)
+  const handleViewTemplate = async (templateId: string) => {
     const cvIdLocalStorage = localStorage.getItem('selectedCvId')
-    console.log('CV selecionado e armazenado no localStorage:', cvIdLocalStorage)
     
     // Verificar se há um currículo selecionado
     if (!cvIdLocalStorage) {
@@ -48,9 +42,39 @@ export function TemplateManagementSection({ onSectionChange }: TemplateManagemen
       return
     }
     
-    // Se há um currículo selecionado, prosseguir com o download
-    // TODO: Implementar lógica de download aqui
+    try {
+      setIsGeneratingPDF(true)
+      await previewPDF(cvIdLocalStorage) // Visualizar PDF
+    } catch (error) {
+      // Lança um alerta de erro para o usuário
+      setErrorMessage(t('errorAlert.viewPdfError'))
+      setShowErrorAlert(true)
+    } finally {
+      setIsGeneratingPDF(false)
+    }
   }
+
+  const handleDownloadTemplate = async (templateId: string) => {
+    const cvIdLocalStorage = localStorage.getItem('selectedCvId')
+    
+    // Verificar se há um currículo selecionado
+    if (!cvIdLocalStorage) {
+      setShowNoCvAlert(true)
+      return
+    }
+    
+    try {
+      setIsGeneratingPDF(true)
+      await generatePDF(cvIdLocalStorage, true) // true = download
+    } catch (error) {
+      // Lança um alerta de erro para o usuário
+      setErrorMessage(t('errorAlert.downloadPdfError'))
+      setShowErrorAlert(true)
+    } finally {
+      setIsGeneratingPDF(false)
+    }
+  }
+
 
   const handleBackToDashboard = () => {
     if (onSectionChange) {
@@ -67,6 +91,11 @@ export function TemplateManagementSection({ onSectionChange }: TemplateManagemen
 
   const handleCancelAlert = () => {
     setShowNoCvAlert(false)
+  }
+
+  const handleCloseErrorAlert = () => {
+    setShowErrorAlert(false)
+    setErrorMessage('')
   }
 
   return (
@@ -104,7 +133,7 @@ export function TemplateManagementSection({ onSectionChange }: TemplateManagemen
           ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' 
           : 'grid-cols-1'
       }`}>
-        {loading ? (
+        {loading || isGeneratingPDF ? (
           // Loading skeletons
           Array.from({ length: 8 }).map((_, index) => (
             <TemplateSkeleton key={index} />
@@ -154,6 +183,25 @@ export function TemplateManagementSection({ onSectionChange }: TemplateManagemen
             </AlertDialogCancel>
             <AlertDialogAction onClick={handleSelectCv}>
               {t('noCvSelected.selectCv')}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      {/* Alert Dialog para erros */}
+      <AlertDialog open={showErrorAlert} onOpenChange={setShowErrorAlert}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>
+              {t('errorAlert.title')}
+            </AlertDialogTitle>
+            <AlertDialogDescription>
+              {errorMessage}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogAction onClick={handleCloseErrorAlert}>
+              {t('errorAlert.ok')}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

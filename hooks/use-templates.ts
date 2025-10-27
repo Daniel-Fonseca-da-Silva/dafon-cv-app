@@ -19,7 +19,7 @@ export function useTemplates() {
           title: 'Modern Professional',
           description: 'Clean and modern design perfect for tech professionals',
           isPremium: false,
-          isSoon: true,
+          isSoon: false,
           category: 'Technology',
           thumbnail: '/images/templates/modern-professional.jpg',
           downloads: 1250,
