@@ -170,7 +170,7 @@ export function SettingsSection({ onSectionChange }: SettingsSectionProps) {
           >
             <FiArrowLeft className="w-4 h-4 mr-2" />
             <span className="hidden sm:inline">{t('header.backButton')}</span>
-            <span className="sm:hidden">Voltar</span>
+            <span className="sm:hidden">{t('header.backButton')}</span>
           </Button>
         )}
       </div>
@@ -230,6 +230,7 @@ export function SettingsSection({ onSectionChange }: SettingsSectionProps) {
                 <SelectContent>
                   <SelectItem value="pt">{t('appearance.options.language.options.pt')}</SelectItem>
                   <SelectItem value="en">{t('appearance.options.language.options.en')}</SelectItem>
+                  <SelectItem value="es">{t('appearance.options.language.options.es')}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
