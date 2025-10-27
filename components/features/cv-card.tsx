@@ -2,13 +2,12 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { FiEye, FiEdit, FiTrash2, FiDownload, FiUser, FiMail, FiCalendar } from "react-icons/fi"
+import { FiEye, FiEdit, FiTrash2, FiPlay, FiUser, FiMail, FiCalendar } from "react-icons/fi"
 import { useTranslations } from "next-intl"
 import { CvCardProps } from "@/types/cv.types"
 
 export function CvCard({ cv, onView, onEdit, onDelete, onDownload }: CvCardProps) {
   const t = useTranslations('cvManagement')
-
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('pt-PT', {
@@ -58,7 +57,8 @@ export function CvCard({ cv, onView, onEdit, onDelete, onDownload }: CvCardProps
             onClick={() => onView(cv.id)}
             variant="outline"
             size="sm"
-            className="bg-white/10 border-white/20 text-white hover:bg-white/20 hover:border-white/30"
+            disabled
+            className="bg-white/5 border-white/10 text-white/40 cursor-not-allowed"
           >
             <FiEye className="w-4 h-4 mr-2" />
             {t('actions.view')}
@@ -68,7 +68,8 @@ export function CvCard({ cv, onView, onEdit, onDelete, onDownload }: CvCardProps
             onClick={() => onEdit(cv.id)}
             variant="outline"
             size="sm"
-            className="bg-white/10 border-white/20 text-white hover:bg-white/20 hover:border-white/30"
+            disabled
+            className="bg-white/5 border-white/10 text-white/40 cursor-not-allowed"
           >
             <FiEdit className="w-4 h-4 mr-2" />
             {t('actions.edit')}
@@ -79,7 +80,7 @@ export function CvCard({ cv, onView, onEdit, onDelete, onDownload }: CvCardProps
             size="sm"
             className="bg-gradient-to-r from-purple-400 to-pink-400 hover:from-purple-500 hover:to-pink-500 text-white"
           >
-            <FiDownload className="w-4 h-4 mr-2" />
+            <FiPlay className="w-4 h-4 mr-2" />
             {t('actions.download')}
           </Button>
           
