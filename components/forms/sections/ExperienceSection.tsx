@@ -181,7 +181,7 @@ export function ExperienceSection({ data, onDataChange, onNext, onPrevious }: Cv
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <label className="text-white/80 text-sm font-medium">{t('fields.position.label')}</label>
+                  <label className="text-white/80 text-sm font-medium">{t('fields.position.label')} <span className="text-white">*</span></label>
                   <Input
                     value={experience.position || ''}
                     onChange={(e) => updateExperience(experience.id, 'position', e.target.value)}
@@ -191,7 +191,7 @@ export function ExperienceSection({ data, onDataChange, onNext, onPrevious }: Cv
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-white/80 text-sm font-medium">{t('fields.company.label')}</label>
+                  <label className="text-white/80 text-sm font-medium">{t('fields.company.label')} <span className="text-white">*</span></label>
                   <Input
                     value={experience.company || ''}
                     onChange={(e) => updateExperience(experience.id, 'company', e.target.value)}
@@ -201,7 +201,7 @@ export function ExperienceSection({ data, onDataChange, onNext, onPrevious }: Cv
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-white/80 text-sm font-medium">{t('fields.startDate.label')}</label>
+                  <label className="text-white/80 text-sm font-medium">{t('fields.startDate.label')} <span className="text-white">*</span></label>
                   <Input
                     type="date"
                     value={experience.startDate || ''}

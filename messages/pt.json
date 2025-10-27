@@ -518,15 +518,15 @@
       },
       "fields": {
         "fullName": {
-          "label": "Nome Completo *",
+          "label": "Nome Completo",
           "placeholder": "Seu nome completo"
         },
         "email": {
-          "label": "E-mail *",
+          "label": "E-mail",
           "placeholder": "seu@email.com"
         },
         "phone": {
-          "label": "Telefone *",
+          "label": "Telefone",
           "placeholder": "000000000000",
           "help": "Inclua o código do país. Ex.: +000000000000"
         },
@@ -539,7 +539,7 @@
         }
       },
       "aboutYourself": {
-        "title": "Fale sobre você *",
+        "title": "Fale sobre você",
         "placeholder": "Conte-nos sobre você, suas experiências, habilidades e objetivos profissionais...",
         "useAiButton": "Use IA",
         "personalTip": {
@@ -562,15 +562,15 @@
       },
       "fields": {
         "institution": {
-          "label": "Instituição *",
+          "label": "Instituição",
           "placeholder": "Faculdade de..."
         },
         "degree": {
-          "label": "Graduação *",
+          "label": "Graduação",
           "placeholder": "Bacharelado em..."
         },
         "startDate": {
-          "label": "Data de Início *"
+          "label": "Data de Início"
         },
         "endDate": {
           "label": "Data de Conclusão",
@@ -605,15 +605,15 @@
       },
       "fields": {
         "position": {
-          "label": "Cargo *",
+          "label": "Cargo",
           "placeholder": "Nome do cargo"
         },
         "company": {
-          "label": "Empresa *",
+          "label": "Empresa",
           "placeholder": "Nome da empresa"
         },
         "startDate": {
-          "label": "Data de Início *"
+          "label": "Data de Início"
         },
         "endDate": {
           "label": "Data de Término",

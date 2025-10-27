@@ -103,7 +103,8 @@ export function EducationSection({ data, onDataChange, onNext, onPrevious }: CvS
     return data.educations.every(edu => 
       edu.institution.trim() !== '' && 
       edu.degree.trim() !== '' && 
-      edu.startDate.trim() !== ''
+      edu.startDate.trim() !== '' && 
+      edu.endDate.trim() !== ''
     )
   }
 
@@ -181,7 +182,7 @@ export function EducationSection({ data, onDataChange, onNext, onPrevious }: CvS
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <label className="text-white/80 text-sm font-medium">{t('fields.institution.label')}</label>
+                  <label className="text-white/80 text-sm font-medium">{t('fields.institution.label')} <span className="text-white">*</span></label>
                   <Input
                     value={education.institution || ''}
                     onChange={(e) => updateEducation(education.id, 'institution', e.target.value)}
@@ -191,7 +192,7 @@ export function EducationSection({ data, onDataChange, onNext, onPrevious }: CvS
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-white/80 text-sm font-medium">{t('fields.degree.label')}</label>
+                  <label className="text-white/80 text-sm font-medium">{t('fields.degree.label')} <span className="text-white">*</span></label>
                   <Input
                     value={education.degree || ''}
                     onChange={(e) => updateEducation(education.id, 'degree', e.target.value)}
@@ -201,7 +202,7 @@ export function EducationSection({ data, onDataChange, onNext, onPrevious }: CvS
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-white/80 text-sm font-medium">{t('fields.startDate.label')}</label>
+                  <label className="text-white/80 text-sm font-medium">{t('fields.startDate.label')} <span className="text-white">*</span></label>
                   <Input
                     type="date"
                     value={education.startDate || ''}
@@ -211,7 +212,7 @@ export function EducationSection({ data, onDataChange, onNext, onPrevious }: CvS
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-white/80 text-sm font-medium">{t('fields.endDate.label')}</label>
+                  <label className="text-white/80 text-sm font-medium">{t('fields.endDate.label')} <span className="text-white">*</span></label>
                   <Input
                     type="date"
                     value={education.endDate || ''}

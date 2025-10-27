@@ -518,15 +518,15 @@
       },
       "fields": {
         "fullName": {
-          "label": "Full Name *",
+          "label": "Full Name",
           "placeholder": "Your full name"
         },
         "email": {
-          "label": "E-mail *",
+          "label": "E-mail",
           "placeholder": "your@email.com"
         },
         "phone": {
-          "label": "Phone *",
+          "label": "Phone",
           "placeholder": "000000000000",
           "help": "Include the country code. Ex.: +000000000000"
         },
@@ -539,7 +539,7 @@
         }
       },
       "aboutYourself": {
-        "title": "Write about yourself *",
+        "title": "Write about yourself",
         "placeholder": "Tell us about yourself, your experiences, skills and professional goals...",
         "useAiButton": "Use AI",
         "personalTip": {
@@ -562,15 +562,15 @@
       },
       "fields": {
         "institution": {
-          "label": "Institution *",
+          "label": "Institution",
           "placeholder": "University of..."
         },
         "degree": {
-          "label": "Degree *",
+          "label": "Degree",
           "placeholder": "Bachelor's in..."
         },
         "startDate": {
-          "label": "Start Date *"
+          "label": "Start Date"
         },
         "endDate": {
           "label": "End Date",
@@ -605,15 +605,15 @@
       },
       "fields": {
         "position": {
-          "label": "Position *",
+          "label": "Position",
           "placeholder": "Job title"
         },
         "company": {
-          "label": "Company *",
+          "label": "Company",
           "placeholder": "Company name"
         },
         "startDate": {
-          "label": "Start Date *"
+          "label": "Start Date"
         },
         "endDate": {
           "label": "End Date",

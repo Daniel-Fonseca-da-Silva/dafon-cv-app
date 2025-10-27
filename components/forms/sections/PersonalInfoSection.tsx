@@ -1,11 +1,12 @@
 "use client"
 
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { useTranslations } from 'next-intl'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { 
   FiUser, 
   FiMail, 
@@ -23,12 +24,30 @@ const DRIVER_LICENSE_CATEGORIES = [
   'A', 'B', 'AB', 'C', 'D'
 ]
 
+const COUNTRY_CODES = [
+  { code: '+351', country: 'Portugal' },
+  { code: '+1', country: 'United States' },
+  { code: '+44', country: 'United Kingdom' },
+  { code: '+33', country: 'France' },
+  { code: '+49', country: 'Germany' },
+  { code: '+34', country: 'Spain' },
+  { code: '+39', country: 'Italy' },
+  { code: '+55', country: 'Brazil' },
+  { code: '+52', country: 'Mexico' },
+  { code: '+86', country: 'China' },
+  { code: '+81', country: 'Japan' },
+  { code: '+91', country: 'India' },
+]
+
 export function PersonalInfoSection({ data, onDataChange, onNext }: CvSectionProps) {
   const t = useTranslations('cvForm.personalInfo')
   const [newCategory, setNewCategory] = useState('')
   const [isProcessingAI, setIsProcessingAI] = useState(false)
   const [phoneError, setPhoneError] = useState('')
-  const updatePersonalInfo = (field: keyof typeof data.personalInfo, value: string | string[]) => {
+  const [countryCode, setCountryCode] = useState('+351')
+  const [phoneNumber, setPhoneNumber] = useState('')
+
+  const updatePersonalInfo = useCallback((field: keyof typeof data.personalInfo, value: string | string[]) => {
     onDataChange({
       ...data,
       personalInfo: {
@@ -36,43 +55,31 @@ export function PersonalInfoSection({ data, onDataChange, onNext }: CvSectionPro
         [field]: value
       }
     })
-  }
+  }, [data, onDataChange])
 
-  const stripPhoneFormatting = (input: string) => input.replace(/[\s\-()]/g, '')
-
-  const normalizePhone = (rawInput: string) => {
-    const input = stripPhoneFormatting(rawInput.trim())
-    if (input === '') return ''
-    if (input.startsWith('+')) return `+${input.slice(1).replace(/[^0-9]/g, '')}`
-    if (input.startsWith('00')) return `+${input.slice(2).replace(/[^0-9]/g, '')}`
-    return `+${input.replace(/[^0-9]/g, '')}`
-  }
-
-  const isValidE164 = (value: string) => {
-    return /^\+[1-9]\d{6,14}$/.test(value)
-  }
-
-  const handlePhoneChange = (value: string) => {
-    // Apenas remove caracteres proibidos visuais; deixa o usuário digitar livremente
-    const nextValue = value.replace(/[^0-9+\s()\-]/g, '')
+  const handlePhoneChange = useCallback((value: string | undefined) => {
+    const phoneValue = value || ''
+    updatePersonalInfo('phone', phoneValue)
+    
     if (phoneError) setPhoneError('')
-    updatePersonalInfo('phone', nextValue)
-  }
+    
+    if (phoneValue && phoneValue.length > 0) {
+      setPhoneError('')
+    }
+  }, [updatePersonalInfo, phoneError])
 
-  const handlePhoneBlur = () => {
-    const normalized = normalizePhone(data.personalInfo.phone || '')
-    if (!normalized) {
-      updatePersonalInfo('phone', '')
-      setPhoneError('')
-      return
-    }
-    updatePersonalInfo('phone', normalized)
-    if (!isValidE164(normalized)) {
-      setPhoneError('Insert with international format. Ex.: +000000000000')
-    } else {
-      setPhoneError('')
-    }
-  }
+  const handleCountryCodeChange = useCallback((value: string) => {
+    setCountryCode(value)
+    const fullPhone = `${value}${phoneNumber}`
+    updatePersonalInfo('phone', fullPhone)
+  }, [phoneNumber, updatePersonalInfo])
+
+  const handlePhoneNumberChange = useCallback((value: string) => {
+    const cleanNumber = value.replace(/[^0-9]/g, '')
+    setPhoneNumber(cleanNumber)
+    const fullPhone = `${countryCode}${cleanNumber}`
+    updatePersonalInfo('phone', fullPhone)
+  }, [countryCode, updatePersonalInfo])
 
   const toggleDriverLicenseCategory = (category: string) => {
     const currentCategories = data.personalInfo.driverLicense || []
@@ -146,11 +153,12 @@ export function PersonalInfoSection({ data, onDataChange, onNext }: CvSectionPro
     }
   }
 
-  const isFormValid = () => {
-    const { fullName, email, phone } = data.personalInfo
-    const phoneOk = phone.trim() !== '' && isValidE164(phone)
-    return fullName.trim() !== '' && email.trim() !== '' && phoneOk && phoneError === ''
-  }
+  const isFormValid = useCallback(() => {
+    const { fullName, email, aboutYourself } = data.personalInfo
+    const phoneOk = phoneNumber.trim() !== '' && phoneNumber.length >= 7
+    const introOk = aboutYourself && aboutYourself.trim() !== ''
+    return fullName.trim() !== '' && email.trim() !== '' && phoneOk && phoneError === '' && introOk
+  }, [data.personalInfo, phoneNumber, phoneError])
 
   return (
     <div className="space-y-6">
@@ -178,7 +186,7 @@ export function PersonalInfoSection({ data, onDataChange, onNext }: CvSectionPro
         <CardContent className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <label className="text-white/80 text-sm font-medium">{t('fields.fullName.label')}</label>
+              <label className="text-white/80 text-sm font-medium">{t('fields.fullName.label')} <span className="text-white">*</span></label>
               <Input
                 value={data.personalInfo.fullName}
                 onChange={(e) => updatePersonalInfo('fullName', e.target.value)}
@@ -188,7 +196,7 @@ export function PersonalInfoSection({ data, onDataChange, onNext }: CvSectionPro
               />
             </div>
             <div className="space-y-2">
-              <label className="text-white/80 text-sm font-medium">{t('fields.email.label')}</label>
+              <label className="text-white/80 text-sm font-medium">{t('fields.email.label')} <span className="text-white">*</span></label>
               <div className="relative">
                 <FiMail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/60 w-4 h-4" />
                 <Input
@@ -202,19 +210,35 @@ export function PersonalInfoSection({ data, onDataChange, onNext }: CvSectionPro
               </div>
             </div>
             <div className="space-y-2">
-              <label className="text-white/80 text-sm font-medium">{t('fields.phone.label')}</label>
-              <div className="relative">
-                <FiPhone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/60 w-4 h-4" />
-                <Input
-                  value={data.personalInfo.phone}
-                  onChange={(e) => handlePhoneChange(e.target.value)}
-                  onBlur={handlePhoneBlur}
-                  placeholder={t('fields.phone.placeholder')}
-                  className="bg-white/20 border-white/30 text-white placeholder:text-white/60 pl-10"
-                  inputMode="tel"
-                  autoComplete="tel"
-                  required
-                />
+              <label className="text-white/80 text-sm font-medium">{t('fields.phone.label')} <span className="text-white">*</span></label>
+              <div className="flex gap-2">
+                <Select value={countryCode} onValueChange={handleCountryCodeChange}>
+                  <SelectTrigger className="w-[140px] bg-white/20 border-white/30 text-white">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent className="bg-white/95 backdrop-blur-xl border-white/30">
+                    {COUNTRY_CODES.map((country) => (
+                      <SelectItem key={country.code} value={country.code} className="text-gray-900">
+                        <div className="flex items-center gap-2">
+                          <span className="font-mono text-sm">{country.code}</span>
+                          <span className="text-sm">{country.country}</span>
+                        </div>
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                <div className="relative flex-1">
+                  <FiPhone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/60 w-4 h-4" />
+                  <Input
+                    value={phoneNumber}
+                    onChange={(e) => handlePhoneNumberChange(e.target.value)}
+                    placeholder={t('fields.phone.placeholder')}
+                    className="bg-white/20 border-white/30 text-white placeholder:text-white/60 pl-10"
+                    inputMode="tel"
+                    autoComplete="tel"
+                    required
+                  />
+                </div>
               </div>
               <div className="text-xs mt-1">
                 {phoneError ? (
@@ -317,7 +341,7 @@ export function PersonalInfoSection({ data, onDataChange, onNext }: CvSectionPro
             {/* Header com Botão de Use AI */}
             <div className="flex items-center justify-between">
               <label className="text-white text-lg font-medium">
-                {t('aboutYourself.title')}
+                {t('aboutYourself.title')} <span className="text-white">*</span>
               </label>
               <Button
                 type="button"
