@@ -10,10 +10,24 @@ import { useCvsPagination } from "@/hooks/use-cvs-pagination"
 import { CvControls } from "@/components/ui/cv-controls"
 import { CvPagination } from "@/components/ui/cv-pagination"
 import { FiGrid, FiList, FiPlus, FiSearch } from "react-icons/fi"
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
 
 export function CvManagementSection({ onSectionChange }: CvManagementSectionProps) {
   const [viewMode, setViewMode] = useState<CvViewMode>('grid')
   const [searchTerm, setSearchTerm] = useState('')
+  const [deleteDialogOpen, setDeleteDialogOpen] = useState(false)
+  const [cvToDelete, setCvToDelete] = useState<string | null>(null)
+  const [isDeleting, setIsDeleting] = useState(false)
   
   const {
     cvs,
@@ -55,14 +69,57 @@ export function CvManagementSection({ onSectionChange }: CvManagementSectionProp
   }
 
   const handleDeleteCv = (cvId: string) => {
-    console.log('Excluindo CV:', cvId)
-    // Implementar exclusão do CV
+    setCvToDelete(cvId)
+    setDeleteDialogOpen(true)
+  }
+
+  const confirmDeleteCv = async () => {
+    if (!cvToDelete) return
+
+    setIsDeleting(true)
+    
+    try {
+      const response = await fetch(`/api/curriculums/${cvToDelete}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+
+      if (!response.ok) {
+        const errorData = await response.json()
+        throw new Error(errorData.error || 'Error deleting curriculum')
+      }
+
+      // Atualizar a lista de CVs
+      refresh()
+      
+      // Fechar o dialog
+      setDeleteDialogOpen(false)
+      setCvToDelete(null)
+      
+    } catch (error) {
+      console.error('Error deleting CV:', error)
+      // Aqui você pode adicionar um toast de erro se tiver
+    } finally {
+      setIsDeleting(false)
+    }
+  }
+
+  const cancelDeleteCv = () => {
+    setDeleteDialogOpen(false)
+    setCvToDelete(null)
   }
 
   const handleUseCv = (cvId: string) => {
     console.log('Usando CV:', cvId)
     // Armazenar o cvId no localStorage
     localStorage.setItem('selectedCvId', cvId)
+    
+    // Redirecionar para a seção de gerenciamento de CVs
+    if (onSectionChange) {
+      onSectionChange('templates')
+    }
   }
 
   const handleCreateNewCv = () => {
@@ -241,6 +298,30 @@ export function CvManagementSection({ onSectionChange }: CvManagementSectionProp
           />
         </div>
       )}
+
+      {/* Delete Confirmation Dialog */}
+      <AlertDialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>{t('deleteDialog.title')}</AlertDialogTitle>
+            <AlertDialogDescription>
+              {t('deleteDialog.description')}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel onClick={cancelDeleteCv} disabled={isDeleting}>
+              {t('deleteDialog.cancel')}
+            </AlertDialogCancel>
+            <AlertDialogAction 
+              onClick={confirmDeleteCv} 
+              disabled={isDeleting}
+              className="bg-red-600 hover:bg-red-700 text-white"
+            >
+              {isDeleting ? t('deleteDialog.deleting') : t('deleteDialog.confirm')}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   )
 }
