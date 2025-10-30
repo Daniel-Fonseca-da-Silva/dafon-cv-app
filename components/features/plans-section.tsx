@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { Skeleton } from "@/components/ui/skeleton"
 import { FiCreditCard, FiCheck, FiAward, FiZap, FiStar, FiArrowRight, FiArrowLeft } from "react-icons/fi"
 
 interface PlansSectionProps {
@@ -19,22 +20,22 @@ export function PlansSection({ onSectionChange }: PlansSectionProps) {
   }
   
   const currentPlan = {
-    name: t('plans.pro.name'),
-    price: "€ 40,00",
+    name: t('plans.basic.name'),
+    price: "Testing",
     period: t('common.period'),
-    features: t.raw('plans.pro.features') as string[],
+    features: t.raw('plans.basic.features') as string[],
     status: t('currentPlan.status'),
-    nextBilling: "15 de Janeiro, 2024"
+    nextBilling: "Undefined"
   }
 
   const availablePlans = [
     {
       name: t('plans.basic.name'),
-      price: "€ 20,00",
+      price: "Free undefined",
       period: t('common.period'),
       features: t.raw('plans.basic.features') as string[],
       popular: false,
-      current: false
+      current: true
     },
     {
       name: t('plans.pro.name'),
@@ -42,7 +43,7 @@ export function PlansSection({ onSectionChange }: PlansSectionProps) {
       period: t('common.period'),
       features: t.raw('plans.pro.features') as string[],
       popular: true,
-      current: true
+      current: false
     },
     {
       name: t('plans.enterprise.name'),

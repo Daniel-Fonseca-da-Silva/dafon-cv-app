@@ -46,6 +46,7 @@ export function Header() {
               <SelectContent>
                 <SelectItem value="en">English</SelectItem>
                 <SelectItem value="pt">Português</SelectItem>
+                <SelectItem value="es">Español</SelectItem>
               </SelectContent>
             </Select>
           </nav>

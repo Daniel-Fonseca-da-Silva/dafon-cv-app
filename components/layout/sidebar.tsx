@@ -1,6 +1,6 @@
 "use client"
 
-import { FiUser, FiSettings, FiFileText, FiCreditCard, FiLogOut, FiMenu, FiX } from "react-icons/fi"
+import { FiUser, FiSettings, FiFileText, FiCreditCard, FiGrid, FiLogOut, FiMenu, FiX, FiFolder } from "react-icons/fi"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import Image from "next/image"
@@ -84,6 +84,18 @@ export function Sidebar({
       description: t('menuItems.generate-cv.description')
     },
     {
+      id: "my-cvs",
+      label: t('menuItems.my-cvs.label'),
+      icon: FiFolder,
+      description: t('menuItems.my-cvs.description')
+    },
+    {
+      id: "templates",
+      label: t('menuItems.templates.label'),
+      icon: FiGrid,
+      description: t('menuItems.templates.description')
+    },
+    {
       id: "profile",
       label: t('menuItems.profile.label'),
       icon: FiUser,
@@ -136,6 +148,12 @@ export function Sidebar({
                     width={48}
                     height={48}
                     className="w-12 h-12 rounded-full object-cover border-2 border-white/20"
+                    onError={(e) => {
+                      console.error('Error loading user avatar:', e);
+                      // Fallback para avatar padrão em caso de erro
+                      e.currentTarget.style.display = 'none';
+                    }}
+                    unoptimized
                   />
                 ) : (
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-400 to-pink-400 flex items-center justify-center border-2 border-white/20">

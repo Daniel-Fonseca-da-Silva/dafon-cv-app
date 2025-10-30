@@ -189,6 +189,18 @@
         "title": "Gerar CV com IA",
         "description": "Crie currículos profissionais com IA"
       },
+      "templates": {
+        "title": "Gerenciar Templates",
+        "description": "Visualize e baixe templates de currículos"
+      },
+      "my-cvs": {
+        "title": "Meus Currículos",
+        "description": "Gerencie todos os seus currículos criados"
+      },
+      "cv-creation": {
+        "title": "Criar Novo Currículo",
+        "description": "Preencha as informações para criar seu currículo profissional"
+      },
       "profile": {
         "title": "Meu Perfil",
         "description": "Gerencie suas informações pessoais"
@@ -206,6 +218,14 @@
       "generate-cv": {
         "title": "Gerar CV com IA",
         "description": "Crie um currículo profissional usando inteligência artificial. Personalize e otimize seu CV em minutos."
+      },
+      "templates": {
+        "title": "Gerenciar Templates",
+        "description": "Visualize e baixe templates profissionais para criar seu currículo."
+      },
+      "my-cvs": {
+        "title": "Meus Currículos",
+        "description": "Gerencie todos os seus currículos criados"
       },
       "profile": {
         "title": "Meu Perfil",
@@ -230,6 +250,14 @@
       "generate-cv": {
         "label": "Gerar CV com IA",
         "description": "Criar currículo"
+      },
+      "templates": {
+        "label": "Gerenciar Templates",
+        "description": "Templates de currículos"
+      },
+      "my-cvs": {
+        "label": "Meus Currículos",
+        "description": "Gerenciar currículos"
       },
       "profile": {
         "label": "Meu Perfil",
@@ -326,6 +354,7 @@
       "subtitle": "Personalize suas preferências e configurações",
       "backButton": "Voltar ao Dashboard"
     },
+    "loading": "Carregando configurações...",
     "personalInfo": {
       "title": "Informações Pessoais",
       "subtitle": "Gerencie suas informações pessoais",
@@ -336,7 +365,7 @@
         },
         "phone": {
           "label": "Telefone",
-          "placeholder": "Digite seu telefone"
+          "placeholder": "Digite seu número de telefone"
         },
         "email": {
           "label": "Email",
@@ -345,6 +374,14 @@
         "country": {
           "label": "País",
           "placeholder": "Digite seu país"
+        },
+        "state": {
+          "label": "Estado/Província",
+          "placeholder": "Digite seu estado ou província"
+        },
+        "city": {
+          "label": "Cidade",
+          "placeholder": "Digite sua cidade"
         },
         "age": {
           "label": "Idade",
@@ -357,13 +394,17 @@
       "title": "Notificações",
       "subtitle": "Configure suas preferências de notificação",
       "options": {
+        "newsletter": {
+          "title": "Newsletter",
+          "description": "Receber dicas de carreira, lembretes e novidades da plataforma"
+        },
         "marketingEmail": {
           "title": "Email de Marketing",
           "description": "Receber ofertas e novidades"
         },
         "pushNotifications": {
           "title": "Notificações Push",
-          "description": "Alertas importantes no navegador"
+          "description": "Alertas importantes do navegador"
         },
         "cvReminders": {
           "title": "Lembretes de CV",
@@ -387,7 +428,10 @@
             "es": "Español"
           }
         }
-      }
+      },
+      "saveButton": "Salvar Alterações",
+      "saving": "Salvando...",
+      "saveSuccess": "Configurações salvas com sucesso!"
     },
     "privacy": {
       "title": "Privacidade",
@@ -413,11 +457,12 @@
       "backButtonMobile": "Dashboard"
     },
     "form": {
-      "title": "Gerar Currículo",
-      "subtitle": "Crie um currículo profissional usando inteligência artificial",
-      "generateButton": "Gerar Currículo",
-      "recentCvs": "Currículos Recentes",
-      "recentCvsSubtitle": "Seus currículos gerados recentemente",
+      "title": "Cadastrar informacoes",
+      "subtitle": "Cadastre suas informacoes com IA",
+      "generateButton": "Cadastrar",
+      "manageTitle": "Gerenciar curriculos criados",
+      "manageSubtitle": "Visualize e crie curriculos",
+      "manageButton": "Gerenciar",
       "cvTitle": "CV Desenvolvedor Frontend",
       "createdDaysAgo": "Criado há {days} dia{days, plural, one {} other {s}}",
       "editButton": "Editar",
@@ -430,6 +475,7 @@
       "subtitle": "Gerencie suas informações pessoais",
       "backButton": "Voltar ao Dashboard"
     },
+    "loading": "Carregando perfil...",
     "photo": {
       "title": "Foto do Perfil",
       "changePhoto": "Alterar Foto"
@@ -440,7 +486,10 @@
       "fullName": "Nome Completo",
       "email": "Email",
       "phone": "Telefone",
-      "location": "Localização",
+      "country": "País",
+      "state": "Estado/Província",
+      "city": "Cidade",
+      "age": "Idade",
       "saveChanges": "Salvar Alterações"
     },
     "professionalInfo": {
@@ -469,15 +518,15 @@
       },
       "fields": {
         "fullName": {
-          "label": "Nome Completo *",
+          "label": "Nome Completo",
           "placeholder": "Seu nome completo"
         },
         "email": {
-          "label": "E-mail *",
+          "label": "E-mail",
           "placeholder": "seu@email.com"
         },
         "phone": {
-          "label": "Telefone *",
+          "label": "Telefone",
           "placeholder": "000000000000",
           "help": "Inclua o código do país. Ex.: +000000000000"
         },
@@ -490,7 +539,7 @@
         }
       },
       "aboutYourself": {
-        "title": "Fale sobre você *",
+        "title": "Fale sobre você",
         "placeholder": "Conte-nos sobre você, suas experiências, habilidades e objetivos profissionais...",
         "useAiButton": "Use IA",
         "personalTip": {
@@ -513,15 +562,15 @@
       },
       "fields": {
         "institution": {
-          "label": "Instituição *",
+          "label": "Instituição",
           "placeholder": "Faculdade de..."
         },
         "degree": {
-          "label": "Graduação *",
+          "label": "Graduação",
           "placeholder": "Bacharelado em..."
         },
         "startDate": {
-          "label": "Data de Início *"
+          "label": "Data de Início"
         },
         "endDate": {
           "label": "Data de Conclusão",
@@ -556,15 +605,15 @@
       },
       "fields": {
         "position": {
-          "label": "Cargo *",
+          "label": "Cargo",
           "placeholder": "Nome do cargo"
         },
         "company": {
-          "label": "Empresa *",
+          "label": "Empresa",
           "placeholder": "Nome da empresa"
         },
         "startDate": {
-          "label": "Data de Início *"
+          "label": "Data de Início"
         },
         "endDate": {
           "label": "Data de Término",
@@ -715,5 +764,100 @@
       "subtitle": "Seu currículo foi salvo e está pronto para download.",
       "createNewButton": "Criar Novo Currículo"
     }
+  },
+  "templateManagement": {
+    "title": "Gerenciar Templates",
+    "subtitle": "Escolha entre nossos templates profissionais e crie seu currículo perfeito",
+    "backToDashboard": "Voltar ao Dashboard",
+    "filters": {
+      "all": "Todos",
+      "free": "Gratuitos",
+      "premium": "Premium",
+      "soon": "Em Breve"
+    },
+    "actions": {
+      "view": "Visualizar",
+      "download": "Baixar"
+    },
+    "badges": {
+      "comingSoon": "Em Breve"
+    },
+    "emptyState": {
+      "title": "Nenhum template encontrado",
+      "action": "Ver todos os templates"
+    },
+    "noCvSelected": {
+      "title": "Nenhum currículo selecionado",
+      "message": "Você deve primeiro selecionar um currículo antes de fazer o download do template.",
+      "cancel": "Cancelar",
+      "selectCv": "Selecionar Currículo"
+    },
+    "errorAlert": {
+      "title": "Erro",
+      "viewPdfError": "Erro ao visualizar o PDF. Tente novamente.",
+      "downloadPdfError": "Erro ao gerar o PDF. Tente novamente.",
+      "ok": "OK"
+    }
+  },
+  "cvManagement": {
+    "title": "Meus Currículos",
+    "subtitle": "Gerencie todos os seus currículos criados",
+    "searchPlaceholder": "Buscar por nome ou email...",
+    "actions": {
+      "view": "Visualizar",
+      "edit": "Editar",
+      "delete": "Excluir",
+      "download": "Usar",
+      "createNew": "Novo Currículo"
+    },
+    "emptyState": {
+      "title": "Nenhum currículo encontrado",
+      "noSearchResults": "Nenhum currículo encontrado para sua busca.",
+      "clearSearch": "Limpar Busca",
+      "viewAll": "Ver Todos",
+      "createFirst": "Criar Primeiro Currículo"
+    },
+    "createdAt": "Criado em",
+    "updatedAt": "Atualizado em",
+    "deleteDialog": {
+      "title": "Confirmar Exclusão",
+      "description": "Tem certeza que deseja excluir este currículo? Esta ação não pode ser desfeita.",
+      "cancel": "Cancelar",
+      "confirm": "Excluir",
+      "deleting": "Excluindo..."
+    }
+  },
+  "cvCreation": {
+    "title": "Criar Novo Currículo",
+    "subtitle": "Preencha as informações para criar seu currículo profissional",
+    "backButton": "Voltar para Meus Currículos"
+  },
+  "cvControls": {
+    "sortOptions": {
+      "name": "Nome",
+      "email": "Email",
+      "createdAt": "Data de Criação",
+      "updatedAt": "Última Atualização"
+    },
+    "pageSizeOptions": {
+      "4": "4 por página",
+      "10": "10 por página",
+      "20": "20 por página",
+      "50": "50 por página"
+    },
+    "labels": {
+      "show": "Mostrar:",
+      "sortBy": "Ordenar por:",
+      "update": "Atualizar"
+    },
+    "sortOrder": {
+      "asc": "A-Z",
+      "desc": "Z-A"
+    }
   }
 }
+
+
+
+
+

@@ -16,7 +16,7 @@ import { SkillAreasSection } from "./SkillAreasSection"
 import { LanguagesSection } from "./LanguagesSection"
 import { useAuth } from "@/hooks/use-auth"
 
-export function SkillsSection({ data, onDataChange, onPrevious }: CvSectionProps) {
+export function SkillsSection({ data, onDataChange, onPrevious, onCvSaved }: CvSectionProps) {
   const t = useTranslations('cvForm.skills')
   const { user, authenticated } = useAuth()
   const [isSaving, setIsSaving] = useState(false)
@@ -84,6 +84,12 @@ export function SkillsSection({ data, onDataChange, onPrevious }: CvSectionProps
       } else {
         setSaveStatus('success')
         setSaveMessage(result.message || 'CV saved successfully!')
+        // Chamar callback se fornecido
+        if (onCvSaved) {
+          setTimeout(() => {
+            onCvSaved()
+          }, 2000) // Aguardar 2 segundos para mostrar a mensagem de sucesso
+        }
       }
     } catch (error) {
       setSaveStatus('error')
@@ -166,15 +172,6 @@ export function SkillsSection({ data, onDataChange, onPrevious }: CvSectionProps
               <FiSave className="w-5 h-5 mr-2" />
             )}
             {isSaving ? 'Saving...' : t('navigation.save')}
-          </Button>
-          <Button
-            onClick={handleDownload}
-            size="lg"
-            disabled={!isFormValid() || isSaving}
-            className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white px-8 py-3 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transition-all duration-200"
-          >
-            <FiDownload className="w-5 h-5 mr-2" />
-            {t('navigation.download')}
           </Button>
         </div>
       </div>

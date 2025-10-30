@@ -26,17 +26,20 @@ const initialCvData: CvData = {
   ],
   courses: [],
   skills: [
-    { id: '1', name: '', level: 'iniciante' }
+    { id: '1', name: '', level: 'beginner' }
   ],
   skillsData: {
     areas: [],
-    availabilityDate: '',
     languages: []
   },
   socialLinks: []
 }
 
-export function CvFormContainer() {
+interface CvFormContainerProps {
+  onCvSaved?: () => void
+}
+
+export function CvFormContainer({ onCvSaved }: CvFormContainerProps = {}) {
   const t = useTranslations('cvForm')
   const [currentSection, setCurrentSection] = useState<CvSection>('personal')
   const [cvData, setCvData] = useState<CvData>(initialCvData)
@@ -97,7 +100,8 @@ export function CvFormContainer() {
       data: cvData,
       onDataChange: handleDataChange,
       onNext: handleNext,
-      onPrevious: currentSection !== 'personal' ? handlePrevious : undefined
+      onPrevious: currentSection !== 'personal' ? handlePrevious : undefined,
+      onCvSaved: onCvSaved
     }
 
     switch (currentSection) {
@@ -176,7 +180,7 @@ export function CvFormContainer() {
               {currentSection === 'personal' && t('sections.personal')}
               {currentSection === 'education' && t('sections.education')}
               {currentSection === 'experience' && t('sections.experience')}
-              {currentSection === 'courses' && 'Cursos e Certificações'}
+              {currentSection === 'courses' && t('sections.courses')}
               {currentSection === 'social' && t('sections.social')}
               {currentSection === 'skills' && t('sections.skills')}
               {currentSection === 'complete' && t('sections.complete')}

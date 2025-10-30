@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 // Icon components
@@ -28,7 +28,7 @@ const ClockIcon = () => (
   </svg>
 );
 
-export default function TokenErrorPage() {
+function TokenErrorContent() {
   const [mounted, setMounted] = useState(false);
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -365,5 +365,13 @@ export default function TokenErrorPage() {
         animation: 'pulse 7s ease-in-out infinite'
       }} />
     </div>
+  );
+}
+
+export default function TokenErrorPage() {
+  return (
+    <Suspense fallback={null}>
+      <TokenErrorContent />
+    </Suspense>
   );
 }

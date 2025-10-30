@@ -20,11 +20,12 @@ export async function POST(request: NextRequest) {
       select: { id: true, name: true, email: true }
     })
 
+    // Se o usuário não existir, ainda retornamos sucesso para evitar vazamento de informações
     if (!user) {
-      return NextResponse.json(
-        { error: 'User not found' },
-        { status: 404 }
-      )
+      return NextResponse.json({
+        message: 'Magic link sent successfully',
+        success: true
+      })
     }
 
     // Gerar token único

@@ -189,6 +189,18 @@
         "title": "Generate CV with AI",
         "description": "Create professional CVs with AI"
       },
+      "templates": {
+        "title": "Manage Templates",
+        "description": "View and download CV templates"
+      },
+      "my-cvs": {
+        "title": "My CVs",
+        "description": "Manage all your created CVs"
+      },
+      "cv-creation": {
+        "title": "Create New CV",
+        "description": "Fill in the information to create your professional CV"
+      },
       "profile": {
         "title": "My Profile",
         "description": "Manage your personal information"
@@ -206,6 +218,14 @@
       "generate-cv": {
         "title": "Generate CV with AI",
         "description": "Create a professional CV using artificial intelligence. Customize and optimize your CV in minutes."
+      },
+      "templates": {
+        "title": "Manage Templates",
+        "description": "View and download professional templates to create your CV."
+      },
+      "my-cvs": {
+        "title": "My CVs",
+        "description": "Manage all your created CVs"
       },
       "profile": {
         "title": "My Profile",
@@ -230,6 +250,14 @@
       "generate-cv": {
         "label": "Generate CV with AI",
         "description": "Create resume"
+      },
+      "templates": {
+        "label": "Manage Templates",
+        "description": "CV templates"
+      },
+      "my-cvs": {
+        "label": "My CVs",
+        "description": "Manage CVs"
       },
       "profile": {
         "label": "My Profile",
@@ -326,6 +354,7 @@
       "subtitle": "Customize your preferences and settings",
       "backButton": "Back to Dashboard"
     },
+    "loading": "Loading settings...",
     "personalInfo": {
       "title": "Personal Information",
       "subtitle": "Manage your personal information",
@@ -346,6 +375,14 @@
           "label": "Country",
           "placeholder": "Enter your country"
         },
+        "state": {
+          "label": "State/Province",
+          "placeholder": "Enter your state or province"
+        },
+        "city": {
+          "label": "City",
+          "placeholder": "Enter your city"
+        },
         "age": {
           "label": "Age",
           "placeholder": "Enter your age"
@@ -357,6 +394,10 @@
       "title": "Notifications",
       "subtitle": "Configure your notification preferences",
       "options": {
+        "newsletter": {
+          "title": "Newsletter",
+          "description": "Receive career tips, reminders and platform updates"
+        },
         "marketingEmail": {
           "title": "Marketing Email",
           "description": "Receive offers and news"
@@ -387,7 +428,10 @@
             "es": "Español"
           }
         }
-      }
+      },
+      "saveButton": "Save Changes",
+      "saving": "Saving...",
+      "saveSuccess": "Settings saved successfully!"
     },
     "privacy": {
       "title": "Privacy",
@@ -413,11 +457,12 @@
       "backButtonMobile": "Dashboard"
     },
     "form": {
-      "title": "Generate CV",
-      "subtitle": "Create a professional CV using artificial intelligence",
-      "generateButton": "Generate CV",
-      "recentCvs": "Recent CVs",
-      "recentCvsSubtitle": "Your recently generated CVs",
+      "title": "Register Information",
+      "subtitle": "Register your information with AI",
+      "generateButton": "Register",
+      "manageTitle": "Manage created CVs",
+      "manageSubtitle": "View and create CVs",
+      "manageButton": "Manage",
       "cvTitle": "Frontend Developer CV",
       "createdDaysAgo": "Created {days} day{days, plural, one {} other {s}} ago",
       "editButton": "Edit",
@@ -430,6 +475,7 @@
       "subtitle": "Manage your personal information",
       "backButton": "Back to Dashboard"
     },
+    "loading": "Loading profile...",
     "photo": {
       "title": "Profile Photo",
       "changePhoto": "Change Photo"
@@ -440,7 +486,10 @@
       "fullName": "Full Name",
       "email": "Email",
       "phone": "Phone",
-      "location": "Location",
+      "country": "Country",
+      "state": "State/Province",
+      "city": "City",
+      "age": "Age",
       "saveChanges": "Save Changes"
     },
     "professionalInfo": {
@@ -469,15 +518,15 @@
       },
       "fields": {
         "fullName": {
-          "label": "Full Name *",
+          "label": "Full Name",
           "placeholder": "Your full name"
         },
         "email": {
-          "label": "E-mail *",
+          "label": "E-mail",
           "placeholder": "your@email.com"
         },
         "phone": {
-          "label": "Phone *",
+          "label": "Phone",
           "placeholder": "000000000000",
           "help": "Include the country code. Ex.: +000000000000"
         },
@@ -490,7 +539,7 @@
         }
       },
       "aboutYourself": {
-        "title": "Write about yourself *",
+        "title": "Write about yourself",
         "placeholder": "Tell us about yourself, your experiences, skills and professional goals...",
         "useAiButton": "Use AI",
         "personalTip": {
@@ -513,15 +562,15 @@
       },
       "fields": {
         "institution": {
-          "label": "Institution *",
+          "label": "Institution",
           "placeholder": "University of..."
         },
         "degree": {
-          "label": "Degree *",
+          "label": "Degree",
           "placeholder": "Bachelor's in..."
         },
         "startDate": {
-          "label": "Start Date *"
+          "label": "Start Date"
         },
         "endDate": {
           "label": "End Date",
@@ -556,15 +605,15 @@
       },
       "fields": {
         "position": {
-          "label": "Position *",
+          "label": "Position",
           "placeholder": "Job title"
         },
         "company": {
-          "label": "Company *",
+          "label": "Company",
           "placeholder": "Company name"
         },
         "startDate": {
-          "label": "Start Date *"
+          "label": "Start Date"
         },
         "endDate": {
           "label": "End Date",
@@ -715,5 +764,97 @@
       "subtitle": "Your CV has been saved and is ready for download.",
       "createNewButton": "Create New CV"
     }
+  },
+  "templateManagement": {
+    "title": "Manage Templates",
+    "subtitle": "Choose from our professional templates and create your perfect CV",
+    "backToDashboard": "Back to Dashboard",
+    "filters": {
+      "all": "All",
+      "free": "Free",
+      "premium": "Premium",
+      "soon": "Coming Soon"
+    },
+    "actions": {
+      "view": "View",
+      "download": "Download"
+    },
+    "badges": {
+      "comingSoon": "Coming Soon"
+    },
+    "emptyState": {
+      "title": "No templates found",
+      "action": "View all templates"
+    },
+    "noCvSelected": {
+      "title": "No CV selected",
+      "message": "You must first select a CV before downloading the template.",
+      "cancel": "Cancel",
+      "selectCv": "Select CV"
+    },
+    "errorAlert": {
+      "title": "Error",
+      "viewPdfError": "Error viewing PDF. Please try again.",
+      "downloadPdfError": "Error generating PDF. Please try again.",
+      "ok": "OK"
+    }
+  },
+  "cvManagement": {
+    "title": "My CVs",
+    "subtitle": "Manage all your created CVs",
+    "searchPlaceholder": "Search by name or email...",
+    "actions": {
+      "view": "View",
+      "edit": "Edit",
+      "delete": "Delete",
+      "download": "Use",
+      "createNew": "New CV"
+    },
+    "emptyState": {
+      "title": "No CVs found",
+      "noSearchResults": "No CVs found for your search.",
+      "clearSearch": "Clear Search",
+      "viewAll": "View All",
+      "createFirst": "Create First CV"
+    },
+    "createdAt": "Created on",
+    "updatedAt": "Updated on",
+    "deleteDialog": {
+      "title": "Confirm Deletion",
+      "description": "Are you sure you want to delete this CV? This action cannot be undone.",
+      "cancel": "Cancel",
+      "confirm": "Delete",
+      "deleting": "Deleting..."
+    }
+  },
+  "cvCreation": {
+    "title": "Create New CV",
+    "subtitle": "Fill in the information to create your professional CV",
+    "backButton": "Back to My CVs"
+  },
+  "cvControls": {
+    "sortOptions": {
+      "name": "Name",
+      "email": "Email",
+      "createdAt": "Creation Date",
+      "updatedAt": "Last Update"
+    },
+    "pageSizeOptions": {
+      "4": "4 per page",
+      "10": "10 per page",
+      "20": "20 per page",
+      "50": "50 per page"
+    },
+    "labels": {
+      "show": "Show:",
+      "sortBy": "Sort by:",
+      "update": "Update"
+    },
+    "sortOrder": {
+      "asc": "A-Z",
+      "desc": "Z-A"
+    }
   }
 }
+
+
