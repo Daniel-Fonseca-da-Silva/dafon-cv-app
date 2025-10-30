@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "../globals.css";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, getLocale } from 'next-intl/server';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 interface Props {
   children: React.ReactNode;
