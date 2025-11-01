@@ -2,9 +2,27 @@ import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/database'
 import { randomBytes } from 'crypto'
 import { AUTH_CONFIG, calculateExpirationDate } from '@/lib/auth-config'
+import { getBaseUrl } from '@/lib/url-helper'
 
 export async function POST(request: NextRequest) {
   try {
+    // Validar NEXTAUTH_URL antes de processar
+    let baseUrl: string
+    try {
+      baseUrl = getBaseUrl()
+    } catch (urlError) {
+      console.error('NEXTAUTH_URL configuration error:', urlError)
+      return NextResponse.json(
+        { 
+          error: 'Configuration error: NEXTAUTH_URL not properly configured',
+          details: process.env.NODE_ENV === 'production' 
+            ? 'Configure NEXTAUTH_URL in Vercel as: https://www.site.com'
+            : 'Configure NEXTAUTH_URL in .env.local'
+        },
+        { status: 500 }
+      )
+    }
+
     const { email } = await request.json()
 
     if (!email) {
@@ -44,7 +62,6 @@ export async function POST(request: NextRequest) {
     })
 
     // Construir URL do magic link
-    const baseUrl = process.env.NEXTAUTH_URL
     const urlToken = `${baseUrl}/api/auth/magic-link/verify?token=${token}&email=${encodeURIComponent(email)}`
 
     // Enviar email através do backend Golang
@@ -84,8 +101,22 @@ export async function POST(request: NextRequest) {
 
   } catch (error) {
     console.error('Error sending magic link:', error)
+    
+    // Log detalhado em desenvolvimento
+    if (process.env.NODE_ENV !== 'production') {
+      console.error('Error details:', {
+        message: error instanceof Error ? error.message : 'Unknown error',
+        stack: error instanceof Error ? error.stack : undefined
+      })
+    }
+
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { 
+        error: 'Internal server error',
+        ...(process.env.NODE_ENV !== 'production' && {
+          details: error instanceof Error ? error.message : 'Unknown error'
+        })
+      },
       { status: 500 }
     )
   }

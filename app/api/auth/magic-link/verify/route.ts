@@ -3,18 +3,21 @@ import { randomBytes } from 'crypto'
 import { prisma } from '@/lib/database'
 import { AUTH_CONFIG, calculateExpirationDate } from '@/lib/auth-config'
 import { cleanupExpiredTokens } from '@/lib/token-cleanup'
+import { getBaseUrl } from '@/lib/url-helper'
 
 export async function GET(request: NextRequest) {
   try {
     // Limpeza automática de tokens expirados (executa em background)
     cleanupExpiredTokens().catch(console.error)
     
+    // Obter URL base validada
+    const baseUrl = getBaseUrl()
+    
     const { searchParams } = new URL(request.url)
     const token = searchParams.get('token')
     const email = searchParams.get('email')
 
     if (!token || !email) {
-      const baseUrl = process.env.NEXTAUTH_URL
       const errorUrl = `${baseUrl}/token-error?type=invalid&email=${encodeURIComponent(email || '')}`
       return NextResponse.redirect(errorUrl)
     }
@@ -26,7 +29,6 @@ export async function GET(request: NextRequest) {
     })
 
     if (!session) {
-      const baseUrl = process.env.NEXTAUTH_URL
       const errorUrl = `${baseUrl}/token-error?type=invalid&email=${encodeURIComponent(email)}`
       return NextResponse.redirect(errorUrl)
     }
@@ -37,13 +39,11 @@ export async function GET(request: NextRequest) {
         where: { token }
       })
       
-      const baseUrl = process.env.NEXTAUTH_URL
       const errorUrl = `${baseUrl}/token-error?type=expired&email=${encodeURIComponent(email)}`
       return NextResponse.redirect(errorUrl)
     }
 
     if (session.users.email !== email) {
-      const baseUrl = process.env.NEXTAUTH_URL
       const errorUrl = `${baseUrl}/token-error?type=email_mismatch&email=${encodeURIComponent(email)}`
       return NextResponse.redirect(errorUrl)
     }
@@ -57,7 +57,6 @@ export async function GET(request: NextRequest) {
     const sessionToken = await createSessionToken(session.user_id)
     
     // Redirecionar para o dashboard
-    const baseUrl = process.env.NEXTAUTH_URL
     const redirectUrl = `${baseUrl}/dashboard`
 
     // Criar resposta com cookie de sessão
@@ -73,8 +72,17 @@ export async function GET(request: NextRequest) {
 
   } catch (error) {
     console.error('Error verifying magic link:', error)
-    const baseUrl = process.env.NEXTAUTH_URL
-    const errorUrl = `${baseUrl}/token-error?type=server_error`
+    
+    // Tentar obter baseUrl, se falhar usar fallback
+    let errorUrl: string
+    try {
+      const baseUrl = getBaseUrl()
+      errorUrl = `${baseUrl}/token-error?type=server_error`
+    } catch {
+      // Fallback em caso de erro na configuração da URL
+      errorUrl = '/token-error?type=server_error'
+    }
+    
     return NextResponse.redirect(errorUrl)
   }
 }

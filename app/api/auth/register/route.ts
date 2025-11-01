@@ -3,6 +3,7 @@ import { registerSchema } from '@/lib/validations'
 import { prisma } from '@/lib/database'
 import { randomBytes } from 'crypto'
 import { AUTH_CONFIG, calculateExpirationDate } from '@/lib/auth-config'
+import { getBaseUrl } from '@/lib/url-helper'
 
 export async function POST(request: NextRequest) {
   try {
@@ -63,7 +64,7 @@ export async function POST(request: NextRequest) {
       })
 
       // Construir URL do magic link
-      const baseUrl = process.env.NEXTAUTH_URL
+      const baseUrl = getBaseUrl()
       const urlToken = `${baseUrl}/api/auth/magic-link/verify?token=${token}&email=${encodeURIComponent(email)}`
 
       // Enviar email através do backend Golang
