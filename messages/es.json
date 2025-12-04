@@ -574,11 +574,13 @@
           "placeholder": "Licenciatura en..."
         },
         "startDate": {
-          "label": "Fecha de Inicio"
+          "label": "Fecha de Inicio",
+          "errorPast": "La fecha de inicio debe ser en el pasado"
         },
         "endDate": {
           "label": "Fecha de Finalización",
-          "placeholder": "Dejar vacío si aún estás estudiando"
+          "placeholder": "Dejar vacío si aún estás estudiando",
+          "errorFuture": "La fecha de finalización debe ser en el futuro"
         },
         "currentlyStudying": "Actualmente estudiando",
         "description": {
@@ -617,11 +619,13 @@
           "placeholder": "Nombre de la empresa"
         },
         "startDate": {
-          "label": "Fecha de Inicio"
+          "label": "Fecha de Inicio",
+          "errorPast": "La fecha de inicio debe ser en el pasado"
         },
         "endDate": {
           "label": "Fecha de Finalización",
-          "placeholder": "Dejar vacío si aún trabajas aquí"
+          "placeholder": "Dejar vacío si aún trabajas aquí",
+          "errorFuture": "La fecha de finalización debe ser en el futuro"
         },
         "currentJob": "Actualmente trabajando aquí",
         "description": {

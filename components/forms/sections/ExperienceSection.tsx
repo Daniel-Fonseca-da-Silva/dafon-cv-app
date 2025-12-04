@@ -17,12 +17,15 @@ import {
 } from "react-icons/fi"
 import { CvSectionProps, Experience } from "@/types/cv.types"
 import { useState } from "react"
+import { validateDate } from '@/lib/shared/date-validations'
 
 export function ExperienceSection({ data, onDataChange, onNext, onPrevious }: CvSectionProps) {
   const t = useTranslations('cvForm.experience')
   const [aiPrompt, setAiPrompt] = useState('')
   const [isGenerating, setIsGenerating] = useState(false)
   const [targetExperienceIndex, setTargetExperienceIndex] = useState(0)
+  const [dateErrors, setDateErrors] = useState<Record<string, { startDate?: string; endDate?: string }>>({})
+
   const addExperience = () => {
     const newExperience: Experience = {
       id: Date.now().toString(),
@@ -37,7 +40,6 @@ export function ExperienceSection({ data, onDataChange, onNext, onPrevious }: Cv
       ...data,
       experiences: [...data.experiences, newExperience]
     })
-    // Atualizar o índice para o novo card de experiência
     setTargetExperienceIndex(data.experiences.length)
   }
 
@@ -46,6 +48,9 @@ export function ExperienceSection({ data, onDataChange, onNext, onPrevious }: Cv
       ...data,
       experiences: data.experiences.filter(exp => exp.id !== id)
     })
+    const newErrors = { ...dateErrors }
+    delete newErrors[id]
+    setDateErrors(newErrors)
   }
 
   const updateExperience = (id: string, field: keyof Experience, value: string) => {
@@ -55,14 +60,45 @@ export function ExperienceSection({ data, onDataChange, onNext, onPrevious }: Cv
         exp.id === id ? { ...exp, [field]: value } : exp
       )
     })
+
+    // Validate dates
+    if (field === 'startDate' || field === 'endDate') {
+      const error = validateDate(value, field, {
+        startDateError: t('fields.startDate.errorPast'),
+        endDateError: t('fields.endDate.errorFuture')
+      })
+      setDateErrors(prev => ({
+        ...prev,
+        [id]: {
+          ...prev[id],
+          [field]: error
+        }
+      }))
+    } else {
+      // Clear errors when other fields change
+      setDateErrors(prev => {
+        const newErrors = { ...prev }
+        if (newErrors[id]) {
+          delete newErrors[id][field as 'startDate' | 'endDate']
+          if (Object.keys(newErrors[id]).length === 0) {
+            delete newErrors[id]
+          }
+        }
+        return newErrors
+      })
+    }
   }
 
   const isFormValid = () => {
+    const hasDateErrors = Object.values(dateErrors).some(
+      errors => errors.startDate || errors.endDate
+    )
+    
     return data.experiences.every(exp => 
       exp.company.trim() !== '' && 
       exp.position.trim() !== '' && 
       exp.startDate.trim() !== ''
-    )
+    ) && !hasDateErrors
   }
 
   const generateDescription = async (experienceIndex: number) => {
@@ -206,9 +242,14 @@ export function ExperienceSection({ data, onDataChange, onNext, onPrevious }: Cv
                     type="date"
                     value={experience.startDate || ''}
                     onChange={(e) => updateExperience(experience.id, 'startDate', e.target.value)}
-                    className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
+                    className={`bg-white/20 border-white/30 text-white placeholder:text-white/60 ${
+                      dateErrors[experience.id]?.startDate ? 'border-red-400 focus:border-red-400' : ''
+                    }`}
                     required
                   />
+                  {dateErrors[experience.id]?.startDate && (
+                    <p className="text-red-300 text-xs mt-1">{dateErrors[experience.id].startDate}</p>
+                  )}
                 </div>
                 <div className="space-y-2">
                   <label className="text-white/80 text-sm font-medium">{t('fields.endDate.label')}</label>
@@ -217,9 +258,14 @@ export function ExperienceSection({ data, onDataChange, onNext, onPrevious }: Cv
                     value={experience.endDate || ''}
                     onChange={(e) => updateExperience(experience.id, 'endDate', e.target.value)}
                     placeholder={t('fields.endDate.placeholder')}
-                    className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
+                    className={`bg-white/20 border-white/30 text-white placeholder:text-white/60 ${
+                      dateErrors[experience.id]?.endDate ? 'border-red-400 focus:border-red-400' : ''
+                    }`}
                     disabled={experience.isCurrentJob}
                   />
+                  {dateErrors[experience.id]?.endDate && (
+                    <p className="text-red-300 text-xs mt-1">{dateErrors[experience.id].endDate}</p>
+                  )}
                   <div className="flex items-center space-x-2">
                     <input
                       type="checkbox"

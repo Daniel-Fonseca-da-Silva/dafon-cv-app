@@ -17,12 +17,14 @@ import {
 } from "react-icons/fi"
 import { CvSectionProps, Education } from "../../../types/cv.types"
 import { useState } from "react"
+import { validateDate } from '@/lib/shared/date-validations'
 
 export function EducationSection({ data, onDataChange, onNext, onPrevious }: CvSectionProps) {
   const t = useTranslations('cvForm.education')
   const [aiPrompt, setAiPrompt] = useState('')
   const [isGenerating, setIsGenerating] = useState(false)
   const [targetEducationIndex, setTargetEducationIndex] = useState(0)
+  const [dateErrors, setDateErrors] = useState<Record<string, { startDate?: string; endDate?: string }>>({})
 
   const addEducation = () => {
     const newEducation: Education = {
@@ -47,6 +49,9 @@ export function EducationSection({ data, onDataChange, onNext, onPrevious }: CvS
       ...data,
       educations: data.educations.filter(edu => edu.id !== id)
     })
+    const newErrors = { ...dateErrors }
+    delete newErrors[id]
+    setDateErrors(newErrors)
   }
 
   const updateEducation = (id: string, field: keyof Education, value: string) => {
@@ -56,6 +61,33 @@ export function EducationSection({ data, onDataChange, onNext, onPrevious }: CvS
         edu.id === id ? { ...edu, [field]: value } : edu
       )
     })
+
+    // Validate dates
+    if (field === 'startDate' || field === 'endDate') {
+      const error = validateDate(value, field, {
+        startDateError: t('fields.startDate.errorPast'),
+        endDateError: t('fields.endDate.errorFuture')
+      })
+      setDateErrors(prev => ({
+        ...prev,
+        [id]: {
+          ...prev[id],
+          [field]: error
+        }
+      }))
+    } else {
+      // Clear errors when other fields change
+      setDateErrors(prev => {
+        const newErrors = { ...prev }
+        if (newErrors[id]) {
+          delete newErrors[id][field as 'startDate' | 'endDate']
+          if (Object.keys(newErrors[id]).length === 0) {
+            delete newErrors[id]
+          }
+        }
+        return newErrors
+      })
+    }	
   }
 
   const generateDescription = async (educationIndex: number) => {
@@ -100,12 +132,16 @@ export function EducationSection({ data, onDataChange, onNext, onPrevious }: CvS
   }
 
   const isFormValid = () => {
+    const hasDateErrors = Object.values(dateErrors).some(
+      errors => errors.startDate || errors.endDate
+    )
+    
     return data.educations.every(edu => 
       edu.institution.trim() !== '' && 
       edu.degree.trim() !== '' && 
       edu.startDate.trim() !== '' && 
-      edu.endDate.trim() !== ''
-    )
+      (edu.endDate.trim() !== '' || edu.isCurrentlyStudying)
+    ) && !hasDateErrors
   }
 
   return (
@@ -207,9 +243,14 @@ export function EducationSection({ data, onDataChange, onNext, onPrevious }: CvS
                     type="date"
                     value={education.startDate || ''}
                     onChange={(e) => updateEducation(education.id, 'startDate', e.target.value)}
-                    className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
+                    className={`bg-white/20 border-white/30 text-white placeholder:text-white/60 ${
+                      dateErrors[education.id]?.startDate ? 'border-red-400 focus:border-red-400' : ''
+                    }`}
                     required
                   />
+                  {dateErrors[education.id]?.startDate && (
+                    <p className="text-red-300 text-xs mt-1">{dateErrors[education.id].startDate}</p>
+                  )}
                 </div>
                 <div className="space-y-2">
                   <label className="text-white/80 text-sm font-medium">{t('fields.endDate.label')} <span className="text-white">*</span></label>
@@ -218,9 +259,14 @@ export function EducationSection({ data, onDataChange, onNext, onPrevious }: CvS
                     value={education.endDate || ''}
                     onChange={(e) => updateEducation(education.id, 'endDate', e.target.value)}
                     placeholder={t('fields.endDate.placeholder')}
-                    className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
+                    className={`bg-white/20 border-white/30 text-white placeholder:text-white/60 ${
+                      dateErrors[education.id]?.endDate ? 'border-red-400 focus:border-red-400' : ''
+                    }`}
                     disabled={education.isCurrentlyStudying}
                   />
+                  {dateErrors[education.id]?.endDate && (
+                    <p className="text-red-300 text-xs mt-1">{dateErrors[education.id].endDate}</p>
+                  )}
                   <div className="flex items-center space-x-2">
                     <input
                       type="checkbox"

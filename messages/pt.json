@@ -574,11 +574,13 @@
           "placeholder": "Bacharelado em..."
         },
         "startDate": {
-          "label": "Data de Início"
+          "label": "Data de Início",
+          "errorPast": "A data de início deve ser no passado"
         },
         "endDate": {
           "label": "Data de Conclusão",
-          "placeholder": "Deixe vazio se ainda estiver cursando"
+          "placeholder": "Deixe vazio se ainda estiver cursando",
+          "errorFuture": "A data de conclusão deve ser no futuro"
         },
         "currentlyStudying": "Ainda cursando",
         "description": {
@@ -617,11 +619,13 @@
           "placeholder": "Nome da empresa"
         },
         "startDate": {
-          "label": "Data de Início"
+          "label": "Data de Início",
+          "errorPast": "A data de início deve ser no passado"
         },
         "endDate": {
           "label": "Data de Término",
-          "placeholder": "Deixe vazio se ainda trabalha aqui"
+          "placeholder": "Deixe vazio se ainda trabalha aqui",
+          "errorFuture": "A data de término deve ser no futuro"
         },
         "currentJob": "Trabalho aqui atualmente",
         "description": {
