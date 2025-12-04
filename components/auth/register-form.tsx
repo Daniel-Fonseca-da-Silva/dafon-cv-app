@@ -53,26 +53,36 @@ export function RegisterForm({ className }: RegisterFormProps) {
       
       if (result.success) {
         setShowSuccessAlert(true)
-        // Redirect to login page after 2 seconds
         setTimeout(() => {
           router.push('/auth/login')
         }, 2000)
       } else {
-        setErrors({ 
-          general: result.error || 'Erro ao criar conta. Tente novamente.' 
-        })
+        // Only show specific field errors, not generic "Invalid input data"
+        const isGenericValidationError = result.error?.includes('Invalid input data') || 
+                                       result.error?.includes('Invalid data provided')
+        
+        if (isGenericValidationError) {
+          // Re-validate to show proper field-specific errors
+          registerSchema.parse({ name, email })
+        } else if (result.error) {
+          setErrors({ general: result.error })
+        }
       }
     } catch (error) {
       if (error instanceof ZodError) {
-        // Zod validation errors
         const zodErrors: Record<string, string> = {}
         error.issues.forEach((issue) => {
           const fieldName = issue.path[0] as string
-          zodErrors[fieldName] = issue.message
+          let translatedMessage = issue.message
+          if (issue.message === 'NAME_REQUIRED') {
+            translatedMessage = t('errors.nameRequired')
+          } else if (issue.message === 'NAME_MIN_LENGTH') {
+            translatedMessage = t('errors.nameMinLength')
+          }
+          zodErrors[fieldName] = translatedMessage
         })
         setErrors(zodErrors)
       } else {
-        // Generic error
         setErrors({ 
           general: 'Erro inesperado. Tente novamente.' 
         })

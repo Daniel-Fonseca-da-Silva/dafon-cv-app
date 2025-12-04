@@ -19,8 +19,8 @@ export const forgotPasswordSchema = z.object({
 export const registerSchema = z.object({
   name: z
     .string()
-    .min(1, 'Nome é obrigatório')
-    .min(2, 'Nome deve ter pelo menos 2 caracteres')
+    .min(1, 'NAME_REQUIRED')
+    .min(15, 'NAME_MIN_LENGTH')
     .max(100, 'Nome deve ter no máximo 100 caracteres')
     .regex(/^[a-zA-ZÀ-ÿ\s]+$/, 'Nome deve conter apenas letras e espaços'),
   email: z

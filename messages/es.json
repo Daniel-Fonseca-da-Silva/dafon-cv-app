@@ -36,6 +36,10 @@
       "welcomeAlert": {
         "title": "¡Bienvenido al sistema!",
         "message": "Tus datos de acceso han sido enviados a tu email. Revisa tu bandeja de entrada y sigue las instrucciones para activar tu cuenta."
+      },
+      "errors": {
+        "nameRequired": "El nombre es obligatorio",
+        "nameMinLength": "Por favor ingrese su nombre completo (mínimo 15 caracteres)"
       }
     },
     "forgotPassword": {

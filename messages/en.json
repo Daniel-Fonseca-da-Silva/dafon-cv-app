@@ -36,6 +36,10 @@
       "welcomeAlert": {
         "title": "Welcome to the system!",
         "message": "Your access data has been sent to your email. Check your inbox and follow the instructions to activate your account."
+      },
+      "errors": {
+        "nameRequired": "Name is required",
+        "nameMinLength": "Please enter your full name (minimum 15 characters)"
       }
     },
     "forgotPassword": {
