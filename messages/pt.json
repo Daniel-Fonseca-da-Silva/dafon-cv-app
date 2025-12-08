@@ -580,7 +580,7 @@
         "endDate": {
           "label": "Data de Conclusão",
           "placeholder": "Deixe vazio se ainda estiver cursando",
-          "errorFuture": "A data de conclusão deve ser no futuro"
+          "errorPast": "A data de conclusão deve ser no passado"
         },
         "currentlyStudying": "Ainda cursando",
         "description": {
@@ -625,7 +625,7 @@
         "endDate": {
           "label": "Data de Término",
           "placeholder": "Deixe vazio se ainda trabalha aqui",
-          "errorFuture": "A data de término deve ser no futuro"
+          "errorPast": "A data de término deve ser no passado"
         },
         "currentJob": "Trabalho aqui atualmente",
         "description": {

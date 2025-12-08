@@ -66,7 +66,7 @@ export function EducationSection({ data, onDataChange, onNext, onPrevious }: CvS
     if (field === 'startDate' || field === 'endDate') {
       const error = validateDate(value, field, {
         startDateError: t('fields.startDate.errorPast'),
-        endDateError: t('fields.endDate.errorFuture')
+        endDateError: t('fields.endDate.errorPast')
       })
       setDateErrors(prev => ({
         ...prev,

@@ -18,7 +18,7 @@ export function validateDate(
       return errorMessages.startDateError
     }
   } else if (field === 'endDate') {
-    if (selectedDate <= today) {
+    if (selectedDate >= today) {
       return errorMessages.endDateError
     }
   }

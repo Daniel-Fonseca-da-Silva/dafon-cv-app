@@ -580,7 +580,7 @@
         "endDate": {
           "label": "End Date",
           "placeholder": "Leave empty if still studying",
-          "errorFuture": "End date must be in the future"
+          "errorPast": "End date must be in the past"
         },
         "currentlyStudying": "Currently studying",
         "description": {
@@ -625,7 +625,7 @@
         "endDate": {
           "label": "End Date",
           "placeholder": "Leave empty if still working here",
-          "errorFuture": "End date must be in the future"
+          "errorPast": "End date must be in the past"
         },
         "currentJob": "Currently working here",
         "description": {

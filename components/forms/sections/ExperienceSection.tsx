@@ -65,7 +65,7 @@ export function ExperienceSection({ data, onDataChange, onNext, onPrevious }: Cv
     if (field === 'startDate' || field === 'endDate') {
       const error = validateDate(value, field, {
         startDateError: t('fields.startDate.errorPast'),
-        endDateError: t('fields.endDate.errorFuture')
+        endDateError: t('fields.endDate.errorPast')
       })
       setDateErrors(prev => ({
         ...prev,
