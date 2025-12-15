@@ -8,7 +8,7 @@ import { TemplateCard } from "./template-card"
 import { TemplateFilters } from "./template-filters"
 import { TemplateSkeleton } from "./template-skeleton"
 import { useTemplates } from "@/hooks/use-templates"
-import { generatePDF, previewPDF } from "@/lib/modern-professional-generator"
+import { generatePDF, previewPDF } from "@/lib/pdf-generator"
 import {
   AlertDialog,
   AlertDialogAction,
