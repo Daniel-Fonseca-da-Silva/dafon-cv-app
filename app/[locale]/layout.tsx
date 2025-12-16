@@ -3,6 +3,7 @@ import "../globals.css";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, getLocale } from 'next-intl/server';
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { CookieConsentBanner } from "@/components/cookie/cookie-consent-banner";
 
 interface Props {
   children: React.ReactNode;
@@ -41,6 +42,7 @@ export default async function RootLayout({children}: Props) {
       <body>
         <NextIntlClientProvider messages={messages}>
           {children}
+          <CookieConsentBanner />
         </NextIntlClientProvider>
       </body>
     </html>
