@@ -862,6 +862,47 @@
       "asc": "A-Z",
       "desc": "Z-A"
     }
+  },
+  "cookie": {
+    "banner": {
+      "title": "We use cookies to improve your experience",
+      "description": "We use cookies and similar technologies to help personalize content, provide and improve our services, and analyze traffic. By clicking \"Accept All\", you consent to the use of cookies for all purposes. You can customize your preferences in our cookie settings.",
+      "necessary": "Necessary cookies",
+      "analytics": "Analytics cookies",
+      "marketing": "Marketing cookies",
+      "settings": "Settings",
+      "acceptAll": "Accept All"
+    },
+    "settings": {
+      "title": "Cookie Settings",
+      "description": "Manage your cookie preferences to control how we use your data",
+      "necessary": {
+        "title": "Necessary Cookies",
+        "status": "Always Active",
+        "description": "These cookies are essential for the proper functioning of the site. They cannot be disabled."
+      },
+      "analytics": {
+        "title": "Analytics Cookies",
+        "status": "Always Active",
+        "description": "These cookies help us understand how visitors interact with our site by collecting and reporting information anonymously."
+      },
+      "marketing": {
+        "title": "Marketing Cookies",
+        "status": "Always Active",
+        "description": "These cookies are used to track visitors across websites to display relevant and engaging advertisements."
+      },
+      "functional": {
+        "title": "Functional Cookies",
+        "status": "Always Active",
+        "description": "These cookies enable enhanced functionality and personalization, such as remembering your preferences."
+      },
+      "privacy": {
+        "title": "Your Privacy Matters",
+        "description": "We respect your privacy and are committed to protecting your personal data. You can change these settings at any time. For more information, please read our Privacy Policy and Terms of Use."
+      },
+      "rejectAll": "Reject All",
+      "savePreferences": "Save Preferences"
+    }
   }
 }
 

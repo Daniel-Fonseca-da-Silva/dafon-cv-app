@@ -862,5 +862,46 @@
       "asc": "A-Z",
       "desc": "Z-A"
     }
+  },
+  "cookie": {
+    "banner": {
+      "title": "Utilizamos cookies para mejorar su experiencia",
+      "description": "Utilizamos cookies y tecnologías similares para ayudar a personalizar contenido, proporcionar y mejorar nuestros servicios y analizar el tráfico. Al hacer clic en \"Aceptar Todos\", usted consiente el uso de cookies para todos los fines. Puede personalizar sus preferencias en nuestra configuración de cookies.",
+      "necessary": "Cookies necesarias",
+      "analytics": "Cookies de análisis",
+      "marketing": "Cookies de marketing",
+      "settings": "Configuración",
+      "acceptAll": "Aceptar Todos"
+    },
+    "settings": {
+      "title": "Configuración de Cookies",
+      "description": "Gestione sus preferencias de cookies para controlar cómo utilizamos sus datos",
+      "necessary": {
+        "title": "Cookies Necesarias",
+        "status": "Siempre Activas",
+        "description": "Estas cookies son esenciales para el funcionamiento adecuado del sitio. No pueden ser desactivadas."
+      },
+      "analytics": {
+        "title": "Cookies de Análisis",
+        "status": "Siempre Activas",
+        "description": "Estas cookies nos ayudan a entender cómo los visitantes interactúan con nuestro sitio recopilando e informando información de forma anónima."
+      },
+      "marketing": {
+        "title": "Cookies de Marketing",
+        "status": "Siempre Activas",
+        "description": "Estas cookies se utilizan para rastrear visitantes en sitios web para mostrar anuncios relevantes y atractivos."
+      },
+      "functional": {
+        "title": "Cookies Funcionales",
+        "status": "Siempre Activas",
+        "description": "Estas cookies permiten funcionalidades mejoradas y personalización, como recordar sus preferencias."
+      },
+      "privacy": {
+        "title": "Su Privacidad Importa",
+        "description": "Respetamos su privacidad y estamos comprometidos a proteger sus datos personales. Puede cambiar estas configuraciones en cualquier momento. Para más información, lea nuestra Política de Privacidad y Términos de Uso."
+      },
+      "rejectAll": "Rechazar Todos",
+      "savePreferences": "Guardar Preferencias"
+    }
   }
 }

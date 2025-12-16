@@ -862,6 +862,47 @@
       "asc": "A-Z",
       "desc": "Z-A"
     }
+  },
+  "cookie": {
+    "banner": {
+      "title": "Utilizamos cookies para melhorar sua experiência",
+      "description": "Utilizamos cookies e tecnologias similares para ajudar a personalizar conteúdo, fornecer e melhorar nossos serviços e analisar tráfego. Ao clicar em \"Aceitar Todos\", você consente com o uso de cookies para todos os fins. Você pode personalizar suas preferências em nossas configurações de cookies.",
+      "necessary": "Cookies necessários",
+      "analytics": "Cookies de análise",
+      "marketing": "Cookies de marketing",
+      "settings": "Configurações",
+      "acceptAll": "Aceitar Todos"
+    },
+    "settings": {
+      "title": "Configurações de Cookies",
+      "description": "Gerencie suas preferências de cookies para controlar como utilizamos seus dados",
+      "necessary": {
+        "title": "Cookies Necessários",
+        "status": "Sempre Ativos",
+        "description": "Esses cookies são essenciais para o funcionamento adequado do site. Eles não podem ser desativados."
+      },
+      "analytics": {
+        "title": "Cookies de Análise",
+        "status": "Sempre Ativos",
+        "description": "Esses cookies nos ajudam a entender como os visitantes interagem com nosso site coletando e relatando informações anonimamente."
+      },
+      "marketing": {
+        "title": "Cookies de Marketing",
+        "status": "Sempre Ativos",
+        "description": "Esses cookies são usados para rastrear visitantes em sites para exibir anúncios relevantes e envolventes."
+      },
+      "functional": {
+        "title": "Cookies Funcionais",
+        "status": "Sempre Ativos",
+        "description": "Esses cookies permitem funcionalidades aprimoradas e personalização, como lembrar suas preferências."
+      },
+      "privacy": {
+        "title": "Sua Privacidade Importa",
+        "description": "Respeitamos sua privacidade e estamos comprometidos em proteger seus dados pessoais. Você pode alterar essas configurações a qualquer momento. Para mais informações, leia nossa Política de Privacidade e Termos de Uso."
+      },
+      "rejectAll": "Rejeitar Todos",
+      "savePreferences": "Salvar Preferências"
+    }
   }
 }
 
