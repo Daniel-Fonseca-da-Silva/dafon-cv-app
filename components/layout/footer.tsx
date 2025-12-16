@@ -1,6 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 import { Logo } from '@/components/ui/logo';
 
 export function Footer() {
@@ -35,14 +36,14 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white/80 hover:text-white transition-colors">
+                <Link href="/privacy-policy" className="text-white/80 hover:text-white transition-colors">
                   {t('privacy')}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-white/80 hover:text-white transition-colors">
+                <Link href="/terms-of-use" className="text-white/80 hover:text-white transition-colors">
                   {t('terms')}
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

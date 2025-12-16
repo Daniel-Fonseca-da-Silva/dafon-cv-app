@@ -903,6 +903,505 @@
       "rejectAll": "Reject All",
       "savePreferences": "Save Preferences"
     }
+  },
+  "termsOfUse": {
+    "title": "Terms of Service",
+    "effectiveDate": "Effective Date",
+    "effectiveDateValue": "December 16, 2025",
+    "lastUpdate": "Last Update",
+    "lastUpdateValue": "December 16, 2025",
+    "close": "Close",
+    "section1": {
+      "title": "1. Service Provider Information and Service Overview",
+      "subsection1": {
+        "title": "1.1. Provider Information",
+        "content": "The Service is provided by Daniel Fonseca da Silva, an independent worker in Portugal. For questions related to these Terms, please contact us at dafondeveloper@gmail.com."
+      },
+      "subsection2": {
+        "title": "1.2. Service Description",
+        "content": "DafonCV provides automated services for creating resumes and analyzing existing resumes, through the provision of personal information. Our Service creates customized resumes, and delivers analyses and resumes via files such as PDF and other formats.",
+        "aiDisclosure": "AI Processing Disclosure: Our Service uses artificial intelligence systems, including Claude AI and ChatGPT, to analyze, filter, and enhance resume and job market information through automated content triage and context expansion. Users may be notified that they are interacting with AI-powered systems that process and recommend job opportunities based on algorithmic analysis."
+      }
+    },
+    "section2": {
+      "title": "2. Acceptance and Modification of Terms",
+      "content": "By accessing or using our Service, you acknowledge that you have read, understood, and agree to be bound by these Terms and our Privacy Policy. These Terms constitute a legally binding agreement between you and the Service Provider under the laws of the Portuguese Republic and applicable European Union Regulations, including, but not limited to, GDPR. We reserve the right to modify these Terms at any time. Changes will be published on our website with an updated effective date. Continued use of the Service after changes constitutes acceptance of the modified Terms. Your electronic acceptance of these Terms creates a valid and enforceable contract in accordance with Portuguese law and European Union electronic contract formation requirements, including the eIDAS Regulation (Regulation (EU) No. 910/2014)."
+    },
+    "section3": {
+      "title": "3. User Eligibility and Account Registration",
+      "subsection1": {
+        "title": "3.1. Age Eligibility",
+        "content": "Our Service is available to all users on the planet. However, for users in the European Union, the user must be of the minimum legal age to enter into binding contracts (generally 18 years, or the age determined by Portuguese law or the law of the consumer's country of residence, if applicable), and comply with the Terms registered here and local laws governing their use of communication platforms and automated services."
+      },
+      "subsection2": {
+        "title": "3.2. Account Registration",
+        "content": "To use the Service, users must create an account by providing accurate and up-to-date information. Users are responsible for maintaining the confidentiality of their access credentials and for all activities that occur under their account."
+      }
+    },
+    "section4": {
+      "title": "4. Acceptable Use of the Service",
+      "subsection1": {
+        "title": "4.1",
+        "content": "Users agree to use the Service only for lawful purposes and in accordance with these Terms. It is prohibited to use the Service for any illegal, fraudulent activity or that violates the rights of third parties."
+      },
+      "subsection2": {
+        "title": "4.2",
+        "content": "Users may not attempt to access unauthorized areas of the Service, interfere with the operation of the Service, or use any automated method to access the Service without prior authorization."
+      }
+    },
+    "section5": {
+      "title": "5. Subscription System and Tokens",
+      "intro": "We offer services through purchases based on subscription plans. Users can subscribe to plans for continuous access.",
+      "subsection1": {
+        "title": "5.1. Payment Processing",
+        "content": "All payments are processed securely through Stripe, a third-party payment processor. When making purchases, you agree to comply with Stripe's Terms of Service and acknowledge that your payment information will be processed in accordance with their security standards and our Privacy Policy."
+      },
+      "subsection2": {
+        "title": "5.2. European Right of Withdrawal (Right of Withdrawal)",
+        "content": "Standard Right: European residents (including in Portugal) acting as consumers have the right to withdraw (cancel) any online purchase within 14 days from the date of conclusion of the subscription contract, and receive a full refund, under the terms of Directive 2011/83/EU on Consumer Rights. Exception for Digital Services: The user acknowledges and accepts that they lose their 14-day withdrawal right if the provision of the service (immediate access and resume creation) is started immediately after purchase with their express consent and acknowledgment that, by doing so, they lose the right of withdrawal. If the Service is fully executed at the user's request during the 14-day period, the right of withdrawal also ceases."
+      },
+      "subsection3": {
+        "title": "5.3. Billing and Subscription Cancellation",
+        "content": "Subscriptions are automatically renewed at the end of each billing period. We will provide at least 30 days' notice for subscription price increases. Users can cancel subscriptions at any time through account settings or by contacting support. Cancellation will take effect at the end of the current billing period."
+      }
+    },
+    "section6": {
+      "title": "6. Intellectual Property Rights",
+      "subsection1": {
+        "title": "6.1. Provider Property",
+        "content": "The Service, including software, algorithms, trademarks, and content (excluding user data and publicly available information about job opportunities), is the property of the Service Provider and protected under Portuguese and international intellectual property laws."
+      },
+      "subsection2": {
+        "title": "6.2. Limited License to User",
+        "content": "We grant users a limited, non-exclusive, and non-transferable license to access and use the Service strictly for personal and non-commercial purposes of creating and analyzing resumes, during the term of their subscription."
+      },
+      "subsection3": {
+        "title": "6.3. Third-Party Information and Data Ownership",
+        "content": "We aggregate publicly available information from job sites. We respect the intellectual property rights of third parties and do not claim ownership of job opportunities or third-party images. Users retain full ownership of any data and content (including personal information, work history, and text) that they provide to the Service for resume creation. By using the Service, users grant us a worldwide, non-exclusive, royalty-free, sublicensable, and transferable license to process, format, store, and display their information only to the extent necessary for Service delivery (i.e., to generate and analyze the resume and recommendations)."
+      }
+    },
+    "section7": {
+      "title": "7. Data Protection and Privacy",
+      "subsection1": {
+        "title": "7.1",
+        "content": "The processing of users' personal data is governed by our Privacy Policy, which complies with the European Union's General Data Protection Regulation (GDPR) and Portuguese data protection laws."
+      },
+      "subsection2": {
+        "title": "7.2",
+        "content": "Users have the right to access, rectify, delete, limit processing, data portability, and object to the processing of their personal data, as provided for in the GDPR."
+      }
+    },
+    "section8": {
+      "title": "8. Cookies and Similar Technologies",
+      "subsection1": {
+        "title": "8.1",
+        "content": "The Service uses cookies and similar technologies in compliance with the ePrivacy Directive (2002/58/EC) and GDPR. For more information about cookie use, please see our Privacy Policy."
+      },
+      "subsection2": {
+        "title": "8.2",
+        "content": "Users can manage their cookie preferences through browser settings or our website's cookie settings."
+      }
+    },
+    "section9": {
+      "title": "9. Legal Compliance and Privacy Policy",
+      "content": "For the global operation of the Service, users' personal data may be transferred to countries outside the European Economic Area (EEA), including the USA and United Kingdom. Any international transfers are subject to appropriate safeguards, in accordance with Article 46 of the GDPR, and will be protected through the implementation of Standard Contractual Clauses (SCCs) approved by the European Commission, or other valid transfer mechanisms, ensuring that data maintains a level of protection essentially equivalent to that guaranteed by the GDPR."
+    },
+    "section10": {
+      "title": "10. Indemnification",
+      "subsection1": {
+        "title": "10.1",
+        "content": "Users agree to indemnify, defend, and hold harmless the Service Provider from any claims, damages, losses, liabilities, and expenses (including attorney's fees) arising from the user's use of the Service, violation of these Terms, or violation of any third-party rights."
+      }
+    },
+    "section11": {
+      "title": "11. Limitation of Liability and Warranty Exclusions",
+      "subsection1": {
+        "title": "11.1. Warranty Disclaimer (\"As Is\")",
+        "content": "The Service is provided \"as is\" and \"as available\" without warranties of any kind, express or implied, including, but not limited to warranties of accuracy, reliability, fitness for a particular purpose, or non-infringement. Information about job opportunities is aggregated from third-party sources and may be incomplete, outdated, or inaccurate. Users should independently verify all information. We are not responsible for decisions made based on Service data."
+      },
+      "subsection2": {
+        "title": "11.2. Limitation of Liability",
+        "content": "To the maximum extent permitted by applicable law, the total liability of the Service Provider for all claims related to the Service shall not exceed the amounts paid by the user in the 12 months prior to the claim. This limitation applies regardless of the legal theory on which the claim is based."
+      },
+      "subsection3": {
+        "title": "11.3. Exclusion of Indirect Damages",
+        "content": "We will not be liable for indirect, incidental, special, consequential, or punitive damages, including, but not limited to lost profits, business interruption, or loss of business opportunities, unless such damages result from intentional misconduct or gross negligence on our part."
+      },
+      "subsection4": {
+        "title": "11.4. Non-Excludable Liability (EU/Portugal Law Compliance)",
+        "content": "Nothing in these Terms limits or excludes our liability for: Death or Personal Injury resulting from our negligence; Fraud or fraudulent misrepresentation; or Any other liability that cannot be limited or excluded under the laws of the Portuguese Republic or applicable European Union laws."
+      }
+    },
+    "section12": {
+      "title": "12. Termination",
+      "subsection1": {
+        "title": "12.1",
+        "content": "The Service Provider reserves the right to suspend or terminate the user's access to the Service, at any time, without prior notice, for violation of these Terms or for any other reason at the Service Provider's discretion."
+      },
+      "subsection2": {
+        "title": "12.2",
+        "content": "The user may terminate their account at any time through account settings or by contacting support."
+      }
+    },
+    "section13": {
+      "title": "13. Service Modifications",
+      "subsection1": {
+        "title": "13.1",
+        "content": "The Service Provider reserves the right to modify, suspend, or discontinue any aspect of the Service at any time, with or without prior notice."
+      },
+      "subsection2": {
+        "title": "13.2",
+        "content": "The Service Provider will not be liable to the user or any third party for any modification, suspension, or discontinuation of the Service."
+      }
+    },
+    "section14": {
+      "title": "14. Applicable Law and Dispute Resolution",
+      "subsection1": {
+        "title": "14.1. Applicable Law",
+        "content": "These Terms are governed and interpreted in accordance with the laws of the Portuguese Republic and applicable European Union laws (including EU consumer protection regulations), without regard to their conflict of law principles."
+      },
+      "subsection2": {
+        "title": "14.2. Jurisdiction (Forum)",
+        "content": "Any dispute, controversy, or claim arising from or in connection with these Terms, or their violation, resolution, or invalidity, shall be submitted to the jurisdiction of Portuguese courts, with the court in the Service Provider's area of residence being competent, or, at the consumer's choice, the court in the area of their residence, under Regulation (EU) No. 1215/2012."
+      },
+      "subsection3": {
+        "title": "14.3. EU Consumer Rights",
+        "content": "Notwithstanding Clause 14.2, if the user acts as a consumer and resides in another member state of the European Union, the Applicable Law and jurisdiction will be governed by EU consumer protection rules, which allow the consumer to bring an action in the courts of their country of residence."
+      },
+      "subsection4": {
+        "title": "14.4. EU Alternative Dispute Resolution (ADR)",
+        "content": "Consumers in Portugal and other EU member states may seek dispute resolution through the European Commission's Online Dispute Resolution (ODR) platform, accessible at https://ec.europa.eu/consumers/odr/. Portuguese consumers may also resort to the Consumer Conflict Arbitration Center. The parties agree to attempt good faith negotiation before initiating formal legal proceedings."
+      }
+    },
+    "section15": {
+      "title": "15. Additional Provisions",
+      "subsection1": {
+        "title": "15.1. Agreement Integrity",
+        "content": "These Terms, together with the Privacy Policy, constitute the complete agreement between the user and the Service Provider regarding the use of the Service and supersede all prior agreements."
+      },
+      "subsection2": {
+        "title": "15.2. Severability",
+        "content": "If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions will remain in full force and effect."
+      },
+      "subsection3": {
+        "title": "15.3. Prevailing Language",
+        "content": "The Portuguese or English version of these Terms will prevail in case of conflicts with translations."
+      },
+      "subsection4": {
+        "title": "15.4. Waiver",
+        "content": "The Service Provider's failure to enforce any right or provision of these Terms will not constitute a waiver of such right or provision."
+      },
+      "subsection5": {
+        "title": "15.5. Assignment",
+        "content": "The user may not assign or transfer these Terms or any rights granted herein without the prior written consent of the Service Provider. The Service Provider may assign these Terms without restrictions."
+      },
+      "subsection6": {
+        "title": "15.6. Contact",
+        "content": "For questions related to these Terms, please contact us at dafondeveloper@gmail.com."
+      }
+    }
+  },
+  "privacyPolicy": {
+    "title": "Privacy Policy and Data Protection",
+    "effectiveDate": "Effective Date",
+    "effectiveDateValue": "December 16, 2025",
+    "lastUpdate": "Last Update",
+    "lastUpdateValue": "December 16, 2025",
+    "section1": {
+      "title": "1. Introduction and Scope",
+      "content": "DafonCV (\"Service\") is operated by Dafon LLC (\"Company\", \"we\", \"our\" or \"us\") and respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, process, and protect information when you use the DafonCV service (\"Service\").",
+      "compliance": "Regulatory Compliance:",
+      "complianceContent": "This policy complies with the Brazilian General Data Protection Law (LGPD), European GDPR, US state privacy laws including the California Consumer Privacy Act (CCPA), Canada's Personal Information Protection and Electronic Documents Act (PIPEDA), the UK's Personal Information Protection and Electronic Documents Act, and applicable international data protection regulations.",
+      "serviceOverview": "Service Overview:",
+      "serviceOverviewContent": "Our Service provides automated discovery of charts and European job market levels through AI-powered analysis of publicly available job listings from European sources, delivered via available format models."
+    },
+    "section2": {
+      "title": "2. Data Controller Information and Contact Details",
+      "dataController": "Data Controller",
+      "dataControllerValue": "Dafon LLC",
+      "privacyInquiries": "Privacy Inquiries",
+      "privacyInquiriesValue": "dafondeveloper@gmail.com",
+      "customerSupport": "Customer Support",
+      "customerSupportValue": "dafondeveloper@gmail.com"
+    },
+    "section3": {
+      "title": "3. Categories of Personal Information We Collect",
+      "subsection1": {
+        "title": "Information You Provide Directly:",
+        "accountInfo": "Account Information: Email address, notification preference settings, user preferences",
+        "paymentInfo": "Payment Information: Billing details processed through Stripe (we do not store complete payment card information)",
+        "communicationData": "Communication Data: Support inquiries, feedback, and correspondence"
+      },
+      "subsection2": {
+        "title": "Information Collected Automatically:",
+        "usageData": "Usage Data: Service interaction patterns, feature usage, search queries, and preferences",
+        "technicalInfo": "Technical Information: IP addresses, device information, browser type, access times",
+        "botInteraction": "Bot Interaction Data: Commands used, response patterns, service configuration choices",
+        "sessionInfo": "Session Information: Login timestamps, session duration",
+        "profileData": "Profile Data: Name, email, phone, career information, gender (when voluntarily provided by the user)"
+      },
+      "subsection3": {
+        "title": "Marketing and Analytics Data:",
+        "siteAnalysis": "Site Analytics: Google Analytics, Facebook Pixel, Yahoo marketing pixels for site optimization",
+        "marketingAttribution": "Marketing Attribution: Campaign effectiveness, referral sources, user acquisition metrics",
+        "cookieData": "Cookie Data: Session management cookies, preference settings, authentication tokens"
+      }
+    },
+    "section4": {
+      "title": "4. Legal Basis for Processing and Purposes of Use",
+      "subsection1": {
+        "title": "LGPD Legal Bases:",
+        "consent": "Consent: For marketing communications, analytics, and optional features, and processing of sensitive data (when applicable)",
+        "contract": "Contract Performance: For service delivery, payment processing, and account management",
+        "legitimateInterest": "Legitimate Interest: For service improvement, fraud prevention, and customer support",
+        "legalCompliance": "Legal Compliance: For tax obligations, regulatory reporting, and law enforcement requests"
+      },
+      "subsection2": {
+        "title": "GDPR Legal Bases (for EU users):",
+        "consent": "Consent (Article 6(1)(a)): Marketing, analytics, and optional data processing",
+        "contract": "Contract Performance (Article 6(1)(b)): Service delivery and payment processing",
+        "legitimateInterests": "Legitimate Interests (Article 6(1)(f)): Service improvement, security, and fraud prevention",
+        "legalObligation": "Legal Obligation (Article 6(1)(c)): Regulatory compliance and legal requirements",
+        "sensitiveData": "Sensitive Data (Article 9): When sensitive data such as gender is processed, we base it on explicit consent from the data subject"
+      },
+      "subsection3": {
+        "title": "Processing Purposes:",
+        "serviceDelivery": "Service Delivery: Providing job opportunity notifications and personalized recommendations",
+        "aiProcessing": "AI Processing: Use of Claude AI and ChatGPT for content analysis, filtering, and document generation",
+        "paymentProcessing": "Payment Processing: Subscription management and billing through Stripe",
+        "customerSupport": "Customer Support: Responding to inquiries, troubleshooting, and service assistance",
+        "serviceImprovement": "Service Improvement: Analyzing usage patterns to enhance features and functionality",
+        "marketingAnalysis": "Marketing and Analytics: Understanding user behavior and promoting relevant services",
+        "legalCompliance": "Legal Compliance: Meeting tax, regulatory, and law enforcement obligations"
+      }
+    },
+    "section5": {
+      "title": "5. AI Processing and Automated Decision Making",
+      "subsection1": {
+        "title": "AI Systems Used:",
+        "contentAnalysis": "Content Analysis: Processing resume information for relevance and quality",
+        "jobScoring": "Job Scoring: Algorithmic evaluation of listing value and user relevance",
+        "contextExpansion": "Automatic Context Expansion: Enhancing resume information with additional relevant details",
+        "recommendationGeneration": "Recommendation Generation: Personalizing job suggestions based on user preferences"
+      },
+      "subsection2": {
+        "title": "Automated Decision Making Rights:",
+        "humanReview": "Request human review of AI-driven recommendations",
+        "understandLogic": "Understand the logic behind automated processing that affects your service experience",
+        "optOut": "Opt out of using certain AI-powered features while maintaining access to the main service",
+        "accessInfo": "Access information about how AI systems process your data"
+      },
+      "transparency": "AI Transparency: AI processing involves analysis of user preferences, search history, and interaction patterns to improve recommendation accuracy. Users may request detailed explanations of AI decision-making processes that affect their service experience."
+    },
+    "section6": {
+      "title": "6. Data Sharing and Third-Party Processors",
+      "subsection1": {
+        "title": "Payment Processing:",
+        "content": "Stripe: Processes all payment transactions. Shared data includes billing information and transaction details. Stripe maintains independent privacy practices described in its privacy policy."
+      },
+      "subsection2": {
+        "title": "Service Infrastructure:",
+        "content": "Cloud Hosting Providers: Service technical data and user information stored in secure cloud infrastructure"
+      },
+      "subsection3": {
+        "title": "AI Processing Partners:",
+        "content": "Anthropic (Claude AI): User queries and job market data processed for analysis and recommendations. OpenAI (ChatGPT): Similar processing for content enhancement and user assistance."
+      },
+      "subsection4": {
+        "title": "Marketing and Analytics:",
+        "googleAnalytics": "Google Analytics: Site usage analysis for service improvement",
+        "facebookPixel": "Facebook Pixel: Marketing attribution and campaign optimization",
+        "yahooAnalytics": "Yahoo Analytics: Additional marketing performance analysis"
+      },
+      "noDataSale": "No Data Sale: We do not sell personal information to third parties for their direct marketing purposes."
+    },
+    "section7": {
+      "title": "7. International Data Transfers",
+      "subsection1": {
+        "title": "Transfer Locations:",
+        "usa": "United States: For AI processing (Anthropic, OpenAI) and payment processing (Stripe)",
+        "eu": "European Union: For cloud infrastructure and service delivery",
+        "other": "Other Countries: As necessary for service operation and third-party processing"
+      },
+      "subsection2": {
+        "title": "Transfer Safeguards:",
+        "sccs": "Standard Contractual Clauses (SCCs): We use Standard Contractual Clauses approved by the European Commission for EU data transfers, and clauses approved by ANPD for transfers from Brazil",
+        "dataProcessing": "Data Processing Agreements: Comprehensive agreements with all international processors that include data protection obligations",
+        "privacyShield": "Privacy Shield Successors: Appropriate frameworks for US data transfers when available",
+        "adequateProtection": "Adequate Protection: Ensuring that recipient countries provide adequate levels of data protection equivalent to EU and Brazil standards"
+      },
+      "userRights": "User Rights Regarding Transfers: Users may request information about international transfers affecting their data and the safeguards protecting their information in foreign jurisdictions."
+    },
+    "section8": {
+      "title": "8. Data Retention and Deletion",
+      "subsection1": {
+        "title": "Retention Periods:",
+        "accountData": "Account Data: Retained while the account is active plus 30 days after closure",
+        "paymentInfo": "Payment Information: 7 years for tax and financial record keeping (European/international requirements)",
+        "usageAnalysis": "Usage Analysis: 24 months for service improvement analysis",
+        "marketingData": "Marketing Data: Until consent is withdrawn or maximum 3 years",
+        "legalCompliance": "Legal Compliance Data: As required by applicable laws and regulations"
+      },
+      "subsection2": {
+        "title": "Automatic Deletion:",
+        "content": "We implement automated deletion processes to remove data after retention periods end. Users receive notification before automatic deletion when required by law. We collect and retain only data necessary for specified purposes and regularly review retention practices to minimize storage duration."
+      }
+    },
+    "section9": {
+      "title": "9. Comprehensive User Rights Framework",
+      "subsection1": {
+        "title": "Universal Rights (Available to All Users):",
+        "informed": "Right to be Informed: Clear information about data processing at collection",
+        "access": "Right of Access: Obtain copies of personal data and processing information",
+        "rectification": "Right of Rectification: Correct inaccurate or incomplete information",
+        "deletion": "Right of Deletion: Request erasure of personal data (\"right to be forgotten\")",
+        "portability": "Right to Data Portability: Export data in machine-readable format",
+        "opposition": "Right of Opposition: Object to processing for direct marketing and legitimate interests"
+      },
+      "subsection2": {
+        "title": "Brazilian Users (LGPD Rights):",
+        "confirmation": "Right of Confirmation: Confirm existence of data processing",
+        "information": "Right of Information: Detailed information about processing activities",
+        "anonymization": "Right of Anonymization: Request anonymization of unnecessary data",
+        "withdrawConsent": "Right to Withdraw Consent: Easy mechanism for consent withdrawal",
+        "explanation": "Right of Explanation: Understand automated decision-making processes"
+      },
+      "subsection3": {
+        "title": "US State Law Rights (California, Virginia, Colorado, etc.):",
+        "know": "Right to Know: Categories of personal information collected and processed",
+        "delete": "Right to Delete: Request deletion of personal information",
+        "optOut": "Right to Opt-Out: Opt out of sale/sharing and targeted advertising",
+        "nonDiscrimination": "Right to Non-Discrimination: Equal service regardless of privacy choices",
+        "correct": "Right to Correct: Rectify inaccurate personal information"
+      },
+      "subsection4": {
+        "title": "Canadian Users (PIPEDA Rights):",
+        "access": "Right of Access: Access personal information maintained by the organization",
+        "contest": "Right to Contest: Contest accuracy and completeness of information",
+        "withdrawConsent": "Right to Withdraw Consent: Withdraw consent subject to contractual restrictions",
+        "complain": "Right to Complain: File complaints with the Privacy Commissioner"
+      }
+    },
+    "section10": {
+      "title": "10. Exercising Your Rights",
+      "subsection1": {
+        "title": "How to Submit Requests:",
+        "content": "Email: dafondeveloper@gmail.com with \"Privacy Request\" in the subject line"
+      },
+      "subsection2": {
+        "title": "Request Processing:",
+        "responseTime": "Response Time: 15 days (LGPD), 30 days (GDPR), 45 days (CCPA)",
+        "identityVerification": "Identity Verification: Reasonable measures to confirm requester identity",
+        "noFee": "No Fee: Generally free unless requests are excessive or repetitive",
+        "statusUpdates": "Status Updates: Regular communication about request processing status"
+      },
+      "subsection3": {
+        "title": "Request Fulfillment:",
+        "dataAccess": "Data Access: Comprehensive information about data processing",
+        "dataDeletion": "Data Deletion: Complete erasure subject to legal retention requirements",
+        "dataPortability": "Data Portability: Machine-readable format (JSON, CSV, XML)",
+        "consentWithdrawal": "Consent Withdrawal: Immediate cessation of consent-based processing"
+      }
+    },
+    "section11": {
+      "title": "11. Cookies and Tracking Technologies",
+      "subsection1": {
+        "title": "Types of Cookies Used:",
+        "essential": "Essential Cookies: Necessary for basic service functionality and security",
+        "analytics": "Analytics Cookies: Google Analytics for site performance analysis",
+        "marketing": "Marketing Cookies: Facebook Pixel, Yahoo marketing pixels for campaign optimization",
+        "preference": "Preference Cookies: Remember user settings and preferences"
+      },
+      "subsection2": {
+        "title": "Cookie Consent:",
+        "granularControl": "Granular Control: Users can accept/reject specific cookie categories",
+        "consentManagement": "Consent Management: Easy-to-use cookie preferences center",
+        "withdrawalRights": "Withdrawal Rights: Simple mechanism to withdraw cookie consent",
+        "equalProminence": "Equal Prominence: Accept and reject options receive equal emphasis"
+      },
+      "subsection3": {
+        "title": "Opt-Out Mechanisms:",
+        "gpc": "Global Privacy Control (GPC): Respect browser-based opt-out signals",
+        "cookieSettings": "Cookie Settings: Preference management accessible on all pages",
+        "marketingOptOut": "Marketing Opt-Out: Direct opt-out links in marketing communications",
+        "analyticsOptOut": "Analytics Opt-Out: Support for Google Analytics browser opt-out plugin"
+      }
+    },
+    "section12": {
+      "title": "12. Data Security and Breach Procedures",
+      "subsection1": {
+        "title": "Security Measures:",
+        "encryption": "Encryption: AES-256 encryption for data at rest, TLS 1.3 for data in transit",
+        "accessControls": "Access Controls: Role-based access permissions and multi-factor authentication",
+        "regularAudits": "Regular Audits: Periodic security assessments and penetration testing",
+        "employeeTraining": "Employee Training: Comprehensive privacy and security training programs"
+      },
+      "subsection2": {
+        "title": "Breach Response:",
+        "detection": "Detection: 24/7 monitoring and incident detection systems",
+        "assessment": "Assessment: Rapid risk assessment and impact analysis",
+        "notification": "Notification: Regulatory notification within 72 hours (GDPR), 3 business days (LGPD)",
+        "userCommunication": "User Communication: Immediate notification if breach likely to cause harm",
+        "remediation": "Remediation: Immediate measures to contain and remediate security incidents"
+      },
+      "subsection3": {
+        "title": "Data Protection Measures:",
+        "privacyByDesign": "Privacy by Design: Privacy protections integrated into system architecture",
+        "dataMinimization": "Data Minimization: Collect only information necessary for specified purposes",
+        "regularDeletion": "Regular Deletion: Automated removal of data after retention periods",
+        "vendorSecurity": "Vendor Security: Comprehensive security requirements for all data processors"
+      }
+    },
+    "section13": {
+      "title": "13. Children's Privacy",
+      "content": "Although our Service is available to all users, we do not knowingly collect personal information from children under 13 years of age without parental consent in compliance with COPPA (Children's Online Privacy Protection Act).",
+      "parentsCan": "If we become aware that we have collected information from children under 13, parents may:",
+      "requestAccess": "Request access to their children's information",
+      "requestDeletion": "Request deletion of their children's personal information",
+      "refuseCollection": "Refuse additional collection of their children's information",
+      "enhancedProtections": "Enhanced Protections: Users aged 13 to 16 in EU jurisdictions receive enhanced privacy protections under GDPR requirements."
+    },
+    "section14": {
+      "title": "14. Marketing and Communication Preferences",
+      "subsection1": {
+        "title": "Marketing Communications:",
+        "explicitConsent": "Explicit Consent: Opt-in for marketing communications",
+        "serviceRelationship": "Service Relationship: Transactional messages related to service use",
+        "legitimateInterest": "Legitimate Interest: Service improvement communications when permitted"
+      },
+      "subsection2": {
+        "title": "Communication Controls:",
+        "subscriptionManagement": "Subscription Management: Easy unsubscribe links in all marketing emails",
+        "granularPreferences": "Granular Preferences: Choose specific types of communications to receive",
+        "immediateEffect": "Immediate Effect: Opt-out requests processed within 10 business days"
+      }
+    },
+    "section15": {
+      "title": "15. Updates to this Privacy Policy",
+      "siteNotice": "Site Notice: Prominent publication of updated policy with effective date",
+      "emailNotification": "Email Notification: Direct communication to registered users",
+      "serviceNotification": "Service Notification: In-app notices for significant changes",
+      "reviewPeriod": "Users have 30 days to review changes before they take effect. Continued use after the effective date constitutes acceptance of updated terms."
+    },
+    "section16": {
+      "title": "16. Contact Information and Complaints",
+      "subsection1": {
+        "title": "Privacy Inquiries:",
+        "email": "Email",
+        "emailValue": "dafondeveloper@gmail.com with \"Privacy Request\" in the subject line",
+        "responseTime": "Response Time",
+        "responseTimeValue": "15 business days for general inquiries"
+      },
+      "subsection2": {
+        "title": "Regulatory Complaints:",
+        "brazil": "Brazil (LGPD): National Data Protection Authority (ANPD) - www.gov.br/anpd",
+        "eu": "EU (GDPR): Relevant EU supervisory authority in your member state",
+        "california": "California: California Attorney General - oag.ca.gov",
+        "canada": "Canada (PIPEDA): Office of the Privacy Commissioner of Canada - priv.gc.ca"
+      },
+      "commitment": "We are committed to resolving privacy concerns promptly and encourage users to contact us directly before filing regulatory complaints. We maintain detailed records of complaint resolution efforts to demonstrate compliance with applicable privacy laws.",
+      "compliance": "This Privacy Policy complies with Brazilian LGPD, US state privacy laws, Canadian PIPEDA, EU GDPR, and international data protection standards. Regular updates ensure ongoing compliance with evolving regulatory requirements."
+    }
   }
 }
 
