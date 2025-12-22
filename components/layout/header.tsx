@@ -36,9 +36,9 @@ export function Header() {
             <Link href="/" className="text-white hover:text-white/80 transition-colors">
               {t('home')}
             </Link>
-            <a href="#" className="text-white hover:text-white/80 transition-colors">
+            <Link href="/contact" className="text-white hover:text-white/80 transition-colors">
               {t('contact')}
-            </a>
+            </Link>
             <Select value={locale} onValueChange={handleLanguageChange}>
               <SelectTrigger className="w-fit bg-transparent border-white/20 text-white hover:text-white/80 focus:ring-white/50">
                 <SelectValue placeholder={t('language')} />
@@ -81,9 +81,9 @@ export function Header() {
               <Link href="/" className="block px-3 py-2 text-white hover:text-white/80 transition-colors">
                 {t('home')}
               </Link>
-              <a href="#" className="block px-3 py-2 text-white hover:text-white/80 transition-colors">
+              <Link href="/contact" className="block px-3 py-2 text-white hover:text-white/80 transition-colors">
                 {t('contact')}
-              </a>
+              </Link>
               <div className="px-3 py-2">
                 <Select value={locale} onValueChange={handleLanguageChange}>
                   <SelectTrigger className="w-full bg-transparent border-white/20 text-white hover:text-white/80 focus:ring-white/50">

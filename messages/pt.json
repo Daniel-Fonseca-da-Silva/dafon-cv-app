@@ -161,7 +161,7 @@
           "color": "text-green-400"
         },
         {
-          "number": "Online",
+          "number": "24h",
           "label": "Suporte",
           "color": "text-blue-400"
         },
@@ -1404,6 +1404,33 @@
       "commitment": "Estamos comprometidos em resolver preocupações de privacidade prontamente e encorajamos os usuários a entrar em contato conosco diretamente antes de apresentar reclamações regulatórias. Mantemos registros detalhados dos esforços de resolução de reclamações para demonstrar conformidade com as leis de privacidade aplicáveis.",
       "compliance": "Esta Política de Privacidade está em conformidade com a LGPD brasileira, as leis de privacidade estaduais dos EUA, o PIPEDA canadense, o GDPR da UE e os padrões internacionais de proteção de dados. Atualizações regulares garantem conformidade contínua com requisitos regulatórios em evolução."
     }
+  },
+  "Contact": {
+    "title": "Fale Conosco",
+    "subtitle": "Ainda tem dúvidas? Estamos aqui para ajudar.",
+    "email": "E-mail",
+    "responseTime": "Tempo de resposta",
+    "responseTimeValue": "24 horas",
+    "formTitle": "Envie-nos uma Mensagem",
+    "name": "Nome",
+    "namePlaceholder": "Seu nome",
+    "emailLabel": "E-mail",
+    "emailPlaceholder": "email@exemplo.com",
+    "subject": "Assunto",
+    "subjectPlaceholder": "Selecione um assunto",
+    "subjects": {
+      "general": "Dúvida geral",
+      "support": "Suporte Técnico",
+      "billing": "Questão financeira",
+      "feature": "Solicitação de recurso",
+      "bug": "Relatar erro"
+    },
+    "message": "Mensagem",
+    "messagePlaceholder": "Como podemos ajudar?",
+    "sendButton": "Enviar Mensagem",
+    "sending": "Enviando...",
+    "success": "Mensagem enviada com sucesso!",
+    "error": "Falha ao enviar mensagem. Tente novamente mais tarde."
   }
 }
 

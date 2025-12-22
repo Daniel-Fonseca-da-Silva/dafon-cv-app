@@ -161,7 +161,7 @@
           "color": "text-green-400"
         },
         {
-          "number": "Online",
+          "number": "24h",
           "label": "Soporte",
           "color": "text-blue-400"
         },
@@ -1404,5 +1404,32 @@
       "commitment": "Estamos comprometidos a resolver preocupaciones de privacidad de manera oportuna y alentamos a los usuarios a contactarnos directamente antes de presentar reclamos regulatorios. Mantenemos registros detallados de los esfuerzos de resolución de reclamos para demostrar cumplimiento con las leyes de privacidad aplicables.",
       "compliance": "Esta Política de Privacidad cumple con la LGPD brasileña, las leyes de privacidad estatales de EE. UU., el PIPEDA canadiense, el GDPR de la UE y los estándares internacionales de protección de datos. Las actualizaciones regulares garantizan el cumplimiento continuo con requisitos regulatorios en evolución."
     }
+  },
+  "Contact": {
+    "title": "Contáctenos",
+    "subtitle": "¿Aún tienes preguntas? Estamos aquí para ayudarte.",
+    "email": "Correo electrónico",
+    "responseTime": "Tiempo de respuesta",
+    "responseTimeValue": "24 horas",
+    "formTitle": "Envíenos un Mensaje",
+    "name": "Nombre",
+    "namePlaceholder": "Tu nombre",
+    "emailLabel": "Correo electrónico",
+    "emailPlaceholder": "email@ejemplo.com",
+    "subject": "Asunto",
+    "subjectPlaceholder": "Selecciona un asunto",
+    "subjects": {
+      "general": "Consulta general",
+      "support": "Soporte Técnico",
+      "billing": "Pregunta de facturación",
+      "feature": "Solicitud de función",
+      "bug": "Reportar error"
+    },
+    "message": "Mensaje",
+    "messagePlaceholder": "¿Cómo podemos ayudarte?",
+    "sendButton": "Enviar Mensaje",
+    "sending": "Enviando...",
+    "success": "¡Mensaje enviado con éxito!",
+    "error": "Error al enviar mensaje. Inténtalo de nuevo más tarde."
   }
 }
