@@ -161,12 +161,12 @@
           "color": "text-green-400"
         },
         {
-          "number": "24h",
+          "number": "Online",
           "label": "Soporte",
           "color": "text-blue-400"
         },
         {
-          "number": "100+",
+          "number": "2+",
           "label": "Plantillas de CV",
           "color": "text-pink-400"
         }
@@ -174,13 +174,15 @@
     },
     "footer": {
       "description": "Transforma tu experiencia profesional en CVs únicos y personalizados con el poder de la IA.",
+      "company": "Empresa",
       "about": "Acerca de",
       "contact": "Contacto",
       "privacy": "Política de Privacidad",
       "terms": "Términos de Uso",
       "copyright": "Dafon. Todos los derechos reservados.",
       "location": "Lisboa, Portugal",
-      "quickLinks": "Enlaces Rápidos"
+      "legal": "Legal",
+      "cookies": "Cookies"
     }
   },
   "dashboard": {

@@ -161,12 +161,12 @@
           "color": "text-green-400"
         },
         {
-          "number": "24h",
+          "number": "Online",
           "label": "Suporte",
           "color": "text-blue-400"
         },
         {
-          "number": "100+",
+          "number": "2+",
           "label": "Modelos de CV",
           "color": "text-pink-400"
         }
@@ -174,13 +174,15 @@
     },
     "footer": {
       "description": "Transforme sua experiência profissional em currículos únicos e personalizados com o poder da IA.",
+      "company": "Empresa",
       "about": "Sobre",
       "contact": "Contato",
       "privacy": "Política de Privacidade",
       "terms": "Termos de Uso",
       "copyright": "Dafon. Todos os direitos reservados.",
       "location": "Lisboa, Portugal",
-      "quickLinks": "Links Rápidos"
+      "legal": "Legal",
+      "cookies": "Cookies"
     }
   },
   "dashboard": {

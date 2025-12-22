@@ -161,12 +161,12 @@
           "color": "text-green-400"
         },
         {
-          "number": "24h",
+          "number": "Online",
           "label": "Support",
           "color": "text-blue-400"
         },
         {
-          "number": "100+",
+          "number": "2+",
           "label": "CV Templates",
           "color": "text-pink-400"
         }
@@ -174,13 +174,15 @@
     },
     "footer": {
       "description": "Transform your professional experience into unique and personalized CVs with the power of AI.",
+      "company": "Company",
       "about": "About",
       "contact": "Contact",
       "privacy": "Privacy Policy",
       "terms": "Terms of Use",
       "copyright": "Dafon. All rights reserved.",
       "location": "Lisbon, Portugal",
-      "quickLinks": "Quick Links"
+      "legal": "Legal",
+      "cookies": "Cookies"
     }
   },
   "dashboard": {

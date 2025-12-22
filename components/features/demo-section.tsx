@@ -77,7 +77,7 @@ export function DemoSection() {
             </div>
 
             {/* Botão CTA */}
-            <div className="pt-4">
+            <div className="pt-4 flex justify-center md:justify-start">
               <Link href="/auth/register">
                 <button className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
                   <span>{t('cta')}</span>
