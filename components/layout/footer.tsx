@@ -9,6 +9,8 @@ import { CookieSettingsModal } from '@/components/cookie/cookie-settings-modal';
 
 export function Footer() {
   const t = useTranslations('HomePage.footer');
+  const n = useTranslations('HomePage.navigation');
+
   const [isCookieModalOpen, setIsCookieModalOpen] = useState(false);
 
   return (
@@ -36,8 +38,8 @@ export function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-white/80 hover:text-white transition-colors">
-                    {t('contact')}
+                  <a href="/contact" className="text-white/80 hover:text-white transition-colors">
+                    {n('contact')}
                   </a>
                 </li>
               </ul>
@@ -62,7 +64,7 @@ export function Footer() {
 
             {/* Contact Info */}
             <div className="text-center md:text-left">
-              <h4 className="text-white font-semibold mb-4">{t('contact')}</h4>
+              <h4 className="text-white font-semibold mb-4">{t('information')}</h4>
               <div className="space-y-2 text-white/80">
                 <p>dafondeveloper@gmail.com</p>
                 <p>+351 913-619-053</p>
