@@ -1,12 +1,12 @@
 "use client"
 
 import { DashboardCards } from "./dashboard-cards"
-import { TemplateManagementSection } from "./template-management-section"
-import { CvManagementSection } from "./cv-management-section"
+import { TemplateManagementSection } from "./manage-template/manage-template-section"
+import { CvManagementSection } from "./my-cvs/my-cv-section"
 import { CvCreationSection } from "./cv-creation-section"
-import { ProfileSection } from "./profile-section"
-import { SettingsSection } from "./settings-section"
-import { PlansSection } from "./plans-section"
+import { ProfileSection } from "./profile/profile-section"
+import { SettingsSection } from "./settings/settings-section"
+import { PlansSection } from "./my-plans/plans-section"
 
 interface DashboardContentProps {
   activeSection: string

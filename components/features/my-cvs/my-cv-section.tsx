@@ -4,8 +4,8 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { useTranslations } from "next-intl"
 import { CvManagementSectionProps, CvViewMode } from "@/types/cv.types"
-import { CvCard } from "./cv-card"
-import { CvSkeleton } from "./cv-skeleton"
+import { CvCard } from "../cv-card"
+import { CvManagementSkeleton } from "./my-cv-skeleton"
 import { useCvsPagination } from "@/hooks/use-cvs-pagination"
 import { CvControls } from "@/components/ui/cv-controls"
 import { CvPagination } from "@/components/ui/cv-pagination"
@@ -19,7 +19,6 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-  AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 
 export function CvManagementSection({ onSectionChange }: CvManagementSectionProps) {
@@ -222,7 +221,7 @@ export function CvManagementSection({ onSectionChange }: CvManagementSectionProp
         {loading ? (
           // Loading skeletons
           Array.from({ length: 8 }).map((_, index) => (
-            <CvSkeleton key={index} />
+            <CvManagementSkeleton key={index} />
           ))
         ) : (
           filteredCvs.map((cv) => (

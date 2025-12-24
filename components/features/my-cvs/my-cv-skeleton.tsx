@@ -3,7 +3,7 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 
-export function CvSkeleton() {
+export function CvManagementSkeleton() {
   return (
     <Card className="backdrop-blur-xl bg-white/10 border-white/20 shadow-xl">
       <CardHeader className="p-4">
