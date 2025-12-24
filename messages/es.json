@@ -299,8 +299,7 @@
       "subtitle": "Tu plan de suscripción actual",
       "nextBilling": "Próxima facturación",
       "manageSubscription": "Gestionar Suscripción",
-      "cancelSubscription": "Cancelar Suscripción",
-      "status": "Activo"
+      "cancelSubscription": "Cancelar Suscripción"
     },
     "availablePlans": {
       "title": "Planes Disponibles",
@@ -314,9 +313,6 @@
       "cvsCreated": "CVs Creados",
       "templatesUsed": "Plantillas Usadas",
       "daysRemaining": "Días Restantes"
-    },
-    "common": {
-      "period": "mes"
     },
     "plans": {
       "basic": {

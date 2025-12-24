@@ -299,8 +299,7 @@
       "subtitle": "Your current subscription plan",
       "nextBilling": "Next billing",
       "manageSubscription": "Manage Subscription",
-      "cancelSubscription": "Cancel Subscription",
-      "status": "Active"
+      "cancelSubscription": "Cancel Subscription"
     },
     "availablePlans": {
       "title": "Available Plans",
@@ -315,17 +314,13 @@
       "templatesUsed": "Templates Used",
       "daysRemaining": "Days Remaining"
     },
-    "common": {
-      "period": "month"
-    },
     "plans": {
       "basic": {
         "name": "Basic",
         "features": [
-          "5 CVs per month",
-          "2 Basic templates",
-          "2 Premium templates",
-          "Basic AI analysis",
+          "Unlimited CVs",
+          "Unlimited Templates",
+          "Advanced AI analysis",
           "PDF export",
           "Email support"
         ]
