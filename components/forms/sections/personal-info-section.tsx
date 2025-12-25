@@ -57,17 +57,6 @@ export function PersonalInfoSection({ data, onDataChange, onNext }: CvSectionPro
     })
   }, [data, onDataChange])
 
-  const handlePhoneChange = useCallback((value: string | undefined) => {
-    const phoneValue = value || ''
-    updatePersonalInfo('phone', phoneValue)
-    
-    if (phoneError) setPhoneError('')
-    
-    if (phoneValue && phoneValue.length > 0) {
-      setPhoneError('')
-    }
-  }, [updatePersonalInfo, phoneError])
-
   const handleCountryCodeChange = useCallback((value: string) => {
     setCountryCode(value)
     const fullPhone = `${value}${phoneNumber}`
@@ -256,7 +245,12 @@ export function PersonalInfoSection({ data, onDataChange, onNext }: CvSectionPro
                   onChange={(e) => setNewCategory(e.target.value)}
                   placeholder={t('fields.driverLicense.placeholder')}
                   className="bg-white/20 border-white/30 text-white placeholder:text-white/60 flex-1"
-                  onKeyPress={(e) => e.key === 'Enter' && addCustomCategory()}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      e.preventDefault()
+                      addCustomCategory()
+                    }
+                  }}
                 />
                 <Button
                   type="button"

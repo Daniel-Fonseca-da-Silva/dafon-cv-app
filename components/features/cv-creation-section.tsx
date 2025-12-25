@@ -1,6 +1,6 @@
 "use client"
 
-import { CvFormContainer } from "@/components/forms/CvFormContainer"
+import { CvFormContainer } from "@/components/forms/cv-form-container"
 import { Button } from "@/components/ui/button"
 import { FiArrowLeft } from "react-icons/fi"
 import { useTranslations } from "next-intl"

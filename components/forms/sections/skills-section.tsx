@@ -6,14 +6,13 @@ import { Button } from "@/components/ui/button"
 import { 
   FiArrowLeft,
   FiSave,
-  FiDownload,
   FiLoader,
   FiCheck,
   FiX
 } from "react-icons/fi"
 import { CvSectionProps, Language } from "../../../types/cv.types"
-import { SkillAreasSection } from "./SkillAreasSection"
-import { LanguagesSection } from "./LanguagesSection"
+import { SkillAreasSection } from "./skill-areas-section"
+import { LanguagesSection } from "./languages-section"
 import { useAuth } from "@/hooks/use-auth"
 
 export function SkillsSection({ data, onDataChange, onPrevious, onCvSaved }: CvSectionProps) {

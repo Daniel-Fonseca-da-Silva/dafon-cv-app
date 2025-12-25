@@ -2,12 +2,12 @@
 
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
-import { PersonalInfoSection } from './sections/PersonalInfoSection'
-import { ExperienceSection } from './sections/ExperienceSection'
-import { EducationSection } from './sections/EducationSection'
-import { CourseSection } from './sections/CourseSection'
-import { SkillsSection } from './sections/SkillsSection'
-import { SocialSection } from './sections/SocialSection'
+import { PersonalInfoSection } from './sections/personal-info-section'
+import { ExperienceSection } from './sections/experience-section'
+import { EducationSection } from './sections/education-section'
+import { CourseSection } from './sections/course-section'
+import { SkillsSection } from './sections/skills-section'
+import { SocialSection } from './sections/social-section'
 import { CvData, CvSection } from '@/types/cv.types'
 
 const initialCvData: CvData = {
