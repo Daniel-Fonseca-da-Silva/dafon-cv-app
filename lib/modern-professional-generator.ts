@@ -1,5 +1,26 @@
 // html2canvas-pro e jsPDF serão importados dinamicamente no lado do cliente
 
+export interface PdfTranslations {
+  title: string
+  contact: {
+    driverLicense: string
+  }
+  sections: {
+    presentation: string
+    skills: string
+    technicalSkills: string
+    courses: string
+    professionalExperience: string
+    education: string
+    languages: string
+    linguisticProficiency: string
+  }
+  common: {
+    current: string
+    inProgress: string
+  }
+}
+
 export interface CurriculumData {
   id: string
   full_name: string
@@ -52,22 +73,22 @@ export const fetchCurriculumData = async (cvId: string): Promise<CurriculumData>
   }
 }
 
-export const formatDate = (dateString: string): string => {
+export const formatDate = (dateString: string, locale: string = 'pt-EU'): string => {
   const date = new Date(dateString)
-  return date.toLocaleDateString('pt-EU', {
+  return date.toLocaleDateString(locale, {
     month: '2-digit',
     year: 'numeric'
   })
 }
 
-export const createCurriculumHTML = (data: CurriculumData): string => {
+export const createCurriculumHTML = (data: CurriculumData, t: PdfTranslations, locale: string): string => {
   return `
     <!DOCTYPE html>
-    <html lang="pt-EU">
+    <html lang="${locale}">
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Currículo - ${data.full_name}</title>
+      <title>${t.title} - ${data.full_name}</title>
       <link rel="stylesheet" href="/modern-professional-style.css" type="text/css">
     </head>
     <body>
@@ -77,26 +98,26 @@ export const createCurriculumHTML = (data: CurriculumData): string => {
           <div class="pdf-contact-info">
             <div>📧 ${data.email}</div>
             <div>📱 ${data.phone}</div>
-            ${data.driver_license ? `<div>🚗 Carteira de Habilitação: ${data.driver_license}</div>` : ''}
+            ${data.driver_license ? `<div>🚗 ${t.contact.driverLicense}: ${data.driver_license}</div>` : ''}
           </div>
         </div>
         
         <div class="pdf-section">
-          <h2 class="pdf-section-title">Apresentação</h2>
+          <h2 class="pdf-section-title">${t.sections.presentation}</h2>
           <div class="pdf-intro">
             ${data.intro}
           </div>
         </div>
         
         <div class="pdf-section">
-          <h2 class="pdf-section-title">Competências</h2>
+          <h2 class="pdf-section-title">${t.sections.skills}</h2>
           <div class="pdf-skills-grid">
             <div class="pdf-skill-item">
-              <h4>Habilidades Técnicas</h4>
+              <h4>${t.sections.technicalSkills}</h4>
               <p>${data.skills}</p>
             </div>
             <div class="pdf-skill-item">
-              <h4>Cursos e Certificações</h4>
+              <h4>${t.sections.courses}</h4>
               <p>${data.courses}</p>
             </div>
           </div>
@@ -104,12 +125,12 @@ export const createCurriculumHTML = (data: CurriculumData): string => {
         
         ${data.works.length > 0 ? `
         <div class="pdf-section">
-          <h2 class="pdf-section-title">Experiência Profissional</h2>
+          <h2 class="pdf-section-title">${t.sections.professionalExperience}</h2>
           ${data.works.map(work => `
             <div class="pdf-experience-item">
               <h3>${work.position}</h3>
               <div class="pdf-company">${work.company}</div>
-              <div class="pdf-period">${formatDate(work.start_date)} - ${work.end_date ? formatDate(work.end_date) : 'Atual'}</div>
+              <div class="pdf-period">${formatDate(work.start_date, locale)} - ${work.end_date ? formatDate(work.end_date, locale) : t.common.current}</div>
               <div class="pdf-description">${work.description}</div>
             </div>
           `).join('')}
@@ -118,12 +139,12 @@ export const createCurriculumHTML = (data: CurriculumData): string => {
         
         ${data.educations.length > 0 ? `
         <div class="pdf-section">
-          <h2 class="pdf-section-title">Formação Acadêmica</h2>
+          <h2 class="pdf-section-title">${t.sections.education}</h2>
           ${data.educations.map(education => `
             <div class="pdf-education-item">
               <h3>${education.degree}</h3>
               <div class="pdf-institution">${education.institution}</div>
-              <div class="pdf-period">${formatDate(education.start_date)} - ${education.end_date ? formatDate(education.end_date) : 'Em andamento'}</div>
+              <div class="pdf-period">${formatDate(education.start_date, locale)} - ${education.end_date ? formatDate(education.end_date, locale) : t.common.inProgress}</div>
               ${education.description ? `<div class="pdf-description">${education.description}</div>` : ''}
             </div>
           `).join('')}
@@ -131,9 +152,9 @@ export const createCurriculumHTML = (data: CurriculumData): string => {
         ` : ''}
         
         <div class="pdf-section">
-          <h2 class="pdf-section-title">Idiomas</h2>
+          <h2 class="pdf-section-title">${t.sections.languages}</h2>
           <div class="pdf-languages">
-            <h4>Proficiência Linguística</h4>
+            <h4>${t.sections.linguisticProficiency}</h4>
             <p>${data.languages}</p>
           </div>
         </div>
@@ -149,7 +170,12 @@ export const createCurriculumHTML = (data: CurriculumData): string => {
   `
 }
 
-export const generatePDF = async (cvId: string, download: boolean = true): Promise<void> => {
+export const generatePDF = async (
+  cvId: string, 
+  translations: PdfTranslations, 
+  locale: string, 
+  download: boolean = true
+): Promise<void> => {
   try {
     // Verificar se estamos no lado do cliente
     if (typeof window === 'undefined') {
@@ -164,7 +190,7 @@ export const generatePDF = async (cvId: string, download: boolean = true): Promi
     const curriculumData = await fetchCurriculumData(cvId)
     
     // Criar HTML do currículo
-    const htmlContent = createCurriculumHTML(curriculumData)
+    const htmlContent = createCurriculumHTML(curriculumData, translations, locale)
     
     // Criar iframe oculto completamente isolado
     const iframe = document.createElement('iframe')
@@ -246,7 +272,8 @@ export const generatePDF = async (cvId: string, download: boolean = true): Promi
     
     // Salvar ou visualizar o PDF
     if (download) {
-      pdf.save(`curriculo_${curriculumData.full_name.replace(/\s+/g, '_')}.pdf`)
+      const prefix = locale === 'en' ? 'resume_' : 'curriculo_'
+      pdf.save(`${prefix}${curriculumData.full_name.replace(/\s+/g, '_')}.pdf`)
     } else {
       // Abrir PDF em nova aba para visualização
       const pdfBlob = pdf.output('blob')
@@ -267,6 +294,10 @@ export const generatePDF = async (cvId: string, download: boolean = true): Promi
   }
 }
 
-export const previewPDF = async (cvId: string): Promise<void> => {
-  return generatePDF(cvId, false)
+export const previewPDF = async (
+  cvId: string, 
+  translations: PdfTranslations, 
+  locale: string
+): Promise<void> => {
+  return generatePDF(cvId, translations, locale, false)
 }

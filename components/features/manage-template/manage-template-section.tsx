@@ -2,13 +2,13 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { useTranslations } from "next-intl"
+import { useTranslations, useMessages, useLocale } from "next-intl"
 import { TemplateManagementSectionProps, TemplateFilter, ViewMode } from "@/types/template.types"
 import { TemplateCard } from "../template-card"
 import { TemplateFilters } from "../template-filters"
 import { TemplateSkeleton } from "./manage-template-skeleton"
 import { useTemplates } from "@/hooks/use-templates"
-import { generatePDF, previewPDF } from "@/lib/modern-professional-generator"
+import { generatePDF, previewPDF, PdfTranslations } from "@/lib/modern-professional-generator"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -30,6 +30,11 @@ export function TemplateManagementSection({ onSectionChange }: TemplateManagemen
   
   const { loading, getFilteredTemplates } = useTemplates()
   const t = useTranslations('templateManagement')
+  const messages = useMessages() as any
+  const locale = useLocale()
+  
+  // Pegando a parte específica das traduções
+  const pdfTranslations = messages.cvPdf as PdfTranslations
 
   const filteredTemplates = getFilteredTemplates(filter)
 
@@ -44,7 +49,7 @@ export function TemplateManagementSection({ onSectionChange }: TemplateManagemen
     
     try {
       setIsGeneratingPDF(true)
-      await previewPDF(cvIdLocalStorage) // Visualizar PDF
+      await previewPDF(cvIdLocalStorage, pdfTranslations, locale) // Visualizar PDF
     } catch (error) {
       // Lança um alerta de erro para o usuário
       setErrorMessage(t('errorAlert.viewPdfError'))
@@ -65,7 +70,7 @@ export function TemplateManagementSection({ onSectionChange }: TemplateManagemen
     
     try {
       setIsGeneratingPDF(true)
-      await generatePDF(cvIdLocalStorage, true) // true = download
+      await generatePDF(cvIdLocalStorage, pdfTranslations, locale, true) // true = download
     } catch (error) {
       // Lança um alerta de erro para o usuário
       setErrorMessage(t('errorAlert.downloadPdfError'))

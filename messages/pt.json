@@ -1427,6 +1427,26 @@
     "sending": "Enviando...",
     "success": "Mensagem enviada com sucesso!",
     "error": "Falha ao enviar mensagem. Tente novamente mais tarde."
+  },
+  "cvPdf": {
+    "title": "Currículo",
+    "contact": {
+      "driverLicense": "Carteira de Habilitação"
+    },
+    "sections": {
+      "presentation": "Apresentação",
+      "skills": "Competências",
+      "technicalSkills": "Habilidades Técnicas",
+      "courses": "Cursos e Certificações",
+      "professionalExperience": "Experiência Profissional",
+      "education": "Formação Acadêmica",
+      "languages": "Idiomas",
+      "linguisticProficiency": "Proficiência Linguística"
+    },
+    "common": {
+      "current": "Atual",
+      "inProgress": "Em andamento"
+    }
   }
 }
 

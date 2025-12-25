@@ -1426,6 +1426,26 @@
     "sending": "Sending...",
     "success": "Message sent successfully!",
     "error": "Failed to send message. Please try again later."
+  },
+  "cvPdf": {
+    "title": "Resume",
+    "contact": {
+      "driverLicense": "Driver's License"
+    },
+    "sections": {
+      "presentation": "Presentation",
+      "skills": "Skills",
+      "technicalSkills": "Technical Skills",
+      "courses": "Courses and Certifications",
+      "professionalExperience": "Professional Experience",
+      "education": "Education",
+      "languages": "Languages",
+      "linguisticProficiency": "Linguistic Proficiency"
+    },
+    "common": {
+      "current": "Current",
+      "inProgress": "In Progress"
+    }
   }
 }
 

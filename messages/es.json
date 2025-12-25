@@ -1427,5 +1427,25 @@
     "sending": "Enviando...",
     "success": "¡Mensaje enviado con éxito!",
     "error": "Error al enviar mensaje. Inténtalo de nuevo más tarde."
+  },
+  "cvPdf": {
+    "title": "Currículum",
+    "contact": {
+      "driverLicense": "Licencia de Conducir"
+    },
+    "sections": {
+      "presentation": "Presentación",
+      "skills": "Competencias",
+      "technicalSkills": "Habilidades Técnicas",
+      "courses": "Cursos y Certificaciones",
+      "professionalExperience": "Experiencia Profesional",
+      "education": "Formación Académica",
+      "languages": "Idiomas",
+      "linguisticProficiency": "Competencia Lingüística"
+    },
+    "common": {
+      "current": "Actual",
+      "inProgress": "En curso"
+    }
   }
 }

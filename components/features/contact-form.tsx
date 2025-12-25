@@ -1,8 +1,8 @@
 'use client';
 
 import { useActionState } from 'react';
-import { useTranslations } from 'next-intl'; // Importar useTranslations
-import { submitContactForm } from '@/actions/contact';
+import { useTranslations } from 'next-intl';
+import { submitContactForm } from '@/app/api/contact/contact';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
