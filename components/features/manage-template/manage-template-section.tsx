@@ -2,6 +2,8 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
+import { HexColorPicker } from "react-colorful"
+import { Palette } from "lucide-react"
 import { useTranslations, useMessages, useLocale } from "next-intl"
 import { TemplateManagementSectionProps, TemplateFilter, ViewMode } from "@/types/template.types"
 import { TemplateCard } from "../template-card"
@@ -23,6 +25,8 @@ import {
 export function TemplateManagementSection({ onSectionChange }: TemplateManagementSectionProps) {
   const [viewMode, setViewMode] = useState<ViewMode>('grid')
   const [filter, setFilter] = useState<TemplateFilter>('all')
+  const [backgroundColor, setBackgroundColor] = useState('#ffffff')
+  const [showColorPicker, setShowColorPicker] = useState(false)
   const [showNoCvAlert, setShowNoCvAlert] = useState(false)
   const [showErrorAlert, setShowErrorAlert] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
@@ -38,7 +42,7 @@ export function TemplateManagementSection({ onSectionChange }: TemplateManagemen
 
   const filteredTemplates = getFilteredTemplates(filter)
 
-  const handleViewTemplate = async (templateId: string) => {
+  const handleViewTemplate = async () => {
     const cvIdLocalStorage = localStorage.getItem('selectedCvId')
     
     // Verificar se há um currículo selecionado
@@ -49,7 +53,7 @@ export function TemplateManagementSection({ onSectionChange }: TemplateManagemen
     
     try {
       setIsGeneratingPDF(true)
-      await previewPDF(cvIdLocalStorage, pdfTranslations, locale) // Visualizar PDF
+      await previewPDF(cvIdLocalStorage, pdfTranslations, locale, { backgroundColor }) // Passando a cor
     } catch (error) {
       // Lança um alerta de erro para o usuário
       setErrorMessage(t('errorAlert.viewPdfError'))
@@ -59,7 +63,7 @@ export function TemplateManagementSection({ onSectionChange }: TemplateManagemen
     }
   }
 
-  const handleDownloadTemplate = async (templateId: string) => {
+  const handleDownloadTemplate = async () => {
     const cvIdLocalStorage = localStorage.getItem('selectedCvId')
     
     // Verificar se há um currículo selecionado
@@ -70,7 +74,7 @@ export function TemplateManagementSection({ onSectionChange }: TemplateManagemen
     
     try {
       setIsGeneratingPDF(true)
-      await generatePDF(cvIdLocalStorage, pdfTranslations, locale, true) // true = download
+      await generatePDF(cvIdLocalStorage, pdfTranslations, locale, true, { backgroundColor }) // Passando a cor
     } catch (error) {
       // Lança um alerta de erro para o usuário
       setErrorMessage(t('errorAlert.downloadPdfError'))
@@ -122,6 +126,33 @@ export function TemplateManagementSection({ onSectionChange }: TemplateManagemen
         <p className="text-white/70 text-lg">
           {t('subtitle')}
         </p>
+      </div>
+
+      {/* Color Picker Section */}
+      <div className="mb-6 flex items-center gap-4 bg-white/5 p-4 rounded-lg border border-white/10 w-fit mx-auto sm:mx-0">
+        <div className="flex items-center gap-2 text-white">
+          <Palette className="w-5 h-5" />
+          <span className="font-medium">Background Color</span>
+        </div>
+        <div className="relative">
+          <button
+            className="w-10 h-10 rounded-full border-2 border-white/50 shadow-sm transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white/50"
+            style={{ backgroundColor: backgroundColor }}
+            onClick={() => setShowColorPicker(!showColorPicker)}
+            aria-label="Select background color"
+          />
+          {showColorPicker && (
+            <div className="absolute top-12 left-0 z-50">
+              <div 
+                className="fixed inset-0" 
+                onClick={() => setShowColorPicker(false)} 
+              />
+              <div className="relative bg-white p-3 rounded-xl shadow-xl border border-gray-200">
+                <HexColorPicker color={backgroundColor} onChange={setBackgroundColor} />
+              </div>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Filters and Controls */}

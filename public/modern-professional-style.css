@@ -13,7 +13,7 @@
 html, body {
   margin: 0 !important;
   padding: 0 !important;
-  background: #ffffff !important;
+  background: #000000 !important;
   color: #000000 !important;
   font-size: 12px !important;
   line-height: 1.5 !important;
@@ -25,6 +25,7 @@ html, body {
   max-width: 800px !important;
   margin: 0 auto !important;
   padding: 30px !important;
+  /* Adiciona cor de fundo em todo o pdf */
   background: #ffffff !important;
 }
 
@@ -34,11 +35,12 @@ html, body {
   margin-bottom: 30px !important;
   border-bottom: 2px solid #000000 !important;
   padding-bottom: 15px !important;
-  background: #ffffff !important;
+  background: #000000 !important;
 }
 
 .pdf-header h1 {
   font-size: 24px !important;
+  /* Adiciona cor no nome e sobrenome */
   color: #000000 !important;
   margin-bottom: 8px !important;
   font-weight: bold !important;
@@ -64,6 +66,7 @@ html, body {
 
 .pdf-section-title {
   font-size: 14px !important;
+  /* Adiciona cor nos subtitulos */
   color: #000000 !important;
   border-bottom: 1px solid #000000 !important;
   padding-bottom: 3px !important;
@@ -81,6 +84,7 @@ html, body {
   background: transparent !important;
   padding: 0 !important;
   border: none !important;
+  /* Adiciona cor no texto da apresentação */
   color: #000000 !important;
   margin-bottom: 15px !important;
 }

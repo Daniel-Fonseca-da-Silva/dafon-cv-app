@@ -56,6 +56,10 @@ export interface CurriculumData {
   updated_at: string
 }
 
+export interface GeneratorOptions {
+  backgroundColor?: string;
+}
+
 export const fetchCurriculumData = async (cvId: string): Promise<CurriculumData> => {
   try {
     const response = await fetch(`/api/curriculums/${cvId}`)
@@ -81,7 +85,15 @@ export const formatDate = (dateString: string, locale: string = 'pt-EU'): string
   })
 }
 
-export const createCurriculumHTML = (data: CurriculumData, t: PdfTranslations, locale: string): string => {
+export const createCurriculumHTML = (
+  data: CurriculumData, 
+  t: PdfTranslations, 
+  locale: string,
+  options: GeneratorOptions = {} // Novo parâmetro com valor default
+): string => {
+  // Extrai o valor com fallback para o branco padrão
+  const { backgroundColor = '#ffffff' } = options;
+
   return `
     <!DOCTYPE html>
     <html lang="${locale}">
@@ -90,6 +102,16 @@ export const createCurriculumHTML = (data: CurriculumData, t: PdfTranslations, l
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>${t.title} - ${data.full_name}</title>
       <link rel="stylesheet" href="/modern-professional-style.css" type="text/css">
+      
+      <!-- Injeção de estilo dinâmico para sobrescrever o CSS estático -->
+      <style>
+        .pdf-container {
+          background: ${backgroundColor} !important;
+        }
+        .pdf-header {
+          background: transparent !important;
+        }
+      </style>
     </head>
     <body>
       <div class="pdf-container">
@@ -174,7 +196,8 @@ export const generatePDF = async (
   cvId: string, 
   translations: PdfTranslations, 
   locale: string, 
-  download: boolean = true
+  download: boolean = true,
+  options: GeneratorOptions = {} // Novo parâmetro
 ): Promise<void> => {
   try {
     // Verificar se estamos no lado do cliente
@@ -189,8 +212,8 @@ export const generatePDF = async (
     // Buscar dados do currículo
     const curriculumData = await fetchCurriculumData(cvId)
     
-    // Criar HTML do currículo
-    const htmlContent = createCurriculumHTML(curriculumData, translations, locale)
+    // Criar HTML do currículo passando as opções
+    const htmlContent = createCurriculumHTML(curriculumData, translations, locale, options)
     
     // Criar iframe oculto completamente isolado
     const iframe = document.createElement('iframe')
@@ -297,7 +320,8 @@ export const generatePDF = async (
 export const previewPDF = async (
   cvId: string, 
   translations: PdfTranslations, 
-  locale: string
+  locale: string,
+  options: GeneratorOptions = {}
 ): Promise<void> => {
-  return generatePDF(cvId, translations, locale, false)
+  return generatePDF(cvId, translations, locale, false, options)
 }
