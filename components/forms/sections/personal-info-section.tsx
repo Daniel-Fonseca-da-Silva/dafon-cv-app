@@ -6,11 +6,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { 
   FiUser, 
   FiMail, 
-  FiPhone, 
   FiPlus,
   FiX,
   FiArrowRight,
@@ -18,34 +16,18 @@ import {
   FiInfo,
   FiStar
 } from "react-icons/fi"
+import 'react-phone-number-input/style.css'
+import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input'
 import { CvSectionProps } from "../../../types/cv.types"
 
 const DRIVER_LICENSE_CATEGORIES = [
   'A', 'B', 'AB', 'C', 'D'
 ]
 
-const COUNTRY_CODES = [
-  { code: '+351', country: 'Portugal' },
-  { code: '+1', country: 'United States' },
-  { code: '+44', country: 'United Kingdom' },
-  { code: '+33', country: 'France' },
-  { code: '+49', country: 'Germany' },
-  { code: '+34', country: 'Spain' },
-  { code: '+39', country: 'Italy' },
-  { code: '+55', country: 'Brazil' },
-  { code: '+52', country: 'Mexico' },
-  { code: '+86', country: 'China' },
-  { code: '+81', country: 'Japan' },
-  { code: '+91', country: 'India' },
-]
-
 export function PersonalInfoSection({ data, onDataChange, onNext }: CvSectionProps) {
   const t = useTranslations('cvForm.personalInfo')
   const [newCategory, setNewCategory] = useState('')
   const [isProcessingAI, setIsProcessingAI] = useState(false)
-  const [phoneError, setPhoneError] = useState('')
-  const [countryCode, setCountryCode] = useState('+351')
-  const [phoneNumber, setPhoneNumber] = useState('')
 
   const updatePersonalInfo = useCallback((field: keyof typeof data.personalInfo, value: string | string[]) => {
     onDataChange({
@@ -56,19 +38,6 @@ export function PersonalInfoSection({ data, onDataChange, onNext }: CvSectionPro
       }
     })
   }, [data, onDataChange])
-
-  const handleCountryCodeChange = useCallback((value: string) => {
-    setCountryCode(value)
-    const fullPhone = `${value}${phoneNumber}`
-    updatePersonalInfo('phone', fullPhone)
-  }, [phoneNumber, updatePersonalInfo])
-
-  const handlePhoneNumberChange = useCallback((value: string) => {
-    const cleanNumber = value.replace(/[^0-9]/g, '')
-    setPhoneNumber(cleanNumber)
-    const fullPhone = `${countryCode}${cleanNumber}`
-    updatePersonalInfo('phone', fullPhone)
-  }, [countryCode, updatePersonalInfo])
 
   const toggleDriverLicenseCategory = (category: string) => {
     const currentCategories = data.personalInfo.driverLicense || []
@@ -143,11 +112,14 @@ export function PersonalInfoSection({ data, onDataChange, onNext }: CvSectionPro
   }
 
   const isFormValid = useCallback(() => {
-    const { fullName, email, aboutYourself } = data.personalInfo
-    const phoneOk = phoneNumber.trim() !== '' && phoneNumber.length >= 7
+    const { fullName, email, aboutYourself, phone } = data.personalInfo
+    
+    // Validar telefone usando a função da biblioteca
+    const phoneOk = phone ? isValidPhoneNumber(phone) : false
+    
     const introOk = aboutYourself && aboutYourself.trim() !== ''
-    return fullName.trim() !== '' && email.trim() !== '' && phoneOk && phoneError === '' && introOk
-  }, [data.personalInfo, phoneNumber, phoneError])
+    return fullName.trim() !== '' && email.trim() !== '' && phoneOk && introOk
+  }, [data.personalInfo])
 
   return (
     <div className="space-y-6">
@@ -200,41 +172,16 @@ export function PersonalInfoSection({ data, onDataChange, onNext }: CvSectionPro
             </div>
             <div className="space-y-2">
               <label className="text-white/80 text-sm font-medium">{t('fields.phone.label')} <span className="text-white">*</span></label>
-              <div className="flex gap-2">
-                <Select value={countryCode} onValueChange={handleCountryCodeChange}>
-                  <SelectTrigger className="w-[140px] bg-white/20 border-white/30 text-white">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent className="bg-white/95 backdrop-blur-xl border-white/30">
-                    {COUNTRY_CODES.map((country) => (
-                      <SelectItem key={country.code} value={country.code} className="text-gray-900">
-                        <div className="flex items-center gap-2">
-                          <span className="font-mono text-sm">{country.code}</span>
-                          <span className="text-sm">{country.country}</span>
-                        </div>
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                <div className="relative flex-1">
-                  <FiPhone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/60 w-4 h-4" />
-                  <Input
-                    value={phoneNumber}
-                    onChange={(e) => handlePhoneNumberChange(e.target.value)}
-                    placeholder={t('fields.phone.placeholder')}
-                    className="bg-white/20 border-white/30 text-white placeholder:text-white/60 pl-10"
-                    inputMode="tel"
-                    autoComplete="tel"
-                    required
-                  />
-                </div>
+              <div className="phone-input-container">
+                <PhoneInput
+                  placeholder={t('fields.phone.placeholder')}
+                  value={data.personalInfo.phone}
+                  onChange={(value) => updatePersonalInfo('phone', value || '')}
+                  className="flex h-10 w-full rounded-md border border-white/30 bg-white/20 px-3 py-2 text-sm text-white placeholder:text-white/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                />
               </div>
               <div className="text-xs mt-1">
-                {phoneError ? (
-                  <span className="text-red-300">{phoneError}</span>
-                ) : (
-                  <span className="text-white/60">{t('fields.phone.help')}</span>
-                )}
+                 <span className="text-white/60">{t('fields.phone.help')}</span>
               </div>
             </div>
             <div className="space-y-2">
