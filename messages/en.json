@@ -57,8 +57,8 @@
     }
   },
   "metadata": {
-    "title": "Dafon CV - Create your Perfect CV with AI",
-    "description": "Transform your professional experience into unique and personalized CVs. Our AI adapts your CV to each job, maximizing your chances of success."
+    "title": "Dafon CV - AI Recruitment Platform for Consultancies",
+    "description": "The all-in-one platform for recruitment agencies. Create, analyze, and match candidate resumes with AI precision."
   },
   "ErrorPage": {
     "title": "Error"
@@ -75,105 +75,105 @@
       "startNow": "Start Now"
     },
     "hero": {
-      "badge": "Powered by Dafon",
-      "headline": "Create your Perfect CV with AI",
-      "highlightWord": "Perfect",
-      "subheadline": "Transform your professional experience into unique and personalized CVs. Our AI adapts your CV to each job, maximizing your chances of success.",
-      "ctaPrimary": "Start Now",
-      "ctaSecondary": "See Demo"
+      "badge": "AI for Recruiters & Consultancies",
+      "headline": "Create, Analyze, and Match Talent with AI",
+      "highlightWord": "AI",
+      "subheadline": "The complete platform for consultancies. Create standardized professional resumes, analyze candidate potential, and match your talent pool to client opportunities instantly.",
+      "ctaPrimary": "Start Free Trial",
+      "ctaSecondary": "Schedule Demo"
     },
     "benefits": {
-      "title": "Why choose Dafon CV?",
+      "title": "Empowering Modern Consultancies",
       "items": [
         {
           "icon": "zap",
-          "title": "Fast Creation",
-          "description": "Create your CV in minutes, not hours"
+          "title": "Standardized CV Creation",
+          "description": "Generate uniform, professional resumes for all your consultants in minutes."
         },
         {
           "icon": "brain",
-          "title": "Smart AI",
-          "description": "Advanced algorithms optimize your CV"
+          "title": "AI Gap Analysis",
+          "description": "Identify missing technologies and skills to maximize placement success."
         },
         {
           "icon": "target",
-          "title": "Personalized",
-          "description": "Adapted for each specific job"
+          "title": "Smart Job Matching",
+          "description": "Cross-reference your consultant database with open positions automatically."
         },
         {
           "icon": "shield",
-          "title": "Secure",
-          "description": "Your data protected with encryption"
+          "title": "Market Positioning",
+          "description": "Increase hiring chances with data-driven insights and scoring."
         }
       ]
     },
     "demo": {
-      "title": "See Dafon CV in Action",
-      "subtitle": "Discover how our AI revolutionizes professional CV creation",
+      "title": "Recruitment Intelligence Suite",
+      "subtitle": "Streamline your consultancy workflow from CV creation to final placement",
       "features": [
         {
-          "title": "Intuitive Interface",
-          "description": "Modern and easy-to-use design, created for professionals of all levels"
+          "title": "Resume Builder for Teams",
+          "description": "Create consistent, branded resumes for your entire consultant workforce."
         },
         {
-          "title": "Advanced AI",
-          "description": "Algorithms that analyze jobs and optimize your CV automatically"
+          "title": "Hiring Probability Score",
+          "description": "AI analyzes the match between candidate skills and job requirements."
         },
         {
-          "title": "Professional Templates",
-          "description": "Over 100 models created by specialized designers"
+          "title": "Talent Pool Mining",
+          "description": "Rediscover matching candidates from your existing database for new roles."
         },
         {
-          "title": "Real-time Analysis",
-          "description": "Instant feedback on the quality and suitability of your CV"
+          "title": "Client Insight Reports",
+          "description": "Generate detailed analysis reports to present to your clients."
         }
       ],
-      "cta": "Try Free",
+      "cta": "Optimize Your Process",
       "stats": [
         {
-          "number": "2min",
-          "label": "Average Creation Time",
+          "number": "60%",
+          "label": "Faster Submissions",
           "color": "text-green-400"
         },
         {
-          "number": "98%",
-          "label": "User Satisfaction",
+          "number": "85%",
+          "label": "Placement Rate",
           "color": "text-blue-400"
         },
         {
           "number": "24/7",
-          "label": "Support Available",
+          "label": "Automated Matching",
           "color": "text-purple-400"
         }
       ]
     },
     "socialProof": {
-      "title": "Join thousands of professionals",
+      "title": "Trusted by Top Consultancies",
       "stats": [
         {
-          "number": "10k+",
-          "label": "CVs Created",
+          "number": "500+",
+          "label": "Agencies",
           "color": "text-yellow-400"
         },
         {
-          "number": "95%",
-          "label": "Success Rate",
+          "number": "1M+",
+          "label": "CVs Analyzed",
           "color": "text-green-400"
         },
         {
-          "number": "24h",
-          "label": "Support",
+          "number": "50k",
+          "label": "Placements",
           "color": "text-blue-400"
         },
         {
-          "number": "2+",
-          "label": "CV Templates",
+          "number": "98%",
+          "label": "Client Satisfaction",
           "color": "text-pink-400"
         }
       ]
     },
     "footer": {
-      "description": "Transform your professional experience into unique and personalized CVs with the power of AI.",
+      "description": "Empowering consultancies to find, analyze, and place the best talent with advanced AI technology.",
       "company": "Company",
       "about": "About",
       "information": "Information",

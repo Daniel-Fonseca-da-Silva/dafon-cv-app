@@ -57,8 +57,8 @@
     }
   },
   "metadata": {
-    "title": "Dafon CV - Crea tu CV Perfecto con IA",
-    "description": "Transforma tu experiencia profesional en CVs únicos y personalizados. Nuestra IA adapta tu CV a cada trabajo, maximizando tus posibilidades de éxito."
+    "title": "Dafon CV - Plataforma de Reclutamiento con IA para Consultorías",
+    "description": "La plataforma todo en uno para agencias de reclutamiento. Crea, analiza y combina currículos de candidatos con precisión de IA."
   },
   "ErrorPage": {
     "title": "Error"
@@ -75,105 +75,105 @@
       "startNow": "Comenzar Ahora"
     },
     "hero": {
-      "badge": "Desarrollado por Dafon",
-      "headline": "Crea tu CV Perfecto con IA",
-      "highlightWord": "Perfecto",
-      "subheadline": "Transforma tu experiencia profesional en CVs únicos y personalizados. Nuestra IA adapta tu CV a cada trabajo, maximizando tus posibilidades de éxito.",
-      "ctaPrimary": "Comenzar Ahora",
-      "ctaSecondary": "Ver Demo"
+      "badge": "IA para Reclutadores y Consultorías",
+      "headline": "Crea, Analiza y Combina Talentos con IA",
+      "highlightWord": "IA",
+      "subheadline": "La plataforma completa para consultorías. Crea currículos profesionales estandarizados, analiza el potencial de los candidatos y combina tu base de talentos con oportunidades de clientes al instante.",
+      "ctaPrimary": "Comenzar Prueba Gratis",
+      "ctaSecondary": "Agendar Demo"
     },
     "benefits": {
-      "title": "¿Por qué elegir Dafon CV?",
+      "title": "Potenciando Consultorías Modernas",
       "items": [
         {
           "icon": "zap",
-          "title": "Creación Rápida",
-          "description": "Crea tu CV en minutos, no en horas"
+          "title": "Creación de CV Estandarizado",
+          "description": "Genera currículos uniformes y profesionales para todos tus consultores en minutos."
         },
         {
           "icon": "brain",
-          "title": "IA Inteligente",
-          "description": "Algoritmos avanzados optimizan tu CV"
+          "title": "Análisis de Brechas con IA",
+          "description": "Identifica tecnologías y habilidades faltantes para maximizar el éxito de la colocación."
         },
         {
           "icon": "target",
-          "title": "Personalizado",
-          "description": "Adaptado para cada trabajo específico"
+          "title": "Coincidencia Inteligente",
+          "description": "Cruza tu base de datos de consultores con posiciones abiertas automáticamente."
         },
         {
           "icon": "shield",
-          "title": "Seguro",
-          "description": "Tus datos protegidos con encriptación"
+          "title": "Posicionamiento de Mercado",
+          "description": "Aumenta las posibilidades de contratación con insights basados en datos y puntuación."
         }
       ]
     },
     "demo": {
-      "title": "Ve Dafon CV en Acción",
-      "subtitle": "Descubre cómo nuestra IA revoluciona la creación de CVs profesionales",
+      "title": "Suite de Inteligencia en Reclutamiento",
+      "subtitle": "Optimiza el flujo de trabajo de tu consultoría, desde la creación del CV hasta la colocación final",
       "features": [
         {
-          "title": "Interfaz Intuitiva",
-          "description": "Diseño moderno y fácil de usar, creado para profesionales de todos los niveles"
+          "title": "Constructor de Currículos para Equipos",
+          "description": "Crea currículos consistentes y con la marca de tu empresa para toda tu fuerza laboral."
         },
         {
-          "title": "IA Avanzada",
-          "description": "Algoritmos que analizan trabajos y optimizan tu CV automáticamente"
+          "title": "Puntuación de Probabilidad",
+          "description": "La IA analiza la compatibilidad entre las habilidades del candidato y los requisitos del puesto."
         },
         {
-          "title": "Plantillas Profesionales",
-          "description": "Más de 100 modelos creados por diseñadores especializados"
+          "title": "Minería de Base de Talentos",
+          "description": "Redescubre candidatos compatibles de tu base de datos existente para nuevos roles."
         },
         {
-          "title": "Análisis en Tiempo Real",
-          "description": "Retroalimentación instantánea sobre la calidad y adecuación de tu CV"
+          "title": "Informes de Insights para Clientes",
+          "description": "Genera informes de análisis detallados para presentar a tus clientes."
         }
       ],
-      "cta": "Probar Gratis",
+      "cta": "Optimiza Tu Proceso",
       "stats": [
         {
-          "number": "2min",
-          "label": "Tiempo Promedio de Creación",
+          "number": "60%",
+          "label": "Envíos Más Rápidos",
           "color": "text-green-400"
         },
         {
-          "number": "98%",
-          "label": "Satisfacción del Usuario",
+          "number": "85%",
+          "label": "Tasa de Colocación",
           "color": "text-blue-400"
         },
         {
           "number": "24/7",
-          "label": "Soporte Disponible",
+          "label": "Coincidencia Automatizada",
           "color": "text-purple-400"
         }
       ]
     },
     "socialProof": {
-      "title": "Únete a miles de profesionales",
+      "title": "Confiado por las Mejores Consultorías",
       "stats": [
         {
-          "number": "10k+",
-          "label": "CVs Creados",
+          "number": "500+",
+          "label": "Agencias",
           "color": "text-yellow-400"
         },
         {
-          "number": "95%",
-          "label": "Tasa de Éxito",
+          "number": "1M+",
+          "label": "CVs Analizados",
           "color": "text-green-400"
         },
         {
-          "number": "24h",
-          "label": "Soporte",
+          "number": "50k",
+          "label": "Colocaciones",
           "color": "text-blue-400"
         },
         {
-          "number": "2+",
-          "label": "Plantillas de CV",
+          "number": "98%",
+          "label": "Satisfacción del Cliente",
           "color": "text-pink-400"
         }
       ]
     },
     "footer": {
-      "description": "Transforma tu experiencia profesional en CVs únicos y personalizados con el poder de la IA.",
+      "description": "Capacitando a las consultorías para encontrar, analizar y colocar el mejor talento con tecnología de IA avanzada.",
       "company": "Empresa",
       "about": "Acerca de",
       "information": "Información",
