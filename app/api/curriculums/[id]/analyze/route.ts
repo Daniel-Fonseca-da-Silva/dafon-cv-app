@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { LOCALE_COOKIE_NAME } from '@/lib/cookies'
 
 const BACKEND_API_URL = process.env.BACKEND_API_URL
+const DEFAULT_LOCALE = 'en'
 
 export async function POST(
   request: NextRequest,
@@ -16,8 +18,14 @@ export async function POST(
       )
     }
 
+    // Obter localte do cookie ou usar padrão
+    const locale = request.cookies.get(LOCALE_COOKIE_NAME)?.value || DEFAULT_LOCALE
+
+     // Construir URL com parâmetro lang
+    const backendUrl = `${BACKEND_API_URL}/generate-analyze-ai/${encodeURIComponent(id)}?lang=${locale}`
+
     // Fazer requisição para o backend externo
-    const response = await fetch(`${BACKEND_API_URL}/generate-analyze-ai/${encodeURIComponent(id)}`,
+    const response = await fetch(backendUrl,
       {
         method: 'POST',
         headers: {

@@ -845,7 +845,10 @@
     "back": "Voltar",
     "score": {
       "title": "Pontuação Geral",
-      "outOf": "de"
+      "outOf": "de",
+      "excellent": "Excelente",
+      "good": "Bom",
+      "needsImprovement": "Precisa de Melhoria"
     },
     "strengths": {
       "title": "Pontos Fortes"

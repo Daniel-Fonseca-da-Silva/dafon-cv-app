@@ -844,7 +844,10 @@
     "back": "Back",
     "score": {
       "title": "Overall Score",
-      "outOf": "out of"
+      "outOf": "out of",
+      "excellent": "Excellent",
+      "good": "Good",
+      "needsImprovement": "Needs Improvement"
     },
     "strengths": {
       "title": "Strengths"

@@ -845,7 +845,10 @@
     "back": "Volver",
     "score": {
       "title": "Puntuación General",
-      "outOf": "de"
+      "outOf": "de",
+      "excellent": "Excelente",
+      "good": "Bueno",
+      "needsImprovement": "Necesita Mejora"
     },
     "strengths": {
       "title": "Fortalezas"
