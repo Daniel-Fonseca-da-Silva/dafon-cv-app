@@ -117,3 +117,27 @@ export interface PaginationMeta {
   hasNextPage: boolean
   hasPreviousPage: boolean
 }
+
+// CV Analysis Types
+export interface AtsCompatibility {
+  assessment: string
+  chance: 'low' | 'medium' | 'high'
+  recommendations: string[]
+}
+
+export interface CvAnalysisResponse {
+  score: number
+  description: string
+  improvement_points: string[]
+  best_practices: string[]
+  ats_compatibility: AtsCompatibility
+  professional_alignment: string[]
+  strengths: string[]
+  recommendations: string[]
+}
+
+export interface CvAnalysisSectionProps {
+  cvId: string
+  cvData?: CvSummary
+  onSectionChange?: (section: string) => void
+}
