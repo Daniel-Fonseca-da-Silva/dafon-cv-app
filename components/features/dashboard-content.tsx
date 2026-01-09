@@ -1,12 +1,15 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import { DashboardCards } from "./dashboard-cards"
 import { TemplateManagementSection } from "./manage-template/manage-template-section"
 import { CvManagementSection } from "./my-cvs/my-cv-section"
+import { CvAnalysisSection } from "./my-cvs/cv-analysis-section"
 import { CvCreationSection } from "./cv-creation-section"
 import { ProfileSection } from "./profile/profile-section"
 import { SettingsSection } from "./settings/settings-section"
 import { PlansSection } from "./my-plans/plans-section"
+import { CvSummary } from "@/types/cv.types"
 
 interface DashboardContentProps {
   activeSection: string
@@ -14,6 +17,28 @@ interface DashboardContentProps {
 }
 
 export function DashboardContent({ activeSection, onSectionChange }: DashboardContentProps) {
+  const [analyzingCvId, setAnalyzingCvId] = useState<string>('')
+  const [analyzingCvData, setAnalyzingCvData] = useState<CvSummary | undefined>(undefined)
+
+  useEffect(() => {
+    if (activeSection === 'cv-analysis' && typeof window !== 'undefined') {
+      const storedCvId = localStorage.getItem('analyzingCvId')
+      const storedCvData = localStorage.getItem('analyzingCvData')
+      
+      if (storedCvId) {
+        setAnalyzingCvId(storedCvId)
+      }
+      
+      if (storedCvData) {
+        try {
+          setAnalyzingCvData(JSON.parse(storedCvData))
+        } catch (e) {
+          console.error('Error parsing stored CV data:', e)
+        }
+      }
+    }
+  }, [activeSection])
+
   const renderContent = () => {
     switch (activeSection) {
       case "dashboard":
@@ -26,6 +51,12 @@ export function DashboardContent({ activeSection, onSectionChange }: DashboardCo
         return <CvManagementSection onSectionChange={onSectionChange} />
       case "cv-creation":
         return <CvCreationSection onSectionChange={onSectionChange} context="my-cvs" />
+      case "cv-analysis":
+        return <CvAnalysisSection 
+          cvId={analyzingCvId}
+          cvData={analyzingCvData}
+          onSectionChange={onSectionChange} 
+        />
       case "profile":
         return <ProfileSection onSectionChange={onSectionChange} />
       case "settings":

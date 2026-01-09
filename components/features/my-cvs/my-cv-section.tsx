@@ -57,9 +57,12 @@ export function CvManagementSection({ onSectionChange }: CvManagementSectionProp
     (cv.email?.toLowerCase() || '').includes(searchTerm.toLowerCase())
   )
 
-  const handleViewCv = (cvId: string) => {
-    console.log('Visualizando CV:', cvId)
-    // Implementar visualização do CV
+  const handleAnalyzeCv = (cvId: string) => {
+    localStorage.setItem('analyzingCvId', cvId)
+    
+    if (onSectionChange) {
+      onSectionChange('cv-analysis')
+    }
   }
 
   const handleEditCv = (cvId: string) => {
@@ -84,7 +87,7 @@ export function CvManagementSection({ onSectionChange }: CvManagementSectionProp
           'Content-Type': 'application/json',
         },
       })
-
+      
       if (!response.ok) {
         const errorData = await response.json()
         throw new Error(errorData.error || 'Error deleting curriculum')
@@ -228,7 +231,7 @@ export function CvManagementSection({ onSectionChange }: CvManagementSectionProp
             <CvCard 
               key={cv.id} 
               cv={cv}
-              onView={handleViewCv}
+              onView={handleAnalyzeCv}
               onEdit={handleEditCv}
               onDelete={handleDeleteCv}
               onDownload={handleUseCv}
