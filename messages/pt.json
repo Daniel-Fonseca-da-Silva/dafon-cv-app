@@ -536,7 +536,7 @@
           "label": "Carteira de Motorista",
           "placeholder": "Ex: Categoria B, Categoria A, etc...",
           "quickSuggestions": "Sugestões rápidas:",
-          "categoryPrefix": "Categoria",
+          "categoryPrefix": "",
           "noLicense": "Sem Carteira"
         }
       },
@@ -811,6 +811,7 @@
     "searchPlaceholder": "Buscar por nome ou email...",
     "actions": {
       "view": "Visualizar",
+      "analyze": "Analisar",
       "edit": "Editar",
       "delete": "Excluir",
       "download": "Usar",

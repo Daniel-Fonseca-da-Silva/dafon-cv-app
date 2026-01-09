@@ -536,7 +536,7 @@
           "label": "Licencia de Conducir",
           "placeholder": "Ej: Categoría B, Categoría A, etc...",
           "quickSuggestions": "Sugerencias rápidas:",
-          "categoryPrefix": "Categoría",
+          "categoryPrefix": "",
           "noLicense": "Sin Licencia"
         }
       },
@@ -811,6 +811,7 @@
     "searchPlaceholder": "Buscar por nombre o email...",
     "actions": {
       "view": "Ver",
+      "analyze": "Analizar",
       "edit": "Editar",
       "delete": "Eliminar",
       "download": "Usar",

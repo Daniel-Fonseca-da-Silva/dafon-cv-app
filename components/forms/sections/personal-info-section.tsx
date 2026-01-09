@@ -174,14 +174,14 @@ export function PersonalInfoSection({ data, onDataChange, onNext }: CvSectionPro
               <label className="text-white/80 text-sm font-medium">{t('fields.phone.label')} <span className="text-white">*</span></label>
               <div className="phone-input-container">
                 <PhoneInput
-                  placeholder={t('fields.phone.placeholder')}
+                    placeholder={t('fields.phone.placeholder')}
                   value={data.personalInfo.phone}
                   onChange={(value) => updatePersonalInfo('phone', value || '')}
                   className="flex h-10 w-full rounded-md border border-white/30 bg-white/20 px-3 py-2 text-sm text-white placeholder:text-white/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                 />
               </div>
               <div className="text-xs mt-1">
-                 <span className="text-white/60">{t('fields.phone.help')}</span>
+                  <span className="text-white/60">{t('fields.phone.help')}</span>
               </div>
             </div>
             <div className="space-y-2">

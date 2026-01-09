@@ -535,7 +535,7 @@
           "label": "Driver's License",
           "placeholder": "Ex: Category B, Category A, etc...",
           "quickSuggestions": "Quick suggestions:",
-          "categoryPrefix": "Category",
+          "categoryPrefix": "",
           "noLicense": "No License"
         }
       },
@@ -810,6 +810,7 @@
     "searchPlaceholder": "Search by name or email...",
     "actions": {
       "view": "View",
+      "analyze": "Analyze",
       "edit": "Edit",
       "delete": "Delete",
       "download": "Use",
