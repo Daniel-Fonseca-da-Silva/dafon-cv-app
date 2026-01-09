@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { useTranslations } from "next-intl"
 import { CvAnalysisSectionProps, CvAnalysisResponse, CvSummary } from "@/types/cv.types"
 import { FiArrowLeft, FiCheckCircle, FiAlertCircle, FiTrendingUp, FiTarget, FiAward, FiInfo, FiFileText, FiLoader } from "react-icons/fi"
@@ -114,9 +114,9 @@ export function CvAnalysisSection({ cvId, cvData, onSectionChange }: CvAnalysisS
   }
 
   const getScoreLabel = (score: number) => {
-    if (score >= 80) return 'Excellent'
-    if (score >= 60) return 'Good'
-    return 'Needs Improvement'
+    if (score >= 80) return t('score.excellent')
+    if (score >= 60) return t('score.good')
+    return t('score.needsImprovement')
   }
 
   const getAtsChanceColor = (chance: string) => {
