@@ -207,6 +207,10 @@
         "title": "Crear Nuevo CV",
         "description": "Completa la información para crear tu CV profesional"
       },
+      "cv-analysis": {
+        "title": "Análisis del Currículum",
+        "description": "Análisis detallado de tu currículum"
+      },
       "profile": {
         "title": "Mi Perfil",
         "description": "Gestionar tu información personal"
@@ -832,6 +836,36 @@
       "cancel": "Cancelar",
       "confirm": "Eliminar",
       "deleting": "Eliminando..."
+    }
+  },
+  "cvAnalysis": {
+    "title": "Análisis del Currículum",
+    "subtitle": "Análisis detallado del currículum de {name}",
+    "loading": "Analizando currículum...",
+    "back": "Volver",
+    "score": {
+      "title": "Puntuación General",
+      "outOf": "de"
+    },
+    "strengths": {
+      "title": "Fortalezas"
+    },
+    "professionalAlignment": {
+      "title": "Alineación Profesional"
+    },
+    "improvementPoints": {
+      "title": "Puntos de Mejora"
+    },
+    "bestPractices": {
+      "title": "Mejores Prácticas"
+    },
+    "atsCompatibility": {
+      "title": "Compatibilidad con ATS",
+      "chance": "Probabilidad",
+      "recommendations": "Recomendaciones"
+    },
+    "recommendations": {
+      "title": "Recomendaciones Generales"
     }
   },
   "cvCreation": {

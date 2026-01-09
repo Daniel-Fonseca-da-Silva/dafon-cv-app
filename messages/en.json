@@ -207,6 +207,10 @@
         "title": "Create New CV",
         "description": "Fill in the information to create your professional CV"
       },
+      "cv-analysis": {
+        "title": "CV Analysis",
+        "description": "Detailed analysis of your curriculum"
+      },
       "profile": {
         "title": "My Profile",
         "description": "Manage your personal information"
@@ -831,6 +835,36 @@
       "cancel": "Cancel",
       "confirm": "Delete",
       "deleting": "Deleting..."
+    }
+  },
+  "cvAnalysis": {
+    "title": "CV Analysis",
+    "subtitle": "Detailed analysis of {name}'s curriculum",
+    "loading": "Analyzing curriculum...",
+    "back": "Back",
+    "score": {
+      "title": "Overall Score",
+      "outOf": "out of"
+    },
+    "strengths": {
+      "title": "Strengths"
+    },
+    "professionalAlignment": {
+      "title": "Professional Alignment"
+    },
+    "improvementPoints": {
+      "title": "Improvement Points"
+    },
+    "bestPractices": {
+      "title": "Best Practices"
+    },
+    "atsCompatibility": {
+      "title": "ATS Compatibility",
+      "chance": "Chance",
+      "recommendations": "Recommendations"
+    },
+    "recommendations": {
+      "title": "General Recommendations"
     }
   },
   "cvCreation": {
