@@ -57,8 +57,8 @@
     }
   },
   "metadata": {
-    "title": "Dafon CV - Plataforma de Reclutamiento con IA para Consultorías",
-    "description": "La plataforma todo en uno para agencias de reclutamiento. Crea, analiza y combina currículos de candidatos con precisión de IA."
+    "title": "Dafon CV - Reduce el Tiempo de Búsqueda en 60% y Aumenta la Tasa de Colocación en 85%",
+    "description": "La única plataforma que analiza vacantes, cruza con tu base de talentos y predice la probabilidad de contratación con IA. Coincidencia inteligente que reduce el tiempo de búsqueda en un 60% y aumenta la colocación en un 85%."
   },
   "ErrorPage": {
     "title": "Error"
@@ -72,18 +72,44 @@
       "contact": "Contacto",
       "language": "Idioma",
       "login": "Iniciar Sesión",
-      "startNow": "Comenzar Ahora"
+      "startNow": "Registrarse Aquí"
     },
     "hero": {
       "badge": "IA para Reclutadores y Consultorías",
-      "headline": "Crea, Analiza y Combina Talentos con IA",
-      "highlightWord": "IA",
-      "subheadline": "La plataforma completa para consultorías. Crea currículos profesionales estandarizados, analiza el potencial de los candidatos y combina tu base de talentos con oportunidades de clientes al instante.",
-      "ctaPrimary": "Comenzar Prueba Gratis",
+      "headline": "Encuentra los Talentos Correctos con Análisis Inteligente",
+      "highlightWord": "Talentos",
+      "subheadline": "Reduce el tiempo de búsqueda de candidatos en un 60% y aumenta tu tasa de colocación en un 85% con coincidencia inteligente alimentada por IA. La única plataforma que analiza vacantes, cruza con tu base de talentos y predice la probabilidad de contratación — todo en segundos.",
+      "ctaPrimary": "Comenzar Aquí ahora",
       "ctaSecondary": "Agendar Demo"
     },
+    "painPoints": {
+      "title": "El Mayor Dolor de los Reclutadores",
+      "subtitle": "¿Has experimentado esto?",
+      "points": [
+        {
+          "icon": "time",
+          "title": "Tiempo Perdido Buscando",
+          "description": "Horas buscando candidatos en la base de datos, sin saber si realmente encajan en la vacante."
+        },
+        {
+          "icon": "rejection",
+          "title": "Alta Tasa de Rechazo",
+          "description": "Candidatos enviados que no cumplen con los requisitos, dañando la credibilidad de la consultoría."
+        },
+        {
+          "icon": "search",
+          "title": "Dificultad para Encontrar Talentos",
+          "description": "Talentos preciosos se pierden en la base de datos, sin ser descubiertos para nuevas oportunidades."
+        },
+        {
+          "icon": "lowRate",
+          "title": "Baja Tasa de Colocación",
+          "description": "Sin datos y análisis precisos, es difícil maximizar las posibilidades de contratación de los candidatos."
+        }
+      ]
+    },
     "benefits": {
-      "title": "Potenciando Consultorías Modernas",
+      "title": "Solución Completa para Consultorías",
       "items": [
         {
           "icon": "zap",
@@ -92,47 +118,66 @@
         },
         {
           "icon": "brain",
-          "title": "Análisis de Brechas con IA",
-          "description": "Identifica tecnologías y habilidades faltantes para maximizar el éxito de la colocación."
+          "title": "Análisis de Vacantes y Currículos con IA",
+          "description": "Analiza vacantes y currículos con IA en segundos, identificando automáticamente tecnologías, habilidades y requisitos."
         },
         {
           "icon": "target",
-          "title": "Coincidencia Inteligente",
-          "description": "Cruza tu base de datos de consultores con posiciones abiertas automáticamente."
+          "title": "Coincidencia Inteligente que Reduce Búsqueda en 60%",
+          "description": "Cruce automático entre tu base de talentos y vacantes disponibles, con puntuación de adherencia — todo en segundos."
         },
         {
           "icon": "shield",
-          "title": "Posicionamiento de Mercado",
-          "description": "Aumenta las posibilidades de contratación con insights basados en datos y puntuación."
+          "title": "Aumenta Colocación en 85% con Predicción de Contratación",
+          "description": "Recibe puntuación de compatibilidad y estimación precisa de probabilidad de éxito en la contratación, basada en datos históricos."
         }
       ]
     },
+    "howItWorks": {
+      "title": "Cómo Funciona",
+      "step1": {
+        "title": "Crea o Importa Currículos",
+        "description": "Crea currículos estandarizados para tus consultores"
+      },
+      "step2": {
+        "title": "Analiza Vacantes",
+        "description": "Pega la descripción de la vacante y nuestra IA analiza requisitos, tecnologías y habilidades necesarias."
+      },
+      "step3": {
+        "title": "Coincidencia Automática",
+        "description": "El sistema cruza automáticamente tu base de talentos con la vacante, generando puntuación de adherencia."
+      },
+      "step4": {
+        "title": "Recibe Insights",
+        "description": "Visualiza candidatos compatibles, puntuación de probabilidad de contratación y recomendaciones de mejora."
+      }
+    },
     "demo": {
       "title": "Suite de Inteligencia en Reclutamiento",
-      "subtitle": "Optimiza el flujo de trabajo de tu consultoría, desde la creación del CV hasta la colocación final",
+      "subtitle": "Reduce el tiempo de búsqueda en un 60% y aumenta la tasa de colocación en un 85%. Optimiza el flujo de trabajo de tu consultoría, desde la creación del CV hasta la colocación final",
       "features": [
         {
-          "title": "Constructor de Currículos para Equipos",
-          "description": "Crea currículos consistentes y con la marca de tu empresa para toda tu fuerza laboral."
+          "title": "Análisis de Vacantes con IA",
+          "description": "Pega la descripción de la vacante y recibe análisis completo de requisitos, tecnologías y habilidades necesarias."
         },
         {
-          "title": "Puntuación de Probabilidad",
-          "description": "La IA analiza la compatibilidad entre las habilidades del candidato y los requisitos del puesto."
+          "title": "Puntuación de Adherencia",
+          "description": "Cada candidato recibe una puntuación de 0-100% mostrando qué tan compatible está con la vacante."
         },
         {
-          "title": "Minería de Base de Talentos",
-          "description": "Redescubre candidatos compatibles de tu base de datos existente para nuevos roles."
+          "title": "Probabilidad de Contratación",
+          "description": "Estimación basada en datos históricos y análisis de perfil sobre la probabilidad de éxito."
         },
         {
-          "title": "Informes de Insights para Clientes",
-          "description": "Genera informes de análisis detallados para presentar a tus clientes."
+          "title": "Coincidencia de Base de Talentos",
+          "description": "Descubre automáticamente candidatos de tu base de datos que encajan perfectamente en la vacante."
         }
       ],
       "cta": "Optimiza Tu Proceso",
       "stats": [
         {
           "number": "60%",
-          "label": "Envíos Más Rápidos",
+          "label": "Reducción en Tiempo de Búsqueda",
           "color": "text-green-400"
         },
         {
@@ -141,8 +186,8 @@
           "color": "text-blue-400"
         },
         {
-          "number": "24/7",
-          "label": "Coincidencia Automatizada",
+          "number": "90%",
+          "label": "Precisión en Coincidencia",
           "color": "text-purple-400"
         }
       ]
@@ -173,7 +218,7 @@
       ]
     },
     "footer": {
-      "description": "Capacitando a las consultorías para encontrar, analizar y colocar el mejor talento con tecnología de IA avanzada.",
+      "description": "La única plataforma que reduce el tiempo de búsqueda en un 60% y aumenta la tasa de colocación en un 85% con coincidencia inteligente alimentada por IA.",
       "company": "Empresa",
       "about": "Acerca de",
       "information": "Información",
@@ -222,6 +267,14 @@
       "plans": {
         "title": "Mis Planes",
         "description": "Gestionar tu suscripción y recursos"
+      },
+      "job-analysis": {
+        "title": "Análisis de Vacantes",
+        "description": "Analiza descripciones de vacantes con IA para identificar requisitos y tecnologías"
+      },
+      "job-matching": {
+        "title": "Coincidencia de Candidatos",
+        "description": "Encuentra los candidatos ideales para tus vacantes a través de coincidencia inteligente"
       }
     },
     "cards": {
@@ -248,7 +301,38 @@
       "plans": {
         "title": "Mis Planes Actuales",
         "description": "Ver tu plan actual, recursos disponibles y opciones de actualización."
+      },
+      "job-analysis": {
+        "title": "Análisis de Vacantes",
+        "description": "Analiza descripciones de vacantes con IA para identificar requisitos y tecnologías"
+      },
+      "job-matching": {
+        "title": "Coincidencia de Candidatos",
+        "description": "Encuentra los candidatos ideales para tus vacantes a través de coincidencia inteligente"
       }
+    },
+    "jobAnalysis": {
+      "title": "Análisis de Vacantes",
+      "description": "Pega la descripción de la vacante y nuestra IA analizará requisitos, tecnologías y habilidades necesarias",
+      "placeholder": "Pega aquí la descripción completa de la vacante...",
+      "analyze": "Analizar Vacante",
+      "analyzing": "Analizando...",
+      "resultTitle": "Resultado del Análisis",
+      "technologies": "Tecnologías Identificadas",
+      "skills": "Habilidades Requeridas",
+      "requirements": "Requisitos Principales"
+    },
+    "jobMatching": {
+      "title": "Coincidencia de Candidatos",
+      "description": "Encuentra los candidatos ideales de tu base de talentos para esta vacante",
+      "placeholder": "Pega aquí la descripción completa de la vacante...",
+      "findCandidates": "Encontrar Candidatos",
+      "matching": "Buscando candidatos...",
+      "matchedCandidates": "Candidatos Compatibles",
+      "matchScore": "Puntuación",
+      "hiringChance": "Probabilidad de Contratación",
+      "technologies": "Tecnologías",
+      "missingSkills": "Habilidades Faltantes"
     }
   },
   "sidebar": {

@@ -57,8 +57,8 @@
     }
   },
   "metadata": {
-    "title": "Dafon CV - AI Recruitment Platform for Consultancies",
-    "description": "The all-in-one platform for recruitment agencies. Create, analyze, and match candidate resumes with AI precision."
+    "title": "Dafon CV - Reduce Search Time by 60% and Increase Placement Rate by 85%",
+    "description": "The only platform that analyzes jobs, cross-references your talent pool, and predicts hiring probability with AI. Intelligent matching that reduces search time by 60% and increases placement by 85%."
   },
   "ErrorPage": {
     "title": "Error"
@@ -72,18 +72,44 @@
       "contact": "Contact",
       "language": "Language",
       "login": "Login",
-      "startNow": "Start Now"
+      "startNow": "Register Here"
     },
     "hero": {
       "badge": "AI for Recruiters & Consultancies",
-      "headline": "Create, Analyze, and Match Talent with AI",
-      "highlightWord": "AI",
-      "subheadline": "The complete platform for consultancies. Create standardized professional resumes, analyze candidate potential, and match your talent pool to client opportunities instantly.",
-      "ctaPrimary": "Start Free Trial",
+      "headline": "Find the Right Talent with Intelligent Analysis",
+      "highlightWord": "Talent",
+      "subheadline": "Reduce candidate search time by 60% and increase your placement rate by 85% with AI-powered intelligent matching. The only platform that analyzes jobs, cross-references your talent pool and predicts hiring probability - all in seconds.",
+      "ctaPrimary": "Start Here now",
       "ctaSecondary": "Schedule Demo"
     },
+    "painPoints": {
+      "title": "The Biggest Pain for Recruiters",
+      "subtitle": "Have you experienced this?",
+      "points": [
+        {
+          "icon": "time",
+          "title": "Time Wasted Searching",
+          "description": "Hours searching for candidates in the database, without knowing if they really fit the position."
+        },
+        {
+          "icon": "rejection",
+          "title": "High Rejection Rate",
+          "description": "Candidates sent that don't meet requirements, damaging the consultancy's credibility."
+        },
+        {
+          "icon": "search",
+          "title": "Difficulty Finding Talent",
+          "description": "Precious talent gets lost in the database, never discovered for new opportunities."
+        },
+        {
+          "icon": "lowRate",
+          "title": "Low Placement Rate",
+          "description": "Without accurate data and analysis, it's hard to maximize candidates' hiring chances."
+        }
+      ]
+    },
     "benefits": {
-      "title": "Empowering Modern Consultancies",
+      "title": "Complete Solution for Consultancies",
       "items": [
         {
           "icon": "zap",
@@ -92,47 +118,66 @@
         },
         {
           "icon": "brain",
-          "title": "AI Gap Analysis",
-          "description": "Identify missing technologies and skills to maximize placement success."
+          "title": "AI-Powered Job and Resume Analysis",
+          "description": "Analyze jobs and resumes with AI in seconds, automatically identifying technologies, skills and requirements."
         },
         {
           "icon": "target",
-          "title": "Smart Job Matching",
-          "description": "Cross-reference your consultant database with open positions automatically."
+          "title": "Intelligent Matching that Reduces Search by 60%",
+          "description": "Automatic cross-referencing between your talent pool and available positions, with match scores — all in seconds."
         },
         {
           "icon": "shield",
-          "title": "Market Positioning",
-          "description": "Increase hiring chances with data-driven insights and scoring."
+          "title": "Increase Placement by 85% with Hiring Prediction",
+          "description": "Receive compatibility scores and accurate estimates of hiring success probability, based on historical data."
         }
       ]
     },
+    "howItWorks": {
+      "title": "How It Works",
+      "step1": {
+        "title": "Create or Import Resumes",
+        "description": "Create standardized resumes for your consultants"
+      },
+      "step2": {
+        "title": "Analyze Jobs",
+        "description": "Paste the job description and our AI analyzes requirements, technologies, and necessary skills."
+      },
+      "step3": {
+        "title": "Automatic Matching",
+        "description": "The system automatically cross-references your talent pool with the job, generating match scores."
+      },
+      "step4": {
+        "title": "Receive Insights",
+        "description": "View compatible candidates, hiring probability scores, and improvement recommendations."
+      }
+    },
     "demo": {
       "title": "Recruitment Intelligence Suite",
-      "subtitle": "Streamline your consultancy workflow from CV creation to final placement",
+      "subtitle": "Reduce search time by 60% and increase placement rate by 85%. Streamline your consultancy workflow from CV creation to final placement",
       "features": [
         {
-          "title": "Resume Builder for Teams",
-          "description": "Create consistent, branded resumes for your entire consultant workforce."
+          "title": "AI Job Analysis",
+          "description": "Paste the job description and receive complete analysis of requirements, technologies, and necessary skills."
         },
         {
-          "title": "Hiring Probability Score",
-          "description": "AI analyzes the match between candidate skills and job requirements."
+          "title": "Match Score",
+          "description": "Each candidate receives a 0-100% score showing how compatible they are with the position."
         },
         {
-          "title": "Talent Pool Mining",
-          "description": "Rediscover matching candidates from your existing database for new roles."
+          "title": "Hiring Probability",
+          "description": "Estimate based on historical data and profile analysis about success probability."
         },
         {
-          "title": "Client Insight Reports",
-          "description": "Generate detailed analysis reports to present to your clients."
+          "title": "Talent Pool Matching",
+          "description": "Automatically discover candidates from your database that perfectly fit the position."
         }
       ],
       "cta": "Optimize Your Process",
       "stats": [
         {
           "number": "60%",
-          "label": "Faster Submissions",
+          "label": "Reduction in Search Time",
           "color": "text-green-400"
         },
         {
@@ -141,8 +186,8 @@
           "color": "text-blue-400"
         },
         {
-          "number": "24/7",
-          "label": "Automated Matching",
+          "number": "90%",
+          "label": "Matching Accuracy",
           "color": "text-purple-400"
         }
       ]
@@ -173,7 +218,7 @@
       ]
     },
     "footer": {
-      "description": "Empowering consultancies to find, analyze, and place the best talent with advanced AI technology.",
+      "description": "The only platform that reduces search time by 60% and increases placement rate by 85% with AI-powered intelligent matching.",
       "company": "Company",
       "about": "About",
       "information": "Information",
@@ -222,6 +267,14 @@
       "plans": {
         "title": "My Plans",
         "description": "Manage your subscription and resources"
+      },
+      "job-analysis": {
+        "title": "Job Analysis",
+        "description": "Analyze job descriptions with AI to identify requirements and technologies"
+      },
+      "job-matching": {
+        "title": "Candidate Matching",
+        "description": "Find the ideal candidates for your positions through intelligent matching"
       }
     },
     "cards": {
@@ -248,7 +301,38 @@
       "plans": {
         "title": "My Current Plans",
         "description": "View your current plan, available resources and upgrade options."
+      },
+      "job-analysis": {
+        "title": "Job Analysis",
+        "description": "Analyze job descriptions with AI to identify requirements and technologies"
+      },
+      "job-matching": {
+        "title": "Candidate Matching",
+        "description": "Find the ideal candidates for your positions through intelligent matching"
       }
+    },
+    "jobAnalysis": {
+      "title": "Job Analysis",
+      "description": "Paste the job description and our AI will analyze requirements, technologies, and necessary skills",
+      "placeholder": "Paste the complete job description here...",
+      "analyze": "Analyze Job",
+      "analyzing": "Analyzing...",
+      "resultTitle": "Analysis Result",
+      "technologies": "Identified Technologies",
+      "skills": "Required Skills",
+      "requirements": "Main Requirements"
+    },
+    "jobMatching": {
+      "title": "Candidate Matching",
+      "description": "Find the ideal candidates from your talent pool for this position",
+      "placeholder": "Paste the complete job description here...",
+      "findCandidates": "Find Candidates",
+      "matching": "Searching candidates...",
+      "matchedCandidates": "Compatible Candidates",
+      "matchScore": "Match Score",
+      "hiringChance": "Hiring Probability",
+      "technologies": "Technologies",
+      "missingSkills": "Missing Skills"
     }
   },
   "sidebar": {

@@ -5,6 +5,8 @@ import { HeroSection } from '@/components/features/hero-section';
 import { BenefitsSection } from '@/components/features/benefits-section';
 import { DemoSection } from '@/components/features/demo-section';
 import { SocialProofSection } from '@/components/features/social-proof-section';
+import { PainPointsSection } from '@/components/features/pain-points-section';
+import { HowItWorksSection } from '@/components/features/how-it-works-section';
 import { Footer } from '@/components/layout/footer';
 
 export default function Home() {
@@ -12,7 +14,9 @@ export default function Home() {
     <main className="min-h-screen">
       <Header />
       <HeroSection />
+      <PainPointsSection />
       <BenefitsSection />
+      <HowItWorksSection />
       <DemoSection />
       <SocialProofSection />
       <Footer />
