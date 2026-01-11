@@ -899,9 +899,9 @@
     "actions": {
       "view": "View",
       "analyze": "Analyze",
-      "edit": "Edit",
+      "matchWithJob": "Match with Job",
       "delete": "Delete",
-      "download": "Use",
+      "use": "Use",
       "createNew": "New CV"
     },
     "emptyState": {

@@ -900,9 +900,9 @@
     "actions": {
       "view": "Ver",
       "analyze": "Analizar",
-      "edit": "Editar",
+      "matchWithJob": "Comparar con Vaga",
       "delete": "Eliminar",
-      "download": "Usar",
+      "use": "Usar",
       "createNew": "Nuevo CV"
     },
     "emptyState": {

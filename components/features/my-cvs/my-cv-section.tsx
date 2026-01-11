@@ -65,9 +65,9 @@ export function CvManagementSection({ onSectionChange }: CvManagementSectionProp
     }
   }
 
-  const handleEditCv = (cvId: string) => {
-    console.log('Editando CV:', cvId)
-    // Implementar edição do CV
+  const handleMatchWithJob = (cvId: string) => {
+    console.log('Matching with Job CV:', cvId)
+    // Implementar matching with job do CV
   }
 
   const handleDeleteCv = (cvId: string) => {
@@ -102,7 +102,6 @@ export function CvManagementSection({ onSectionChange }: CvManagementSectionProp
       
     } catch (error) {
       console.error('Error deleting CV:', error)
-      // Aqui você pode adicionar um toast de erro se tiver
     } finally {
       setIsDeleting(false)
     }
@@ -231,10 +230,10 @@ export function CvManagementSection({ onSectionChange }: CvManagementSectionProp
             <CvCard 
               key={cv.id} 
               cv={cv}
-              onView={handleAnalyzeCv}
-              onEdit={handleEditCv}
+              onAnalyze={handleAnalyzeCv}
+              onMatchWithJob={handleMatchWithJob}
               onDelete={handleDeleteCv}
-              onDownload={handleUseCv}
+              onUse={handleUseCv}
             />
           ))
         )}

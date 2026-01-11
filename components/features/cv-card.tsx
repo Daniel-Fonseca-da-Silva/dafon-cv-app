@@ -2,11 +2,11 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { FiEye, FiEdit, FiTrash2, FiPlay, FiUser, FiMail, FiCalendar, FiCpu, FiFileText } from "react-icons/fi"
+import { FiEdit, FiTrash2, FiPlay, FiUser, FiMail, FiCalendar, FiCpu, FiFileText } from "react-icons/fi"
 import { useTranslations } from "next-intl"
 import { CvCardProps } from "@/types/cv.types"
 
-export function CvCard({ cv, onView, onEdit, onDelete, onDownload }: CvCardProps) {
+export function CvCard({ cv, onAnalyze, onMatchWithJob, onDelete, onUse }: CvCardProps) {
   const t = useTranslations('cvManagement')
 
   const formatDate = (dateString: string) => {
@@ -54,7 +54,7 @@ export function CvCard({ cv, onView, onEdit, onDelete, onDownload }: CvCardProps
       <CardContent className="p-4 pt-0">
         <div className="grid grid-cols-2 gap-2">
           <Button
-            onClick={() => onView(cv.id)}
+            onClick={() => onAnalyze(cv.id)}
             variant="outline"
             size="sm"
             className="bg-blue-500/20 border-blue-500/30 text-blue-300 hover:bg-blue-500/30 hover:border-blue-500/50"
@@ -64,23 +64,22 @@ export function CvCard({ cv, onView, onEdit, onDelete, onDownload }: CvCardProps
           </Button>
           
           <Button
-            onClick={() => onEdit(cv.id)}
+            onClick={() => onMatchWithJob(cv.id)}
             variant="outline"
             size="sm"
-            disabled
             className="bg-white/5 border-white/10 text-white/40 cursor-not-allowed"
           >
             <FiEdit className="w-4 h-4 mr-2" />
-            {t('actions.edit')}
+            {t('actions.matchWithJob')}
           </Button>
           
           <Button
-            onClick={() => onDownload(cv.id)}
+            onClick={() => onUse(cv.id)}
             size="sm"
             className="bg-gradient-to-r from-purple-400 to-pink-400 hover:from-purple-500 hover:to-pink-500 text-white"
           >
             <FiPlay className="w-4 h-4 mr-2" />
-            {t('actions.download')}
+            {t('actions.use')}
           </Button>
           
           <Button
