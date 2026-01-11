@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { FiZap, FiSmile } from 'react-icons/fi';
 import { Link } from '@/i18n/navigation';
+import { motion } from 'framer-motion';
 
 export function HeroSection() {
   const t = useTranslations('HomePage.hero');
@@ -16,10 +17,47 @@ export function HeroSection() {
       {/* Conteúdo */}
       <div className="relative z-10 max-w-4xl mx-auto text-center">
         {/* Badge */}
-        <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 mb-8">
-          <span className="text-yellow-400">⭐</span>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ 
+            opacity: 1, 
+            scale: 1,
+            y: [0, -10, 0]
+          }}
+          transition={{
+            opacity: {
+              duration: 0.6,
+              ease: [0.16, 1, 0.3, 1],
+              delay: 0.2
+            },
+            scale: {
+              duration: 0.6,
+              ease: [0.16, 1, 0.3, 1],
+              delay: 0.2
+            },
+            y: {
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }
+          }}
+          whileHover={{ scale: 1.05 }}
+          className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 mb-8 cursor-default"
+        >
+          <motion.span
+            className="text-yellow-400"
+            animate={{ rotate: [0, 10, -10, 0] }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              repeatDelay: 3,
+              ease: "easeInOut"
+            }}
+          >
+            ⭐
+          </motion.span>
           <span className="text-white text-sm font-medium">{t('badge')}</span>
-        </div>
+        </motion.div>
 
         {/* Título */}
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
@@ -27,9 +65,29 @@ export function HeroSection() {
             const highlightWord = t('highlightWord');
             if (word === highlightWord) {
               return (
-                <span key={index} className="bg-gradient-to-r from-orange-400 to-pink-400 bg-clip-text text-transparent">
+                <motion.span
+                  key={index}
+                  className="bg-gradient-to-r from-orange-400 to-pink-400 bg-clip-text text-transparent inline-block"
+                  animate={{
+                    scale: [1, 1.08, 1],
+                    filter: [
+                      'brightness(1)',
+                      'brightness(1.2)',
+                      'brightness(1)'
+                    ]
+                  }}
+                  transition={{
+                    duration: 2.5,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { duration: 0.3 }
+                  }}
+                >
                   {word}{' '}
-                </span>
+                </motion.span>
               );
             }
             return word + ' ';
