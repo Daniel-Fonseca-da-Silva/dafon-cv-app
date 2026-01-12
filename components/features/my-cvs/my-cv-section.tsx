@@ -66,8 +66,19 @@ export function CvManagementSection({ onSectionChange }: CvManagementSectionProp
   }
 
   const handleMatchWithJob = (cvId: string) => {
-    console.log('Matching with Job CV:', cvId)
-    // Implementar matching with job do CV
+    // Store CV ID and data in localStorage
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('matchingJobCvId', cvId)
+      const cv = cvs.find(c => c.id === cvId)
+      if (cv) {
+        localStorage.setItem('matchingJobCvData', JSON.stringify(cv))
+      }
+    }
+    
+    // Navigate to job analysis section
+    if (onSectionChange) {
+      onSectionChange('cv-analysis-job')
+    }
   }
 
   const handleDeleteCv = (cvId: string) => {
