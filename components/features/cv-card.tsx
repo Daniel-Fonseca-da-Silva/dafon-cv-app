@@ -67,7 +67,7 @@ export function CvCard({ cv, onAnalyze, onMatchWithJob, onDelete, onUse }: CvCar
             onClick={() => onMatchWithJob(cv.id)}
             variant="outline"
             size="sm"
-            className="bg-white/5 border-white/10 text-white/40 cursor-not-allowed"
+            className="bg-purple-500/20 border-purple-500/30 text-purple-300 hover:bg-purple-500/30 hover:border-purple-500/50"
           >
             <FiEdit className="w-4 h-4 mr-2" />
             {t('actions.matchWithJob')}
