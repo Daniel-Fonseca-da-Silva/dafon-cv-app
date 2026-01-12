@@ -256,6 +256,14 @@
         "title": "Análise do Currículo",
         "description": "Análise detalhada do seu currículo"
       },
+      "cv-analysis-job": {
+        "title": "Análise de Vaga",
+        "description": "Analise a compatibilidade da vaga com seu CV"
+      },
+      "cv-analysis-job-result": {
+        "title": "Resultados da Análise de Vaga",
+        "description": "Visualize os resultados detalhados da análise de compatibilidade"
+      },
       "profile": {
         "title": "Meu Perfil",
         "description": "Gerencie suas informações pessoais"
@@ -406,10 +414,11 @@
       "basic": {
         "name": "Básico",
         "features": [
-          "5 CVs por mês",
-          "2 Templates básicos",
-          "2 Templates premium",
-          "Análise básica de IA",
+          "100 CVs por mês",
+          "Templates básicos",
+          "Templates premium",
+          "Tradução de texto",	
+          "Análise avançada de IA",
           "Exportação em PDF",
           "Suporte por email"
         ]
@@ -953,6 +962,88 @@
     },
     "recommendations": {
       "title": "Recomendações Gerais"
+    }
+  },
+  "cvAnalysisJob": {
+    "title": "Análise de Vaga",
+    "subtitle": "Analise a compatibilidade da vaga com o currículo de {name}",
+    "back": "Voltar",
+    "info": {
+      "title": "Dicas para uma Melhor Análise",
+      "tip1": "Cole a descrição completa da vaga incluindo requisitos, responsabilidades e qualificações",
+      "tip2": "Inclua todas as habilidades técnicas, níveis de experiência e requisitos específicos mencionados",
+      "tip3": "Quanto mais detalhada a descrição, mais precisa será a análise"
+    },
+    "form": {
+      "title": "Descrição da Vaga",
+      "description": "Cole a descrição completa da vaga abaixo para analisar a compatibilidade com seu CV",
+      "label": "Descrição da Vaga",
+      "placeholder": "Cole a descrição completa da vaga aqui... Inclua requisitos, responsabilidades, qualificações, habilidades técnicas e qualquer outra informação relevante.",
+      "characters": "caracteres",
+      "minCharacters": "mais {count} caracteres necessários",
+      "analyze": "Analisar",
+      "analyzing": "Analisando..."
+    }
+  },
+  "cvAnalysisJobResult": {
+    "title": "Resultados da Análise de Vaga",
+    "subtitle": "Análise de compatibilidade para o currículo de {name}",
+    "back": "Voltar",
+    "backToCvs": "Voltar para Meus Currículos",
+    "noData": "Nenhum dado de análise disponível",
+    "overallScore": {
+      "title": "Pontuações Gerais",
+      "overall": "Geral",
+      "compatibility": "Compatibilidade",
+      "linearity": "Linearidade",
+      "match": "Correspondência"
+    },
+    "score": {
+      "excellent": "Excelente",
+      "good": "Bom",
+      "needsImprovement": "Precisa de Melhoria"
+    },
+    "evaluation": {
+      "title": "Avaliação Detalhada",
+      "skills": "Habilidades",
+      "experience": "Experiência",
+      "education": "Educação"
+    },
+    "strengths": {
+      "title": "Pontos Fortes"
+    },
+    "missingRequirements": {
+      "title": "Requisitos Faltantes"
+    },
+    "exceedingRequirements": {
+      "title": "Requisitos Excedentes"
+    },
+    "keywordAnalysis": {
+      "title": "Análise de Palavras-chave",
+      "total": "Total de Palavras-chave",
+      "matched": "Correspondentes",
+      "matchPercentage": "% Correspondência",
+      "missing": "Faltantes",
+      "matchedKeywords": "Palavras-chave Correspondentes",
+      "missingKeywords": "Palavras-chave Faltantes",
+      "importantKeywords": "Importância das Palavras-chave"
+    },
+    "improvementPoints": {
+      "title": "Pontos de Melhoria"
+    },
+    "recommendations": {
+      "title": "Recomendações"
+    },
+    "marketInsights": {
+      "title": "Insights de Mercado"
+    },
+    "professionalAlignment": {
+      "title": "Alinhamento Profissional"
+    },
+    "atsCompatibility": {
+      "title": "Compatibilidade com ATS",
+      "chance": "Chance",
+      "recommendations": "Recomendações"
     }
   },
   "cvCreation": {

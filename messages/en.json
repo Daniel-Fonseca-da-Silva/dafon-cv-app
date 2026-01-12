@@ -256,6 +256,14 @@
         "title": "CV Analysis",
         "description": "Detailed analysis of your curriculum"
       },
+      "cv-analysis-job": {
+        "title": "Job Analysis",
+        "description": "Analyze job compatibility with your CV"
+      },
+      "cv-analysis-job-result": {
+        "title": "Job Analysis Results",
+        "description": "View detailed job compatibility analysis results"
+      },
       "profile": {
         "title": "My Profile",
         "description": "Manage your personal information"
@@ -409,6 +417,7 @@
           "Unlimited CVs",
           "Unlimited Templates",
           "Advanced AI analysis",
+          "Text translation",
           "PDF export",
           "Email support"
         ]
@@ -952,6 +961,88 @@
     },
     "recommendations": {
       "title": "General Recommendations"
+    }
+  },
+  "cvAnalysisJob": {
+    "title": "Job Analysis",
+    "subtitle": "Analyze job compatibility for {name}'s curriculum",
+    "back": "Back",
+    "info": {
+      "title": "Tips for Better Analysis",
+      "tip1": "Paste the complete job description including requirements, responsibilities and qualifications",
+      "tip2": "Include all technical skills, experience levels, and specific requirements mentioned",
+      "tip3": "The more detailed the description, the more accurate the analysis will be"
+    },
+    "form": {
+      "title": "Job Description",
+      "description": "Paste the complete job description below to analyze compatibility with your CV",
+      "label": "Job Description",
+      "placeholder": "Paste the complete job description here... Include requirements, responsibilities, qualifications, technical skills, and any other relevant information.",
+      "characters": "characters",
+      "minCharacters": "{count} more characters required",
+      "analyze": "Analyze",
+      "analyzing": "Analyzing..."
+    }
+  },
+  "cvAnalysisJobResult": {
+    "title": "Job Analysis Results",
+    "subtitle": "Compatibility analysis for {name}'s curriculum",
+    "back": "Back",
+    "backToCvs": "Back to My CVs",
+    "noData": "No analysis data available",
+    "overallScore": {
+      "title": "Overall Scores",
+      "overall": "Overall",
+      "compatibility": "Compatibility",
+      "linearity": "Linearity",
+      "match": "Match"
+    },
+    "score": {
+      "excellent": "Excellent",
+      "good": "Good",
+      "needsImprovement": "Needs Improvement"
+    },
+    "evaluation": {
+      "title": "Detailed Evaluation",
+      "skills": "Skills",
+      "experience": "Experience",
+      "education": "Education"
+    },
+    "strengths": {
+      "title": "Strengths"
+    },
+    "missingRequirements": {
+      "title": "Missing Requirements"
+    },
+    "exceedingRequirements": {
+      "title": "Exceeding Requirements"
+    },
+    "keywordAnalysis": {
+      "title": "Keyword Analysis",
+      "total": "Total Keywords",
+      "matched": "Matched",
+      "matchPercentage": "Match %",
+      "missing": "Missing",
+      "matchedKeywords": "Matched Keywords",
+      "missingKeywords": "Missing Keywords",
+      "importantKeywords": "Keyword Importance"
+    },
+    "improvementPoints": {
+      "title": "Improvement Points"
+    },
+    "recommendations": {
+      "title": "Recommendations"
+    },
+    "marketInsights": {
+      "title": "Market Insights"
+    },
+    "professionalAlignment": {
+      "title": "Professional Alignment"
+    },
+    "atsCompatibility": {
+      "title": "ATS Compatibility",
+      "chance": "Chance",
+      "recommendations": "Recommendations"
     }
   },
   "cvCreation": {

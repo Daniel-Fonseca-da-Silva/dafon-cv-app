@@ -31,7 +31,7 @@ export function PlansSection({ onSectionChange }: PlansSectionProps) {
   }
 
   const MOCK_PLAN_DATA = {
-    price: "16.99 €",
+    price: "99.99 €",
     period: "month",
     status: "Active",
     nextBilling: "25/12/2026",

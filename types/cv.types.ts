@@ -92,10 +92,10 @@ export interface CvManagementSectionProps {
 
 export interface CvCardProps {
   cv: CvSummary
-  onView: (cvId: string) => void
-  onEdit: (cvId: string) => void
+  onAnalyze: (cvId: string) => void
+  onMatchWithJob: (cvId: string) => void
   onDelete: (cvId: string) => void
-  onDownload: (cvId: string) => void
+  onUse: (cvId: string) => void
 }
 
 export type CvFilter = 'all'
@@ -137,6 +137,69 @@ export interface CvAnalysisResponse {
 }
 
 export interface CvAnalysisSectionProps {
+  cvId: string
+  cvData?: CvSummary
+  onSectionChange?: (section: string) => void
+}
+
+// Job Analysis Types
+export interface JobAnalysisEvaluation {
+  resume_match_assessment: string
+  required_skills_match: number
+  experience_match: number
+  education_match: number
+  detailed_analysis: string
+  missing_requirements: string[]
+  exceeding_requirements: string[]
+}
+
+export interface KeywordImportance {
+  keyword: string
+  importance: 'low' | 'medium' | 'high'
+  impact_score: number
+  is_matched?: boolean
+}
+
+export interface KeywordAnalysis {
+  total_keywords_in_job_offer: number
+  matched_keywords: number
+  match_percentage: number
+  matched_keywords_list: string[]
+  missing_keywords_list: string[]
+  keyword_importance: KeywordImportance[]
+  recommendations: string[]
+}
+
+export interface JobAnalysisAtsCompatibility {
+  assessment: string
+  chance: 'low' | 'medium' | 'high'
+  recommendations: string[]
+}
+
+export interface JobAnalysisResponse {
+  overall_score: number
+  compatibility_score: number
+  linearity_score: number
+  match_percentage: number
+  description: string
+  evaluation: JobAnalysisEvaluation
+  keyword_analysis: KeywordAnalysis
+  improvement_points: string[]
+  strengths: string[]
+  recommendations: string[]
+  market_insights: string[]
+  professional_alignment: string[]
+  ats_compatibility: JobAnalysisAtsCompatibility
+}
+
+export interface CvAnalysisJobSectionProps {
+  cvId: string
+  cvData?: CvSummary
+  onSectionChange?: (section: string) => void
+}
+
+export interface CvAnalysisJobResultProps {
+  analysis: JobAnalysisResponse
   cvId: string
   cvData?: CvSummary
   onSectionChange?: (section: string) => void

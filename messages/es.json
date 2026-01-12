@@ -256,6 +256,14 @@
         "title": "Análisis del Currículum",
         "description": "Análisis detallado de tu currículum"
       },
+      "cv-analysis-job": {
+        "title": "Análisis de Vacante",
+        "description": "Analiza la compatibilidad de la vacante con tu CV"
+      },
+      "cv-analysis-job-result": {
+        "title": "Resultados del Análisis de Vacante",
+        "description": "Visualiza los resultados detallados del análisis de compatibilidad"
+      },
       "profile": {
         "title": "Mi Perfil",
         "description": "Gestionar tu información personal"
@@ -406,10 +414,11 @@
       "basic": {
         "name": "Básico",
         "features": [
-          "5 CVs por mes",
-          "2 Plantillas básicas",
-          "2 Plantillas premium",
-          "Análisis básico de IA",
+          "100 CVs por mes",
+          "Plantillas básicas",
+          "Plantillas premium",
+          "Traduccion de texto",	
+          "Análisis avanzado de IA",
           "Exportación PDF",
           "Soporte por email"
         ]
@@ -953,6 +962,88 @@
     },
     "recommendations": {
       "title": "Recomendaciones Generales"
+    }
+  },
+  "cvAnalysisJob": {
+    "title": "Análisis de Vacante",
+    "subtitle": "Analiza la compatibilidad de la vacante con el currículum de {name}",
+    "back": "Volver",
+    "info": {
+      "title": "Consejos para un Mejor Análisis",
+      "tip1": "Pega la descripción completa de la vacante incluyendo requisitos, responsabilidades y calificaciones",
+      "tip2": "Incluye todas las habilidades técnicas, niveles de experiencia y requisitos específicos mencionados",
+      "tip3": "Cuanto más detallada sea la descripción, más precisa será el análisis"
+    },
+    "form": {
+      "title": "Descripción de la Vacante",
+      "description": "Pega la descripción completa de la vacante a continuación para analizar la compatibilidad con tu CV",
+      "label": "Descripción de la Vacante",
+      "placeholder": "Pega la descripción completa de la vacante aquí... Incluye requisitos, responsabilidades, calificaciones, habilidades técnicas y cualquier otra información relevante.",
+      "characters": "caracteres",
+      "minCharacters": "se requieren {count} caracteres más",
+      "analyze": "Analizar",
+      "analyzing": "Analizando..."
+    }
+  },
+  "cvAnalysisJobResult": {
+    "title": "Resultados del Análisis de Vacante",
+    "subtitle": "Análisis de compatibilidad para el currículum de {name}",
+    "back": "Volver",
+    "backToCvs": "Volver a Mis CVs",
+    "noData": "No hay datos de análisis disponibles",
+    "overallScore": {
+      "title": "Puntuaciones Generales",
+      "overall": "General",
+      "compatibility": "Compatibilidad",
+      "linearity": "Linealidad",
+      "match": "Correspondencia"
+    },
+    "score": {
+      "excellent": "Excelente",
+      "good": "Bueno",
+      "needsImprovement": "Necesita Mejora"
+    },
+    "evaluation": {
+      "title": "Evaluación Detallada",
+      "skills": "Habilidades",
+      "experience": "Experiencia",
+      "education": "Educación"
+    },
+    "strengths": {
+      "title": "Fortalezas"
+    },
+    "missingRequirements": {
+      "title": "Requisitos Faltantes"
+    },
+    "exceedingRequirements": {
+      "title": "Requisitos Excedentes"
+    },
+    "keywordAnalysis": {
+      "title": "Análisis de Palabras Clave",
+      "total": "Total de Palabras Clave",
+      "matched": "Coincidentes",
+      "matchPercentage": "% Coincidencia",
+      "missing": "Faltantes",
+      "matchedKeywords": "Palabras Clave Coincidentes",
+      "missingKeywords": "Palabras Clave Faltantes",
+      "importantKeywords": "Importancia de las Palabras Clave"
+    },
+    "improvementPoints": {
+      "title": "Puntos de Mejora"
+    },
+    "recommendations": {
+      "title": "Recomendaciones"
+    },
+    "marketInsights": {
+      "title": "Perspectivas de Mercado"
+    },
+    "professionalAlignment": {
+      "title": "Alineación Profesional"
+    },
+    "atsCompatibility": {
+      "title": "Compatibilidad con ATS",
+      "chance": "Probabilidad",
+      "recommendations": "Recomendaciones"
     }
   },
   "cvCreation": {
