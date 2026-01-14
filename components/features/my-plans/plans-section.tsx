@@ -124,6 +124,7 @@ export function PlansSection({ onSectionChange }: PlansSectionProps) {
             <div>
               <h3 className="text-2xl font-bold text-white">{currentPlan.name}</h3>
               <p className="text-white/70">{t('currentPlan.nextBilling')}: {currentPlan.nextBilling}</p>
+              <p className="text-white/70">{t('currentPlan.status')}: <span className="text-green-400 font-semibold">{t('currentPlan.active')}</span></p>
             </div>
             <div className="text-right">
               <div className="text-3xl font-bold text-white">{currentPlan.price}</div>

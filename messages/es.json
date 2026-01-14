@@ -394,6 +394,8 @@
       "title": "Plan Actual",
       "subtitle": "Tu plan de suscripción actual",
       "nextBilling": "Próxima facturación",
+      "status": "Estado",
+      "active": "Activo",
       "manageSubscription": "Gestionar Suscripción",
       "cancelSubscription": "Cancelar Suscripción"
     },

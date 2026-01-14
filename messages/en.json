@@ -394,6 +394,8 @@
       "title": "Current Plan",
       "subtitle": "Your current subscription plan",
       "nextBilling": "Next billing",
+      "status": "Status",
+      "active": "Active",
       "manageSubscription": "Manage Subscription",
       "cancelSubscription": "Cancel Subscription"
     },
