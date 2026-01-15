@@ -23,10 +23,8 @@ export default function Loading() {
 
   return (
     <div className="relative min-h-screen flex items-center justify-center px-4">
-      {/* Background Gradient - igual ao hero */}
       <div className="absolute inset-0 bg-gradient-to-b from-purple-900 via-purple-800 to-blue-800" />
       
-      {/* Decorative Elements - igual ao hero */}
       <div className="absolute top-1/4 left-10 w-20 h-20 bg-gradient-to-br from-purple-400/20 to-blue-400/20 rounded-full blur-xl" />
       <div className="absolute bottom-1/4 right-10 w-32 h-32 bg-gradient-to-br from-pink-400/20 to-purple-400/20 rounded-full blur-xl" />
       

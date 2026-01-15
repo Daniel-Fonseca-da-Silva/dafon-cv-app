@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { routing } from './i18n/routing';
 import { AUTH_CONFIG } from '@/lib/auth-config';
 
-// Rotas que requerem autenticação
+// routes that require authentication
 const protectedRoutes = ['/dashboard', '/profile', '/settings', '/generate-cv', '/plans'];
 
 const intlMiddleware = createMiddleware(routing);
@@ -11,24 +11,24 @@ const intlMiddleware = createMiddleware(routing);
 export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   
-  // Verificar se é uma rota protegida
+  // verify if it is a protected route
   const isProtectedRoute = protectedRoutes.some(route => pathname.includes(route));
   
   if (isProtectedRoute) {
-    // Verificar se há token de sessão
+    // verify if there is a session token
     const sessionToken = request.cookies.get(AUTH_CONFIG.SESSION_COOKIE_NAME);
     
     if (!sessionToken) {
-      // Redirecionar para login se não houver token
+      // redirect to login if there is no session token
       const loginUrl = new URL('/auth/login', request.url);
       return NextResponse.redirect(loginUrl);
     }
     
-    // Nota: A verificação de expiração do token é feita no endpoint /api/auth/session
-    // O middleware só verifica a existência do cookie, não sua validade
+    // Note: The token expiration check is done in the /api/auth/session endpoint
+    // The middleware only checks the existence of the cookie, not its validity
   }
   
-  // Aplicar middleware de internacionalização
+  // apply internationalization middleware
   return intlMiddleware(request);
 }
 

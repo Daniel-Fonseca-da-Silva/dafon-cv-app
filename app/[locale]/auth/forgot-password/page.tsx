@@ -14,7 +14,7 @@ import { useTranslations } from "next-intl"
 import { forgotPasswordSchema } from "@/lib/validations"
 import { ZodError } from "zod"
 
-// Componente de botão que usa useFormStatus
+// button component that uses useFormStatus
 function SubmitButton() {
   const { pending } = useFormStatus()
   const t = useTranslations("auth.forgotPassword")
@@ -46,15 +46,15 @@ export default function ForgotPasswordPage() {
   const handleForgotPassword = async (formData: FormData) => {
     const emailValue = formData.get("email") as string
     
-    // Limpar erros anteriores e alerta de sucesso
+    // clear previous errors and success alert
     setErrors({})
     setShowSuccessAlert(false)
     
     try {
-      // Validar com Zod
+      // validate with Zod
       const validatedData = forgotPasswordSchema.parse({ email: emailValue })
       
-      // Fazer requisição para a rota interna auth/login
+      // make request to the internal auth/login route
       const response = await fetch('/api/auth/login', {
         method: 'POST',
         headers: {
@@ -69,11 +69,11 @@ export default function ForgotPasswordPage() {
         throw new Error(data.error || 'Error when sending password reset instructions. Try again.')
       }
       
-      // Exibir alerta de sucesso
+      // show success alert
       setShowSuccessAlert(true)
     } catch (error) {
       if (error instanceof ZodError) {
-        // Erro de validação do Zod
+        // Zod validation error
         const zodErrors: Record<string, string> = {}
         error.issues.forEach((issue) => {
           const fieldName = issue.path[0] as string
@@ -81,12 +81,12 @@ export default function ForgotPasswordPage() {
         })
         setErrors(zodErrors)
       } else if (error instanceof Error) {
-        // Erro da API
+        // API error
         setErrors({ 
           general: error.message || 'Error when sending password reset instructions. Try again.' 
         })
       } else {
-        // Erro genérico
+        // generic error
         setErrors({ 
           general: 'Unexpected error. Try again.' 
         })
@@ -98,12 +98,10 @@ export default function ForgotPasswordPage() {
     <div className="min-h-screen">
       <Header />
       
-      {/* Main Content */}
       <main className="relative flex items-center justify-center p-4 pt-24 pb-16 min-h-screen">
-        {/* Background Gradient - mesmo padrão das outras telas */}
         <div className="absolute inset-0 bg-gradient-to-b from-purple-900 via-purple-800 to-blue-800" />
         
-        {/* Background decorativo */}
+        {/* decorative background */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-1/4 left-10 w-20 h-20 bg-gradient-to-br from-purple-400/20 to-blue-400/20 rounded-full blur-xl" />
           <div className="absolute bottom-1/4 right-10 w-32 h-32 bg-gradient-to-br from-pink-400/20 to-purple-400/20 rounded-full blur-xl" />
