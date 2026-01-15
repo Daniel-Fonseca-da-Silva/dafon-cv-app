@@ -5,7 +5,8 @@ import { useState, useEffect } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { PlansSkeleton } from "@/components/features/my-plans/plans-skeleton"
-import { FiCreditCard, FiCheck, FiAward, FiZap, FiStar, FiArrowRight, FiArrowLeft } from "react-icons/fi"
+import { FiCreditCard, FiCheck, FiAward, FiStar, FiArrowRight, FiArrowLeft } from "react-icons/fi"
+import PaymentButton from './payment-button'
 
 interface PlansSectionProps {
   onSectionChange?: (section: string) => void
@@ -16,7 +17,7 @@ export function PlansSection({ onSectionChange }: PlansSectionProps) {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    // Simula carregamento dos dados do plano
+    // simulate loading of plan data
     const timer = setTimeout(() => {
       setIsLoading(false)
     }, 1500)
@@ -141,19 +142,17 @@ export function PlansSection({ onSectionChange }: PlansSectionProps) {
             ))}
           </div>
           
+           {/* currentPlan.cancelSubscription */}
           <div className="flex flex-col sm:flex-row gap-3 sm:space-x-3 sm:space-y-0 space-y-3">
-            <Button className="bg-gradient-to-r from-green-400 to-emerald-400 hover:from-green-500 hover:to-emerald-500 text-white">
-              <FiZap className="w-4 h-4 mr-2" />
-              {t('currentPlan.manageSubscription')}
-            </Button>
+            <PaymentButton>{t('currentPlan.purchase')}</PaymentButton>
             <Button variant="ghost" className="text-white/80 hover:text-white hover:bg-white/10">
-              {t('currentPlan.cancelSubscription')}
+              {t('currentPlan.manageSubscription')}
             </Button>
           </div>
         </CardContent>
       </Card>
 
-      {/* Planos Disponíveis */}
+      {/* Available Plans */}
       <div>
         <h2 className="text-lg lg:text-xl font-bold text-white mb-4">{t('availablePlans.title')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
@@ -216,7 +215,7 @@ export function PlansSection({ onSectionChange }: PlansSectionProps) {
         </div>
       </div>
 
-      {/* Estatísticas de Uso */}
+      {/* Usage Statistics */}
       <Card className="backdrop-blur-xl bg-white/10 border-white/20 shadow-2xl">
         <CardHeader>
           <CardTitle className="text-white">{t('usage.title')}</CardTitle>
