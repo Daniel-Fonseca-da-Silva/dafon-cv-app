@@ -1,12 +1,14 @@
 "use client"
 
-import { useState, ReactNode } from "react"
+import { useState, ReactNode, useEffect, useRef } from "react"
+import { useSearchParams, useRouter } from "next/navigation"
 import { Sidebar } from "@/components/layout/sidebar"
 import { Button } from "@/components/ui/button"
 import { FiMenu, FiUser } from "react-icons/fi"
 import { useTranslations } from "next-intl"
 import { useAuth } from "@/hooks/use-auth"
 import Image from "next/image"
+import AlertDialogCustom from "../ui/alert-dialog-custom"
 
 interface UserData {
   name: string
@@ -29,8 +31,41 @@ export function DashboardLayout({
 }: DashboardLayoutProps) {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [showPremiumAlert, setShowPremiumAlert] = useState(false)
+  const alertProcessedRef = useRef(false)
+  const searchParams = useSearchParams()
+  const router = useRouter()
   const t = useTranslations('dashboard.sections')
   const { checkSession } = useAuth()
+
+  // detect premium activated parameter only in dashboard section
+  useEffect(() => {
+    const premiumActivated = searchParams.get('premium_activated')
+    
+    // only show alert if in dashboard section and not processed yet
+    if (premiumActivated === 'true' && activeSection === 'dashboard' && !alertProcessedRef.current) {
+      alertProcessedRef.current = true
+      setShowPremiumAlert(true)
+      
+      // clear parameter from URL after showing alert
+      const url = new URL(window.location.href)
+      url.searchParams.delete('premium_activated')
+      router.replace(url.pathname + url.search, { scroll: false })
+    }
+    
+    // reset ref if no premium_activated parameter
+    if (premiumActivated !== 'true') {
+      alertProcessedRef.current = false
+    }
+  }, [searchParams, router, activeSection])
+
+  // clear alert when changing section
+  useEffect(() => {
+    if (activeSection !== 'dashboard') {
+      setShowPremiumAlert(false)
+      alertProcessedRef.current = false
+    }
+  }, [activeSection])
 
   const handleToggleSidebar = () => {
     setIsSidebarCollapsed(!isSidebarCollapsed)
@@ -41,10 +76,15 @@ export function DashboardLayout({
   }
 
   const handleSectionChange = async (section: string) => {
-    // Verificar sessão antes de mudar de seção
+    // check session before changing section
     await checkSession()
     onSectionChange(section)
-    setIsMobileMenuOpen(false) // Fechar menu mobile ao selecionar uma seção
+    setIsMobileMenuOpen(false) // close mobile menu when selecting a section
+  }
+
+  const handleClosePremiumAlert = () => {
+    setShowPremiumAlert(false)
+    alertProcessedRef.current = false
   }
 
   const getSectionTitle = (section: string) => {
@@ -65,19 +105,15 @@ export function DashboardLayout({
 
   return (
     <div className="min-h-screen">
-      {/* Background Gradient - mesmo padrão das outras telas */}
       <div className="absolute inset-0 bg-gradient-to-b from-purple-900 via-purple-800 to-blue-800" />
       
-      {/* Background decorativo */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-10 w-20 h-20 bg-gradient-to-br from-purple-400/20 to-blue-400/20 rounded-full blur-xl" />
         <div className="absolute bottom-1/4 right-10 w-32 h-32 bg-gradient-to-br from-pink-400/20 to-purple-400/20 rounded-full blur-xl" />
         <div className="absolute top-1/2 left-1/2 w-40 h-40 bg-gradient-to-br from-cyan-400/10 to-blue-400/10 rounded-full blur-2xl" />
       </div>
 
-      {/* Main Dashboard Layout */}
       <div className="relative flex h-screen z-10">
-        {/* Mobile Overlay */}
         {isMobileMenuOpen && (
           <div 
             className="fixed inset-0 bg-black/50 z-40 lg:hidden"
@@ -108,7 +144,7 @@ export function DashboardLayout({
           <div className="p-4 lg:p-6 border-b border-white/10 backdrop-blur-xl bg-white/5">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3 lg:space-x-4 min-w-0 flex-1">
-                {/* Botão para abrir menu mobile */}
+                {/* button to open mobile menu */}
                 <Button
                   variant="ghost"
                   size="sm"
@@ -118,7 +154,7 @@ export function DashboardLayout({
                   <FiMenu className="w-5 h-5" />
                 </Button>
 
-                {/* Botão para expandir sidebar quando colapsado (desktop) */}
+                {/* button to expand sidebar when collapsed (desktop) */}
                 {isSidebarCollapsed && (
                   <Button
                     variant="ghost"
@@ -172,6 +208,18 @@ export function DashboardLayout({
             </div>
           </div>
           
+          {/* Premium Activation Alert - only in dashboard section */}
+          {showPremiumAlert && activeSection === 'dashboard' && (
+            <div className="px-4 lg:px-6 pt-4">
+              <AlertDialogCustom 
+                handleClosePremiumAlert={handleClosePremiumAlert}
+                alertTitle={t('premiumAlert.title')}
+                alertDescription={t('premiumAlert.description')}
+                color="green"
+              />
+            </div>
+          )}
+
           {/* Content Area */}
           <div className="flex-1 overflow-auto">
             {children}
