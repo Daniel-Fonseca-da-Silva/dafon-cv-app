@@ -14,6 +14,7 @@ import {
 import { FiSettings, FiBell, FiGlobe, FiSave, FiArrowLeft } from "react-icons/fi"
 import { useLocale } from '@/hooks/use-locale'
 import { useEffect, useState } from "react"
+import { languageOptions, getLanguageOption } from '@/lib/shared/language-flag'
 
 interface SettingsSectionProps {
   onSectionChange?: (section: string) => void
@@ -218,12 +219,31 @@ export function SettingsSection({ onSectionChange }: SettingsSectionProps) {
               <label className="text-sm font-medium text-white/90">{t('appearance.options.language.label')}</label>
               <Select value={formData.language} onValueChange={handleLanguageChange}>
                 <SelectTrigger className="w-full bg-white/20 border-white/30 text-white hover:text-white/80 focus:ring-white/50">
-                  <SelectValue placeholder={t('appearance.options.language.label')} />
+                  <SelectValue placeholder={t('appearance.options.language.label')}>
+                    {getLanguageOption(formData.language) && (() => {
+                      const option = getLanguageOption(formData.language)!;
+                      const FlagComponent = option.flag;
+                      return (
+                        <div className="flex items-center gap-2">
+                          <FlagComponent className="w-4 h-4" title={option.name} />
+                          <span>{t(`appearance.options.language.options.${option.code}`)}</span>
+                        </div>
+                      );
+                    })()}
+                  </SelectValue>
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="pt">{t('appearance.options.language.options.pt')}</SelectItem>
-                  <SelectItem value="en">{t('appearance.options.language.options.en')}</SelectItem>
-                  <SelectItem value="es">{t('appearance.options.language.options.es')}</SelectItem>
+                  {languageOptions.map((option) => {
+                    const FlagComponent = option.flag;
+                    return (
+                      <SelectItem key={option.code} value={option.code}>
+                        <div className="flex items-center gap-2">
+                          <FlagComponent className="w-4 h-4" title={option.name} />
+                          <span>{t(`appearance.options.language.options.${option.code}`)}</span>
+                        </div>
+                      </SelectItem>
+                    );
+                  })}
                 </SelectContent>
               </Select>
             </div>

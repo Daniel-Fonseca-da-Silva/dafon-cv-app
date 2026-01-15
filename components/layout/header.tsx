@@ -14,6 +14,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { useLocale } from '@/hooks/use-locale';
+import { languageOptions, getLanguageOption } from '@/lib/shared/language-flag';
 
 export function Header() {
   const t = useTranslations('HomePage.navigation');
@@ -23,6 +24,8 @@ export function Header() {
   const handleLanguageChange = (newLocale: string) => {
     changeLocale(newLocale);
   };
+
+  const currentLanguage = getLanguageOption(locale);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-md border-b border-white/20">
@@ -41,12 +44,27 @@ export function Header() {
             </Link>
             <Select value={locale} onValueChange={handleLanguageChange}>
               <SelectTrigger className="w-fit bg-transparent border-white/20 text-white hover:text-white/80 focus:ring-white/50">
-                <SelectValue placeholder={t('language')} />
+                <SelectValue placeholder={t('language')}>
+                  {currentLanguage && (
+                    <div className="flex items-center gap-2">
+                      <currentLanguage.flag className="w-4 h-4" title={currentLanguage.name} />
+                      <span>{currentLanguage.name}</span>
+                    </div>
+                  )}
+                </SelectValue>
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="en">English</SelectItem>
-                <SelectItem value="pt">Português</SelectItem>
-                <SelectItem value="es">Español</SelectItem>
+                {languageOptions.map((option) => {
+                  const FlagComponent = option.flag;
+                  return (
+                    <SelectItem key={option.code} value={option.code}>
+                      <div className="flex items-center gap-2">
+                        <FlagComponent className="w-4 h-4" title={option.name} />
+                        <span>{option.name}</span>
+                      </div>
+                    </SelectItem>
+                  );
+                })}
               </SelectContent>
             </Select>
           </nav>
@@ -87,11 +105,27 @@ export function Header() {
               <div className="px-3 py-2">
                 <Select value={locale} onValueChange={handleLanguageChange}>
                   <SelectTrigger className="w-full bg-transparent border-white/20 text-white hover:text-white/80 focus:ring-white/50">
-                    <SelectValue placeholder={t('language')} />
+                    <SelectValue placeholder={t('language')}>
+                      {currentLanguage && (
+                        <div className="flex items-center gap-2">
+                          <currentLanguage.flag className="w-4 h-4" title={currentLanguage.name} />
+                          <span>{currentLanguage.name}</span>
+                        </div>
+                      )}
+                    </SelectValue>
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="en">English</SelectItem>
-                    <SelectItem value="pt">Português</SelectItem>
+                    {languageOptions.map((option) => {
+                      const FlagComponent = option.flag;
+                      return (
+                        <SelectItem key={option.code} value={option.code}>
+                          <div className="flex items-center gap-2">
+                            <FlagComponent className="w-4 h-4" title={option.name} />
+                            <span>{option.name}</span>
+                          </div>
+                        </SelectItem>
+                      );
+                    })}
                   </SelectContent>
                 </Select>
               </div>
