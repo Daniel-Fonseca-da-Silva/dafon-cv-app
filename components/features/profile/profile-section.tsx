@@ -5,11 +5,13 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { ProfileSkeleton } from "@/components/features/profile/profile-skeleton"
-import { FiUser, FiMail, FiPhone, FiSave, FiCamera, FiArrowLeft } from "react-icons/fi"
+import { FiUser, FiMail, FiSave, FiCamera, FiArrowLeft } from "react-icons/fi"
 import { useTranslations } from "next-intl"
 import { useEffect, useState, useRef } from "react"
 import Image from "next/image"
 import { useUserData } from "@/hooks/use-user-data"
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
 
 interface ProfileSectionProps {
   onSectionChange?: (section: string) => void
@@ -265,12 +267,12 @@ export function ProfileSection({ onSectionChange }: ProfileSectionProps) {
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-medium text-white/90">{t('personalInfo.phone')}</label>
-                <div className="relative">
-                  <FiPhone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/60 w-4 h-4" />
-                  <Input 
+                <div className="phone-input-container">
+                  <PhoneInput
+                    placeholder={t('personalInfo.phone')}
                     value={formData.phone}
-                    onChange={(e) => handleInputChange('phone', e.target.value)}
-                    className="pl-10 bg-white/20 border-white/30 text-white placeholder:text-white/60"
+                    onChange={(value) => handleInputChange('phone', value || '')}
+                    className="flex h-10 w-full rounded-md border border-white/30 bg-white/20 px-3 py-2 text-sm text-white placeholder:text-white/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                   />
                 </div>
               </div>
