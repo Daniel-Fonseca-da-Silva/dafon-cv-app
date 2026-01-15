@@ -283,6 +283,10 @@
       "job-matching": {
         "title": "Candidate Matching",
         "description": "Find the ideal candidates for your positions through intelligent matching"
+      },
+      "premiumAlert": {
+        "title": "Premium Subscription Activated!",
+        "description": "Your premium subscription has been successfully activated. You now have access to all premium platform features."
       }
     },
     "cards": {
@@ -396,6 +400,7 @@
       "nextBilling": "Next billing",
       "status": "Status",
       "active": "Active",
+      "purchase": "Purchase Plan",
       "manageSubscription": "Manage Subscription",
       "cancelSubscription": "Cancel Subscription"
     },
@@ -1661,6 +1666,12 @@
       "current": "Current",
       "inProgress": "In Progress"
     }
+  },
+  "paymentConfirmation": {
+    "title": "Subscription Confirmed",
+    "message": "Your purchase was successfully completed on the platform",
+    "description": "Your subscription has been successfully processed and your account is now active",
+    "goToDashboard": "Go to Dashboard"
   }
 }
 

@@ -283,6 +283,10 @@
       "job-matching": {
         "title": "Coincidencia de Candidatos",
         "description": "Encuentra los candidatos ideales para tus vacantes a través de coincidencia inteligente"
+      },
+      "premiumAlert": {
+        "title": "¡Suscripción Premium Activada!",
+        "description": "Tu suscripción premium ha sido activada con éxito. Ahora tienes acceso a todas las funciones premium de la plataforma."
       }
     },
     "cards": {
@@ -396,6 +400,7 @@
       "nextBilling": "Próxima facturación",
       "status": "Estado",
       "active": "Activo",
+      "purchase": "Comprar plan",
       "manageSubscription": "Gestionar Suscripción",
       "cancelSubscription": "Cancelar Suscripción"
     },
@@ -1662,5 +1667,11 @@
       "current": "Actual",
       "inProgress": "En curso"
     }
+  },
+  "paymentConfirmation": {
+    "title": "Suscripción Confirmada",
+    "message": "Su compra se realizó con éxito en la plataforma",
+    "description": "Su suscripción se procesó con éxito y su cuenta ahora está activa",
+    "goToDashboard": "Ir al Panel"
   }
 }

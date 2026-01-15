@@ -283,6 +283,10 @@
       "job-matching": {
         "title": "Matching de Candidatos",
         "description": "Encontre os candidatos ideais para suas vagas através de matching inteligente"
+      },
+      "premiumAlert": {
+        "title": "Assinatura Premium Ativada!",
+        "description": "Sua inscrição premium foi ativada com sucesso. Agora você tem acesso a todos os recursos premium da plataforma."
       }
     },
     "cards": {
@@ -396,6 +400,7 @@
       "nextBilling": "Próxima cobrança",
       "status": "Status",
       "active": "Ativo",
+      "purchase": "Comprar plano",
       "manageSubscription": "Gerenciar Assinatura",
       "cancelSubscription": "Cancelar Assinatura"
     },
@@ -1662,6 +1667,12 @@
       "current": "Atual",
       "inProgress": "Em andamento"
     }
+  },
+  "paymentConfirmation": {
+    "title": "Assinatura Confirmada",
+    "message": "Sua compra foi efetuada com sucesso na plataforma",
+    "description": "Sua assinatura foi processada com sucesso e sua conta agora está ativa",
+    "goToDashboard": "Ir para Dashboard"
   }
 }
 
