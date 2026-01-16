@@ -49,34 +49,34 @@ export function TemplateCard({ template, onView, onDownload }: TemplateCardProps
       </CardHeader>
       
       <CardContent className="p-4 pt-0">
-        <div className="flex space-x-2">
+        <div className="flex gap-2 min-w-0">
           <Button
             onClick={() => !template.isSoon && onView(template.id)}
             variant="outline"
             size="sm"
             disabled={template.isSoon}
-            className={`flex-1 ${
+            className={`flex-1 min-w-0 text-xs sm:text-sm whitespace-nowrap overflow-hidden ${
               template.isSoon 
                 ? 'bg-white/5 border-white/10 text-white/40 cursor-not-allowed' 
                 : 'bg-white/10 border-white/20 text-white hover:bg-white/20 hover:border-white/30'
             }`}
           >
-            <FiEye className="w-4 h-4 mr-2" />
-            {t('actions.view')}
+            <FiEye className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 shrink-0" />
+            <span className="truncate">{t('actions.view')}</span>
           </Button>
           
           <Button
             onClick={() => !template.isSoon && onDownload(template.id)}
             size="sm"
             disabled={template.isSoon}
-            className={`flex-1 ${
+            className={`flex-1 min-w-0 text-xs sm:text-sm whitespace-nowrap overflow-hidden ${
               template.isSoon 
                 ? 'bg-white/5 text-white/40 cursor-not-allowed' 
                 : 'bg-gradient-to-r from-purple-400 to-pink-400 hover:from-purple-500 hover:to-pink-500 text-white'
             }`}
           >
-            <FiDownload className="w-4 h-4 mr-2" />
-            {t('actions.download')}
+            <FiDownload className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 shrink-0" />
+            <span className="truncate">{t('actions.download')}</span>
           </Button>
         </div>
       </CardContent>

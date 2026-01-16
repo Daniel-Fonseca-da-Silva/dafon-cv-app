@@ -57,39 +57,39 @@ export function CvCard({ cv, onAnalyze, onMatchWithJob, onDelete, onUse }: CvCar
             onClick={() => onAnalyze(cv.id)}
             variant="outline"
             size="sm"
-            className="bg-blue-500/20 border-blue-500/30 text-blue-300 hover:bg-blue-500/30 hover:border-blue-500/50"
+            className="bg-blue-500/20 border-blue-500/30 text-blue-300 hover:bg-blue-500/30 hover:border-blue-500/50 text-xs whitespace-nowrap overflow-hidden text-ellipsis"
           >
-            <FiCpu className="w-4 h-4 mr-2" />
-            {t('actions.analyze')}
+            <FiCpu className="w-4 h-4 mr-1 shrink-0" />
+            <span className="truncate">{t('actions.analyze')}</span>
           </Button>
           
           <Button
             onClick={() => onMatchWithJob(cv.id)}
             variant="outline"
             size="sm"
-            className="bg-purple-500/20 border-purple-500/30 text-purple-300 hover:bg-purple-500/30 hover:border-purple-500/50"
+            className="bg-purple-500/20 border-purple-500/30 text-purple-300 hover:bg-purple-500/30 hover:border-purple-500/50 text-xs whitespace-nowrap overflow-hidden text-ellipsis"
           >
-            <FiEdit className="w-4 h-4 mr-2" />
-            {t('actions.matchWithJob')}
+            <FiEdit className="w-4 h-4 mr-1 shrink-0" />
+            <span className="truncate">{t('actions.matchWithJob')}</span>
           </Button>
           
           <Button
             onClick={() => onUse(cv.id)}
             size="sm"
-            className="bg-gradient-to-r from-purple-400 to-pink-400 hover:from-purple-500 hover:to-pink-500 text-white"
+            className="bg-gradient-to-r from-purple-400 to-pink-400 hover:from-purple-500 hover:to-pink-500 text-white text-xs whitespace-nowrap overflow-hidden text-ellipsis"
           >
-            <FiPlay className="w-4 h-4 mr-2" />
-            {t('actions.use')}
+            <FiPlay className="w-4 h-4 mr-1 shrink-0" />
+            <span className="truncate">{t('actions.use')}</span>
           </Button>
           
           <Button
             onClick={() => onDelete(cv.id)}
             variant="outline"
             size="sm"
-            className="bg-red-500/20 border-red-500/30 text-red-300 hover:bg-red-500/30 hover:border-red-500/50"
+            className="bg-red-500/20 border-red-500/30 text-red-300 hover:bg-red-500/30 hover:border-red-500/50 text-xs whitespace-nowrap overflow-hidden text-ellipsis"
           >
-            <FiTrash2 className="w-4 h-4 mr-2" />
-            {t('actions.delete')}
+            <FiTrash2 className="w-4 h-4 mr-1 shrink-0" />
+            <span className="truncate">{t('actions.delete')}</span>
           </Button>
         </div>
       </CardContent>

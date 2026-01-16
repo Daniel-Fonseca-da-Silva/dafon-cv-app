@@ -5,11 +5,11 @@ import {cookies} from 'next/headers';
 import {LOCALE_COOKIE_NAME} from '../lib/cookies';
  
 export default getRequestConfig(async ({requestLocale}) => {
-  // Tenta obter o locale do cookie primeiro
+  // Try to get the locale from the cookie first
   const cookieStore = await cookies();
   const cookieLocale = cookieStore.get(LOCALE_COOKIE_NAME)?.value;
   
-  // Se existe cookie e é um locale válido, usa ele
+  // If there is a cookie and it is a valid locale, use it
   if (cookieLocale && hasLocale(routing.locales, cookieLocale)) {
     return {
       locale: cookieLocale,
@@ -17,7 +17,7 @@ export default getRequestConfig(async ({requestLocale}) => {
     };
   }
   
-  // Caso contrário, usa o locale da requisição ou o padrão
+  // Otherwise, use the locale from the request or the default
   const requested = await requestLocale;
   const locale = hasLocale(routing.locales, requested)
     ? requested
