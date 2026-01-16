@@ -530,7 +530,8 @@
           "options": {
             "pt": "Português",
             "en": "English",
-            "es": "Español"
+            "es": "Español",
+            "fr": "Français"
           }
         }
       },

@@ -1,0 +1,1679 @@
+{
+  "auth": {
+    "login": {
+      "title": "Connexion",
+      "subtitle": "Entrez votre e-mail pour recevoir un lien d'accès",
+      "email": "E-mail",
+      "emailPlaceholder": "votre@email.com",
+      "action": "Envoyer le lien d'accès",
+      "loading": "Envoi du lien...",
+      "forgotPassword": "Mot de passe oublié ?",
+      "dontHaveAccount": "Vous n'avez pas de compte ?",
+      "register": "S'inscrire",
+      "emailSent": {
+        "title": "Lien envoyé !",
+        "message": "Vérifiez votre e-mail et cliquez sur le lien pour accéder à votre compte."
+      },
+      "sessionExpired": {
+        "title": "Session expirée",
+        "message": "Votre session a expiré pour des raisons de sécurité. Veuillez vous reconnecter pour continuer."
+      },
+      "sessionError": {
+        "title": "Erreur de session",
+        "message": "Une erreur s'est produite avec votre session. Veuillez vous reconnecter."
+      }
+    },
+    "register": {
+      "title": "Créer un compte",
+      "subtitle": "Remplissez les données pour créer votre compte",
+      "subtitleName2": "Votre nom complet",
+      "name": "Mon nom complet",
+      "email": "Votre e-mail",
+      "subtitleEmail2": "Mon e-mail",
+      "action": "Créer un compte",
+      "alreadyHaveAccount": "Vous avez déjà un compte ?",
+      "login": "Se connecter",
+      "welcomeAlert": {
+        "title": "Bienvenue dans le système !",
+        "message": "Vos données d'accès ont été envoyées à votre e-mail. Vérifiez votre boîte de réception et suivez les instructions pour activer votre compte."
+      },
+      "errors": {
+        "nameRequired": "Le nom est requis",
+        "nameMinLength": "Veuillez entrer votre nom complet (minimum 15 caractères)"
+      }
+    },
+    "forgotPassword": {
+      "title": "Mot de passe oublié ?",
+      "subtitle": "Entrez votre e-mail pour recevoir les instructions de récupération",
+      "email": "votre@email.com",
+      "subtitle2": "Votre e-mail",
+      "action": "Envoyer les instructions",
+      "loading": "Envoi des instructions...",
+      "backToLogin": "Retour à la connexion",
+      "codeSent": {
+        "title": "Instructions envoyées !",
+        "message": "Les instructions de récupération de mot de passe ont été envoyées à votre e-mail. Vérifiez votre boîte de réception et suivez les instructions pour réinitialiser votre mot de passe."
+      }
+    }
+  },
+  "metadata": {
+    "title": "Dafon CV - Réduisez le temps de recherche de 60% et augmentez le taux de placement de 85%",
+    "description": "La seule plateforme qui analyse les emplois, croise avec votre vivier de talents et prédit la probabilité d'embauche avec l'IA. Correspondance intelligente qui réduit le temps de recherche de 60% et augmente le placement de 85%."
+  },
+  "ErrorPage": {
+    "title": "Erreur"
+  },
+  "LoadingPage": {
+    "title": "Chargement..."
+  },
+  "HomePage": {
+    "navigation": {
+      "home": "Accueil",
+      "contact": "Contact",
+      "language": "Langue",
+      "login": "Connexion",
+      "startNow": "S'inscrire ici"
+    },
+    "hero": {
+      "badge": "IA pour les recruteurs et les cabinets de conseil",
+      "headline": "Trouvez les bons talents avec une analyse intelligente",
+      "highlightWord": "Talents",
+      "subheadline": "Réduisez le temps de recherche de candidats de 60% et augmentez votre taux de placement de 85% avec une correspondance intelligente alimentée par l'IA. La seule plateforme qui analyse les emplois, croise avec votre vivier de talents et prédit la probabilité d'embauche - le tout en quelques secondes.",
+      "ctaPrimary": "Commencer ici maintenant",
+      "ctaSecondary": "Planifier une démo"
+    },
+    "painPoints": {
+      "title": "La plus grande douleur des recruteurs",
+      "subtitle": "Avez-vous vécu cela ?",
+      "points": [
+        {
+          "icon": "time",
+          "title": "Temps perdu à chercher",
+          "description": "Des heures à chercher des candidats dans la base de données, sans savoir s'ils correspondent vraiment au poste."
+        },
+        {
+          "icon": "rejection",
+          "title": "Taux de rejet élevé",
+          "description": "Des candidats envoyés qui ne répondent pas aux exigences, nuisant à la crédibilité du cabinet de conseil."
+        },
+        {
+          "icon": "search",
+          "title": "Difficulté à trouver des talents",
+          "description": "Des talents précieux se perdent dans la base de données, jamais découverts pour de nouvelles opportunités."
+        },
+        {
+          "icon": "lowRate",
+          "title": "Taux de placement faible",
+          "description": "Sans données précises et analyses, il est difficile de maximiser les chances d'embauche des candidats."
+        }
+      ]
+    },
+    "benefits": {
+      "title": "Solution complète pour les cabinets de conseil",
+      "items": [
+        {
+          "icon": "zap",
+          "title": "Création de CV standardisée",
+          "description": "Générez des CV uniformes et professionnels pour tous vos consultants en quelques minutes."
+        },
+        {
+          "icon": "brain",
+          "title": "Analyse d'emplois et de CV alimentée par l'IA",
+          "description": "Analysez les emplois et les CV avec l'IA en quelques secondes, en identifiant automatiquement les technologies, compétences et exigences."
+        },
+        {
+          "icon": "target",
+          "title": "Correspondance intelligente qui réduit la recherche de 60%",
+          "description": "Croisement automatique entre votre vivier de talents et les postes disponibles, avec des scores de correspondance — le tout en quelques secondes."
+        },
+        {
+          "icon": "shield",
+          "title": "Augmentez le placement de 85% avec la prédiction d'embauche",
+          "description": "Recevez des scores de compatibilité et des estimations précises de la probabilité de succès d'embauche, basées sur des données historiques."
+        }
+      ]
+    },
+    "howItWorks": {
+      "title": "Comment ça fonctionne",
+      "step1": {
+        "title": "Créer ou importer des CV",
+        "description": "Créez des CV standardisés pour vos consultants"
+      },
+      "step2": {
+        "title": "Analyser les emplois",
+        "description": "Collez la description du poste et notre IA analyse les exigences, technologies et compétences nécessaires."
+      },
+      "step3": {
+        "title": "Correspondance automatique",
+        "description": "Le système croise automatiquement votre vivier de talents avec l'emploi, générant des scores de correspondance."
+      },
+      "step4": {
+        "title": "Recevoir des insights",
+        "description": "Consultez les candidats compatibles, les scores de probabilité d'embauche et les recommandations d'amélioration."
+      }
+    },
+    "demo": {
+      "title": "Suite d'intelligence de recrutement",
+      "subtitle": "Réduisez le temps de recherche de 60% et augmentez le taux de placement de 85%. Rationalisez votre flux de travail de conseil de la création de CV au placement final",
+      "features": [
+        {
+          "title": "Analyse d'emploi par IA",
+          "description": "Collez la description du poste et recevez une analyse complète des exigences, technologies et compétences nécessaires."
+        },
+        {
+          "title": "Score de correspondance",
+          "description": "Chaque candidat reçoit un score de 0 à 100% montrant sa compatibilité avec le poste."
+        },
+        {
+          "title": "Probabilité d'embauche",
+          "description": "Estimation basée sur les données historiques et l'analyse de profil concernant la probabilité de succès."
+        },
+        {
+          "title": "Correspondance du vivier de talents",
+          "description": "Découvrez automatiquement des candidats de votre base de données qui correspondent parfaitement au poste."
+        }
+      ],
+      "cta": "Optimisez votre processus",
+      "stats": [
+        {
+          "number": "60%",
+          "label": "Réduction du temps de recherche",
+          "color": "text-green-400"
+        },
+        {
+          "number": "85%",
+          "label": "Taux de placement",
+          "color": "text-blue-400"
+        },
+        {
+          "number": "90%",
+          "label": "Précision de correspondance",
+          "color": "text-purple-400"
+        }
+      ]
+    },
+    "socialProof": {
+      "title": "Approuvé par les meilleurs cabinets de conseil",
+      "stats": [
+        {
+          "number": "500+",
+          "label": "Agences",
+          "color": "text-yellow-400"
+        },
+        {
+          "number": "1M+",
+          "label": "CV analysés",
+          "color": "text-green-400"
+        },
+        {
+          "number": "50k",
+          "label": "Placements",
+          "color": "text-blue-400"
+        },
+        {
+          "number": "98%",
+          "label": "Satisfaction client",
+          "color": "text-pink-400"
+        }
+      ]
+    },
+    "footer": {
+      "description": "La seule plateforme qui réduit le temps de recherche de 60% et augmente le taux de placement de 85% avec une correspondance intelligente alimentée par l'IA.",
+      "company": "Entreprise",
+      "about": "À propos",
+      "information": "Information",
+      "privacy": "Politique de confidentialité",
+      "terms": "Conditions d'utilisation",
+      "copyright": "Dafon. Tous droits réservés.",
+      "location": "Lisbonne, Portugal",
+      "legal": "Légal",
+      "cookies": "Cookies"
+    }
+  },
+  "dashboard": {
+    "sections": {
+      "dashboard": {
+        "title": "Tableau de bord",
+        "description": "Bienvenue sur votre panneau de contrôle"
+      },
+      "generate-cv": {
+        "title": "Générer un CV avec l'IA",
+        "description": "Créez des CV professionnels avec l'IA"
+      },
+      "templates": {
+        "title": "Gérer les modèles",
+        "description": "Consulter et télécharger les modèles de CV"
+      },
+      "my-cvs": {
+        "title": "Mes CV",
+        "description": "Gérer tous vos CV créés"
+      },
+      "cv-creation": {
+        "title": "Créer un nouveau CV",
+        "description": "Remplissez les informations pour créer votre CV professionnel"
+      },
+      "cv-analysis": {
+        "title": "Analyse de CV",
+        "description": "Analyse détaillée de votre curriculum"
+      },
+      "cv-analysis-job": {
+        "title": "Analyse d'emploi",
+        "description": "Analyser la compatibilité de l'emploi avec votre CV"
+      },
+      "cv-analysis-job-result": {
+        "title": "Résultats de l'analyse d'emploi",
+        "description": "Consulter les résultats détaillés de l'analyse de compatibilité d'emploi"
+      },
+      "profile": {
+        "title": "Mon profil",
+        "description": "Gérer vos informations personnelles"
+      },
+      "settings": {
+        "title": "Paramètres",
+        "description": "Personnaliser vos paramètres"
+      },
+      "plans": {
+        "title": "Mes plans",
+        "description": "Gérer votre abonnement et vos ressources"
+      },
+      "job-analysis": {
+        "title": "Analyse d'emploi",
+        "description": "Analyser les descriptions d'emploi avec l'IA pour identifier les exigences et les technologies"
+      },
+      "job-matching": {
+        "title": "Correspondance de candidats",
+        "description": "Trouvez les candidats idéaux pour vos postes grâce à une correspondance intelligente"
+      },
+      "premiumAlert": {
+        "title": "Abonnement premium activé !",
+        "description": "Votre abonnement premium a été activé avec succès. Vous avez maintenant accès à toutes les fonctionnalités premium de la plateforme."
+      }
+    },
+    "cards": {
+      "generate-cv": {
+        "title": "Générer un CV avec l'IA",
+        "description": "Créez un CV professionnel en utilisant l'intelligence artificielle. Personnalisez et optimisez votre CV en quelques minutes."
+      },
+      "templates": {
+        "title": "Gérer les modèles",
+        "description": "Consultez et téléchargez des modèles professionnels pour créer votre CV."
+      },
+      "my-cvs": {
+        "title": "Mes CV",
+        "description": "Gérer tous vos CV créés"
+      },
+      "profile": {
+        "title": "Mon profil",
+        "description": "Gérer vos informations personnelles, votre expérience professionnelle et vos coordonnées."
+      },
+      "settings": {
+        "title": "Paramètres",
+        "description": "Personnaliser vos préférences, notifications et paramètres de compte."
+      },
+      "plans": {
+        "title": "Mes plans actuels",
+        "description": "Consultez votre plan actuel, les ressources disponibles et les options de mise à niveau."
+      },
+      "job-analysis": {
+        "title": "Analyse d'emploi",
+        "description": "Analyser les descriptions d'emploi avec l'IA pour identifier les exigences et les technologies"
+      },
+      "job-matching": {
+        "title": "Correspondance de candidats",
+        "description": "Trouvez les candidats idéaux pour vos postes grâce à une correspondance intelligente"
+      }
+    },
+    "jobAnalysis": {
+      "title": "Analyse d'emploi",
+      "description": "Collez la description du poste et notre IA analysera les exigences, technologies et compétences nécessaires",
+      "placeholder": "Collez la description complète du poste ici...",
+      "analyze": "Analyser l'emploi",
+      "analyzing": "Analyse en cours...",
+      "resultTitle": "Résultat de l'analyse",
+      "technologies": "Technologies identifiées",
+      "skills": "Compétences requises",
+      "requirements": "Exigences principales"
+    },
+    "jobMatching": {
+      "title": "Correspondance de candidats",
+      "description": "Trouvez les candidats idéaux de votre vivier de talents pour ce poste",
+      "placeholder": "Collez la description complète du poste ici...",
+      "findCandidates": "Trouver des candidats",
+      "matching": "Recherche de candidats...",
+      "matchedCandidates": "Candidats compatibles",
+      "matchScore": "Score de correspondance",
+      "hiringChance": "Probabilité d'embauche",
+      "technologies": "Technologies",
+      "missingSkills": "Compétences manquantes"
+    }
+  },
+  "sidebar": {
+    "menuItems": {
+      "dashboard": {
+        "label": "Tableau de bord",
+        "description": "Vue d'ensemble"
+      },
+      "generate-cv": {
+        "label": "Générer un CV avec l'IA",
+        "description": "Créer un CV"
+      },
+      "templates": {
+        "label": "Gérer les modèles",
+        "description": "Modèles de CV"
+      },
+      "my-cvs": {
+        "label": "Mes CV",
+        "description": "Gérer les CV"
+      },
+      "profile": {
+        "label": "Mon profil",
+        "description": "Informations personnelles"
+      },
+      "settings": {
+        "label": "Paramètres",
+        "description": "Préférences"
+      },
+      "plans": {
+        "label": "Mes plans",
+        "description": "Abonnement actuel"
+      }
+    },
+    "user": {
+      "defaultName": "Utilisateur",
+      "defaultEmail": "utilisateur@exemple.com"
+    },
+    "logout": "Déconnexion",
+    "brand": {
+      "name": "Dafon CV",
+      "tagline": "Propulsé par Dafon"
+    }
+  },
+  "plans": {
+    "header": {
+      "title": "Mes plans actuels",
+      "subtitle": "Gérer votre abonnement et vos ressources",
+      "backButton": "Retour au tableau de bord"
+    },
+    "currentPlan": {
+      "title": "Plan actuel",
+      "subtitle": "Votre plan d'abonnement actuel",
+      "nextBilling": "Prochaine facturation",
+      "status": "Statut",
+      "active": "Actif",
+      "purchase": "Acheter un plan",
+      "manageSubscription": "Gérer l'abonnement",
+      "cancelSubscription": "Annuler l'abonnement"
+    },
+    "availablePlans": {
+      "title": "Plans disponibles",
+      "popular": "Populaire",
+      "current": "Actuel",
+      "choosePlan": "Choisir un plan"
+    },
+    "usage": {
+      "title": "Utilisation du plan",
+      "subtitle": "Statistiques d'utilisation pour votre plan actuel",
+      "cvsCreated": "CV créés",
+      "templatesUsed": "Modèles utilisés",
+      "daysRemaining": "Jours restants"
+    },
+    "plans": {
+      "basic": {
+        "name": "Basique",
+        "features": [
+          "CV illimités",
+          "Modèles illimités",
+          "Analyse IA avancée",
+          "Traduction de texte",
+          "Export PDF",
+          "Support par e-mail"
+        ]
+      },
+      "pro": {
+        "name": "Pro",
+        "features": [
+          "20 CV par mois",
+          "Changements de couleur et de style",
+          "Traduction automatique de texte",
+          "10 modèles Premium",
+          "Analyse IA avancée",
+          "Export PDF/Word"
+        ]
+      },
+      "enterprise": {
+        "name": "Entreprise",
+        "features": [
+          "CV illimités",
+          "Modèles Premium",
+          "API personnalisée",
+          "Intégration ATS",
+          "Support dédié",
+          "Rapports avancés"
+        ]
+      }
+    }
+  },
+  "settings": {
+    "header": {
+      "title": "Paramètres",
+      "subtitle": "Personnaliser vos préférences et paramètres",
+      "backButton": "Retour au tableau de bord"
+    },
+    "loading": "Chargement des paramètres...",
+    "personalInfo": {
+      "title": "Informations personnelles",
+      "subtitle": "Gérer vos informations personnelles",
+      "fields": {
+        "fullName": {
+          "label": "Nom complet",
+          "placeholder": "Entrez votre nom complet"
+        },
+        "phone": {
+          "label": "Téléphone",
+          "placeholder": "Entrez votre numéro de téléphone"
+        },
+        "email": {
+          "label": "E-mail",
+          "placeholder": "Entrez votre e-mail"
+        },
+        "country": {
+          "label": "Pays",
+          "placeholder": "Entrez votre pays"
+        },
+        "state": {
+          "label": "État/Province",
+          "placeholder": "Entrez votre état ou province"
+        },
+        "city": {
+          "label": "Ville",
+          "placeholder": "Entrez votre ville"
+        },
+        "age": {
+          "label": "Âge",
+          "placeholder": "Entrez votre âge"
+        }
+      },
+      "saveButton": "Enregistrer les informations"
+    },
+    "notifications": {
+      "title": "Notifications",
+      "subtitle": "Configurer vos préférences de notification",
+      "options": {
+        "newsletter": {
+          "title": "Newsletter",
+          "description": "Recevoir des conseils de carrière, des rappels et des mises à jour de la plateforme"
+        },
+        "marketingEmail": {
+          "title": "E-mail marketing",
+          "description": "Recevoir des offres et des actualités"
+        },
+        "pushNotifications": {
+          "title": "Notifications push",
+          "description": "Alertes importantes du navigateur"
+        },
+        "cvReminders": {
+          "title": "Rappels de CV",
+          "description": "Rappels pour mettre à jour votre CV"
+        }
+      }
+    },
+    "appearance": {
+      "title": "Apparence",
+      "subtitle": "Personnaliser l'apparence de l'interface",
+      "options": {
+        "darkMode": {
+          "title": "Mode sombre",
+          "description": "Activer le thème sombre"
+        },
+        "language": {
+          "label": "Langue",
+          "options": {
+            "pt": "Português",
+            "en": "English",
+            "es": "Español",
+            "fr": "Français"
+          }
+        }
+      },
+      "saveButton": "Enregistrer les modifications",
+      "saving": "Enregistrement...",
+      "saveSuccess": "Paramètres enregistrés avec succès !"
+    },
+    "privacy": {
+      "title": "Confidentialité",
+      "subtitle": "Contrôler votre confidentialité et vos données",
+      "options": {
+        "publicProfile": {
+          "title": "Profil public",
+          "description": "Rendre le profil visible publiquement"
+        },
+        "analytics": {
+          "title": "Analytique",
+          "description": "Partager les données d'utilisation"
+        }
+      },
+      "downloadData": "Télécharger mes données"
+    }
+  },
+  "generateCv": {
+    "header": {
+      "title": "Générer un CV avec l'IA",
+      "subtitle": "Créez un CV professionnel en utilisant l'intelligence artificielle",
+      "backButton": "Retour au tableau de bord",
+      "backButtonMobile": "Tableau de bord"
+    },
+    "form": {
+      "title": "Enregistrer les informations",
+      "subtitle": "Enregistrez vos informations avec l'IA",
+      "generateButton": "Enregistrer",
+      "manageTitle": "Gérer les CV créés",
+      "manageSubtitle": "Consulter et créer des CV",
+      "manageButton": "Gérer",
+      "cvTitle": "CV Développeur Frontend",
+      "createdDaysAgo": "Créé il y a {days} jour{days, plural, one {} other {s}}",
+      "editButton": "Modifier",
+      "downloadButton": "Télécharger"
+    }
+  },
+  "profileSection": {
+    "header": {
+      "title": "Mon profil",
+      "subtitle": "Gérer vos informations personnelles",
+      "backButton": "Retour au tableau de bord"
+    },
+    "loading": "Chargement du profil...",
+    "photo": {
+      "title": "Photo de profil",
+      "changePhoto": "Changer la photo"
+    },
+    "personalInfo": {
+      "title": "Informations personnelles",
+      "subtitle": "Mettre à jour vos informations de base",
+      "fullName": "Nom complet",
+      "email": "E-mail",
+      "phone": "Téléphone",
+      "country": "Pays",
+      "state": "État/Province",
+      "city": "Ville",
+      "age": "Âge",
+      "saveChanges": "Enregistrer les modifications"
+    },
+    "professionalInfo": {
+      "title": "Informations personnelles",
+      "subtitle": "Détails sur votre situation actuelle",
+      "employmentStatus": "Statut d'emploi",
+      "employed": "Employé",
+      "unemployed": "Sans emploi",
+      "currentSalary": "Salaire actuel",
+      "salaryPlaceholder": "Ex: 3000€",
+      "careerMigration": "Migration de carrière",
+      "careerMigrationText": "Oui, je change de carrière",
+      "gender": "Genre",
+      "male": "Homme",
+      "female": "Femme",
+      "saveChanges": "Enregistrer les modifications"
+    }
+  },
+  "cvForm": {
+    "personalInfo": {
+      "title": "Informations personnelles",
+      "subtitle": "Commençons par vos données de base",
+      "contactData": {
+        "title": "Données de contact",
+        "subtitle": "Vos données de contact et informations de base"
+      },
+      "fields": {
+        "fullName": {
+          "label": "Nom complet",
+          "placeholder": "Votre nom complet"
+        },
+        "email": {
+          "label": "E-mail",
+          "placeholder": "votre@email.com"
+        },
+        "phone": {
+          "label": "Téléphone",
+          "placeholder": "000000000000",
+          "help": "Inclure l'indicatif du pays. Ex. : +000000000000"
+        },
+        "driverLicense": {
+          "label": "Permis de conduire",
+          "placeholder": "Ex: Catégorie B, Catégorie A, etc...",
+          "quickSuggestions": "Suggestions rapides :",
+          "categoryPrefix": "",
+          "noLicense": "Pas de permis"
+        }
+      },
+      "aboutYourself": {
+        "title": "Parlez de vous",
+        "placeholder": "Parlez-nous de vous, de vos expériences, compétences et objectifs professionnels...",
+        "useAiButton": "Utiliser l'IA",
+        "personalTip": {
+          "title": "Conseil personnel",
+          "description": "Une bonne introduction personnelle montre votre personnalité et humanise votre profil. Parlez de vos passions, hobbies qui démontrent des qualités pertinentes, valeurs qui vous motivent et ce qui vous inspire. Soyez authentique et montrez ce qui vous rend unique !"
+        }
+      },
+      "continueButton": "Continuer"
+    },
+    "education": {
+      "title": "Formation",
+      "subtitle": "Votre parcours académique",
+      "formTitle": "Parcours académique",
+      "formSubtitle": "Ajoutez votre parcours académique",
+      "educationNumber": "Formation {number}",
+      "aiPrompt": {
+        "placeholder": "Ex: Administration des affaires...",
+        "useAiButton": "Utiliser l'IA",
+        "generating": "Génération de la description professionnelle pour la Formation {number}..."
+      },
+      "fields": {
+        "institution": {
+          "label": "Établissement",
+          "placeholder": "Université de..."
+        },
+        "degree": {
+          "label": "Diplôme",
+          "placeholder": "Licence en..."
+        },
+        "startDate": {
+          "label": "Date de début",
+          "errorPast": "La date de début doit être dans le passé"
+        },
+        "endDate": {
+          "label": "Date de fin",
+          "placeholder": "Laisser vide si vous étudiez encore",
+          "errorPast": "La date de fin doit être dans le passé"
+        },
+        "currentlyStudying": "Actuellement en cours d'études",
+        "description": {
+          "label": "Description",
+          "placeholder": "Informations supplémentaires sur le cours, notes, projets..."
+        }
+      },
+      "addEducationButton": "Ajouter une formation",
+      "tip": {
+        "title": "Conseil académique",
+        "description": "Incluez d'abord votre formation la plus pertinente. Si vous avez plusieurs diplômes, listez-les dans l'ordre chronologique inverse."
+      },
+      "navigation": {
+        "back": "Retour",
+        "continue": "Continuer"
+      }
+    },
+    "experience": {
+      "title": "Expérience professionnelle",
+      "subtitle": "Parlez-nous de votre parcours professionnel",
+      "formTitle": "Expérience professionnelle",
+      "formSubtitle": "Ajoutez votre expérience professionnelle",
+      "experienceNumber": "Expérience {number}",
+      "aiPrompt": {
+        "placeholder": "Ex: Développeur Full Stack...",
+        "useAiButton": "Utiliser l'IA",
+        "generating": "Génération de la description professionnelle pour l'Expérience {number}..."
+      },
+      "fields": {
+        "position": {
+          "label": "Poste",
+          "placeholder": "Intitulé du poste"
+        },
+        "company": {
+          "label": "Entreprise",
+          "placeholder": "Nom de l'entreprise"
+        },
+        "startDate": {
+          "label": "Date de début",
+          "errorPast": "La date de début doit être dans le passé"
+        },
+        "endDate": {
+          "label": "Date de fin",
+          "placeholder": "Laisser vide si vous travaillez encore ici",
+          "errorPast": "La date de fin doit être dans le passé"
+        },
+        "currentJob": "Actuellement en poste",
+        "description": {
+          "label": "Description",
+          "placeholder": "Description de vos responsabilités et réalisations..."
+        }
+      },
+      "addExperienceButton": "Ajouter une expérience",
+      "tip": {
+        "title": "Conseil professionnel",
+        "description": "Incluez des réalisations et responsabilités spécifiques dans votre expérience professionnelle. Utilisez des verbes d'action et quantifiez vos accomplissements autant que possible. Cela aide les recruteurs à comprendre votre impact et votre valeur."
+      },
+      "navigation": {
+        "back": "Retour",
+        "continue": "Continuer"
+      }
+    },
+    "courses": {
+      "title": "Formations et certifications",
+      "subtitle": "Vos formations, certifications et formations",
+      "aiGenerator": {
+        "title": "Générateur de formations par IA",
+        "subtitle": "Entrez un domaine d'intérêt et laissez l'IA suggérer des formations connexes",
+        "placeholder": "Ex: Développement Web, Marketing Digital, Science des Données...",
+        "useAiButton": "Utiliser l'IA",
+        "generating": "Génération de la liste des formations connexes..."
+      },
+      "coursesTitle": "Formations et certifications",
+      "fields": {
+        "description": {
+          "label": "Liste des formations et certifications",
+          "placeholder": "Utilisez le générateur IA ci-dessus pour créer une liste de formations connexes, ou entrez manuellement vos formations et certifications..."
+        }
+      },
+      "tip": {
+        "title": "Conseil sur les formations",
+        "description": "Utilisez le générateur IA pour créer une liste complète de formations liées à votre domaine. L'IA générera automatiquement les noms, institutions, périodes et descriptions pour chaque formation. Vous pouvez modifier la liste générée selon vos besoins."
+      },
+      "navigation": {
+        "back": "Retour",
+        "continue": "Continuer"
+      }
+    },
+    "skills": {
+      "title": "Compétences et aptitudes",
+      "subtitle": "Définissez vos domaines d'expertise, disponibilité et langues",
+      "skillAreas": {
+        "title": "Domaines de compétences",
+        "subtitle": "Sélectionnez ou ajoutez vos domaines d'expertise",
+        "useAiButton": "Utiliser l'IA",
+        "placeholder": "Entrez un domaine de compétence...",
+        "aiPrompt": {
+          "placeholder": "Décrivez vos compétences ou domaine (ex: développeur frontend, designer UX, chef de projet)",
+          "generating": "Génération de compétences personnalisées..."
+        },
+        "suggestions": "Suggestions :",
+        "selectedAreas": "Domaines sélectionnés :",
+        "showMore": "Afficher plus de suggestions...",
+        "showLess": "Afficher moins..."
+      },
+      "availability": {
+        "title": "Date de disponibilité",
+        "subtitle": "Quand serez-vous disponible pour commencer ?"
+      },
+      "languages": {
+        "title": "Langues",
+        "subtitle": "Sélectionnez ou ajoutez les langues que vous parlez",
+        "placeholder": "Entrez une langue...",
+        "commonLanguages": "Langues courantes :",
+        "selectedLanguages": "Langues sélectionnées :",
+        "showMore": "Afficher plus de langues...",
+        "showLess": "Afficher moins...",
+        "levels": {
+          "basic": "Débutant",
+          "intermediate": "Intermédiaire",
+          "advanced": "Avancé",
+          "native": "Natif"
+        },
+        "commonLanguagesList": {
+          "english": "Anglais",
+          "spanish": "Espagnol",
+          "french": "Français",
+          "german": "Allemand",
+          "italian": "Italien",
+          "portuguese": "Portugais"
+        }
+      },
+      "skillAreasList": {
+        "mobileDevelopment": "Développement mobile",
+        "devOps": "DevOps",
+        "dataScience": "Science des données",
+        "machineLearning": "Apprentissage automatique",
+        "uiUxDesign": "Design UI/UX",
+        "productManagement": "Gestion de produit",
+        "projectManagement": "Gestion de projet",
+        "qualityAssurance": "Assurance qualité",
+        "cybersecurity": "Cybersécurité",
+        "cloudComputing": "Informatique en nuage",
+        "constructionCivilEngineering": "Construction et génie civil",
+        "healthcareMedicine": "Santé et médecine"
+      },
+      "navigation": {
+        "back": "Retour",
+        "save": "Enregistrer le CV",
+        "download": "Télécharger le PDF"
+      }
+    },
+    "social": {
+      "title": "Réseaux sociaux",
+      "subtitle": "Ajoutez vos profils et liens importants",
+      "addLink": {
+        "title": "Ajouter un lien social",
+        "subtitle": "Sélectionnez le type de réseau social et ajoutez votre URL",
+        "typeLabel": "Type de réseau social",
+        "typePlaceholder": "Sélectionnez le type...",
+        "urlLabel": "URL",
+        "urlPlaceholder": "https://exemple.com",
+        "addButton": "Ajouter le lien"
+      },
+      "addedLinks": {
+        "title": "Liens sociaux ajoutés",
+        "subtitle": "Vos profils et liens importants"
+      },
+      "tip": {
+        "title": "Présence numérique",
+        "description": "Ajoutez vos réseaux sociaux professionnels et votre portfolio afin que les recruteurs puissent mieux comprendre votre travail et votre personnalité professionnelle. Gardez vos profils à jour et alignés avec votre carrière."
+      },
+      "navigation": {
+        "back": "Retour",
+        "continue": "Continuer"
+      }
+    },
+    "sections": {
+      "personal": "Informations personnelles",
+      "education": "Formation",
+      "courses": "Formations et certifications",
+      "experience": "Expérience professionnelle",
+      "social": "Réseaux sociaux",
+      "skills": "Compétences",
+      "complete": "Terminé"
+    },
+    "complete": {
+      "title": "CV créé avec succès !",
+      "subtitle": "Votre CV a été enregistré et est prêt à être téléchargé.",
+      "createNewButton": "Créer un nouveau CV"
+    }
+  },
+  "templateManagement": {
+    "title": "Gérer les modèles",
+    "subtitle": "Choisissez parmi nos modèles professionnels et créez votre CV parfait",
+    "backToDashboard": "Retour au tableau de bord",
+    "filters": {
+      "all": "Tous",
+      "free": "Gratuit",
+      "premium": "Premium",
+      "soon": "Bientôt disponible"
+    },
+    "actions": {
+      "view": "Consulter",
+      "download": "Télécharger"
+    },
+    "badges": {
+      "comingSoon": "Bientôt disponible"
+    },
+    "emptyState": {
+      "title": "Aucun modèle trouvé",
+      "action": "Voir tous les modèles"
+    },
+    "noCvSelected": {
+      "title": "Aucun CV sélectionné",
+      "message": "Vous devez d'abord sélectionner un CV avant de télécharger le modèle.",
+      "cancel": "Annuler",
+      "selectCv": "Sélectionner un CV"
+    },
+    "errorAlert": {
+      "title": "Erreur",
+      "viewPdfError": "Erreur lors de la consultation du PDF. Veuillez réessayer.",
+      "downloadPdfError": "Erreur lors de la génération du PDF. Veuillez réessayer.",
+      "ok": "OK"
+    }
+  },
+  "cvManagement": {
+    "title": "Mes CV",
+    "subtitle": "Gérer tous vos CV créés",
+    "searchPlaceholder": "Rechercher par nom ou e-mail...",
+    "actions": {
+      "view": "Consulter",
+      "analyze": "Analyser",
+      "matchWithJob": "Correspondre",
+      "delete": "Supprimer",
+      "use": "Utiliser",
+      "createNew": "Nouveau CV"
+    },
+    "emptyState": {
+      "title": "Aucun CV trouvé",
+      "noSearchResults": "Aucun CV trouvé pour votre recherche.",
+      "clearSearch": "Effacer la recherche",
+      "viewAll": "Voir tout",
+      "createFirst": "Créer le premier CV"
+    },
+    "createdAt": "Créé le",
+    "updatedAt": "Mis à jour le",
+    "deleteDialog": {
+      "title": "Confirmer la suppression",
+      "description": "Êtes-vous sûr de vouloir supprimer ce CV ? Cette action ne peut pas être annulée.",
+      "cancel": "Annuler",
+      "confirm": "Supprimer",
+      "deleting": "Suppression en cours..."
+    }
+  },
+  "cvAnalysis": {
+    "title": "Analyse de CV",
+    "subtitle": "Analyse détaillée du curriculum de {name}",
+    "loading": "Analyse du curriculum en cours...",
+    "back": "Retour",
+    "score": {
+      "title": "Score global",
+      "outOf": "sur",
+      "excellent": "Excellent",
+      "good": "Bon",
+      "needsImprovement": "À améliorer"
+    },
+    "strengths": {
+      "title": "Points forts"
+    },
+    "professionalAlignment": {
+      "title": "Alignement professionnel"
+    },
+    "improvementPoints": {
+      "title": "Points à améliorer"
+    },
+    "bestPractices": {
+      "title": "Meilleures pratiques"
+    },
+    "atsCompatibility": {
+      "title": "Compatibilité ATS",
+      "chance": "Chance",
+      "recommendations": "Recommandations"
+    },
+    "recommendations": {
+      "title": "Recommandations générales"
+    }
+  },
+  "cvAnalysisJob": {
+    "title": "Analyse d'emploi",
+    "subtitle": "Analyser la compatibilité de l'emploi avec le curriculum de {name}",
+    "back": "Retour",
+    "info": {
+      "title": "Conseils pour une meilleure analyse",
+      "tip1": "Collez la description complète du poste incluant les exigences, responsabilités et qualifications",
+      "tip2": "Incluez toutes les compétences techniques, niveaux d'expérience et exigences spécifiques mentionnés",
+      "tip3": "Plus la description est détaillée, plus l'analyse sera précise"
+    },
+    "form": {
+      "title": "Description du poste",
+      "description": "Collez la description complète du poste ci-dessous pour analyser la compatibilité avec votre CV",
+      "label": "Description du poste",
+      "placeholder": "Collez la description complète du poste ici... Incluez les exigences, responsabilités, qualifications, compétences techniques et toute autre information pertinente.",
+      "characters": "caractères",
+      "minCharacters": "{count} caractères supplémentaires requis",
+      "analyze": "Analyser",
+      "analyzing": "Analyse en cours..."
+    }
+  },
+  "cvAnalysisJobResult": {
+    "title": "Résultats de l'analyse d'emploi",
+    "subtitle": "Analyse de compatibilité pour le curriculum de {name}",
+    "back": "Retour",
+    "backToCvs": "Retour à mes CV",
+    "noData": "Aucune donnée d'analyse disponible",
+    "overallScore": {
+      "title": "Scores globaux",
+      "overall": "Global",
+      "compatibility": "Compatibilité",
+      "linearity": "Linéarité",
+      "match": "Correspondance"
+    },
+    "score": {
+      "excellent": "Excellent",
+      "good": "Bon",
+      "needsImprovement": "À améliorer"
+    },
+    "evaluation": {
+      "title": "Évaluation détaillée",
+      "skills": "Compétences",
+      "experience": "Expérience",
+      "education": "Formation"
+    },
+    "strengths": {
+      "title": "Points forts"
+    },
+    "missingRequirements": {
+      "title": "Exigences manquantes"
+    },
+    "exceedingRequirements": {
+      "title": "Exigences dépassées"
+    },
+    "keywordAnalysis": {
+      "title": "Analyse des mots-clés",
+      "total": "Total des mots-clés",
+      "matched": "Correspondants",
+      "matchPercentage": "% de correspondance",
+      "missing": "Manquants",
+      "matchedKeywords": "Mots-clés correspondants",
+      "missingKeywords": "Mots-clés manquants",
+      "importantKeywords": "Importance des mots-clés"
+    },
+    "improvementPoints": {
+      "title": "Points à améliorer"
+    },
+    "recommendations": {
+      "title": "Recommandations"
+    },
+    "marketInsights": {
+      "title": "Aperçus du marché"
+    },
+    "professionalAlignment": {
+      "title": "Alignement professionnel"
+    },
+    "atsCompatibility": {
+      "title": "Compatibilité ATS",
+      "chance": "Chance",
+      "recommendations": "Recommandations"
+    }
+  },
+  "cvCreation": {
+    "title": "Créer un nouveau CV",
+    "subtitle": "Remplissez les informations pour créer votre CV professionnel",
+    "backButton": "Retour à mes CV"
+  },
+  "cvControls": {
+    "sortOptions": {
+      "name": "Nom",
+      "email": "E-mail",
+      "createdAt": "Date de création",
+      "updatedAt": "Dernière mise à jour"
+    },
+    "pageSizeOptions": {
+      "4": "4 par page",
+      "10": "10 par page",
+      "20": "20 par page",
+      "50": "50 par page"
+    },
+    "labels": {
+      "show": "Afficher :",
+      "sortBy": "Trier par :",
+      "update": "Mettre à jour"
+    },
+    "sortOrder": {
+      "asc": "A-Z",
+      "desc": "Z-A"
+    }
+  },
+  "cookie": {
+    "banner": {
+      "title": "Nous utilisons des cookies pour améliorer votre expérience",
+      "description": "Nous utilisons des cookies et des technologies similaires pour aider à personnaliser le contenu, fournir et améliorer nos services, et analyser le trafic. En cliquant sur \"Tout accepter\", vous consentez à l'utilisation de cookies à toutes fins. Vous pouvez personnaliser vos préférences dans nos paramètres de cookies.",
+      "necessary": "Cookies nécessaires",
+      "analytics": "Cookies d'analyse",
+      "marketing": "Cookies marketing",
+      "settings": "Paramètres",
+      "acceptAll": "Tout accepter"
+    },
+    "settings": {
+      "title": "Paramètres des cookies",
+      "description": "Gérez vos préférences de cookies pour contrôler la façon dont nous utilisons vos données",
+      "necessary": {
+        "title": "Cookies nécessaires",
+        "status": "Toujours actif",
+        "description": "Ces cookies sont essentiels au bon fonctionnement du site. Ils ne peuvent pas être désactivés."
+      },
+      "analytics": {
+        "title": "Cookies d'analyse",
+        "status": "Toujours actif",
+        "description": "Ces cookies nous aident à comprendre comment les visiteurs interagissent avec notre site en collectant et en rapportant des informations de manière anonyme."
+      },
+      "marketing": {
+        "title": "Cookies marketing",
+        "status": "Toujours actif",
+        "description": "Ces cookies sont utilisés pour suivre les visiteurs sur les sites Web afin d'afficher des publicités pertinentes et engageantes."
+      },
+      "functional": {
+        "title": "Cookies fonctionnels",
+        "status": "Toujours actif",
+        "description": "Ces cookies permettent une fonctionnalité et une personnalisation améliorées, telles que la mémorisation de vos préférences."
+      },
+      "privacy": {
+        "title": "Votre confidentialité compte",
+        "description": "Nous respectons votre vie privée et nous nous engageons à protéger vos données personnelles. Vous pouvez modifier ces paramètres à tout moment. Pour plus d'informations, veuillez lire notre Politique de confidentialité et nos Conditions d'utilisation."
+      },
+      "rejectAll": "Tout refuser",
+      "savePreferences": "Enregistrer les préférences"
+    }
+  },
+  "termsOfUse": {
+    "title": "Conditions d'utilisation",
+    "effectiveDate": "Date d'entrée en vigueur",
+    "effectiveDateValue": "16 décembre 2025",
+    "lastUpdate": "Dernière mise à jour",
+    "lastUpdateValue": "16 décembre 2025",
+    "close": "Fermer",
+    "section1": {
+      "title": "1. Informations sur le fournisseur de services et aperçu du service",
+      "subsection1": {
+        "title": "1.1. Informations sur le fournisseur",
+        "content": "Le Service est fourni par Daniel Fonseca da Silva, un travailleur indépendant au Portugal. Pour toute question concernant ces Conditions, veuillez nous contacter à dafondeveloper@gmail.com."
+      },
+      "subsection2": {
+        "title": "1.2. Description du service",
+        "content": "DafonCV fournit des services automatisés pour créer des CV et analyser des CV existants, par la fourniture d'informations personnelles. Notre Service crée des CV personnalisés et fournit des analyses et des CV via des fichiers tels que PDF et autres formats.",
+        "aiDisclosure": "Divulgation du traitement par IA : Notre Service utilise des systèmes d'intelligence artificielle, notamment Claude AI et ChatGPT, pour analyser, filtrer et améliorer les informations sur les CV et le marché du travail grâce à un tri automatisé du contenu et à une expansion contextuelle. Les utilisateurs peuvent être informés qu'ils interagissent avec des systèmes alimentés par l'IA qui traitent et recommandent des opportunités d'emploi sur la base d'une analyse algorithmique."
+      }
+    },
+    "section2": {
+      "title": "2. Acceptation et modification des conditions",
+      "content": "En accédant ou en utilisant notre Service, vous reconnaissez avoir lu, compris et accepté d'être lié par ces Conditions et notre Politique de confidentialité. Ces Conditions constituent un accord juridiquement contraignant entre vous et le Fournisseur de services en vertu des lois de la République portugaise et des règlements applicables de l'Union européenne, y compris, mais sans s'y limiter, le RGPD. Nous nous réservons le droit de modifier ces Conditions à tout moment. Les modifications seront publiées sur notre site Web avec une date d'entrée en vigueur mise à jour. L'utilisation continue du Service après les modifications constitue une acceptation des Conditions modifiées. Votre acceptation électronique de ces Conditions crée un contrat valide et exécutoire conformément à la loi portugaise et aux exigences de formation de contrats électroniques de l'Union européenne, y compris le règlement eIDAS (Règlement (UE) n° 910/2014)."
+    },
+    "section3": {
+      "title": "3. Éligibilité des utilisateurs et inscription au compte",
+      "subsection1": {
+        "title": "3.1. Éligibilité d'âge",
+        "content": "Notre Service est disponible à tous les utilisateurs de la planète. Cependant, pour les utilisateurs de l'Union européenne, l'utilisateur doit avoir l'âge minimum légal pour conclure des contrats contraignants (généralement 18 ans, ou l'âge déterminé par la loi portugaise ou la loi du pays de résidence du consommateur, le cas échéant), et se conformer aux Conditions enregistrées ici et aux lois locales régissant leur utilisation des plateformes de communication et des services automatisés."
+      },
+      "subsection2": {
+        "title": "3.2. Inscription au compte",
+        "content": "Pour utiliser le Service, les utilisateurs doivent créer un compte en fournissant des informations exactes et à jour. Les utilisateurs sont responsables de maintenir la confidentialité de leurs identifiants d'accès et de toutes les activités qui se produisent sous leur compte."
+      }
+    },
+    "section4": {
+      "title": "4. Utilisation acceptable du Service",
+      "subsection1": {
+        "title": "4.1",
+        "content": "Les utilisateurs acceptent d'utiliser le Service uniquement à des fins légales et conformément à ces Conditions. Il est interdit d'utiliser le Service pour toute activité illégale, frauduleuse ou qui viole les droits de tiers."
+      },
+      "subsection2": {
+        "title": "4.2",
+        "content": "Les utilisateurs ne peuvent pas tenter d'accéder à des zones non autorisées du Service, interférer avec le fonctionnement du Service, ou utiliser toute méthode automatisée pour accéder au Service sans autorisation préalable."
+      }
+    },
+    "section5": {
+      "title": "5. Système d'abonnement et jetons",
+      "intro": "Nous proposons des services via des achats basés sur des plans d'abonnement. Les utilisateurs peuvent s'abonner à des plans pour un accès continu.",
+      "subsection1": {
+        "title": "5.1. Traitement des paiements",
+        "content": "Tous les paiements sont traités en toute sécurité via Stripe, un processeur de paiement tiers. Lors de vos achats, vous acceptez de vous conformer aux Conditions d'utilisation de Stripe et reconnaissez que vos informations de paiement seront traitées conformément à leurs normes de sécurité et à notre Politique de confidentialité."
+      },
+      "subsection2": {
+        "title": "5.2. Droit de rétractation européen (Droit de rétractation)",
+        "content": "Droit standard : Les résidents européens (y compris au Portugal) agissant en tant que consommateurs ont le droit de se rétracter (annuler) tout achat en ligne dans les 14 jours suivant la date de conclusion du contrat d'abonnement, et de recevoir un remboursement complet, conformément aux termes de la Directive 2011/83/UE sur les droits des consommateurs. Exception pour les services numériques : L'utilisateur reconnaît et accepte qu'il perd son droit de rétractation de 14 jours si la fourniture du service (accès immédiat et création de CV) commence immédiatement après l'achat avec son consentement explicite et sa reconnaissance qu'en agissant ainsi, il perd le droit de rétractation. Si le Service est entièrement exécuté à la demande de l'utilisateur pendant la période de 14 jours, le droit de rétractation cesse également."
+      },
+      "subsection3": {
+        "title": "5.3. Facturation et annulation d'abonnement",
+        "content": "Les abonnements sont automatiquement renouvelés à la fin de chaque période de facturation. Nous fournirons un préavis d'au moins 30 jours pour les augmentations de prix d'abonnement. Les utilisateurs peuvent annuler les abonnements à tout moment via les paramètres du compte ou en contactant le support. L'annulation prendra effet à la fin de la période de facturation en cours."
+      }
+    },
+    "section6": {
+      "title": "6. Droits de propriété intellectuelle",
+      "subsection1": {
+        "title": "6.1. Propriété du fournisseur",
+        "content": "Le Service, y compris les logiciels, algorithmes, marques et contenu (à l'exclusion des données utilisateur et des informations publiquement disponibles sur les opportunités d'emploi), est la propriété du Fournisseur de services et protégé par les lois portugaises et internationales sur la propriété intellectuelle."
+      },
+      "subsection2": {
+        "title": "6.2. Licence limitée à l'utilisateur",
+        "content": "Nous accordons aux utilisateurs une licence limitée, non exclusive et non transférable pour accéder et utiliser le Service strictement à des fins personnelles et non commerciales de création et d'analyse de CV, pendant la durée de leur abonnement."
+      },
+      "subsection3": {
+        "title": "6.3. Informations tierces et propriété des données",
+        "content": "Nous agrégons des informations publiquement disponibles provenant de sites d'emploi. Nous respectons les droits de propriété intellectuelle des tiers et ne revendiquons pas la propriété des opportunités d'emploi ou des images tierces. Les utilisateurs conservent la pleine propriété de toutes les données et contenus (y compris les informations personnelles, l'historique professionnel et le texte) qu'ils fournissent au Service pour la création de CV. En utilisant le Service, les utilisateurs nous accordent une licence mondiale, non exclusive, sans redevance, sous-licenciable et transférable pour traiter, formater, stocker et afficher leurs informations uniquement dans la mesure nécessaire à la fourniture du Service (c'est-à-dire pour générer et analyser le CV et les recommandations)."
+      }
+    },
+    "section7": {
+      "title": "7. Protection des données et confidentialité",
+      "subsection1": {
+        "title": "7.1",
+        "content": "Le traitement des données personnelles des utilisateurs est régi par notre Politique de confidentialité, qui est conforme au Règlement général sur la protection des données (RGPD) de l'Union européenne et aux lois portugaises sur la protection des données."
+      },
+      "subsection2": {
+        "title": "7.2",
+        "content": "Les utilisateurs ont le droit d'accéder, de rectifier, de supprimer, de limiter le traitement, la portabilité des données et de s'opposer au traitement de leurs données personnelles, tel que prévu dans le RGPD."
+      }
+    },
+    "section8": {
+      "title": "8. Cookies et technologies similaires",
+      "subsection1": {
+        "title": "8.1",
+        "content": "Le Service utilise des cookies et des technologies similaires conformément à la directive ePrivacy (2002/58/CE) et au RGPD. Pour plus d'informations sur l'utilisation des cookies, veuillez consulter notre Politique de confidentialité."
+      },
+      "subsection2": {
+        "title": "8.2",
+        "content": "Les utilisateurs peuvent gérer leurs préférences de cookies via les paramètres du navigateur ou les paramètres de cookies de notre site Web."
+      }
+    },
+    "section9": {
+      "title": "9. Conformité légale et politique de confidentialité",
+      "content": "Pour le fonctionnement mondial du Service, les données personnelles des utilisateurs peuvent être transférées vers des pays en dehors de l'Espace économique européen (EEE), y compris les États-Unis et le Royaume-Uni. Tout transfert international est soumis à des garanties appropriées, conformément à l'article 46 du RGPD, et sera protégé par la mise en œuvre de clauses contractuelles types (CCT) approuvées par la Commission européenne, ou d'autres mécanismes de transfert valides, garantissant que les données maintiennent un niveau de protection essentiellement équivalent à celui garanti par le RGPD."
+    },
+    "section10": {
+      "title": "10. Indemnisation",
+      "subsection1": {
+        "title": "10.1",
+        "content": "Les utilisateurs acceptent d'indemniser, de défendre et de dégager de toute responsabilité le Fournisseur de services contre toute réclamation, dommage, perte, responsabilité et dépense (y compris les honoraires d'avocat) résultant de l'utilisation du Service par l'utilisateur, de la violation de ces Conditions ou de la violation de tout droit de tiers."
+      }
+    },
+    "section11": {
+      "title": "11. Limitation de responsabilité et exclusions de garantie",
+      "subsection1": {
+        "title": "11.1. Avertissement de garantie (\"Tel quel\")",
+        "content": "Le Service est fourni \"tel quel\" et \"tel que disponible\" sans garanties d'aucune sorte, expresses ou implicites, y compris, mais sans s'y limiter, les garanties d'exactitude, de fiabilité, d'adéquation à un usage particulier ou de non-contrefaçon. Les informations sur les opportunités d'emploi sont agrégées à partir de sources tierces et peuvent être incomplètes, obsolètes ou inexactes. Les utilisateurs doivent vérifier indépendamment toutes les informations. Nous ne sommes pas responsables des décisions prises sur la base des données du Service."
+      },
+      "subsection2": {
+        "title": "11.2. Limitation de responsabilité",
+        "content": "Dans la mesure maximale permise par la loi applicable, la responsabilité totale du Fournisseur de services pour toutes les réclamations liées au Service ne dépassera pas les montants payés par l'utilisateur dans les 12 mois précédant la réclamation. Cette limitation s'applique indépendamment de la théorie juridique sur laquelle la réclamation est basée."
+      },
+      "subsection3": {
+        "title": "11.3. Exclusion des dommages indirects",
+        "content": "Nous ne serons pas responsables des dommages indirects, accessoires, spéciaux, consécutifs ou punitifs, y compris, mais sans s'y limiter, les pertes de profits, l'interruption d'activité ou la perte d'opportunités commerciales, sauf si ces dommages résultent d'une faute intentionnelle ou d'une négligence grave de notre part."
+      },
+      "subsection4": {
+        "title": "11.4. Responsabilité non excluable (Conformité aux lois UE/Portugal)",
+        "content": "Rien dans ces Conditions ne limite ou n'exclut notre responsabilité pour : Décès ou blessure corporelle résultant de notre négligence ; Fraude ou fausse déclaration frauduleuse ; ou Toute autre responsabilité qui ne peut être limitée ou exclue en vertu des lois de la République portugaise ou des lois applicables de l'Union européenne."
+      }
+    },
+    "section12": {
+      "title": "12. Résiliation",
+      "subsection1": {
+        "title": "12.1",
+        "content": "Le Fournisseur de services se réserve le droit de suspendre ou de résilier l'accès de l'utilisateur au Service, à tout moment, sans préavis, pour violation de ces Conditions ou pour toute autre raison à la discrétion du Fournisseur de services."
+      },
+      "subsection2": {
+        "title": "12.2",
+        "content": "L'utilisateur peut résilier son compte à tout moment via les paramètres du compte ou en contactant le support."
+      }
+    },
+    "section13": {
+      "title": "13. Modifications du Service",
+      "subsection1": {
+        "title": "13.1",
+        "content": "Le Fournisseur de services se réserve le droit de modifier, suspendre ou interrompre tout aspect du Service à tout moment, avec ou sans préavis."
+      },
+      "subsection2": {
+        "title": "13.2",
+        "content": "Le Fournisseur de services ne sera pas responsable envers l'utilisateur ou tout tiers pour toute modification, suspension ou interruption du Service."
+      }
+    },
+    "section14": {
+      "title": "14. Loi applicable et résolution des litiges",
+      "subsection1": {
+        "title": "14.1. Loi applicable",
+        "content": "Ces Conditions sont régies et interprétées conformément aux lois de la République portugaise et aux lois applicables de l'Union européenne (y compris les règlements de protection des consommateurs de l'UE), sans égard à leurs principes de conflit de lois."
+      },
+      "subsection2": {
+        "title": "14.2. Juridiction (Forums)",
+        "content": "Tout litige, controverse ou réclamation découlant de ou en relation avec ces Conditions, ou leur violation, résolution ou invalidité, sera soumis à la juridiction des tribunaux portugais, le tribunal de la zone de résidence du Fournisseur de services étant compétent, ou, au choix du consommateur, le tribunal de la zone de sa résidence, en vertu du Règlement (UE) n° 1215/2012."
+      },
+      "subsection3": {
+        "title": "14.3. Droits des consommateurs de l'UE",
+        "content": "Nonobstant la clause 14.2, si l'utilisateur agit en tant que consommateur et réside dans un autre État membre de l'Union européenne, la Loi applicable et la juridiction seront régies par les règles de protection des consommateurs de l'UE, qui permettent au consommateur d'intenter une action devant les tribunaux de son pays de résidence."
+      },
+      "subsection4": {
+        "title": "14.4. Résolution alternative des litiges de l'UE (RAD)",
+        "content": "Les consommateurs au Portugal et dans d'autres États membres de l'UE peuvent chercher à résoudre les litiges via la plateforme de résolution en ligne des litiges (RLL) de la Commission européenne, accessible à https://ec.europa.eu/consumers/odr/. Les consommateurs portugais peuvent également recourir au Centre d'arbitrage des conflits de consommation. Les parties conviennent de tenter une négociation de bonne foi avant d'engager des procédures légales formelles."
+      }
+    },
+    "section15": {
+      "title": "15. Dispositions supplémentaires",
+      "subsection1": {
+        "title": "15.1. Intégrité de l'accord",
+        "content": "Ces Conditions, ainsi que la Politique de confidentialité, constituent l'accord complet entre l'utilisateur et le Fournisseur de services concernant l'utilisation du Service et remplacent tous les accords antérieurs."
+      },
+      "subsection2": {
+        "title": "15.2. Divisibilité",
+        "content": "Si une disposition de ces Conditions est jugée invalide ou inexécutable, les dispositions restantes resteront en vigueur et en effet."
+      },
+      "subsection3": {
+        "title": "15.3. Langue prévalente",
+        "content": "La version portugaise ou anglaise de ces Conditions prévaudra en cas de conflit avec les traductions."
+      },
+      "subsection4": {
+        "title": "15.4. Renonciation",
+        "content": "Le fait que le Fournisseur de services ne fasse pas respecter un droit ou une disposition de ces Conditions ne constituera pas une renonciation à ce droit ou à cette disposition."
+      },
+      "subsection5": {
+        "title": "15.5. Cession",
+        "content": "L'utilisateur ne peut pas céder ou transférer ces Conditions ou tout droit accordé ici sans le consentement écrit préalable du Fournisseur de services. Le Fournisseur de services peut céder ces Conditions sans restrictions."
+      },
+      "subsection6": {
+        "title": "15.6. Contact",
+        "content": "Pour toute question concernant ces Conditions, veuillez nous contacter à dafondeveloper@gmail.com."
+      }
+    }
+  },
+  "privacyPolicy": {
+    "title": "Politique de confidentialité et protection des données",
+    "effectiveDate": "Date d'entrée en vigueur",
+    "effectiveDateValue": "16 décembre 2025",
+    "lastUpdate": "Dernière mise à jour",
+    "lastUpdateValue": "16 décembre 2025",
+    "section1": {
+      "title": "1. Introduction et portée",
+      "content": "DafonCV (\"Service\") est exploité par Dafon LLC (\"Société\", \"nous\", \"notre\" ou \"nos\") et respecte votre vie privée et s'engage à protéger vos informations personnelles. Cette Politique de confidentialité explique comment nous collectons, utilisons, traitons et protégeons les informations lorsque vous utilisez le service DafonCV (\"Service\").",
+      "compliance": "Conformité réglementaire :",
+      "complianceContent": "Cette politique est conforme à la Loi générale brésilienne sur la protection des données (LGPD), au RGPD européen, aux lois sur la confidentialité des États américains, y compris la California Consumer Privacy Act (CCPA), à la Loi sur la protection des renseignements personnels et les documents électroniques du Canada (PIPEDA), à la Loi sur la protection des renseignements personnels et les documents électroniques du Royaume-Uni, et aux règlements internationaux applicables sur la protection des données.",
+      "serviceOverview": "Aperçu du Service :",
+      "serviceOverviewContent": "Notre Service fournit une découverte automatisée de graphiques et de niveaux du marché du travail européen grâce à une analyse alimentée par l'IA des offres d'emploi publiquement disponibles provenant de sources européennes, livrées via des modèles de format disponibles."
+    },
+    "section2": {
+      "title": "2. Informations sur le responsable du traitement et coordonnées",
+      "dataController": "Responsable du traitement",
+      "dataControllerValue": "Dafon LLC",
+      "privacyInquiries": "Demandes de confidentialité",
+      "privacyInquiriesValue": "dafondeveloper@gmail.com",
+      "customerSupport": "Support client",
+      "customerSupportValue": "dafondeveloper@gmail.com"
+    },
+    "section3": {
+      "title": "3. Catégories d'informations personnelles que nous collectons",
+      "subsection1": {
+        "title": "Informations que vous fournissez directement :",
+        "accountInfo": "Informations de compte : Adresse e-mail, paramètres de préférences de notification, préférences utilisateur",
+        "paymentInfo": "Informations de paiement : Détails de facturation traités via Stripe (nous ne stockons pas les informations complètes de la carte de paiement)",
+        "communicationData": "Données de communication : Demandes de support, commentaires et correspondance"
+      },
+      "subsection2": {
+        "title": "Informations collectées automatiquement :",
+        "usageData": "Données d'utilisation : Modèles d'interaction avec le service, utilisation des fonctionnalités, requêtes de recherche et préférences",
+        "technicalInfo": "Informations techniques : Adresses IP, informations sur l'appareil, type de navigateur, heures d'accès",
+        "botInteraction": "Données d'interaction avec le bot : Commandes utilisées, modèles de réponse, choix de configuration du service",
+        "sessionInfo": "Informations de session : Horodatages de connexion, durée de session",
+        "profileData": "Données de profil : Nom, e-mail, téléphone, informations de carrière, genre (lorsqu'il est fourni volontairement par l'utilisateur)"
+      },
+      "subsection3": {
+        "title": "Données marketing et analytiques :",
+        "siteAnalysis": "Analyse du site : Google Analytics, Facebook Pixel, pixels marketing Yahoo pour l'optimisation du site",
+        "marketingAttribution": "Attribution marketing : Efficacité des campagnes, sources de référence, métriques d'acquisition d'utilisateurs",
+        "cookieData": "Données de cookies : Cookies de gestion de session, paramètres de préférences, jetons d'authentification"
+      }
+    },
+    "section4": {
+      "title": "4. Base légale du traitement et finalités d'utilisation",
+      "subsection1": {
+        "title": "Bases légales LGPD :",
+        "consent": "Consentement : Pour les communications marketing, l'analyse et les fonctionnalités optionnelles, et le traitement des données sensibles (le cas échéant)",
+        "contract": "Exécution du contrat : Pour la fourniture du service, le traitement des paiements et la gestion du compte",
+        "legitimateInterest": "Intérêt légitime : Pour l'amélioration du service, la prévention de la fraude et le support client",
+        "legalCompliance": "Conformité légale : Pour les obligations fiscales, les rapports réglementaires et les demandes d'application de la loi"
+      },
+      "subsection2": {
+        "title": "Bases légales RGPD (pour les utilisateurs de l'UE) :",
+        "consent": "Consentement (Article 6(1)(a)) : Marketing, analyse et traitement optionnel des données",
+        "contract": "Exécution du contrat (Article 6(1)(b)) : Fourniture du service et traitement des paiements",
+        "legitimateInterests": "Intérêts légitimes (Article 6(1)(f)) : Amélioration du service, sécurité et prévention de la fraude",
+        "legalObligation": "Obligation légale (Article 6(1)(c)) : Conformité réglementaire et exigences légales",
+        "sensitiveData": "Données sensibles (Article 9) : Lorsque des données sensibles telles que le genre sont traitées, nous nous basons sur le consentement explicite de la personne concernée"
+      },
+      "subsection3": {
+        "title": "Finalités du traitement :",
+        "serviceDelivery": "Fourniture du service : Fournir des notifications d'opportunités d'emploi et des recommandations personnalisées",
+        "aiProcessing": "Traitement par IA : Utilisation de Claude AI et ChatGPT pour l'analyse de contenu, le filtrage et la génération de documents",
+        "paymentProcessing": "Traitement des paiements : Gestion des abonnements et facturation via Stripe",
+        "customerSupport": "Support client : Répondre aux demandes, dépannage et assistance au service",
+        "serviceImprovement": "Amélioration du service : Analyser les modèles d'utilisation pour améliorer les fonctionnalités",
+        "marketingAnalysis": "Marketing et analyse : Comprendre le comportement des utilisateurs et promouvoir des services pertinents",
+        "legalCompliance": "Conformité légale : Respecter les obligations fiscales, réglementaires et d'application de la loi"
+      }
+    },
+    "section5": {
+      "title": "5. Traitement par IA et prise de décision automatisée",
+      "subsection1": {
+        "title": "Systèmes d'IA utilisés :",
+        "contentAnalysis": "Analyse de contenu : Traitement des informations de CV pour la pertinence et la qualité",
+        "jobScoring": "Évaluation des emplois : Évaluation algorithmique de la valeur des offres et de la pertinence pour l'utilisateur",
+        "contextExpansion": "Expansion contextuelle automatique : Amélioration des informations de CV avec des détails pertinents supplémentaires",
+        "recommendationGeneration": "Génération de recommandations : Personnalisation des suggestions d'emploi basées sur les préférences de l'utilisateur"
+      },
+      "subsection2": {
+        "title": "Droits de prise de décision automatisée :",
+        "humanReview": "Demander une révision humaine des recommandations basées sur l'IA",
+        "understandLogic": "Comprendre la logique derrière le traitement automatisé qui affecte votre expérience de service",
+        "optOut": "Se désinscrire de l'utilisation de certaines fonctionnalités alimentées par l'IA tout en maintenant l'accès au service principal",
+        "accessInfo": "Accéder aux informations sur la façon dont les systèmes d'IA traitent vos données"
+      },
+      "transparency": "Transparence de l'IA : Le traitement par IA implique l'analyse des préférences des utilisateurs, de l'historique de recherche et des modèles d'interaction pour améliorer la précision des recommandations. Les utilisateurs peuvent demander des explications détaillées sur les processus de prise de décision par IA qui affectent leur expérience de service."
+    },
+    "section6": {
+      "title": "6. Partage de données et processeurs tiers",
+      "subsection1": {
+        "title": "Traitement des paiements :",
+        "content": "Stripe : Traite toutes les transactions de paiement. Les données partagées incluent les informations de facturation et les détails des transactions. Stripe maintient des pratiques de confidentialité indépendantes décrites dans sa politique de confidentialité."
+      },
+      "subsection2": {
+        "title": "Infrastructure du service :",
+        "content": "Fournisseurs d'hébergement cloud : Données techniques du service et informations utilisateur stockées dans une infrastructure cloud sécurisée"
+      },
+      "subsection3": {
+        "title": "Partenaires de traitement par IA :",
+        "content": "Anthropic (Claude AI) : Requêtes utilisateur et données du marché du travail traitées pour l'analyse et les recommandations. OpenAI (ChatGPT) : Traitement similaire pour l'amélioration du contenu et l'assistance aux utilisateurs."
+      },
+      "subsection4": {
+        "title": "Marketing et analyse :",
+        "googleAnalytics": "Google Analytics : Analyse de l'utilisation du site pour l'amélioration du service",
+        "facebookPixel": "Facebook Pixel : Attribution marketing et optimisation des campagnes",
+        "yahooAnalytics": "Yahoo Analytics : Analyse supplémentaire des performances marketing"
+      },
+      "noDataSale": "Aucune vente de données : Nous ne vendons pas d'informations personnelles à des tiers à des fins de marketing direct."
+    },
+    "section7": {
+      "title": "7. Transferts internationaux de données",
+      "subsection1": {
+        "title": "Lieux de transfert :",
+        "usa": "États-Unis : Pour le traitement par IA (Anthropic, OpenAI) et le traitement des paiements (Stripe)",
+        "eu": "Union européenne : Pour l'infrastructure cloud et la fourniture du service",
+        "other": "Autres pays : Selon les besoins pour le fonctionnement du service et le traitement par des tiers"
+      },
+      "subsection2": {
+        "title": "Garanties de transfert :",
+        "sccs": "Clauses contractuelles types (CCT) : Nous utilisons des clauses contractuelles types approuvées par la Commission européenne pour les transferts de données de l'UE, et des clauses approuvées par l'ANPD pour les transferts depuis le Brésil",
+        "dataProcessing": "Accords de traitement des données : Accords complets avec tous les processeurs internationaux qui incluent des obligations de protection des données",
+        "privacyShield": "Successeurs du Privacy Shield : Cadres appropriés pour les transferts de données vers les États-Unis lorsqu'ils sont disponibles",
+        "adequateProtection": "Protection adéquate : Garantir que les pays destinataires fournissent des niveaux de protection des données adéquats équivalents aux normes de l'UE et du Brésil"
+      },
+      "userRights": "Droits des utilisateurs concernant les transferts : Les utilisateurs peuvent demander des informations sur les transferts internationaux affectant leurs données et les garanties protégeant leurs informations dans les juridictions étrangères."
+    },
+    "section8": {
+      "title": "8. Conservation et suppression des données",
+      "subsection1": {
+        "title": "Périodes de conservation :",
+        "accountData": "Données de compte : Conservées pendant que le compte est actif plus 30 jours après la fermeture",
+        "paymentInfo": "Informations de paiement : 7 ans pour la tenue de registres fiscaux et financiers (exigences européennes/internationales)",
+        "usageAnalysis": "Analyse d'utilisation : 24 mois pour l'analyse d'amélioration du service",
+        "marketingData": "Données marketing : Jusqu'au retrait du consentement ou maximum 3 ans",
+        "legalCompliance": "Données de conformité légale : Selon les exigences des lois et règlements applicables"
+      },
+      "subsection2": {
+        "title": "Suppression automatique :",
+        "content": "Nous mettons en œuvre des processus de suppression automatisés pour supprimer les données après la fin des périodes de conservation. Les utilisateurs reçoivent une notification avant la suppression automatique lorsque la loi l'exige. Nous collectons et conservons uniquement les données nécessaires aux fins spécifiées et examinons régulièrement les pratiques de conservation pour minimiser la durée de stockage."
+      }
+    },
+    "section9": {
+      "title": "9. Cadre complet des droits des utilisateurs",
+      "subsection1": {
+        "title": "Droits universels (disponibles pour tous les utilisateurs) :",
+        "informed": "Droit d'être informé : Informations claires sur le traitement des données lors de la collecte",
+        "access": "Droit d'accès : Obtenir des copies des données personnelles et des informations de traitement",
+        "rectification": "Droit de rectification : Corriger les informations inexactes ou incomplètes",
+        "deletion": "Droit de suppression : Demander l'effacement des données personnelles (\"droit à l'oubli\")",
+        "portability": "Droit à la portabilité des données : Exporter les données dans un format lisible par machine",
+        "opposition": "Droit d'opposition : S'opposer au traitement pour le marketing direct et les intérêts légitimes"
+      },
+      "subsection2": {
+        "title": "Utilisateurs brésiliens (droits LGPD) :",
+        "confirmation": "Droit de confirmation : Confirmer l'existence du traitement des données",
+        "information": "Droit à l'information : Informations détaillées sur les activités de traitement",
+        "anonymization": "Droit d'anonymisation : Demander l'anonymisation des données inutiles",
+        "withdrawConsent": "Droit de retirer le consentement : Mécanisme simple pour le retrait du consentement",
+        "explanation": "Droit d'explication : Comprendre les processus de prise de décision automatisée"
+      },
+      "subsection3": {
+        "title": "Droits des lois des États américains (Californie, Virginie, Colorado, etc.) :",
+        "know": "Droit de savoir : Catégories d'informations personnelles collectées et traitées",
+        "delete": "Droit de suppression : Demander la suppression des informations personnelles",
+        "optOut": "Droit de se désinscrire : Se désinscrire de la vente/partage et de la publicité ciblée",
+        "nonDiscrimination": "Droit à la non-discrimination : Service égal indépendamment des choix de confidentialité",
+        "correct": "Droit de correction : Rectifier les informations personnelles inexactes"
+      },
+      "subsection4": {
+        "title": "Utilisateurs canadiens (droits PIPEDA) :",
+        "access": "Droit d'accès : Accéder aux informations personnelles maintenues par l'organisation",
+        "contest": "Droit de contester : Contester l'exactitude et l'exhaustivité des informations",
+        "withdrawConsent": "Droit de retirer le consentement : Retirer le consentement sous réserve de restrictions contractuelles",
+        "complain": "Droit de porter plainte : Déposer des plaintes auprès du Commissaire à la protection de la vie privée"
+      }
+    },
+    "section10": {
+      "title": "10. Exercer vos droits",
+      "subsection1": {
+        "title": "Comment soumettre des demandes :",
+        "content": "E-mail : dafondeveloper@gmail.com avec \"Demande de confidentialité\" dans l'objet"
+      },
+      "subsection2": {
+        "title": "Traitement des demandes :",
+        "responseTime": "Délai de réponse : 15 jours (LGPD), 30 jours (RGPD), 45 jours (CCPA)",
+        "identityVerification": "Vérification d'identité : Mesures raisonnables pour confirmer l'identité du demandeur",
+        "noFee": "Aucun frais : Généralement gratuit sauf si les demandes sont excessives ou répétitives",
+        "statusUpdates": "Mises à jour de statut : Communication régulière sur le statut du traitement de la demande"
+      },
+      "subsection3": {
+        "title": "Exécution des demandes :",
+        "dataAccess": "Accès aux données : Informations complètes sur le traitement des données",
+        "dataDeletion": "Suppression des données : Effacement complet sous réserve des exigences légales de conservation",
+        "dataPortability": "Portabilité des données : Format lisible par machine (JSON, CSV, XML)",
+        "consentWithdrawal": "Retrait du consentement : Cessation immédiate du traitement basé sur le consentement"
+      }
+    },
+    "section11": {
+      "title": "11. Cookies et technologies de suivi",
+      "subsection1": {
+        "title": "Types de cookies utilisés :",
+        "essential": "Cookies essentiels : Nécessaires pour le fonctionnement de base du service et la sécurité",
+        "analytics": "Cookies d'analyse : Google Analytics pour l'analyse des performances du site",
+        "marketing": "Cookies marketing : Facebook Pixel, pixels marketing Yahoo pour l'optimisation des campagnes",
+        "preference": "Cookies de préférence : Mémoriser les paramètres et préférences de l'utilisateur"
+      },
+      "subsection2": {
+        "title": "Consentement aux cookies :",
+        "granularControl": "Contrôle granulaire : Les utilisateurs peuvent accepter/rejeter des catégories spécifiques de cookies",
+        "consentManagement": "Gestion du consentement : Centre de préférences de cookies facile à utiliser",
+        "withdrawalRights": "Droits de retrait : Mécanisme simple pour retirer le consentement aux cookies",
+        "equalProminence": "Prominence égale : Les options d'acceptation et de rejet reçoivent une importance égale"
+      },
+      "subsection3": {
+        "title": "Mécanismes de désinscription :",
+        "gpc": "Contrôle de confidentialité global (GPC) : Respecter les signaux de désinscription basés sur le navigateur",
+        "cookieSettings": "Paramètres de cookies : Gestion des préférences accessible sur toutes les pages",
+        "marketingOptOut": "Désinscription marketing : Liens de désinscription directs dans les communications marketing",
+        "analyticsOptOut": "Désinscription analytique : Support du plugin de désinscription du navigateur Google Analytics"
+      }
+    },
+    "section12": {
+      "title": "12. Sécurité des données et procédures en cas de violation",
+      "subsection1": {
+        "title": "Mesures de sécurité :",
+        "encryption": "Chiffrement : Chiffrement AES-256 pour les données au repos, TLS 1.3 pour les données en transit",
+        "accessControls": "Contrôles d'accès : Permissions d'accès basées sur les rôles et authentification multifacteur",
+        "regularAudits": "Audits réguliers : Évaluations de sécurité périodiques et tests de pénétration",
+        "employeeTraining": "Formation des employés : Programmes de formation complets sur la confidentialité et la sécurité"
+      },
+      "subsection2": {
+        "title": "Réponse aux violations :",
+        "detection": "Détection : Surveillance 24/7 et systèmes de détection d'incidents",
+        "assessment": "Évaluation : Évaluation rapide des risques et analyse d'impact",
+        "notification": "Notification : Notification réglementaire dans les 72 heures (RGPD), 3 jours ouvrables (LGPD)",
+        "userCommunication": "Communication avec les utilisateurs : Notification immédiate si la violation est susceptible de causer un préjudice",
+        "remediation": "Remédiation : Mesures immédiates pour contenir et remédier aux incidents de sécurité"
+      },
+      "subsection3": {
+        "title": "Mesures de protection des données :",
+        "privacyByDesign": "Confidentialité dès la conception : Protections de la vie privée intégrées dans l'architecture du système",
+        "dataMinimization": "Minimisation des données : Collecter uniquement les informations nécessaires aux fins spécifiées",
+        "regularDeletion": "Suppression régulière : Suppression automatisée des données après les périodes de conservation",
+        "vendorSecurity": "Sécurité des fournisseurs : Exigences de sécurité complètes pour tous les processeurs de données"
+      }
+    },
+    "section13": {
+      "title": "13. Confidentialité des enfants",
+      "content": "Bien que notre Service soit disponible à tous les utilisateurs, nous ne collectons pas sciemment d'informations personnelles auprès d'enfants de moins de 13 ans sans le consentement parental, conformément à la COPPA (Children's Online Privacy Protection Act).",
+      "parentsCan": "Si nous apprenons que nous avons collecté des informations auprès d'enfants de moins de 13 ans, les parents peuvent :",
+      "requestAccess": "Demander l'accès aux informations de leurs enfants",
+      "requestDeletion": "Demander la suppression des informations personnelles de leurs enfants",
+      "refuseCollection": "Refuser la collecte supplémentaire d'informations sur leurs enfants",
+      "enhancedProtections": "Protections renforcées : Les utilisateurs âgés de 13 à 16 ans dans les juridictions de l'UE reçoivent des protections de confidentialité renforcées conformément aux exigences du RGPD."
+    },
+    "section14": {
+      "title": "14. Préférences marketing et de communication",
+      "subsection1": {
+        "title": "Communications marketing :",
+        "explicitConsent": "Consentement explicite : Opt-in pour les communications marketing",
+        "serviceRelationship": "Relation de service : Messages transactionnels liés à l'utilisation du service",
+        "legitimateInterest": "Intérêt légitime : Communications d'amélioration du service lorsque cela est permis"
+      },
+      "subsection2": {
+        "title": "Contrôles de communication :",
+        "subscriptionManagement": "Gestion des abonnements : Liens de désinscription faciles dans tous les e-mails marketing",
+        "granularPreferences": "Préférences granulaires : Choisir des types spécifiques de communications à recevoir",
+        "immediateEffect": "Effet immédiat : Demandes de désinscription traitées dans les 10 jours ouvrables"
+      }
+    },
+    "section15": {
+      "title": "15. Mises à jour de cette politique de confidentialité",
+      "siteNotice": "Avis sur le site : Publication proéminente de la politique mise à jour avec la date d'entrée en vigueur",
+      "emailNotification": "Notification par e-mail : Communication directe aux utilisateurs enregistrés",
+      "serviceNotification": "Notification du service : Avis dans l'application pour les changements importants",
+      "reviewPeriod": "Les utilisateurs ont 30 jours pour examiner les changements avant qu'ils ne prennent effet. L'utilisation continue après la date d'entrée en vigueur constitue une acceptation des conditions mises à jour."
+    },
+    "section16": {
+      "title": "16. Coordonnées et plaintes",
+      "subsection1": {
+        "title": "Demandes de confidentialité :",
+        "email": "E-mail",
+        "emailValue": "dafondeveloper@gmail.com avec \"Demande de confidentialité\" dans l'objet",
+        "responseTime": "Délai de réponse",
+        "responseTimeValue": "15 jours ouvrables pour les demandes générales"
+      },
+      "subsection2": {
+        "title": "Plaintes réglementaires :",
+        "brazil": "Brésil (LGPD) : Autorité nationale de protection des données (ANPD) - www.gov.br/anpd",
+        "eu": "UE (RGPD) : Autorité de surveillance de l'UE compétente dans votre État membre",
+        "california": "Californie : Procureur général de Californie - oag.ca.gov",
+        "canada": "Canada (PIPEDA) : Commissaire à la protection de la vie privée du Canada - priv.gc.ca"
+      },
+      "commitment": "Nous nous engageons à résoudre rapidement les préoccupations en matière de confidentialité et encourageons les utilisateurs à nous contacter directement avant de déposer des plaintes réglementaires. Nous conservons des dossiers détaillés des efforts de résolution des plaintes pour démontrer la conformité aux lois sur la confidentialité applicables.",
+      "compliance": "Cette Politique de confidentialité est conforme à la LGPD brésilienne, aux lois sur la confidentialité des États américains, à la PIPEDA canadienne, au RGPD de l'UE et aux normes internationales de protection des données. Les mises à jour régulières assurent une conformité continue aux exigences réglementaires en évolution."
+    }
+  },
+  "Contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Vous avez encore des questions ? Nous sommes là pour vous aider.",
+    "email": "E-mail",
+    "responseTime": "Délai de réponse",
+    "responseTimeValue": "24 heures",
+    "formTitle": "Envoyez-nous un message",
+    "name": "Nom",
+    "namePlaceholder": "Votre nom",
+    "emailLabel": "E-mail",
+    "emailPlaceholder": "vous@exemple.com",
+    "subject": "Sujet",
+    "subjectPlaceholder": "Sélectionnez un sujet",
+    "subjects": {
+      "general": "Demande générale",
+      "support": "Support technique",
+      "billing": "Question de facturation",
+      "feature": "Demande de fonctionnalité",
+      "bug": "Rapport de bug"
+    },
+    "message": "Message",
+    "messagePlaceholder": "Comment pouvons-nous vous aider ?",
+    "sendButton": "Envoyer le message",
+    "sending": "Envoi en cours...",
+    "success": "Message envoyé avec succès !",
+    "error": "Échec de l'envoi du message. Veuillez réessayer plus tard."
+  },
+  "cvPdf": {
+    "title": "CV",
+    "contact": {
+      "driverLicense": "Permis de conduire"
+    },
+    "sections": {
+      "presentation": "Présentation",
+      "skills": "Compétences",
+      "technicalSkills": "Compétences techniques",
+      "courses": "Formations et certifications",
+      "professionalExperience": "Expérience professionnelle",
+      "education": "Formation",
+      "languages": "Langues",
+      "linguisticProficiency": "Maîtrise linguistique"
+    },
+    "common": {
+      "current": "Actuel",
+      "inProgress": "En cours"
+    }
+  },
+  "paymentConfirmation": {
+    "title": "Abonnement confirmé",
+    "message": "Votre achat a été complété avec succès sur la plateforme",
+    "description": "Votre abonnement a été traité avec succès et votre compte est maintenant actif",
+    "goToDashboard": "Aller au tableau de bord"
+  }
+}
+
+

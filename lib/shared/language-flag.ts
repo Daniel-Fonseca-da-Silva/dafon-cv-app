@@ -1,4 +1,4 @@
-import { US, PT, ES } from 'country-flag-icons/react/3x2';
+import { US, PT, ES, FR } from 'country-flag-icons/react/3x2';
 
 export interface LanguageOption {
   code: string;
@@ -21,6 +21,11 @@ export const languageOptions: LanguageOption[] = [
     code: 'es',
     name: 'Español',
     flag: ES,
+  },
+  {
+    code: 'fr',
+    name: 'Français',
+    flag: FR,
   },
 ];
 
